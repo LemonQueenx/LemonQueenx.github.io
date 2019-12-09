@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="算法&面试题,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="2：给出一百分制成绩，要求输出成绩等级‘A’、‘B’、‘C’、‘D’、‘E’。 90分以及90分以上为A，80-89分为B，70-79分为C，60-69分为D，60分以下为E。1234567891011121314151617function result(params)&amp;#123;  let mark = Number(params);  if(params &amp;lt; 0 || params &amp;">
+<meta name="keywords" content="算法&amp;面试题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法题">
+<meta property="og:url" content="http://yoursite.com/2019/10/21/算法题/index.html">
+<meta property="og:site_name" content="小满">
+<meta property="og:description" content="2：给出一百分制成绩，要求输出成绩等级‘A’、‘B’、‘C’、‘D’、‘E’。 90分以及90分以上为A，80-89分为B，70-79分为C，60-69分为D，60分以下为E。1234567891011121314151617function result(params)&amp;#123;  let mark = Number(params);  if(params &amp;lt; 0 || params &amp;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-09T06:57:13.064Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法题">
+<meta name="twitter:description" content="2：给出一百分制成绩，要求输出成绩等级‘A’、‘B’、‘C’、‘D’、‘E’。 90分以及90分以上为A，80-89分为B，70-79分为C，60-69分为D，60分以下为E。1234567891011121314151617function result(params)&amp;#123;  let mark = Number(params);  if(params &amp;lt; 0 || params &amp;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/21/算法题/">
+
+
+
+
+
+  <title>算法题 | 小满</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小满</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-窝">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            窝
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/算法题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiyingying">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/background17.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小满">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T20:42:43+08:00">
+                2019-10-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/积累/" itemprop="url" rel="index">
+                    <span itemprop="name">积累</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>2：给出一百分制成绩，要求输出成绩等级‘A’、‘B’、‘C’、‘D’、‘E’。 90分以及90分以上为A，80-89分为B，70-79分为C，60-69分为D，60分以下为E。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> result(params)&#123;</span><br><span class="line">  <span class="built_in">let</span> mark = Number(params);</span><br><span class="line">  <span class="keyword">if</span>(params &lt; 0 || params &gt; 100 || /\d/. )&#123;<span class="built_in">return</span> <span class="string">'分数有误'</span>;&#125;</span><br><span class="line">  <span class="keyword">if</span>(params &gt;= 90)&#123;</span><br><span class="line">    mark = <span class="string">'A'</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(params &gt;= 80)&#123;</span><br><span class="line">    mark = <span class="string">'B'</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(params &gt;= 70)&#123;</span><br><span class="line">    mark = <span class="string">'C'</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(params &gt;= 60)&#123;</span><br><span class="line">    mark = <span class="string">'D'</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    mark = <span class="string">'E'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> mark;</span><br><span class="line">&#125;</span><br><span class="line">console.log(result(100));</span><br></pre></td></tr></table></figure></p>
+<p><br><br><br></p>
+<p>3：企业发放的奖金根据利润提成。利润低于或等于100000元的，奖金可提10%;<br>利润高于100000元，低于200000元（100000&lt;I≤200000）时，低于100000元的部分按10％提成，高于100000元的部分，可提成 7.5%;<br>200000&lt;I≤400000时，低于200000元部分仍按上述办法提成，（下同），高于200000元的部分按5％提成；<br>400000&lt;I≤600000元时，高于400000元的部分按3％提成；</p>
+<p>600000&lt;I≤1000000时，高于600000元的部分按1.5%提成；<br>I&gt;1000000时，超过1000000元的部分按1%提成。从键盘输入当月利润I,求应发奖金总数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> priceComputer(profit)&#123;</span><br><span class="line">  <span class="built_in">let</span> price = 0;</span><br><span class="line">  <span class="keyword">if</span>( profit &gt; 1000000 )&#123;</span><br><span class="line">    price += ( profit - 1000000 ) * 0.01;</span><br><span class="line">    profit = profit - 1000000 ;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> ( profit &gt; 600000 )&#123;</span><br><span class="line">    price += ( profit - 600000 ) * 0.015;</span><br><span class="line">    profit = profit - 600000 ;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> ( profit &gt; 400000 )&#123;</span><br><span class="line">    price += ( profit - 400000 ) * 0.03;</span><br><span class="line">    profit = profit - 400000 ;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> ( profit &gt; 200000 )&#123;</span><br><span class="line">    price += ( profit - 200000 ) * 0.05;</span><br><span class="line">    profit = profit - 200000 ;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> ( profit &gt; 100000 )&#123;</span><br><span class="line">    price += ( profit - 100000 ) * 0.075;</span><br><span class="line">    profit -= 100000 ;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> ( profit &lt;= 100000 )&#123;</span><br><span class="line">    price += profit * 0.1;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> price;</span><br><span class="line">&#125;</span><br><span class="line">console.log(priceComputer(10000000));</span><br></pre></td></tr></table></figure>
+<p>4：输入一行字符，分别统计出其中英文字母、数字、空格和其他字符的个数。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Statistics(strParams)&#123;</span><br><span class="line">  const words =  strParams.match(/\w/g) ? strParams.match(/\w/g).length : 0 ;</span><br><span class="line">  const digit =  strParams.match(/\d/g) ? strParams.match(/\d/g).length : 0 ;</span><br><span class="line">  const sky =  strParams.match(/\s/g) ? strParams.match(/\s/g).length : 0 ;</span><br><span class="line">  <span class="built_in">return</span> &#123;</span><br><span class="line">    <span class="string">'英文字母的个数'</span>: words - digit,</span><br><span class="line">    <span class="string">'数字的个数'</span>: digit,</span><br><span class="line">    <span class="string">'空格的个数'</span>: sky,</span><br><span class="line">    <span class="string">'其他字符的个数'</span>: strParams.length - words - sky,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line">console.log(<span class="string">'问题4：'</span>,Statistics(<span class="string">'12sjmimom   sdsds**'</span>));</span><br></pre></td></tr></table></figure></p>
+<p>5：求Sn=a+aa+aaa+…+aa…aaa（有n个a）之值，其中a是一个数字，为2。 例如，n=5时=2+22+222+2222+22222，n由键盘输入。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> addMore(n)&#123;</span><br><span class="line">  var sn = 0;</span><br><span class="line">  var a = 0;</span><br><span class="line">  <span class="keyword">if</span>( n &gt; 0 )&#123;</span><br><span class="line">    <span class="keyword">for</span>(var i = 0 ; i &lt; n ; i++ )&#123;</span><br><span class="line">      a = a + <span class="string">'2'</span>;</span><br><span class="line">      sn = sn + Number(a);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> sn;</span><br><span class="line">&#125;</span><br><span class="line">console.log(<span class="string">'问题5：'</span>,addMore(5));</span><br></pre></td></tr></table></figure></p>
+<p>6：一球从M米高度自由下落，每次落地后返回原高度的一半，再落下。 它在第N次落地时反弹多高？共经过多少米？ 保留两位小数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> lastHeight(m, n) &#123;</span><br><span class="line">  <span class="built_in">let</span> totalHeight = 0;</span><br><span class="line">  <span class="keyword">if</span> (n &gt;= 1) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">let</span> i = 0; i &lt; n; i++) &#123;</span><br><span class="line">      totalHeight = totalHeight +  m + ( m / 2 );</span><br><span class="line">      m = m / 2;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">return</span> <span class="string">'参数n有误'</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">return</span> &#123;</span><br><span class="line">    <span class="string">'反弹高度是'</span>: m,</span><br><span class="line">    <span class="string">'共经历的米数是'</span>: totalHeight</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(<span class="string">'问题6：'</span>, lastHeight(4, 1));</span><br></pre></td></tr></table></figure></p>
+<p>7：猴子吃桃问题。猴子第一天摘下若干个桃子，当即吃了一半，还不过瘾，又多吃了一个。 第二天早上又将剩下的桃子吃掉一半，又多吃一个。以后每天早上都吃了前一天剩下的一半零一个。 到第N天早上想再吃时，见只剩下一个桃子了。求第一天共摘多少桃子。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> taoziNumber(n) &#123;</span><br><span class="line">  var todayNumber;</span><br><span class="line">  <span class="keyword">for</span> (var i = n; i &gt; 0 ; i--) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i === n) &#123;</span><br><span class="line">      todayNumber = 1;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      todayNumber = ( todayNumber + 1 ) * 2 ;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> todayNumber;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="1、【运算】简单的a-b"><a href="#1、【运算】简单的a-b" class="headerlink" title="1、【运算】简单的a+b"></a>1、【运算】简单的a+b</h2><p>题目描述:输入两个整数a和b，计算a+b的和。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const a = window.prompt(<span class="string">"请输入数字a"</span>, 1);</span><br><span class="line">const b = window.prompt(<span class="string">"请输入数字b"</span>, 1);</span><br><span class="line">document.write( parseInt(a) + parseInt(b));</span><br></pre></td></tr></table></figure></p>
+<p>解析：window.prompt和document.write方法，前端都很少用。</p>
+<p><br><br><br></p>
+<h2 id="2、【输出】第一个HelloWorld程序！"><a href="#2、【输出】第一个HelloWorld程序！" class="headerlink" title="2、【输出】第一个HelloWorld程序！"></a>2、【输出】第一个HelloWorld程序！</h2><p>题目描述:请参照本章例题，编写一个C程序，输出以下信息：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">**************************</span><br><span class="line">Hello World!</span><br><span class="line">**************************</span><br></pre></td></tr></table></figure></p>
+<p>Hello与World之间有一个空格，*也是输出的一部分，别光打印Hello World！<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(`</span><br><span class="line">**************************</span><br><span class="line">Hello World!</span><br><span class="line">**************************</span><br><span class="line">`);</span><br></pre></td></tr></table></figure></p>
+<p>解析：本题主要是练习输出，其中，` `拼接字符串是允许换行输出的。</p>
+<p><br><br><br></p>
+<h2 id="3、三个数最大值"><a href="#3、三个数最大值" class="headerlink" title="3、三个数最大值"></a>3、三个数最大值</h2><p>题目描述:编写一个程序，输入a、b、c三个值，输出其中最大值。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> threeMax(a, b, c)&#123;</span><br><span class="line">  <span class="built_in">let</span> result = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">if</span>( a &gt;= b &amp;&amp; a &gt;= c )&#123;</span><br><span class="line">    <span class="keyword">if</span>( a === b &amp;&amp; a &gt; c )&#123;</span><br><span class="line">      result =  <span class="string">'最大的是a和b：'</span> + a;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>( a === c &amp;&amp; a &gt; b )&#123;</span><br><span class="line">      result = <span class="string">'最大的是a和c：'</span> + a;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>( a === c &amp;&amp; a === c )&#123;</span><br><span class="line">      result = <span class="string">'a、b、c一样大：'</span> + a;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      result = <span class="string">'最大的是a：'</span> + a;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>( b &gt;= a &amp;&amp; b &gt;= c  )&#123;</span><br><span class="line">    <span class="keyword">if</span> ( b === c )&#123;</span><br><span class="line">      result = <span class="string">'最大的是b和c：'</span> + b;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      result = <span class="string">'最大的是b：'</span> + b;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    result = <span class="string">'最大的是c：'</span> + c;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line">console.log(threeMax(3, 2, 1));</span><br><span class="line">console.log(threeMax(3, 1, 2));</span><br><span class="line">console.log(threeMax(4, 6, 5));</span><br><span class="line">console.log(threeMax(5, 6, 4));</span><br><span class="line">console.log(threeMax(7, 8, 9));</span><br><span class="line">console.log(threeMax(8, 7, 9));</span><br><span class="line">console.log(threeMax(10, 10, 9));</span><br><span class="line">console.log(threeMax(10, 9, 10));</span><br><span class="line">console.log(threeMax(9, 10, 10));</span><br><span class="line">console.log(threeMax(11, 11, 11));</span><br><span class="line"></span><br><span class="line">// Math.max方法</span><br><span class="line">console.log(Math.max(3, 2, 1));</span><br></pre></td></tr></table></figure></p>
+<p>解析：各种情况应考虑全面~</p>
+<p><br><br><br></p>
+<h2 id="4、密码破译"><a href="#4、密码破译" class="headerlink" title="4、密码破译"></a>4、密码破译</h2><p>题目描述:要将”China”译成密码，译码规律是：用原来字母后面的第4个字母代替原来的字母．</p>
+<p>例如，字母”A”后面第4个字母是”E”．”E”代替”A”。因此，”China”应译为”Glmre”。<br>请编一程序，用赋初值的方法使cl、c2、c3、c4、c5五个变量的值分别为，’C’、’h’、’i’、’n’、’a’，经过运算，使c1、c2、c3、c4、c5分别变为’G’、’l’、’m’、’r’、’e’，并输出。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> strChange(params)&#123;</span><br><span class="line">  const strArr = params.split(<span class="string">''</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="built_in">let</span> i = 0; i &lt; strArr.length; i++) &#123;</span><br><span class="line">    strArr[i] = String.fromCharCode(strArr[i].charCodeAt() + 4);</span><br><span class="line">  &#125;</span><br><span class="line">  const result = strArr.join(<span class="string">""</span>);</span><br><span class="line">  <span class="built_in">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(strChange(<span class="string">'China'</span>));</span><br></pre></td></tr></table></figure></p>
+<p>解析：利用ASCII码的特性，使用到String.fromCharCode()方法和’’.charCodeAt()方法~</p>
+<p><br><br><br></p>
+<h2 id="5、【递归-循环】母牛的故事"><a href="#5、【递归-循环】母牛的故事" class="headerlink" title="5、【递归/循环】母牛的故事"></a>5、【递归/循环】母牛的故事</h2><p>题目描述:有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> momo(n)&#123;</span><br><span class="line">  <span class="built_in">let</span> result = 0;</span><br><span class="line">  <span class="keyword">if</span>(n === 1)&#123;</span><br><span class="line">    result = 1;</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>( n === 2)&#123;</span><br><span class="line">    result = n;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    result = 3;</span><br><span class="line">    <span class="keyword">for</span>( <span class="built_in">let</span> i = 3 ; i &lt;= n ; i++ )&#123;</span><br><span class="line">      result += (i-3);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>解析：这是通过循环方式</p>
+<p><br><br><br></p>
+<h2 id="温度转换"><a href="#温度转换" class="headerlink" title="温度转换"></a>温度转换</h2><p>题目描述:输入一个华氏温度，要求输出摄氏温度。公式为 c=5(F-32)/9，取位2小数。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="三个数找最大值"><a href="#三个数找最大值" class="headerlink" title="三个数找最大值"></a>三个数找最大值</h2><p>题目描述:有三个整数a b c,由键盘输入，输出其中的最大的数。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="分段函数求值"><a href="#分段函数求值" class="headerlink" title="分段函数求值"></a>分段函数求值</h2><p>题目描述:有一个函数<br>y={ x      x&lt;1<br>    | 2x-1   1&lt;=x<10 \ 3x-11 x>=10</10></p>
+<p>写一段程序，输入x，输出y<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="成绩评定"><a href="#成绩评定" class="headerlink" title="成绩评定"></a>成绩评定</h2><p>题目描述:给出一百分制成绩，要求输出成绩等级‘A’、‘B’、‘C’、‘D’、‘E’。 90分以及90分以上为A，80-89分为B，70-79分为C，60-69分为D，60分以下为E。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="数字的处理与判断"><a href="#数字的处理与判断" class="headerlink" title="数字的处理与判断"></a>数字的处理与判断</h2><p>题目描述:给出一个不多于5位的整数，要求 1、求出它是几位数 2、分别输出每一位数字 3、按逆序输出各位数字，例如原数为321,应输出123<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="利润计算"><a href="#利润计算" class="headerlink" title="利润计算"></a>利润计算</h2><p>题目描述:企业发放的奖金根据利润提成。利润低于或等于100000元的，奖金可提10%;<br>利润高于100000元，低于200000元（100000&lt;I≤200000）时，低于100000元的部分按10％提成，高于100000元的部分，可提成 7.5%;<br>200000&lt;I≤400000时，低于200000元部分仍按上述办法提成，（下同），高于200000元的部分按5％提成；<br>400000&lt;I≤600000元时，高于400000元的部分按3％提成；</p>
+<p>600000&lt;I≤1000000时，高于600000元的部分按1.5%提成；<br>I&gt;1000000时，超过1000000元的部分按1%提成。从键盘输入当月利润I,求应发奖金总数。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="最大公约数与最小公倍数"><a href="#最大公约数与最小公倍数" class="headerlink" title="最大公约数与最小公倍数"></a>最大公约数与最小公倍数</h2><p>题目描述:输入两个正整数m和n，求其最大公约数和最小公倍数<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="字符串分类统计"><a href="#字符串分类统计" class="headerlink" title="字符串分类统计"></a>字符串分类统计</h2><p>题目描述:输入一行字符，分别统计出其中英文字母、数字、空格和其他字符的个数。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="Sn的公式求和"><a href="#Sn的公式求和" class="headerlink" title="Sn的公式求和"></a>Sn的公式求和</h2><p>题目描述:求Sn=a+aa+aaa+…+aa…aaa（有n个a）之值，其中a是一个数字，为2。 例如，n=5时=2+22+222+2222+22222，n由键盘输入。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="阶乘求和"><a href="#阶乘求和" class="headerlink" title="阶乘求和"></a>阶乘求和</h2><p>题目描述:输入两个整数a和b，计算a+b的和。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="求和训练"><a href="#求和训练" class="headerlink" title="求和训练"></a>求和训练</h2><p>题目描述:求以下三数的和,保留2位小数 1~a之和 1~b的平方和 1~c的倒数和<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="水仙花数判断"><a href="#水仙花数判断" class="headerlink" title="水仙花数判断"></a>水仙花数判断</h2><p>题目描述:打印出所有”水仙花数”，所谓”水仙花数”是指一个三位数，其各位数字立方和等于该本身。 例如：153是一个水仙花数，因为153=1^3+5^3+3^3。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="完数的判断"><a href="#完数的判断" class="headerlink" title="完数的判断"></a>完数的判断</h2><p>题目描述:一个数如果恰好等于不包含它本身所有因子之和，这个数就称为”完数”。 例如，6的因子为1、2、3，而6=1+2+3，因此6是”完数”。 编程序找出N之内的所有完数，并按下面格式输出其因子<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="有规律的数列求和"><a href="#有规律的数列求和" class="headerlink" title="有规律的数列求和"></a>有规律的数列求和</h2><p>题目描述:有一分数序列： 2/1 3/2 5/3 8/5 13/8 21/13…… 求出这个数列的前N项之和，保留两位小数。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="自由下落的距离计算"><a href="#自由下落的距离计算" class="headerlink" title="自由下落的距离计算"></a>自由下落的距离计算</h2><p>题目描述:一球从M米高度自由下落，每次落地后返回原高度的一半，再落下。 它在第N次落地时反弹多高？共经过多少米？ 保留两位小数<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="猴子吃桃的问题"><a href="#猴子吃桃的问题" class="headerlink" title="猴子吃桃的问题"></a>猴子吃桃的问题</h2><p>题目描述:猴子吃桃问题。猴子第一天摘下若干个桃子，当即吃了一半，还不过瘾，又多吃了一个。 第二天早上又将剩下的桃子吃掉一半，又多吃一个。以后每天早上都吃了前一天剩下的一半零一个。 到第N天早上想再吃时，见只剩下一个桃子了。求第一天共摘多少桃子。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="迭代法求平方根"><a href="#迭代法求平方根" class="headerlink" title="迭代法求平方根"></a>迭代法求平方根</h2><p>题目描述:用迭代法求 平方根<br>公式：求a的平方根的迭代公式为： X[n+1]=(X[n]+a/X[n])/2 要求前后两次求出的差的绝对值少于0.00001。 输出保留3位小数<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="筛选N以内的素数"><a href="#筛选N以内的素数" class="headerlink" title="筛选N以内的素数"></a>筛选N以内的素数</h2><p>题目描述:用简单素数筛选法求N以内的素数。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>题目描述:用选择法对10个整数从小到大排序。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="矩阵对角线求和"><a href="#矩阵对角线求和" class="headerlink" title="矩阵对角线求和"></a>矩阵对角线求和</h2><p>题目描述:求一个3×3矩阵对角线元素之和。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="自定义函数之字符提取"><a href="#自定义函数之字符提取" class="headerlink" title="自定义函数之字符提取"></a>自定义函数之字符提取</h2><p>题目描述:写一函数，将一个字符串中的元音字母复制到另一个字符串，然后输出。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="自定义函数之数字分离"><a href="#自定义函数之数字分离" class="headerlink" title="自定义函数之数字分离"></a>自定义函数之数字分离</h2><p>题目描述:写一函数，输入一个四位数字，要求输出这四个数字字符，但每两个数字间空格。如输入1990，应输出”1 9 9 0”。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="自定义函数之字符类型统计"><a href="#自定义函数之字符类型统计" class="headerlink" title="自定义函数之字符类型统计"></a>自定义函数之字符类型统计</h2><p>题目描述:编写一函数，由实参传来一个字符串，统计此字符串中字母、数字、空格和其它字符的个数，在主函数中输入字符串以及输出上述结果。 只要结果，别输出什么提示信息。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="带参数宏定义练习"><a href="#带参数宏定义练习" class="headerlink" title="带参数宏定义练习"></a>带参数宏定义练习</h2><p>题目描述:定义一个带参的宏，使两个参数的值互换，并写出程序，输入两个数作为使用宏时的实参。输出已交换后的两个值。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="宏定义的练习"><a href="#宏定义的练习" class="headerlink" title="宏定义的练习"></a>宏定义的练习</h2><p>题目描述:输入两个整数，求他们相除的余数。用带参的宏来实现，编程序。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="宏定义练习之三角形面积"><a href="#宏定义练习之三角形面积" class="headerlink" title="宏定义练习之三角形面积"></a>宏定义练习之三角形面积</h2><p>题目描述:三角形面积=SQRT(S<em>(S-a)</em>(S-b)*(S-c)) 其中S=(a+b+c)/2，a、b、c为三角形的三边。 定义两个带参的宏，一个用来求area， 另一个宏用来求S。 写程序，在程序中用带实参的宏名来求面积area。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="宏定义之闰年判断"><a href="#宏定义之闰年判断" class="headerlink" title="宏定义之闰年判断"></a>宏定义之闰年判断</h2><p>题目描述:给年份year，定义一个宏，以判别该年份是否闰年。提示：宏名可以定义为LEAP_YEAR，形参为y，既定义宏的形式为 #define LEAP_YEAR(y) （读者设计的字符串）<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="实数的打印"><a href="#实数的打印" class="headerlink" title="实数的打印"></a>实数的打印</h2><p>题目描述:请设计输出实数的格式，包括：⑴一行输出一个实数；⑵一行内输出两个实数；⑶一行内输出三个实数。实数用”6.2f”格式输出。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="宏定义之找最大数"><a href="#宏定义之找最大数" class="headerlink" title="宏定义之找最大数"></a>宏定义之找最大数</h2><p>题目描述:分别用函数和带参的宏，从三个数中找出最大的数。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="电报加密"><a href="#电报加密" class="headerlink" title="电报加密"></a>电报加密</h2><p>题目描述:输入一行电报文字，将字母变成其下一字母（如’a’变成’b’……’z’变成’ａ’其它字符不变）。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="三个数字的排序"><a href="#三个数字的排序" class="headerlink" title="三个数字的排序"></a>三个数字的排序</h2><p>题目描述:输入三个整数，按由小到大的顺序输出。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="自定义函数之整数处理"><a href="#自定义函数之整数处理" class="headerlink" title="自定义函数之整数处理"></a>自定义函数之整数处理</h2><p>题目描述:输入10个整数，将其中最小的数与第一个数对换，把最大的数与最后一个数对换。写三个函数； ①输入10个数；②进行处理；③输出10个数。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="自定义函数之数字后移"><a href="#自定义函数之数字后移" class="headerlink" title="自定义函数之数字后移"></a>自定义函数之数字后移</h2><p>题目描述:有n个整数，使前面各数顺序向后移m个位置，最后m个数变成前面m个数。写一函数：实现以上功能，在主函数中输入n个数和输出调整后的n个数。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="自定义函数之字符串拷贝"><a href="#自定义函数之字符串拷贝" class="headerlink" title="自定义函数之字符串拷贝"></a>自定义函数之字符串拷贝</h2><p>题目描述:有一字符串，包含n个字符。写一函数，将此字符串中从第m个字符开始的全部字符复制成为另一个字符串。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="结构体之时间设计"><a href="#结构体之时间设计" class="headerlink" title="结构体之时间设计"></a>结构体之时间设计</h2><p>题目描述:定义一个结构体变量（包括年、月、日）。计算该日在本年中是第几天，注意闰年问题。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="结构体之成绩记录"><a href="#结构体之成绩记录" class="headerlink" title="结构体之成绩记录"></a>结构体之成绩记录</h2><p>题目描述:现有有N个学生的数据记录，每个记录包括学号、姓名、三科成绩。 编写一个函数input,用来输入一个学生的数据记录。 编写一个函数print,打印一个学生的数据记录。 在主函数调用这两个函数，读取N条记录输入，再按要求输出。 N&lt;100<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="结构体之成绩统计2"><a href="#结构体之成绩统计2" class="headerlink" title="结构体之成绩统计2"></a>结构体之成绩统计2</h2><p>题目描述:有N个学生，每个学生的数据包括学号、姓名、3门课的成绩，从键盘输入N个学生的数据，要求打印出3门课的总平均成绩，以及最高分的学生的数据（包括学号、姓名、3门课成绩）<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="链表合并"><a href="#链表合并" class="headerlink" title="链表合并"></a>链表合并</h2><p>题目描述:已有a、b两个链表，每个链表中的结点包括学号、成绩。要求把两个链表合并，按学号升序排列。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="平均值计算"><a href="#平均值计算" class="headerlink" title="平均值计算"></a>平均值计算</h2><p>题目描述:输入10个整数，求它们的平均值，并输出大于平均值的数据的个数。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="计算素数和"><a href="#计算素数和" class="headerlink" title="计算素数和"></a>计算素数和</h2><p>题目描述:输入两个正整数m和n(m &lt; n)，求m到n之间(包括m和n)所有素数的和，要求定义并调用函数isprime(x)来判断x是否为素数(素数是除1以外只能被自身整除的自然数)。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello, world!"></a>Hello, world!</h2><p>题目描述:This is the first problem for test. Since all we know the ASCII code, your job is simple: Input numbers and output corresponding messages.<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="A-B-for-Input-Output-Practice-I"><a href="#A-B-for-Input-Output-Practice-I" class="headerlink" title="A+B for Input-Output Practice (I)"></a>A+B for Input-Output Practice (I)</h2><p>题目描述:Your task is to Calculate a + b. Too easy?! Of course! I specially designed the problem for acm beginners. You must have found that some problems have the same titles with this one, yes, all these problems were designed for the same aim<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="A-B-for-Input-Output-Practice-II"><a href="#A-B-for-Input-Output-Practice-II" class="headerlink" title="A+B for Input-Output Practice (II)"></a>A+B for Input-Output Practice (II)</h2><p>题目描述:The first line integer means the number of input integer a and b. Your task is to Calculate a + b.<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="A-B-for-Input-Output-Practice-III"><a href="#A-B-for-Input-Output-Practice-III" class="headerlink" title="A+B for Input-Output Practice (III)"></a>A+B for Input-Output Practice (III)</h2><p>题目描述:Your task is to Calculate a + b.<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="A-B-for-Input-Output-Practice-IV"><a href="#A-B-for-Input-Output-Practice-IV" class="headerlink" title="A+B for Input-Output Practice (IV)"></a>A+B for Input-Output Practice (IV)</h2><p>题目描述:Your task is to Calculate the sum of some integers.<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="A-B-for-Input-Output-Practice-V"><a href="#A-B-for-Input-Output-Practice-V" class="headerlink" title="A+B for Input-Output Practice (V)"></a>A+B for Input-Output Practice (V)</h2><p>题目描述:Your task is to calculate the sum of some integers.<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="A-B-for-Input-Output-Practice-VI"><a href="#A-B-for-Input-Output-Practice-VI" class="headerlink" title="A+B for Input-Output Practice (VI)"></a>A+B for Input-Output Practice (VI)</h2><p>题目描述:Your task is to calculate the sum of some integers.<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="A-B-for-Input-Output-Practice-VII"><a href="#A-B-for-Input-Output-Practice-VII" class="headerlink" title="A+B for Input-Output Practice (VII)"></a>A+B for Input-Output Practice (VII)</h2><p>题目描述:Your task is to Calculate a + b.<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="A-B-for-Input-Output-Practice"><a href="#A-B-for-Input-Output-Practice" class="headerlink" title="A+B for Input-Output Practice"></a>A+B for Input-Output Practice</h2><p>题目描述:Your task is to calculate the sum of some integers<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="字符逆序"><a href="#字符逆序" class="headerlink" title="字符逆序"></a>字符逆序</h2><p>题目描述:将一个字符串str的内容颠倒过来，并输出。str的长度不超过100个字符。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="基础练习VIP-时间转换"><a href="#基础练习VIP-时间转换" class="headerlink" title="[基础练习VIP]时间转换"></a>[基础练习VIP]时间转换</h2><p>题目描述:给定一个以秒为单位的时间t，要求用  “&lt; H&gt; :&lt; M&gt; :&lt; S&gt; ”的格式来表示这个时间。&lt; H&gt; 表示时间，&lt; M&gt; 表示分钟，  而&lt; S&gt; 表示秒，它们都是整数且没有前导的“0”。例如，若t=0，则应输出是“0:0:0”；若t=3661，则输出“1:1:1”。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="矩形面积交"><a href="#矩形面积交" class="headerlink" title="矩形面积交"></a>矩形面积交</h2><p>题目描述:平面上有两个矩形，它们的边平行于直角坐标系的X轴或Y轴。对于每个矩形，我们给出它的一对相对顶点的坐标，请你编程算出两个矩形的交的面积。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="字符串输入输出函数"><a href="#字符串输入输出函数" class="headerlink" title="字符串输入输出函数"></a>字符串输入输出函数</h2><p>题目描述:编写函数GetReal和GetString，在main函数中分别调用这两个函数。在读入一个实数和一个字符串后，将读入的结果依次用printf输出。<br>两次输入前要输出的提示信息分别是” please  input  a  number:\n”和” please  input  a  string:\n”<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="模拟计算器"><a href="#模拟计算器" class="headerlink" title="模拟计算器"></a>模拟计算器</h2><p>题目描述:使用Switch语句编写一个模拟简单计算器的程序。依次输入两个整数和一个字符，并用空格隔开。如果该字  符是一个“+”，则打印和；如果该字符是一个“-”，则打印差；如果该字符是一个“*”,则打印积；如果该字符是“/”，则打印商；如果该字符是一个  “%”，则打印余数。打印结果后输出一个空行。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="剪刀石头布"><a href="#剪刀石头布" class="headerlink" title="剪刀石头布"></a>剪刀石头布</h2><p>题目描述:编写程序实现“剪刀，石头，布”游戏。在这个游戏中，两个人同时说“剪刀”，“石头”或“布”，压过另一方的为胜者。规则是：“布”胜过“石头”，“石头”胜过“剪刀”，“剪刀”胜过“布”。要求：选择结构中使用枚举类型，结果的输出也使用枚举类型表示。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="Pascal三角"><a href="#Pascal三角" class="headerlink" title="Pascal三角"></a>Pascal三角</h2><p>题目描述:PASCAL三角是形状如下的三角矩阵：<br>1<br>1  1<br>1  2  1<br>1  3  3  1<br>1  4  6  4  1<br>在PASCAL三角中的每个数是一个组合C(n,k)。<br>C(n,k)=(((((((n/1)(n-1))/2(n-2))/3)***(n-k+2))/(k-1))(n-k+1))/k<br>公式中交替使用乘法和除法，每次将从n开始递减的一个值相乘，然后除以下一个从1开始递增的值。<br>如果对行和列从0开始计数，则数字C(n,k)在n行k列。例如C(6,2)在第6行第2列。编程输出指定阶数的PASCAL三角矩阵。例如下面给出的是12阶PASCAL三角形矩阵。</p>
+<p>编写程序，使运行结果为：<br>1<br>1  1<br>1  2  1<br>1  3  3  1<br>1  4  6  4  1<br>1  5  10  10  5  1<br>1  6  15  20  15  6  1<br>1  7  21  35  35  21  7  1<br>1  8  28  56  70  56  28  8  1<br>1  9  36  84  126  126  84  36  9  1<br>1  10  45  120  210  252  210  120  45  10  1<br>1  11  55  165  330  462  462  330  165  55  11  1<br>1  12  66  220  495  792  924  792  495  220  66  12  1<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="Quadratic-Equation"><a href="#Quadratic-Equation" class="headerlink" title="Quadratic Equation"></a>Quadratic Equation</h2><p>题目描述:求解方程ax2+bx+c=0的根。要求a,  b,  c由用户输入，并且可以为任意实数。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="一元一次方程"><a href="#一元一次方程" class="headerlink" title="一元一次方程"></a>一元一次方程</h2><p>题目描述:输入一元一次方法的ax+b=0的解。且数据均在double类型以内,且一定有解（保留2位小数）<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="交换Easy"><a href="#交换Easy" class="headerlink" title="交换Easy"></a>交换Easy</h2><p>题目描述:给定N个整数组成的序列，每次交换当前第x个与第y个整数，要求输出最终的序列。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="企业奖金发放"><a href="#企业奖金发放" class="headerlink" title="企业奖金发放"></a>企业奖金发放</h2><p>题目描述:企业发放的奖金根据利润提成。利润低于或等于10万元时，奖金可提10%；利润高于10万元，低于20万元  时，低于10万元的部分按10%提成，高于10万元的部分，可提成7.5%；20万到40万之间时，高于20万元的部分，可提成5%；40万元到60万元  之间时高于40万元的部分，可提成3%；60万到100万之间时，高于60万元的部分，可提成1.5%；高于100万元时，超过100万元的部分按1%提  成。从键盘输入当月利润，求应发放奖金总数？（保留两位小数）利润的大小在double以内<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="前10名"><a href="#前10名" class="headerlink" title="前10名"></a>前10名</h2><p>题目描述:数据很多，但我们经常只取前几名，比如奥运只取前3名。现在我们有n个数据，请按从大到小的顺序，输出前10个名数据。</p>
+<p>数据规模和约定<br>10&lt; =n&lt; =200,各个整数不超出整型范围<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="勾股数"><a href="#勾股数" class="headerlink" title="勾股数"></a>勾股数</h2><p>题目描述:勾股数是一组三个自然数，a  &lt;   b  &lt;   c，以这三个数为三角形的三条边能够形成一个直角三角形<br>输出所有a  +  b  +  c  &lt; =  1000的勾股数<br>a小的先输出；a相同的，b小的先输出。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="单词个数统计"><a href="#单词个数统计" class="headerlink" title="单词个数统计"></a>单词个数统计</h2><p>题目描述:编写一个程序，输入一个字符串（长度不超过80），然后统计出该字符串当中包含有多少个单词。例如：字符串“this  is  a  book”当中包含有4个单词。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="图形输出"><a href="#图形输出" class="headerlink" title="图形输出"></a>图形输出</h2><p>题目描述:编写一程序，在屏幕上输出如下内容：<br> X  |  X  |  X<br>—+—+—<br>     |      |<br>—+—+—<br>O  |  O  |  O<br>注意：本题请同学们严格按照图形的格式输出，对齐，其中X和O为大写，否则系统会判为错误。</p>
+<p>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="复数求和"><a href="#复数求和" class="headerlink" title="复数求和"></a>复数求和</h2><p>题目描述:从键盘读入n个复数（实部和虚部都为整数）用链表存储，遍历链表求出n个复数的和并输出。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h2><p>题目描述:独立实现标准字符串库的strcmp函数，即字符串比较函数，从键盘输入两个字符串，按字典序比较大小，前者大于后者输出1，前者小于后者输出-1，两者相等输出0。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="数组输出"><a href="#数组输出" class="headerlink" title="数组输出"></a>数组输出</h2><p>题目描述:输入一个3行4列的数组，找出该数组中绝对值最大的元素、输出该元素及其两个下标值。如有多个输出行号最小的，还有多个的话输出列号最小的。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="格式化数据输出"><a href="#格式化数据输出" class="headerlink" title="格式化数据输出"></a>格式化数据输出</h2><p>题目描述:编制程序，输出下述数据。</p>
+<p>说明：（1）表中数据来自总参谋部测绘局编制的</p>
+<p>《世界地图集》（星球地图出版社，2004年1月第2版），数据可能已不准确；<br>（2）面积单位为万平方公里，人口单位为万人，GDP单位为十亿美元；<br>（3）表中所有数据都必须以变量的形式保存；（4）如果不知道每字段宽度</p>
+<p>  到底为多少，请仔细数数作为分隔标记的短横数目。</p>
+<hr>
+<p>COUNTRY          AREA(10K  km2)    POP.(10K)    GDP(Billion$)</p>
+<hr>
+<p>China                            960.00    129500.00    1080.00<br>Iceland                          10.30            27.57    8.20<br>India                            297.47      97000.00    264.80<br>Madagascar                    62.70        1635.00    3.60<br>Maldive                        0.0298            27.80    0.23</p>
+<hr>
+<p>注意：输出时空格与短线的数量要与上面格式严格一致，否则系统会判为错误。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="淘淘的名单"><a href="#淘淘的名单" class="headerlink" title="淘淘的名单"></a>淘淘的名单</h2><p>题目描述:淘淘拿到了一份名单，他想对上面的名字进行处理，挑出一些特殊的名字，他请你来帮忙。<br>淘淘关注以下名字：<br>如果这个名字是“WYS”，他希望你的程序输出“KXZSMR”。<br>如果这个名字是“CQ”，他希望你的程序输出“CHAIQIANG”。<br>如果这个名字是“LC“，他希望你的程序输出“DRAGONNET”。<br>如果这个名字是“SYT”或“SSD”或“LSS”或“LYF”，他希望你的程序输出“STUDYFATHER”。<br>如果这个名字与上述任意名字都不相同，他希望你的程序输出“DENOMINATOR”。</p>
+<p>数据规模和约定<br>对于  100%  数据，N  &lt; =  10000，人名仅由大写字母组成，长度不超过5<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="理财计划"><a href="#理财计划" class="headerlink" title="理财计划"></a>理财计划</h2><p>题目描述:银行近期推出了一款新的理财计划“重复计息储蓄”。储户只需在每个月月初存入固定金额的现金，银行就会在每个月月底根据储户账户内的金额算出该月的利息并将利息存入用户账号。现在如果某人每月存入k元，请你帮他计算一下，n月后，他可以获得多少收益。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="计算质因子"><a href="#计算质因子" class="headerlink" title="计算质因子"></a>计算质因子</h2><p>题目描述:输入一个整数，输出其所有质因子。</p>
+<p>数据规模和约定<br>1&lt; =n&lt; =10000。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="输入输出格式练习"><a href="#输入输出格式练习" class="headerlink" title="输入输出格式练习"></a>输入输出格式练习</h2><p>题目描述:按格式格式读入一个3位的整数、一个实数、一个字符  。<br>并按格式输出  一个整数占8位左对齐、一个实数占8位右对齐、一个字符  ，并用|隔开。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="输出九九乘法表"><a href="#输出九九乘法表" class="headerlink" title="输出九九乘法表"></a>输出九九乘法表</h2><p>题目描述:编制程序，按格式打印九九乘法表。</p>
+<p>注意：表头的大小写要和样例一致，短线“-”个数要与样例中一致，否则系统会判为错误。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="输出正反三角形"><a href="#输出正反三角形" class="headerlink" title="输出正反三角形"></a>输出正反三角形</h2><p>题目描述:使用循环结构打印下述图形，打印行数n由用户输入。图中每行事实上包括两部分，中间间隔空格字符数m也由用户输入。</p>
+<p>注意：两行之间没有空行。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="陶陶摘苹果2"><a href="#陶陶摘苹果2" class="headerlink" title="陶陶摘苹果2"></a>陶陶摘苹果2</h2><p>题目描述:陶陶家的院子里有一棵苹果树，每到秋天树上就会结出n个苹果。苹果成熟的时候，陶陶就会跑去摘苹果。陶陶有个30厘米高的板凳，当她不能直接用手摘到苹果的时候，就会踩到板凳上再试试。<br>现在已知n个苹果到地面的高度，以及陶陶把手伸直的时候能够达到的最大高度。假设她碰到苹果，苹果就会掉下来。请帮陶陶算一下,经过她的洗劫后，苹果树上还有几个苹果。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="判定字符位置"><a href="#判定字符位置" class="headerlink" title="判定字符位置"></a>判定字符位置</h2><p>题目描述:返回给定字符串s中元音字母的首次出现位置。英语元音字母只有‘a’、‘e’、‘i’、‘o’、‘u’五个。<br>若字符串中没有元音字母，则返回0。<br>只考虑小写的情况。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="链表数据求和操作"><a href="#链表数据求和操作" class="headerlink" title="链表数据求和操作"></a>链表数据求和操作</h2><p>题目描述:读入10个复数，建立对应链表，然后求所有复数的和。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="A-B-problem"><a href="#A-B-problem" class="headerlink" title="A+B problem"></a>A+B problem</h2><p>题目描述:Given  two  integers  A  and  B,  your  task  is  to  output  their  sum,  A+B.<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="整数平均值"><a href="#整数平均值" class="headerlink" title="整数平均值"></a>整数平均值</h2><p>题目描述:编写函数，求包含n个元素的整数数组中元素的平均值。要求在函数内部使用指针操纵数组元素，其中n个整数从键盘输入，输出为其平均值。 </p>
+<p>（样例说明：5为输入数据的个数，3  4  0  0  2  是以空格隔开的5个整数）<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="整除问题"><a href="#整除问题" class="headerlink" title="整除问题"></a>整除问题</h2><p>题目描述:编写一个程序，输入三个正整数min、max和factor，然后对于min到max之间的每一个整数（包括min和max），如果它能被factor整除，就把它打印出来。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="printf基础练习2"><a href="#printf基础练习2" class="headerlink" title="printf基础练习2"></a>printf基础练习2</h2><p>题目描述:学完printf函数了，黄老师今天的作业就是让大家写一个进制转换程序，可以输出任意一个数字的八进制、十进制、十六进制 ！<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="求圆的面积"><a href="#求圆的面积" class="headerlink" title="求圆的面积"></a>求圆的面积</h2><p>题目描述:题目很简单，已知半径r，求一个圆的面积是多大。</p>
+<p>公式不用提了吧~~<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="拆分位数"><a href="#拆分位数" class="headerlink" title="拆分位数"></a>拆分位数</h2><p>题目描述:学完算数运算符了，今天的作业是让你拆分一个三位数的个位、十位、百位！</p>
+<p>你已经完全可以做了哦！<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="小九九"><a href="#小九九" class="headerlink" title="小九九"></a>小九九</h2><p>题目描述:今天来打印一个九九乘法表吧！<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="学习ASCII码"><a href="#学习ASCII码" class="headerlink" title="学习ASCII码"></a>学习ASCII码</h2><p>题目描述:输入一个字符，输出这个字符的ASCII码<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="循环练习1"><a href="#循环练习1" class="headerlink" title="循环练习1"></a>循环练习1</h2><p>题目描述:古典问题:有一对兔子,从出生后第3个月起每个月都生一对兔子,小兔子长到第三个月后每个月又生一对小兔子，假如兔子都不死，问每个月兔子的总数是？<br>程序分析：兔子的规律为数列1，1，2，3，5，8，13，21……<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="循环练习2"><a href="#循环练习2" class="headerlink" title="循环练习2"></a>循环练习2</h2><p>题目描述:输入两个正整数m和n,求其最大公约数和最小公倍数。 1.程序分析:利用辗除法。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="循环练习3"><a href="#循环练习3" class="headerlink" title="循环练习3"></a>循环练习3</h2><p>题目描述:题目:输入某年某月某日,判断这一天是这一年的第几天? 1.程序分析:以3月5日为<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="循环练习4"><a href="#循环练习4" class="headerlink" title="循环练习4"></a>循环练习4</h2><p>题目描述:<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="循环练习5"><a href="#循环练习5" class="headerlink" title="循环练习5"></a>循环练习5</h2><p>题目描述:两个乒乓球队进行比赛,各出三人。甲队为a,b,c三人,乙队为x,y,z三人。已抽签决定比赛名单。有人向队员打听比赛的名单。a说他不和x比,c说他不和x,z比,请编程序找出三队赛手的名单。 1.程序分析:判断素数的方法:用一个数分别去除2到sqrt(这个数),如果能被整除, 则表明此数不是素数,反之是素数。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="循环练习6"><a href="#循环练习6" class="headerlink" title="循环练习6"></a>循环练习6</h2><p>题目描述:打印出如下图案(菱形)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   *</span><br><span class="line">  ***</span><br><span class="line"> ******</span><br><span class="line">********</span><br><span class="line"> ******</span><br><span class="line">  ***</span><br><span class="line">   *</span><br></pre></td></tr></table></figure></p>
+<p>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="循环练习7"><a href="#循环练习7" class="headerlink" title="循环练习7"></a>循环练习7</h2><p>题目描述:打印出杨辉三角形(要求打印出10行如下图)<br>1.程序分析:<br>1<br>1 1<br>1 2 1<br>1 3 3 1<br>1 4 6 4 1<br>1 5 10 10 5 1<br>1 6 15 20 15 6 1<br>1 7 21 35 35 21 7 1<br>1 8 28 56 70 56 28 8 1<br>1 9 36 84 126 126 84 36 9 1<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="玉龙学长买雪糕"><a href="#玉龙学长买雪糕" class="headerlink" title="玉龙学长买雪糕"></a>玉龙学长买雪糕</h2><p>题目描述:王玉龙学长是交大11级的ACM大神，当年代表我校拿下ACM亚洲赛铜牌的奖项，创造了0的记录，在2016年毕业保研到中科院了。</p>
+<p>而玉龙学长有个口头禅，就是一路过商店，“哎？你们吃不吃冰糕？我去买一个”  哈哈哈，我们可爱的玉龙学长总是很照顾学弟and学妹。那么人那么多，如果玉龙学长去第一个商店买一个冰糕，下一个商店会是上一次买的两倍还多一个。</p>
+<p>问题来了，问第N个商店的时候，他一共要买多少个冰糕？<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="链表之报数问题"><a href="#链表之报数问题" class="headerlink" title="链表之报数问题"></a>链表之报数问题</h2><p>题目描述:有n个人围成一圈，顺序从1开始排号。从第1个人开始报数（从1到3报数），凡报到3的人退出圈子，问最后留下的是原来第几号的那位。要求用循环链表实现<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+<h2 id="链表之节点删除"><a href="#链表之节点删除" class="headerlink" title="链表之节点删除"></a>链表之节点删除</h2><p>题目描述:有两个链表a和b，设节点中包含学号、姓名。从a链表中删去b链表中有相同学号的那些节点。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>解析：</p>
+<p><br><br><br></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法-面试题/" rel="tag"># 算法&面试题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/20/Hexo博客搭建全记录/" rel="next" title="Hexo博客搭建全记录">
+                <i class="fa fa-chevron-left"></i> Hexo博客搭建全记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/21/面试题/" rel="prev" title="面试题">
+                面试题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/background17.jpg" alt="Jiyingying">
+            
+              <p class="site-author-name" itemprop="name">Jiyingying</p>
+              <p class="site-description motion-element" itemprop="description">随遇而安</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、【运算】简单的a-b"><span class="nav-number">1.</span> <span class="nav-text">1、【运算】简单的a+b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、【输出】第一个HelloWorld程序！"><span class="nav-number">2.</span> <span class="nav-text">2、【输出】第一个HelloWorld程序！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、三个数最大值"><span class="nav-number">3.</span> <span class="nav-text">3、三个数最大值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、密码破译"><span class="nav-number">4.</span> <span class="nav-text">4、密码破译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、【递归-循环】母牛的故事"><span class="nav-number">5.</span> <span class="nav-text">5、【递归/循环】母牛的故事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#温度转换"><span class="nav-number">6.</span> <span class="nav-text">温度转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三个数找最大值"><span class="nav-number">7.</span> <span class="nav-text">三个数找最大值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分段函数求值"><span class="nav-number">8.</span> <span class="nav-text">分段函数求值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成绩评定"><span class="nav-number">9.</span> <span class="nav-text">成绩评定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字的处理与判断"><span class="nav-number">10.</span> <span class="nav-text">数字的处理与判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利润计算"><span class="nav-number">11.</span> <span class="nav-text">利润计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大公约数与最小公倍数"><span class="nav-number">12.</span> <span class="nav-text">最大公约数与最小公倍数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串分类统计"><span class="nav-number">13.</span> <span class="nav-text">字符串分类统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sn的公式求和"><span class="nav-number">14.</span> <span class="nav-text">Sn的公式求和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阶乘求和"><span class="nav-number">15.</span> <span class="nav-text">阶乘求和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求和训练"><span class="nav-number">16.</span> <span class="nav-text">求和训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#水仙花数判断"><span class="nav-number">17.</span> <span class="nav-text">水仙花数判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完数的判断"><span class="nav-number">18.</span> <span class="nav-text">完数的判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有规律的数列求和"><span class="nav-number">19.</span> <span class="nav-text">有规律的数列求和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自由下落的距离计算"><span class="nav-number">20.</span> <span class="nav-text">自由下落的距离计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#猴子吃桃的问题"><span class="nav-number">21.</span> <span class="nav-text">猴子吃桃的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代法求平方根"><span class="nav-number">22.</span> <span class="nav-text">迭代法求平方根</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#筛选N以内的素数"><span class="nav-number">23.</span> <span class="nav-text">筛选N以内的素数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-number">24.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵对角线求和"><span class="nav-number">25.</span> <span class="nav-text">矩阵对角线求和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义函数之字符提取"><span class="nav-number">26.</span> <span class="nav-text">自定义函数之字符提取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义函数之数字分离"><span class="nav-number">27.</span> <span class="nav-text">自定义函数之数字分离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义函数之字符类型统计"><span class="nav-number">28.</span> <span class="nav-text">自定义函数之字符类型统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带参数宏定义练习"><span class="nav-number">29.</span> <span class="nav-text">带参数宏定义练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宏定义的练习"><span class="nav-number">30.</span> <span class="nav-text">宏定义的练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宏定义练习之三角形面积"><span class="nav-number">31.</span> <span class="nav-text">宏定义练习之三角形面积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宏定义之闰年判断"><span class="nav-number">32.</span> <span class="nav-text">宏定义之闰年判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实数的打印"><span class="nav-number">33.</span> <span class="nav-text">实数的打印</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宏定义之找最大数"><span class="nav-number">34.</span> <span class="nav-text">宏定义之找最大数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电报加密"><span class="nav-number">35.</span> <span class="nav-text">电报加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三个数字的排序"><span class="nav-number">36.</span> <span class="nav-text">三个数字的排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义函数之整数处理"><span class="nav-number">37.</span> <span class="nav-text">自定义函数之整数处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义函数之数字后移"><span class="nav-number">38.</span> <span class="nav-text">自定义函数之数字后移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义函数之字符串拷贝"><span class="nav-number">39.</span> <span class="nav-text">自定义函数之字符串拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体之时间设计"><span class="nav-number">40.</span> <span class="nav-text">结构体之时间设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体之成绩记录"><span class="nav-number">41.</span> <span class="nav-text">结构体之成绩记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体之成绩统计2"><span class="nav-number">42.</span> <span class="nav-text">结构体之成绩统计2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表合并"><span class="nav-number">43.</span> <span class="nav-text">链表合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平均值计算"><span class="nav-number">44.</span> <span class="nav-text">平均值计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算素数和"><span class="nav-number">45.</span> <span class="nav-text">计算素数和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello-world"><span class="nav-number">46.</span> <span class="nav-text">Hello, world!</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-B-for-Input-Output-Practice-I"><span class="nav-number">47.</span> <span class="nav-text">A+B for Input-Output Practice (I)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-B-for-Input-Output-Practice-II"><span class="nav-number">48.</span> <span class="nav-text">A+B for Input-Output Practice (II)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-B-for-Input-Output-Practice-III"><span class="nav-number">49.</span> <span class="nav-text">A+B for Input-Output Practice (III)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-B-for-Input-Output-Practice-IV"><span class="nav-number">50.</span> <span class="nav-text">A+B for Input-Output Practice (IV)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-B-for-Input-Output-Practice-V"><span class="nav-number">51.</span> <span class="nav-text">A+B for Input-Output Practice (V)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-B-for-Input-Output-Practice-VI"><span class="nav-number">52.</span> <span class="nav-text">A+B for Input-Output Practice (VI)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-B-for-Input-Output-Practice-VII"><span class="nav-number">53.</span> <span class="nav-text">A+B for Input-Output Practice (VII)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-B-for-Input-Output-Practice"><span class="nav-number">54.</span> <span class="nav-text">A+B for Input-Output Practice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符逆序"><span class="nav-number">55.</span> <span class="nav-text">字符逆序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础练习VIP-时间转换"><span class="nav-number">56.</span> <span class="nav-text">[基础练习VIP]时间转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩形面积交"><span class="nav-number">57.</span> <span class="nav-text">矩形面积交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串输入输出函数"><span class="nav-number">58.</span> <span class="nav-text">字符串输入输出函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模拟计算器"><span class="nav-number">59.</span> <span class="nav-text">模拟计算器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剪刀石头布"><span class="nav-number">60.</span> <span class="nav-text">剪刀石头布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pascal三角"><span class="nav-number">61.</span> <span class="nav-text">Pascal三角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quadratic-Equation"><span class="nav-number">62.</span> <span class="nav-text">Quadratic Equation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一元一次方程"><span class="nav-number">63.</span> <span class="nav-text">一元一次方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交换Easy"><span class="nav-number">64.</span> <span class="nav-text">交换Easy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#企业奖金发放"><span class="nav-number">65.</span> <span class="nav-text">企业奖金发放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前10名"><span class="nav-number">66.</span> <span class="nav-text">前10名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#勾股数"><span class="nav-number">67.</span> <span class="nav-text">勾股数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单词个数统计"><span class="nav-number">68.</span> <span class="nav-text">单词个数统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图形输出"><span class="nav-number">69.</span> <span class="nav-text">图形输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复数求和"><span class="nav-number">70.</span> <span class="nav-text">复数求和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串比较"><span class="nav-number">71.</span> <span class="nav-text">字符串比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组输出"><span class="nav-number">72.</span> <span class="nav-text">数组输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化数据输出"><span class="nav-number">73.</span> <span class="nav-text">格式化数据输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#淘淘的名单"><span class="nav-number">74.</span> <span class="nav-text">淘淘的名单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理财计划"><span class="nav-number">75.</span> <span class="nav-text">理财计划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算质因子"><span class="nav-number">76.</span> <span class="nav-text">计算质因子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出格式练习"><span class="nav-number">77.</span> <span class="nav-text">输入输出格式练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出九九乘法表"><span class="nav-number">78.</span> <span class="nav-text">输出九九乘法表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出正反三角形"><span class="nav-number">79.</span> <span class="nav-text">输出正反三角形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#陶陶摘苹果2"><span class="nav-number">80.</span> <span class="nav-text">陶陶摘苹果2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判定字符位置"><span class="nav-number">81.</span> <span class="nav-text">判定字符位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表数据求和操作"><span class="nav-number">82.</span> <span class="nav-text">链表数据求和操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-B-problem"><span class="nav-number">83.</span> <span class="nav-text">A+B problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整数平均值"><span class="nav-number">84.</span> <span class="nav-text">整数平均值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整除问题"><span class="nav-number">85.</span> <span class="nav-text">整除问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#printf基础练习2"><span class="nav-number">86.</span> <span class="nav-text">printf基础练习2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求圆的面积"><span class="nav-number">87.</span> <span class="nav-text">求圆的面积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拆分位数"><span class="nav-number">88.</span> <span class="nav-text">拆分位数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小九九"><span class="nav-number">89.</span> <span class="nav-text">小九九</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习ASCII码"><span class="nav-number">90.</span> <span class="nav-text">学习ASCII码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环练习1"><span class="nav-number">91.</span> <span class="nav-text">循环练习1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环练习2"><span class="nav-number">92.</span> <span class="nav-text">循环练习2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环练习3"><span class="nav-number">93.</span> <span class="nav-text">循环练习3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环练习4"><span class="nav-number">94.</span> <span class="nav-text">循环练习4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环练习5"><span class="nav-number">95.</span> <span class="nav-text">循环练习5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环练习6"><span class="nav-number">96.</span> <span class="nav-text">循环练习6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环练习7"><span class="nav-number">97.</span> <span class="nav-text">循环练习7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#玉龙学长买雪糕"><span class="nav-number">98.</span> <span class="nav-text">玉龙学长买雪糕</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表之报数问题"><span class="nav-number">99.</span> <span class="nav-text">链表之报数问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表之节点删除"><span class="nav-number">100.</span> <span class="nav-text">链表之节点删除</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiyingying</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

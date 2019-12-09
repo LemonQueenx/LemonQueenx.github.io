@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="算法&面试题,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1、getQueryString：从url中获取参数值。1234567891011121314151617export function getQueryString(name: string) &amp;#123;  const reg = new RegExp(`([?&amp;amp;])$&amp;#123;name&amp;#125;=([^&amp;amp;]*?)(#|&amp;amp;|$)`, &amp;apos;i&amp;apos;);">
+<meta name="keywords" content="算法&amp;面试题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端算法题汇总">
+<meta property="og:url" content="http://yoursite.com/2019/12/09/前端算法题汇总/index.html">
+<meta property="og:site_name" content="小满">
+<meta property="og:description" content="1、getQueryString：从url中获取参数值。1234567891011121314151617export function getQueryString(name: string) &amp;#123;  const reg = new RegExp(`([?&amp;amp;])$&amp;#123;name&amp;#125;=([^&amp;amp;]*?)(#|&amp;amp;|$)`, &amp;apos;i&amp;apos;);">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-09T08:19:29.048Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端算法题汇总">
+<meta name="twitter:description" content="1、getQueryString：从url中获取参数值。1234567891011121314151617export function getQueryString(name: string) &amp;#123;  const reg = new RegExp(`([?&amp;amp;])$&amp;#123;name&amp;#125;=([^&amp;amp;]*?)(#|&amp;amp;|$)`, &amp;apos;i&amp;apos;);">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/12/09/前端算法题汇总/">
+
+
+
+
+
+  <title>前端算法题汇总 | 小满</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小满</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-窝">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            窝
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/09/前端算法题汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiyingying">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/background17.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小满">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端算法题汇总</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-09T14:55:49+08:00">
+                2019-12-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/积累/" itemprop="url" rel="index">
+                    <span itemprop="name">积累</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1、getQueryString：从url中获取参数值。"><a href="#1、getQueryString：从url中获取参数值。" class="headerlink" title="1、getQueryString：从url中获取参数值。"></a><font color="#e12" size="3"><strong>1、getQueryString：从url中获取参数值。</strong></font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">export function getQueryString(name: string) &#123;</span><br><span class="line">  const reg = new RegExp(`([?&amp;])$&#123;name&#125;=([^&amp;]*?)(#|&amp;|$)`, &apos;i&apos;);</span><br><span class="line">  const r = window.location.href.match(reg);</span><br><span class="line">  if (r != null) &#123;</span><br><span class="line">    return decodeURIComponent(r[2]);</span><br><span class="line">  &#125;</span><br><span class="line">  return &apos;&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function getQueryString(name) &#123;</span><br><span class="line">  var reg = new RegExp(&apos;(^|&amp;)&apos; + name + &apos;=([^&amp;]*)(&amp;|$)&apos;, &apos;i&apos;);</span><br><span class="line">  var r = window.location.search.substr(1).match(reg);</span><br><span class="line">  if (r != null) &#123;</span><br><span class="line">  return decodeURIComponent(r[2]);</span><br><span class="line">  &#125;</span><br><span class="line">  return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解析：以上两种方式都是通过正则匹配的方式实现的。</p>
+<ul>
+<li><p><font color="#12e" size="3">知识点：</font></p>
+<ul>
+<li><p>正则<br>&amp;()         且的意思<br>(x1|x2|x3)  查找任何指定的选项<br>[]          查找该集合范围内的字符（或的意思）<br>[^xxx]      查找给定集合外的任何字符（非的意思）<br>n$          匹配任何结尾为n的字符串<br>n*          匹配任何包含零个或多个n的字符串<br>n?          匹配任何包含零个或一个n的字符串</p>
+<p>i           代表不区分大小写</p>
+<p>match       找到一个或多个正则表达式的匹配 例：str.match(reg)</p>
+</li>
+<li><p>BOM<br>window.location.href      设置或返回完整的URL<br>window.location.search    设置或返回从问好（?）开始的URL（查询部分）<br>（复习）：<br>pathname                  设置或返回当前URL的路径部分<br>reload()                  重新加载当前文档<br>replace()                 用新的文档替换当前文档  </p>
+<p>URL：<a href="https://www.baidu.com/s?ie-utf-88&amp;f=3&amp;rsv_bp=1" target="_blank" rel="noopener">https://www.baidu.com/s?ie-utf-88&amp;f=3&amp;rsv_bp=1</a><br>资源定位符：协议名(https)  主机名(域名 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>  路径(/s)  参数名=参数值(ie-utf-88)</p>
+</li>
+<li><p>字符串方法<br>substr()     方法可在字符串中抽取从 start 下标开始的指定数目的字符。<br><strong><em>stringObject.substr(start,length)</em></strong></p>
+<p>decodeURIComponent() 函数可对 encodeURIComponent() 函数编码的 URI 进行解码。<br><strong><em>decodeURIComponent(URIstring)</em></strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var test1=<span class="string">"http://www.w3school.com.cn/My first/"</span></span><br><span class="line"></span><br><span class="line">document.write(encodeURIComponent(test1)+ <span class="string">"&lt;br /&gt;"</span>)</span><br><span class="line">document.write(decodeURIComponent(test1))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>2019年12月9日</p>
+<h2 id="2、setCookie：设置Cookie。"><a href="#2、setCookie：设置Cookie。" class="headerlink" title="2、setCookie：设置Cookie。"></a><font color="#e12" size="3"><strong>2、setCookie：设置Cookie。</strong></font></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> <span class="keyword">function</span> setCookie(name: string, value: string): void &#123;</span><br><span class="line">  const now = new Date();</span><br><span class="line">  now.setDate(now.getDate() + (1000 * 60 * 60 * 24 * 30));</span><br><span class="line"></span><br><span class="line">  const str = `<span class="variable">$&#123;name&#125;</span>=<span class="variable">$&#123;value&#125;</span>;expires=<span class="variable">$&#123;now.toUTCString()&#125;</span>;path=/;SameSite=Lax;`;</span><br><span class="line">  document.cookie = str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3、getCookie：获取Cookie。"><a href="#3、getCookie：获取Cookie。" class="headerlink" title="3、getCookie：获取Cookie。"></a><font color="#e12" size="3"><strong>3、getCookie：获取Cookie。</strong></font></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> <span class="keyword">function</span> getCookie(name: string) &#123;</span><br><span class="line">  <span class="built_in">let</span> start;</span><br><span class="line">  <span class="built_in">let</span> end;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (document.cookie.length &gt; 0) &#123;</span><br><span class="line">    start = document.cookie.indexOf(`<span class="variable">$&#123;name&#125;</span>=`);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (start !== -1) &#123;</span><br><span class="line">      start = start + name.length + 1;</span><br><span class="line">      end = document.cookie.indexOf(<span class="string">';'</span>, start);</span><br><span class="line">      <span class="keyword">if</span> (end === -1) &#123;</span><br><span class="line">        end = document.cookie.length;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">return</span> decodeURIComponent(document.cookie.substring(start, end));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> <span class="string">''</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法-面试题/" rel="tag"># 算法&面试题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/27/webpack/" rel="next" title="webpack">
+                <i class="fa fa-chevron-left"></i> webpack
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/background17.jpg" alt="Jiyingying">
+            
+              <p class="site-author-name" itemprop="name">Jiyingying</p>
+              <p class="site-description motion-element" itemprop="description">随遇而安</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、getQueryString：从url中获取参数值。"><span class="nav-number">1.</span> <span class="nav-text">1、getQueryString：从url中获取参数值。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、setCookie：设置Cookie。"><span class="nav-number">2.</span> <span class="nav-text">2、setCookie：设置Cookie。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、getCookie：获取Cookie。"><span class="nav-number">3.</span> <span class="nav-text">3、getCookie：获取Cookie。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiyingying</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
