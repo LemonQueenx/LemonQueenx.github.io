@@ -173,5 +173,10 @@
     setTimeout(function(){
         heartWrap.removeChild(heart);
     },2000);
-}
+  }
+
+  // 去除默认生成的1  1.1  1.2  这种
+  for(let i = 0 ; i < $('.nav-number').length ; i++ ){
+    $('.nav-number')[i].innerText = '';
+  }
 }(jQuery);

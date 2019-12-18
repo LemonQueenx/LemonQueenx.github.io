@@ -84,10 +84,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法题">
 <meta property="og:url" content="http://yoursite.com/2019/10/21/算法题/index.html">
-<meta property="og:site_name" content="小满">
+<meta property="og:site_name" content="大雪">
 <meta property="og:description" content="2：给出一百分制成绩，要求输出成绩等级‘A’、‘B’、‘C’、‘D’、‘E’。 90分以及90分以上为A，80-89分为B，70-79分为C，60-69分为D，60分以下为E。1234567891011121314151617function result(params)&amp;#123;  let mark = Number(params);  if(params &amp;lt; 0 || params &amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-11T04:04:36.247Z">
+<meta property="og:updated_time" content="2019-12-11T04:10:00.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法题">
 <meta name="twitter:description" content="2：给出一百分制成绩，要求输出成绩等级‘A’、‘B’、‘C’、‘D’、‘E’。 90分以及90分以上为A，80-89分为B，70-79分为C，60-69分为D，60分以下为E。1234567891011121314151617function result(params)&amp;#123;  let mark = Number(params);  if(params &amp;lt; 0 || params &amp;">
@@ -126,7 +126,7 @@
 
 
 
-  <title>算法题 | 小满</title>
+  <title>算法题 | 大雪</title>
   
 
 
@@ -155,7 +155,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">小满</span>
+        <span class="site-title">大雪</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -267,11 +267,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiyingying">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/background17.jpg">
+      <meta itemprop="image" content="/images/background21.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小满">
+      <meta itemprop="name" content="大雪">
     </span>
 
     
@@ -378,14 +378,25 @@
 <p>解析：这是通过循环方式<br>2019年12月9日 16：45</p>
 <p><br><br><br></p>
 <h2 id="温度转换"><a href="#温度转换" class="headerlink" title="温度转换"></a>温度转换</h2><p>题目描述:输入一个华氏温度，要求输出摄氏温度。公式为 c=5(F-32)/9，取位2小数。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> transform(Fahrenheit)&#123;</span><br><span class="line">  <span class="built_in">let</span> Centigrade = 0;</span><br><span class="line">  Centigrade = ( 5 * ( Fahrenheit - 32 ) / 9 ).toFixed(2);</span><br><span class="line">  <span class="built_in">return</span> Centigrade;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>解析：有很多有关数据处理的数学方法，如：<br>(123).toString();                 “123”<br>new Date().toString()             “Wed Dec 11 2019 11:53:56 GMT+0800 (中国标准时间)”<br>new Date().toLocaleString();      “2019/12/11 上午11:53:30”</p>
-<p>Number(“123”);                     123<br>Number(new Date());                1576036612137    :   返回 1970 年 1 月 1 日至今的毫秒数<br>Number(undefined);                 NaN<br>Number(true);                      1<br>Number(false)  Number(null)  Number(‘’)  Number();                          0</p>
-<p>parseInt(“10”);         // 返回 10<br>parseInt(“10.33”);      // 返回 10<br>parseInt(“10 20 30”);   // 返回 10<br>parseInt(“10 years”);   // 返回 10<br>parseInt(“years 10”);   // 返回 NaN 如果无法转换为数值，则返回 NaN (Not a Number)<br>parseFloat(“10”);        // 返回 10<br>parseFloat(“10.33”);     // 返回 10.33<br>parseFloat(“10 20 30”);  // 返回 10<br>parseFloat(“10 years”);  // 返回 10<br>parseFloat(“years 10”);  // 返回 NaN</p>
-<p>(123).toFixed(2);         “123.00”<br>Math.min(5,’7’); //5<br>Math.min(5,’q’); //NaN 如果有某个参数为 NaN，或是不能转换成数字的非数字值，则返回 NaN<br>Math.max(5,’7’); //7<br>Math.max(5,’q’); //NaN 如果有某个参数为 NaN，或是不能转换成数字的非数字值，则返回 NaN<br>Math.abs(-7.25); // 7.25<br>Math.ceil(0.60); //1<br>Math.ceil(0.40); //1<br>Math.ceil(-5.1); //5<br>Math.floor(0.60); //0<br>Math.floor(0.40); //0<br>Math.floor(-5.1); //-6<br>Number.isInteger(0);  // true<br>Number.isInteger(0.1);  // false<br>Number.parseFloat()和parseFloat()一样。<br>Number.parseInt()和parseInt()一样。<br>isNaN() 函数用于检查其参数是否是非数字值（和Number.isNaN()一样）</p>
-<p>Math.trunc方法用于去除一个数的小数部分，返回整数部分。<br>Math.trunc(4.1) // 4<br>Math.trunc(4.9) // 4<br>Math.trunc(-4.1) // -4<br>Math.trunc(-4.9) // -4<br>Math.trunc(NaN); // NaN<br>Math.trunc(‘foo’); // NaN<br>Math.trunc(); // NaN</p>
-<p>Math.sign方法用来判断一个数到底是正数、负数、还是零参数为正数，返回+1；</p>
-<p>参数为负数，返回-1；<br>参数为正数，返回+1；<br>参数为0，返回0；<br>参数为-0，返回-0;<br>其他值，返回NaN。</p>
-<p>Math.sign(-5) // -1<br>Math.sign(5) // +1<br>Math.sign(0) // +0<br>Math.sign(-0) // -0<br>Math.sign(NaN) // NaN<br>Math.sign(‘foo’); // NaN<br>Math.sign(); // NaN</p>
+<p>解析：有很多有关数据处理的数学方法，如：</p>
+<blockquote>
+<p>(123).toString();               “123”<br>  new Date().toString()             “Wed Dec 11 2019 11:53:56 GMT+0800 (中国标准时间)”<br>  new Date().toLocaleString();      “2019/12/11 上午11:53:30”</p>
+</blockquote>
+<blockquote>
+<p>Number(“123”);                     123<br>  Number(new Date());                1576036612137    :   返回 1970 年 1 月 1 日至今的毫秒数<br>  Number(undefined);                 NaN<br>  Number(true);                      1<br>  Number(false)  Number(null)  Number(‘’)  Number();                          0</p>
+</blockquote>
+<blockquote>
+<p>parseInt(“10”);         // 返回 10<br>  parseInt(“10.33”);      // 返回 10<br>  parseInt(“10 20 30”);   // 返回 10<br>  parseInt(“10 years”);   // 返回 10<br>  parseInt(“years 10”);   // 返回 NaN 如果无法转换为数值，则返回 NaN (Not a Number)<br>  parseFloat(“10”);        // 返回 10<br>  parseFloat(“10.33”);     // 返回 10.33<br>  parseFloat(“10 20 30”);  // 返回 10<br>  parseFloat(“10 years”);  // 返回 10<br>  parseFloat(“years 10”);  // 返回 NaN</p>
+</blockquote>
+<blockquote>
+<p>(123).toFixed(2);         “123.00”<br>  Math.min(5,’7’); //5<br>  Math.min(5,’q’); //NaN 如果有某个参数为 NaN，或是不能转换成数字的非数字值，则返回 NaN<br>  Math.max(5,’7’); //7<br>  Math.max(5,’q’); //NaN 如果有某个参数为 NaN，或是不能转换成数字的非数字值，则返回 NaN<br>  Math.abs(-7.25); // 7.25<br>  Math.ceil(0.60); //1<br>  Math.ceil(0.40); //1<br>  Math.ceil(-5.1); //5<br>  Math.floor(0.60); //0<br>  Math.floor(0.40); //0<br>  Math.floor(-5.1); //-6<br>  Number.isInteger(0);  // true<br>  Number.isInteger(0.1);  // false<br>  Number.parseFloat()和parseFloat()一样。<br>  Number.parseInt()和parseInt()一样。<br>  isNaN() 函数用于检查其参数是否是非数字值（和Number.isNaN()一样）</p>
+</blockquote>
+<blockquote>
+<p>Math.trunc方法用于去除一个数的小数部分，返回整数部分。<br>  Math.trunc(4.1) // 4<br>  Math.trunc(4.9) // 4<br>  Math.trunc(-4.1) // -4<br>  Math.trunc(-4.9) // -4<br>  Math.trunc(NaN); // NaN<br>  Math.trunc(‘foo’); // NaN<br>  Math.trunc(); // NaN</p>
+</blockquote>
+<blockquote>
+<p>Math.sign方法用来判断一个数到底是正数、负数、还是零参数为正数，返回+1；<br>  参数为负数，返回-1；<br>  参数为正数，返回+1；<br>  参数为0，返回0；<br>  参数为-0，返回-0;<br>  其他值，返回NaN。<br>  Math.sign(-5) // -1<br>  Math.sign(5) // +1<br>  Math.sign(0) // +0<br>  Math.sign(-0) // -0<br>  Math.sign(NaN) // NaN<br>  Math.sign(‘foo’); // NaN<br>  Math.sign(); // NaN</p>
+</blockquote>
 <p>2019年12月10日</p>
 <p><br><br><br></p>
 <h2 id="三个数找最大值"><a href="#三个数找最大值" class="headerlink" title="三个数找最大值"></a>三个数找最大值</h2><p>题目描述:有三个整数a b c,由键盘输入，输出其中的最大的数。<br>解答：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
@@ -802,7 +813,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/background17.jpg" alt="Jiyingying">
+              <img class="site-author-image" itemprop="image" src="/images/background21.jpg" alt="Jiyingying">
             
               <p class="site-author-name" itemprop="name">Jiyingying</p>
               <p class="site-description motion-element" itemprop="description">随遇而安</p>
@@ -826,7 +837,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
