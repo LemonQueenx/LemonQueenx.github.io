@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a30901;
+  background: #ff1394;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2997,7 +2997,7 @@ html {
   font-family: "ziti";
 }
 body {
-  background-image: url("/images/background21.jpg");
+  background-image: url("/images/background22.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
