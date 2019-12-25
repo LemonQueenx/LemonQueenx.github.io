@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff1394;
+  background: #7eff34;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3013,10 +3013,10 @@ body {
   color: #f00;
 }
 .site-meta {
-  background: -webkit-linear-gradient(top, #228b22, #fff); /* Safari 5.1 - 6.0 */
-  background: -o-linear-gradient(top, #228b22, #fff); /* Opera 11.1 - 12.0 */
-  background: -moz-linear-gradient(top, #228b22, #fff); /* Firefox 3.6 - 15 */
-  background: linear-gradient(top, #228b22, #fff); /* 标准的语法 */
+  background: -webkit-linear-gradient(top, #eee694, #fff); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(top, #eee694, #fff); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(top, #eee694, #fff); /* Firefox 3.6 - 15 */
+  background: linear-gradient(top, #eee694, #fff); /* 标准的语法 */
 }
 .stem {
   height: 120px;
@@ -3064,7 +3064,7 @@ body {
 .content-wrap {
   float: none;
   box-sizing: border-box;
-  background: #f0fff0;
+  background: #fafad2;
   padding: 40px;
   width: 800px;
   min-height: 800px;
