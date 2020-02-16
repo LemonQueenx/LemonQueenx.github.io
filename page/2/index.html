@@ -354,271 +354,171 @@
       
         
           
-            <p>CSS， cascading style sheet，层叠样式表，是前端的基础语言。</p>
+            <p>CSS（cascading style sheet，层叠样式表）是前端的基础语言。</p>
 <h1 id="第一章、-CSS基础"><a href="#第一章、-CSS基础" class="headerlink" title="第一章、 CSS基础"></a><font color="#DC143C">第一章、 CSS基础</font></h1><h2 id="一、引入方式"><a href="#一、引入方式" class="headerlink" title="一、引入方式"></a><font color="#FF69B4">一、引入方式</font></h2><ul>
 <li>行间样式</li>
 <li>页面级css</li>
 <li>引入css文件 &lt;link rel = ‘stylesheet’ type = ‘text/css’ href = ‘xxx.css’/></li>
 </ul>
-<h2 id="二、选择器"><a href="#二、选择器" class="headerlink" title="二、选择器"></a><font color="#FF69B4">二、选择器</font></h2><style>.textCenter{border:0;} .textCenter td{text-align:center;border:0;}</style>
+<h2 id="二、选择器"><a href="#二、选择器" class="headerlink" title="二、选择器"></a><font color="#FF69B4">二、选择器</font></h2><p><style>.textCenter{border:0;} .textCenter td{text-align:center;border:0;}</style></p>
 <table class="textCenter"><tr><td colspan="2">权重</td></tr><tr><td>!important</td><td>无穷大</td></tr><tr><td>行间样式</td><td>1000</td></tr><tr><td>id</td><td>100</td></tr><tr><td>class | 属性 | 伪类</td><td>10</td></tr><tr><td>标签 | 伪元素</td><td>1</td></tr><tr><td>通配符</td><td>0</td></tr></table>
 
-> 1) id选择器
-  2）class选择器
-  3）属性选择器
-  4）伪类选择器
-  5）标签选择器
-  6）伪元素选择器
-  7）通配符选择器
-  8）父子选择器/派生选择器
-  9）直接子元素选择器（<font color="red">查找顺序是从后往前查</font>）
-  10）分组选择器
+<ol>
+<li>id选择器</li>
+<li>class选择器</li>
+<li>属性选择器</li>
+<li>伪类选择器</li>
+<li>标签选择器</li>
+<li>伪元素选择器</li>
+<li>通配符选择器</li>
+<li>父子选择器/派生选择器</li>
+<li>直接子元素选择器（<font color="red">查找顺序是从后往前查</font>）</li>
+<li>分组选择器</li>
+</ol>
+<h2 id="三、样式小知识"><a href="#三、样式小知识" class="headerlink" title="三、样式小知识"></a><font color="#FF69B4">三、样式小知识</font></h2><h3 id="字大小-font-size"><a href="#字大小-font-size" class="headerlink" title="字大小 font-size"></a>字大小 font-size</h3><h3 id="字重-font-weight"><a href="#字重-font-weight" class="headerlink" title="字重  font-weight"></a>字重  font-weight</h3><ul>
+<li>bold  bolder  lighter normal  </li>
+<li>100 200 …… 900</li>
+</ul>
+<h3 id="字体-font-family"><a href="#字体-font-family" class="headerlink" title="字体 font-family"></a>字体 font-family</h3><ul>
+<li>arail georgia verdama ……</li>
+<li>‘宋体’ ‘楷体’ ……</li>
+</ul>
+<h3 id="字体风格-font-style"><a href="#字体风格-font-style" class="headerlink" title="字体风格 font-style"></a>字体风格 font-style</h3><ul>
+<li>normal（默认） italic</li>
+</ul>
+<h3 id="字体颜色-color"><a href="#字体颜色-color" class="headerlink" title="字体颜色 color"></a>字体颜色 color</h3><ul>
+<li>red black pink ……</li>
+<li>#f40 ……</li>
+<li>rgb(255,0,0)</li>
+<li>rgba(255,0,0,0.5)</li>
+</ul>
+<h3 id="边框-border"><a href="#边框-border" class="headerlink" title="边框 border"></a>边框 border</h3><ul>
+<li>border-width: 5px;</li>
+<li>border-style: solid实线 / dashed虚线 / dotted点状边框 ……<br>border-radius: 10px/ 50%;</li>
+</ul>
+<h3 id="水平对齐方式-text-align"><a href="#水平对齐方式-text-align" class="headerlink" title="水平对齐方式  text-align"></a>水平对齐方式  text-align</h3><ul>
+<li>left right center justify(两端对齐) inherit</li>
+</ul>
+<h3 id="垂直对齐方式-vertical-align"><a href="#垂直对齐方式-vertical-align" class="headerlink" title="垂直对齐方式  vertical-align"></a>垂直对齐方式  vertical-align</h3><ul>
+<li>baseline    默认。元素放置在父元素的基线上。<br>sub    垂直对齐文本的下标。<br>super    垂直对齐文本的上标<br>top    把元素的顶端与行中最高元素的顶端对齐<br>text-top    把元素的顶端与父元素字体的顶端对齐<br>middle    把此元素放置在父元素的中部。<br>bottom    把元素的顶端与行中最低的元素的顶端对齐。<br>text-bottom    把元素的底端与父元素字体的底端对齐。<br>length<br>%    使用 ‘line-height’ 属性的百分比值来排列此元素。允许使用负值。<br>inherit    规定应该从父元素继承 vertical-align 属性的值。</li>
+<li>line-height === 行高，则垂直方向居中，1em  1个font-size</li>
+</ul>
+<h3 id="首行缩进-text-indent"><a href="#首行缩进-text-indent" class="headerlink" title="首行缩进  text-indent"></a>首行缩进  text-indent</h3><ul>
+<li>length      %      inherit</li>
+</ul>
+<h3 id="文本装饰-text-decoration"><a href="#文本装饰-text-decoration" class="headerlink" title="文本装饰 text-decoration"></a>文本装饰 text-decoration</h3><ul>
+<li>none(默认) underline     overline     line-through     blink     inherit</li>
+</ul>
+<h3 id="鼠标效果-cursor"><a href="#鼠标效果-cursor" class="headerlink" title="鼠标效果 cursor"></a>鼠标效果 cursor</h3><ul>
+<li><p>url    需使用的自定义光标的 URL。 注释：请在此列表的末端始终定义一种普通的光标，以防没有由 URL 定义的可用光标。</p>
+<p>default    默认光标（通常是一个箭头）<br>auto    默认。浏览器设置的光标。<br>crosshair    光标呈现为十字线。<br>pointer    光标呈现为指示链接的指针（一只手）<br>move    此光标指示某对象可被移动。<br>e-resize    此光标指示矩形框的边缘可被向右（东）移动。<br>ne-resize    此光标指示矩形框的边缘可被向上及向右移动（北/东）。<br>nw-resize    此光标指示矩形框的边缘可被向上及向左移动（北/西）。<br>n-resize    此光标指示矩形框的边缘可被向上（北）移动。<br>se-resize    此光标指示矩形框的边缘可被向下及向右移动（南/东）。<br>sw-resize    此光标指示矩形框的边缘可被向下及向左移动（南/西）。<br>s-resize    此光标指示矩形框的边缘可被向下移动（南）。<br>w-resize    此光标指示矩形框的边缘可被向左移动（西）。<br>text    此光标指示文本。<br>wait    此光标指示程序正忙（通常是一只表或沙漏）。<br>help    此光标指示可用的帮助（通常是一个问号或一个气球）。</p>
+</li>
+</ul>
+<h3 id="透明度-opacity"><a href="#透明度-opacity" class="headerlink" title="透明度 opacity"></a>透明度 opacity</h3><ul>
+<li>value(0.0-1.0) inherit</li>
+</ul>
+<h3 id="背景-background"><a href="#背景-background" class="headerlink" title="背景 background"></a>背景 background</h3><h4 id="background-color"><a href="#background-color" class="headerlink" title="background-color"></a>background-color</h4><pre><code>transparent(默认)    color_name       hex_number       rgb_number     inherit
+</code></pre><h4 id="background-image"><a href="#background-image" class="headerlink" title="background-image"></a>background-image</h4><pre><code>url(&apos;URL&apos;)    指向图像的路径。
+none          默认值。不显示背景图像。
+inherit       规定应该从父元素继承 background-image 属性的设置。
+</code></pre><h4 id="background-position"><a href="#background-position" class="headerlink" title="background-position"></a>background-position</h4><pre><code>x% y%        第一个值是水平位置，第二个值是垂直位置。0% 0%。（默认值），左上角是 0% 0%，右下角是 100% 100%。如果仅规定了一个值，另一个值将是 50%。
+xpos ypos    第一个值是水平位置，第二个值是垂直位置。左上角是 0 0。单位是像素 (0px 0px) 或任何其他的 CSS 单位。如果您仅规定了一个值，另一个值将是50%。
+top left / top center / top right / center left / center center / center right / bottom left / bottom center / bottom right  如果仅规定了一个关键词，那么第二个值将是&apos;center&apos;。
+             可以混合使用 % 和 position 值。
+</code></pre><h4 id="background-size"><a href="#background-size" class="headerlink" title="background-size"></a>background-size</h4><pre><code>length        设置背景图像的高度和宽度。第一个值设置宽度，第二个值设置高度。如果只设置一个值，则第二个值会被设置为 &apos;auto&apos;。
+percentage    以父元素的百分比来设置背景图像的宽度和高度。第一个值设置宽度，第二个值设置高度。如果只设置一个值，则第二个值会被设置为 &apos;auto&apos;。
+cover         把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。背景图像的某些部分也许无法显示在背景定位区域中。
+contain       把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域。
+</code></pre><h4 id="background-repeat"><a href="#background-repeat" class="headerlink" title="background-repeat"></a>background-repeat</h4><pre><code>repeat（默认） repeat-x    repeat-y    no-repeat    inherit
+</code></pre><h4 id="background-origin-规定背景图片的定位区域。"><a href="#background-origin-规定背景图片的定位区域。" class="headerlink" title="background-origin 规定背景图片的定位区域。"></a>background-origin 规定背景图片的定位区域。</h4><pre><code>padding-box       背景图像相对于内边距框来定位。
+border-box        背景图像相对于边框盒来定位。
+content-box       背景图像相对于内容框来定位。
+</code></pre><h4 id="background-clip-规定背景的绘制区域。"><a href="#background-clip-规定背景的绘制区域。" class="headerlink" title="background-clip   规定背景的绘制区域。"></a>background-clip   规定背景的绘制区域。</h4><pre><code>border-box        背景被裁剪到边框盒。
+padding-box       背景被裁剪到内边距框。
+content-box       背景被裁剪到内容框。
+</code></pre><h4 id="background-attachment-规定背景图像是否固定或者随着页面的其余部分滚动。"><a href="#background-attachment-规定背景图像是否固定或者随着页面的其余部分滚动。" class="headerlink" title="background-attachment 规定背景图像是否固定或者随着页面的其余部分滚动。"></a>background-attachment 规定背景图像是否固定或者随着页面的其余部分滚动。</h4><pre><code>scroll            默认值。背景图像会随着页面其余部分的滚动而移动。
+fixed             当页面的其余部分滚动时，背景图像不会移动。
+inherit
+</code></pre><h4 id="inherit-规定应该从父元素继承-background-属性的设置。"><a href="#inherit-规定应该从父元素继承-background-属性的设置。" class="headerlink" title="inherit 规定应该从父元素继承 background 属性的设置。"></a>inherit 规定应该从父元素继承 background 属性的设置。</h4><h2 id="四、display"><a href="#四、display" class="headerlink" title="四、display"></a><font color="#FF69B4">四、display</font></h2><ul>
+<li><p>块级元素（block）：div p h1~h6 ul li ol li form table tr address ……</p>
+<pre><code>1）独占一行，不满一行占一行，不满两行占两行
+2）可以通过css改变宽高
+</code></pre></li>
+<li><p>行级元素（inline）：span button strong em i  ……</p>
+<pre><code>1）内容决定宽高，不占满整行
+2）不可以通过css改变宽高    
+</code></pre></li>
+<li><p>行级块标签（inline-block）：img  input  select …… </p>
+<pre><code>1）内容决定宽高，不占满整行
+2）可以通过css改变宽高
+</code></pre><font color="red">行级块元素中若无文字，则其后文字与其下对齐。（可通过vertical-align来改变文字的垂直位置）</font><br><font color="red">带有inline属性的标签都有文字属性。</font>
 
-## <font color="#FF69B4">三、样式小知识</font>
-### 字大小 font-size
+</li>
+</ul>
+<blockquote>
+<p>none    此元素不会被显示。<br>  block    此元素将显示为块级元素，此元素前后会带有换行符。<br>  inline    默认。此元素会被显示为内联元素，元素前后没有换行符。<br>  inline-block    行内块元素。（CSS2.1 新增的值）<br>  inherit    规定应该从父元素继承 display 属性的值。</p>
+</blockquote>
+<p><br></p>
+<h2 id="五、盒模型"><a href="#五、盒模型" class="headerlink" title="五、盒模型"></a><font color="#FF69B4">五、盒模型</font></h2><ul>
+<li>width height</li>
+<li>padding<br>padding: 1px 2px 3px 4px;上 右 下 左<br>padding: 1px 2px 3px; 上 左右 下<br>padding: 1px 2px; 上下 左右<br>padding: 1px; 上下左右</li>
+<li>border<br>border: 1px solid;<br>border-width: 1px;<br>border-style: solid;<br>border-color: black;<br>border-top/bottom/left/right<br>border-top/bottom/left/right-width/style/color</li>
+<li>margin<br>同padding</li>
+</ul>
+<blockquote>
+<ul>
+<li>margin塌陷问题<br>  可以通过触发bfc的方式解决这个问题。<ul>
+<li>overflow: hidden;</li>
+<li>display: inline-block;</li>
+<li>position: absolute;</li>
+<li>float: left; </li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>margin合并问题<br>处于bfc的区域里即可解决这个问题。但是<font>html中的标签是实现特定的结构功能，没有为了解决bug去多加一层标签。</font>一般margin塌陷问题解决，margin合并问题不用解决。</li>
+</ul>
+</blockquote>
+<p><br></p>
+<h2 id="六、层模型"><a href="#六、层模型" class="headerlink" title="六、层模型"></a><font color="#FF69B4">六、层模型</font></h2><ul>
+<li>1、绝对定位 position: absolute;<br>脱离原来的位置进行定位。相对于最近的有定位的父级进行定位，如没有，则相对于文档进行定位。</li>
+<li>2、相对定位 position: relative;<br>相对于原来的位置进行定位。</li>
+<li><p>3、固定定位 postion: fix;<br>相对于屏幕进行定位。<br>z-index </p>
+</li>
+<li><p>static    默认值。没有定位，元素出现在正常流中（忽略 top, bottom, left, right 或者 z-index 声明）。</p>
+</li>
+<li>inherit<br><br></li>
+</ul>
+<h2 id="七、浮动模型"><a href="#七、浮动模型" class="headerlink" title="七、浮动模型"></a><font color="#FF69B4">七、浮动模型</font></h2><p>float : left / right;<br>1、产生浮动流<br>2、产生bfc的元素可以看到浮动流（overflow: hidden; display: inline-block; position: abosulte; float: left/right;）<br>3、有文本属性（包括文本）的元素可以看到浮动流</p>
+<blockquote>
+<p>清除浮动流的方法：<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.clearfix&#123;</span><br><span class="line">  *zoom: 1;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix:after &#123;</span><br><span class="line">  content: <span class="string">' '</span>;</span><br><span class="line">  clear: both;</span><br><span class="line">  display: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><br></p>
+<h2 id="八、经验性小知识"><a href="#八、经验性小知识" class="headerlink" title="八、经验性小知识"></a><font color="#FF69B4">八、经验性小知识</font></h2><h3 id="1-为什么-lt-span-标签又可以设置宽高了呢。"><a href="#1-为什么-lt-span-标签又可以设置宽高了呢。" class="headerlink" title="1.为什么&lt;span>标签又可以设置宽高了呢。"></a>1.为什么&lt;span>标签又可以设置宽高了呢。</h3><p>  因为posititon: absolute;或 float: left/right;，把&lt;span>标签内部的display属性的值改成了inline-block;<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;123&lt;/span&gt;</span><br><span class="line">span&#123;</span><br><span class="line">  position: absolute; / <span class="built_in">float</span>: left/right;</span><br><span class="line">  width: 100px;</span><br><span class="line">  height: 100px; </span><br><span class="line">  background: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-lt-p-标签里不能嵌套-lt-div-标签"><a href="#2-lt-p-标签里不能嵌套-lt-div-标签" class="headerlink" title="2.&lt;p>标签里不能嵌套&lt;div>标签"></a>2.&lt;p>标签里不能嵌套&lt;div>标签</h3><p>&lt;a>标签里不能嵌套&lt;a>标签</p>
+<h3 id="3-文字属性继承"><a href="#3-文字属性继承" class="headerlink" title="3.文字属性继承"></a>3.文字属性继承</h3><p>  父元素中的文字属性都可以继承，如果自己有则用自己的，没有继承父亲的。</p>
+<h3 id="4-单行文字溢出打点"><a href="#4-单行文字溢出打点" class="headerlink" title="4.单行文字溢出打点"></a>4.单行文字溢出打点</h3>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">white-space: nowrap;</span><br><span class="line">overflow: hidden;</span><br><span class="line">text-overflow: ellipsis;</span><br></pre></td></tr></table></figure>
+<h3 id="5-多行溢出打点"><a href="#5-多行溢出打点" class="headerlink" title="5.多行溢出打点"></a>5.多行溢出打点</h3>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">width: 100px;</span><br><span class="line">overflow: hidden;</span><br><span class="line">text-overflow: ellipsis;</span><br><span class="line">-webkit-line-clamp: 5; // 是一个 不规范的属性（unsupported WebKit property），它没有出现在 CSS 规范草案中。限制在一个块元素显示的文本的行数</span><br><span class="line">display: -webkit-box;  // 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。</span><br><span class="line">-webkit-box-orient: vertical; // 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。</span><br></pre></td></tr></table></figure>
+<h3 id="6-主流浏览器"><a href="#6-主流浏览器" class="headerlink" title="6.主流浏览器"></a>6.主流浏览器</h3><table class="textCenter"><tr><td>主流浏览器</td><td>浏览器内核</td></tr><tr><td>Internet Explorer</td><td>trident</td></tr><tr><td>Chrome</td><td>webkit/blink</td></tr><tr><td>FireFox</td><td>Gecko</td></tr><tr><td>Sarafri</td><td>webkit</td></tr><tr><td>Opera</td><td>presto</td></tr><tr><td>360极速</td><td>webkit</td></tr><tr><td>360</td><td>双内核 webkit/Crident</td></tr></table>
 
-### 字重  font-weight
-  - bold  bolder  lighter normal  
-  - 100 200 …… 900
+<h3 id="7-开发调试"><a href="#7-开发调试" class="headerlink" title="7.开发调试"></a>7.开发调试</h3><h4 id="console控制台"><a href="#console控制台" class="headerlink" title="console控制台"></a>console控制台</h4><h4 id="代码debugger"><a href="#代码debugger" class="headerlink" title="代码debugger"></a>代码debugger</h4><h4 id="Sources打断点"><a href="#Sources打断点" class="headerlink" title="Sources打断点"></a>Sources打断点</h4><p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+<h1 id="第二章、-CSS3"><a href="#第二章、-CSS3" class="headerlink" title="第二章、 CSS3"></a><font color="#DC143C">第二章、 CSS3</font></h1><p>css3.0是最新的 CSS 标准。</p>
+<h2 id="一、css3常用新属性"><a href="#一、css3常用新属性" class="headerlink" title="一、css3常用新属性"></a><font color="#FF69B4">一、css3常用新属性</font></h2><table class="textCenter"><tr><td>兼容前缀</td><td>浏览器</td></tr><tr><td>-webkit</td><td>chrome和safari</td></tr><tr><td>-moz</td><td>fireFox</td></tr><tr><td>-ms</td><td>IE</td></tr><tr><td>-o</td><td>opera</td></tr></table>  
 
-### 字体 font-family
-  - arail georgia verdama ……
-  - '宋体' '楷体' ……
-
-### 字体风格 font-style
-  - normal（默认） italic
-
-### 字体颜色 color
-  - red black pink ……
-  - #f40 ……
-  - rgb(255,0,0)
-  - rgba(255,0,0,0.5)
-
-### 边框 border
-  - border-width: 5px;
-  - border-style: solid实线 / dashed虚线 / dotted点状边框 ……
-  border-radius: 10px/ 50%;
-
-### 水平对齐方式  text-align
-  - left right center justify(两端对齐) inherit
-
-### 垂直对齐方式  vertical-align
-  - baseline    默认。元素放置在父元素的基线上。
-    sub    垂直对齐文本的下标。
-    super    垂直对齐文本的上标
-    top    把元素的顶端与行中最高元素的顶端对齐
-    text-top    把元素的顶端与父元素字体的顶端对齐
-    middle    把此元素放置在父元素的中部。
-    bottom    把元素的顶端与行中最低的元素的顶端对齐。
-    text-bottom    把元素的底端与父元素字体的底端对齐。
-    length     
-    %    使用 'line-height' 属性的百分比值来排列此元素。允许使用负值。
-    inherit    规定应该从父元素继承 vertical-align 属性的值。
-  - line-height === 行高，则垂直方向居中，1em  1个font-size
-
-### 首行缩进  text-indent
-  -  length      %      inherit
-
-### 文本装饰 text-decoration
-  -  none(默认) underline     overline     line-through     blink     inherit
-
-### 鼠标效果 cursor
-  - url    需使用的自定义光标的 URL。 注释：请在此列表的末端始终定义一种普通的光标，以防没有由 URL 定义的可用光标。
-
-    default    默认光标（通常是一个箭头）
-    auto    默认。浏览器设置的光标。
-    crosshair    光标呈现为十字线。
-    pointer    光标呈现为指示链接的指针（一只手）
-    move    此光标指示某对象可被移动。
-    e-resize    此光标指示矩形框的边缘可被向右（东）移动。
-    ne-resize    此光标指示矩形框的边缘可被向上及向右移动（北/东）。
-    nw-resize    此光标指示矩形框的边缘可被向上及向左移动（北/西）。
-    n-resize    此光标指示矩形框的边缘可被向上（北）移动。
-    se-resize    此光标指示矩形框的边缘可被向下及向右移动（南/东）。
-    sw-resize    此光标指示矩形框的边缘可被向下及向左移动（南/西）。
-    s-resize    此光标指示矩形框的边缘可被向下移动（南）。
-    w-resize    此光标指示矩形框的边缘可被向左移动（西）。
-    text    此光标指示文本。
-    wait    此光标指示程序正忙（通常是一只表或沙漏）。
-    help    此光标指示可用的帮助（通常是一个问号或一个气球）。
-
-### 透明度 opacity
-  - value(0.0-1.0) inherit
-
-### 背景 background
-  #### background-color
-    transparent(默认)    color_name       hex_number       rgb_number     inherit
-  #### background-image 
-    url('URL')    指向图像的路径。
-    none          默认值。不显示背景图像。
-    inherit       规定应该从父元素继承 background-image 属性的设置。
-  #### background-position
-    x% y%        第一个值是水平位置，第二个值是垂直位置。0% 0%。（默认值），左上角是 0% 0%，右下角是 100% 100%。如果仅规定了一个值，另一个值将是 50%。
-    xpos ypos    第一个值是水平位置，第二个值是垂直位置。左上角是 0 0。单位是像素 (0px 0px) 或任何其他的 CSS 单位。如果您仅规定了一个值，另一个值将是50%。
-    top left / top center / top right / center left / center center / center right / bottom left / bottom center / bottom right  如果仅规定了一个关键词，那么第二个值将是'center'。
-                 可以混合使用 % 和 position 值。
-  #### background-size 
-    length        设置背景图像的高度和宽度。第一个值设置宽度，第二个值设置高度。如果只设置一个值，则第二个值会被设置为 'auto'。
-    percentage    以父元素的百分比来设置背景图像的宽度和高度。第一个值设置宽度，第二个值设置高度。如果只设置一个值，则第二个值会被设置为 'auto'。
-    cover         把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。背景图像的某些部分也许无法显示在背景定位区域中。
-    contain       把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域。
-  #### background-repeat
-    repeat（默认） repeat-x    repeat-y    no-repeat    inherit
-  #### background-origin 规定背景图片的定位区域。
-    padding-box       背景图像相对于内边距框来定位。
-    border-box        背景图像相对于边框盒来定位。
-    content-box       背景图像相对于内容框来定位。
-  #### background-clip   规定背景的绘制区域。
-    border-box        背景被裁剪到边框盒。
-    padding-box       背景被裁剪到内边距框。
-    content-box       背景被裁剪到内容框。
-  #### background-attachment 规定背景图像是否固定或者随着页面的其余部分滚动。
-    scroll            默认值。背景图像会随着页面其余部分的滚动而移动。
-    fixed             当页面的其余部分滚动时，背景图像不会移动。
-    inherit
-  #### inherit 规定应该从父元素继承 background 属性的设置。
-
-## <font color="#FF69B4">四、display</font>
-  - 块级元素（block）：div p h1~h6 ul li ol li form table tr address ……
-                    1）独占一行，不满一行占一行，不满两行占两行
-                    2）可以通过css改变宽高
-
-  - 行级元素（inline）：span button strong em i  ……
-                    1）内容决定宽高，不占满整行
-                    2）不可以通过css改变宽高    
-
-  - 行级块标签（inline-block）：img  input  select …… 
-                    1）内容决定宽高，不占满整行
-                    2）可以通过css改变宽高
-
-  <font color="red">行级块元素中若无文字，则其后文字与其下对齐。（可通过vertical-align来改变文字的垂直位置）</font>  
-  <font color="red">带有inline属性的标签都有文字属性。</font>
-
-> none    此元素不会被显示。
-  block    此元素将显示为块级元素，此元素前后会带有换行符。
-  inline    默认。此元素会被显示为内联元素，元素前后没有换行符。
-  inline-block    行内块元素。（CSS2.1 新增的值）
-  inherit    规定应该从父元素继承 display 属性的值。
-
-<br>
-
-
-## <font color="#FF69B4">五、盒模型</font>
-- width height
-- padding
-  padding: 1px 2px 3px 4px;上 右 下 左
-  padding: 1px 2px 3px; 上 左右 下
-  padding: 1px 2px; 上下 左右
-  padding: 1px; 上下左右
-- border
-  border: 1px solid;
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
-  border-top/bottom/left/right
-  border-top/bottom/left/right-width/style/color
-- margin
-  同padding
-
-> - margin塌陷问题
-    可以通过触发bfc的方式解决这个问题。
-    - overflow: hidden;
-    - display: inline-block;
-    - position: absolute;
-    - float: left; 
-
->   - margin合并问题
-    处于bfc的区域里即可解决这个问题。但是<font>html中的标签是实现特定的结构功能，没有为了解决bug去多加一层标签。</font>一般margin塌陷问题解决，margin合并问题不用解决。
-<br>
-
-
-## <font color="#FF69B4">六、层模型</font>
-- 1、绝对定位 position: absolute;
-  脱离原来的位置进行定位。相对于最近的有定位的父级进行定位，如没有，则相对于文档进行定位。
-- 2、相对定位 position: relative;
-  相对于原来的位置进行定位。
-- 3、固定定位 postion: fix;
-  相对于屏幕进行定位。 
-  z-index 
-
-- static    默认值。没有定位，元素出现在正常流中（忽略 top, bottom, left, right 或者 z-index 声明）。
-- inherit
-<br>
-
-## <font color="#FF69B4">七、浮动模型</font>
-float : left / right;
-1、产生浮动流
-2、产生bfc的元素可以看到浮动流（overflow: hidden; display: inline-block; position: abosulte; float: left/right;）
-3、有文本属性（包括文本）的元素可以看到浮动流
-
-> 清除浮动流的方法：
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.clearfix&#123;</span><br><span class="line">  *zoom: 1;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix:after &#123;</span><br><span class="line">  content: <span class="string">' '</span>;</span><br><span class="line">  clear: both;</span><br><span class="line">  display: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<br>
-
-## <font color="#FF69B4">八、经验性小知识</font>
-### 1.为什么<span\>标签又可以设置宽高了呢。
-  因为posititon: absolute;或 float: left/right;，把<span\>标签内部的display属性的值改成了inline-block;
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;123&lt;/span&gt;</span><br><span class="line">span&#123;</span><br><span class="line">  position: absolute; / <span class="built_in">float</span>: left/right;</span><br><span class="line">  width: 100px;</span><br><span class="line">  height: 100px; </span><br><span class="line">  background: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-### 2.<p\>标签里不能嵌套<div\>标签
-<a\>标签里不能嵌套<a\>标签
-
-### 3.文字属性继承
-  父元素中的文字属性都可以继承，如果自己有则用自己的，没有继承父亲的。
-
-### 4.单行文字溢出打点
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">white-space: nowrap;</span><br><span class="line">overflow: hidden;</span><br><span class="line">text-overflow: ellipsis;</span><br></pre></td></tr></table></figure>
-
-### 5.多行溢出打点
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">width: 100px;</span><br><span class="line">overflow: hidden;</span><br><span class="line">text-overflow: ellipsis;</span><br><span class="line">-webkit-line-clamp: 5; // 是一个 不规范的属性（unsupported WebKit property），它没有出现在 CSS 规范草案中。限制在一个块元素显示的文本的行数</span><br><span class="line">display: -webkit-box;  // 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。</span><br><span class="line">-webkit-box-orient: vertical; // 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。</span><br></pre></td></tr></table></figure>
-
-### 6.主流浏览器
-<table class="textCenter"><tr><td>主流浏览器</td><td>浏览器内核</td></tr><tr><td>Internet Explorer</td><td>trident</td></tr><tr><td>Chrome</td><td>webkit/blink</td></tr><tr><td>FireFox</td><td>Gecko</td></tr><tr><td>Sarafri</td><td>webkit</td></tr><tr><td>Opera</td><td>presto</td></tr><tr><td>360极速</td><td>webkit</td></tr><tr><td>360</td><td>双内核 webkit/Crident</td></tr></table>
-
-### 7.开发调试
-  #### console控制台
-  #### 代码debugger
-  #### Sources打断点
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-
-
-
-
-
-
-
-# <font color="#DC143C">第二章、 CSS3</font>
-css3.0是最新的 CSS 标准。
-## <font color="#FF69B4">一、css3常用新属性</font>
-<table class="textCenter"><tr><td>兼容前缀</td><td>浏览器</td></tr><tr><td>-webkit</td><td>chrome和safari</td></tr><tr><td>-moz</td><td>fireFox</td></tr><tr><td>-ms</td><td>IE</td></tr><tr><td>-o</td><td>opera</td></tr></table>  
-
-**https://caniuse.com/ 可以测试属性兼容性，现在很多打包插件在打包时就会自动处理这些样式兼容问题，所以开发可忽略**
-
-### <font color="#EE82EE">1. border-radius 圆角</font>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">border-radius：20px;</span><br><span class="line">border-radius: 20px 20px 20px 20px;</span><br><span class="line">border-top-left-radius:20px;</span><br><span class="line">border-top-right-radius:20px;</span><br><span class="line">border-bottom-left-radius:20px;</span><br><span class="line">border-bottom-right-radius:20px;</span><br></pre></td></tr></table></figure>
-
-### <font color="#EE82EE">2. box-shadow 阴影</font>
-> box-shadow : x轴偏移量  y轴偏移量   模糊半径
+<p><strong><a href="https://caniuse.com/" target="_blank" rel="noopener">https://caniuse.com/</a> 可以测试属性兼容性，现在很多打包插件在打包时就会自动处理这些样式兼容问题，所以开发可忽略</strong></p>
+<h3 id="1-border-radius-圆角"><a href="#1-border-radius-圆角" class="headerlink" title="1. border-radius 圆角"></a><font color="#EE82EE">1. border-radius 圆角</font></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">border-radius：20px;</span><br><span class="line">border-radius: 20px 20px 20px 20px;</span><br><span class="line">border-top-left-radius:20px;</span><br><span class="line">border-top-right-radius:20px;</span><br><span class="line">border-bottom-left-radius:20px;</span><br><span class="line">border-bottom-right-radius:20px;</span><br></pre></td></tr></table></figure>
+<h3 id="2-box-shadow-阴影"><a href="#2-box-shadow-阴影" class="headerlink" title="2. box-shadow 阴影"></a><font color="#EE82EE">2. box-shadow 阴影</font></h3><blockquote>
+<p>box-shadow : x轴偏移量  y轴偏移量   模糊半径</p>
+</blockquote>
 <div class="box"></div>
-<style>
-</style>
 
-<h3 id="2-font-face-字体"><a href="#2-font-face-字体" class="headerlink" title="2. font-face 字体"></a><font color="#EE82EE">2. font-face 字体</font></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@font-face&#123;</span><br><span class="line">    font-family:<span class="string">'ziti'</span>;</span><br><span class="line">    src:(<span class="string">'./font/Summer.ttf'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-font-face-字体"><a href="#3-font-face-字体" class="headerlink" title="3. font-face 字体"></a><font color="#EE82EE">3. font-face 字体</font></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@font-face&#123;</span><br><span class="line">    font-family:<span class="string">'ziti'</span>;</span><br><span class="line">    src:(<span class="string">'./font/Summer.ttf'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>可以直接用font-family:’ziti’了，字体资源一般设计都会提供，也可以在网络上找到。推荐网址：<a href="http://www.w3cplus.com/content/css3-font-face" target="_blank" rel="noopener">http://www.w3cplus.com/content/css3-font-face</a> 和 https:://<a href="http://www.dafont.com" target="_blank" rel="noopener">www.dafont.com</a></p>
-<h3 id="3-rgba-颜色值"><a href="#3-rgba-颜色值" class="headerlink" title="3. rgba() 颜色值"></a><font color="#EE82EE">3. rgba() 颜色值</font></h3><p>Violet green blue alpha</p>
-<h3 id="4-Gradient-渐变的背景色"><a href="#4-Gradient-渐变的背景色" class="headerlink" title="4. Gradient 渐变的背景色"></a><font color="#EE82EE">4. Gradient 渐变的背景色</font></h3><ol>
+<h3 id="4-rgba-颜色值"><a href="#4-rgba-颜色值" class="headerlink" title="4. rgba() 颜色值"></a><font color="#EE82EE">4. rgba() 颜色值</font></h3><p>Violet green blue alpha</p>
+<h3 id="5-Gradient-渐变的背景色"><a href="#5-Gradient-渐变的背景色" class="headerlink" title="5. Gradient 渐变的背景色"></a><font color="#EE82EE">5. Gradient 渐变的背景色</font></h3><ol>
 <li><p>linear-gradient 线性渐变 to<br> linear-gradient( [ direction ] , color1 [ precent / pixel ] ,color2 [ precent / pixel ] );</p>
 <ul>
 <li>direction:<br>  1) 0 ~ 360deg角度<br>  2) to top/bottom/left/right<br>  to top left<br>  to bottom left…</li>
@@ -633,7 +533,7 @@ radial-gradient(ellipse at 200px 80px , rgba(96,0,190) , rgba(101,160,255))
 &lt;div style=&apos;width:300px;height:100px;margin-left:17px;background:radial-gradient(ellipse at 200px 80px,rgba(96,0,190) , rgba(101,160,255))&apos;&gt;&lt;/div&gt;
 </code></pre></li>
 </ol>
-<h3 id="5-background-背景"><a href="#5-background-背景" class="headerlink" title="5. background 背景"></a><font color="#EE82EE">5. background 背景</font></h3><ol>
+<h3 id="6-background-背景"><a href="#6-background-背景" class="headerlink" title="6. background 背景"></a><font color="#EE82EE">6. background 背景</font></h3><ol>
 <li><p>background-origin 背景图片起始位置<br>background-origin : border-box / padding-box / content-box;<br><div style="width:400px;height:100px;background-origin:border-box;border:10px solid rgba(255,0,0,0.3);padding:40px;background-repeat: no-repeat;color:#fff;background-image:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577251943575&di=a4ef12d40891fb543a4b0a541b728246&imgtype=0&src=http%3A%2F%2Fdik.img.kttpdq.com%2Fpic%2F19%2F13131%2Fc671a4a7144ee484_1024x768.jpg')">background-origin : border-box;</div><br><div style="width:400px;height:100px;background-origin:padding-box;border:10px solid rgba(255,0,0,0.3);padding:40px;color:#fff;background-image:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577251943575&di=a4ef12d40891fb543a4b0a541b728246&imgtype=0&src=http%3A%2F%2Fdik.img.kttpdq.com%2Fpic%2F19%2F13131%2Fc671a4a7144ee484_1024x768.jpg')">background-origin : padding-box;</div><br><div style="width:400px;height:100px;background-origin:content-box;border:10px solid rgba(255,0,0,0.3);padding:40px;color:#fff;background-image:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577251943575&di=a4ef12d40891fb543a4b0a541b728246&imgtype=0&src=http%3A%2F%2Fdik.img.kttpdq.com%2Fpic%2F19%2F13131%2Fc671a4a7144ee484_1024x768.jpg')">background-origin : content-box;</div><br><strong> * 此处为了更清楚的看出背景图片的起始位置，给背景图片设置了background-repeat：no-repeat;</strong></p>
 </li>
 <li><p>background-size 背景图片尺寸<br>background-size : auto / &lt;长度值&gt; / &lt;百分比&gt; / cover / contain ;</p>
@@ -643,7 +543,7 @@ radial-gradient(ellipse at 200px 80px , rgba(96,0,190) , rgba(101,160,255))
 <li><p>background-repeat 背景图片是否重复<br>background-repeat:inherit;</p>
 </li>
 </ol>
-<h3 id="6-border-image-边界图片（应用背景）"><a href="#6-border-image-边界图片（应用背景）" class="headerlink" title="6. border-image 边界图片（应用背景）"></a><font color="#EE82EE">6. border-image 边界图片（应用背景）</font></h3><ul>
+<h3 id="7-border-image-边界图片（应用背景）"><a href="#7-border-image-边界图片（应用背景）" class="headerlink" title="7. border-image 边界图片（应用背景）"></a><font color="#EE82EE">7. border-image 边界图片（应用背景）</font></h3><ul>
 <li>border-image:url(xxx.png) number style;</li>
 <li>style:<br> stretch 拉伸<br> repeat 重复（会切割）<br> round 铺满（不会切割）</li>
 <li>默认值：    none 100% 1 0 stretch<br>eg: border-image:url(‘图片’)  200 stretch; <div style="width:200px;height:50px;border: 30px solid;border-image:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577251943575&di=a4ef12d40891fb543a4b0a541b728246&imgtype=0&src=http%3A%2F%2Fdik.img.kttpdq.com%2Fpic%2F19%2F13131%2Fc671a4a7144ee484_1024x768.jpg') 200 stretch"></div>
@@ -651,16 +551,16 @@ radial-gradient(ellipse at 200px 80px , rgba(96,0,190) , rgba(101,160,255))
 
 </li>
 </ul>
-<h3 id="7-box-shadow-盒子阴影"><a href="#7-box-shadow-盒子阴影" class="headerlink" title="7. box-shadow-盒子阴影"></a><font color="#EE82EE">7. box-shadow-盒子阴影</font></h3><ul>
+<h3 id="8-box-shadow-盒子阴影"><a href="#8-box-shadow-盒子阴影" class="headerlink" title="8. box-shadow-盒子阴影"></a><font color="#EE82EE">8. box-shadow-盒子阴影</font></h3><ul>
 <li>box-shadow: [投影方式：outset/inset] 阴影水平偏移值（可取正负值） 阴影垂直偏移值（可取正负值） 阴影模糊值 阴影大小 阴影颜色 </li>
 </ul>
-<h3 id="8-text-shadow-文本阴影"><a href="#8-text-shadow-文本阴影" class="headerlink" title="8. text-shadow 文本阴影"></a><font color="#EE82EE">8. text-shadow 文本阴影</font></h3><ul>
+<h3 id="9-text-shadow-文本阴影"><a href="#9-text-shadow-文本阴影" class="headerlink" title="9. text-shadow 文本阴影"></a><font color="#EE82EE">9. text-shadow 文本阴影</font></h3><ul>
 <li>text-shadow : X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影颜色];</li>
 </ul>
-<h3 id="9-word-wrap-文字边界换行"><a href="#9-word-wrap-文字边界换行" class="headerlink" title="9. word-wrap 文字边界换行"></a><font color="#EE82EE">9. word-wrap 文字边界换行</font></h3><ul>
+<h3 id="10-word-wrap-文字边界换行"><a href="#10-word-wrap-文字边界换行" class="headerlink" title="10. word-wrap 文字边界换行"></a><font color="#EE82EE">10. word-wrap 文字边界换行</font></h3><ul>
 <li>normal  &nbsp;&nbsp;&nbsp;只在允许的断字点换行（浏览器保持默认处理）。<br>break-word  在长单词或 URL 地址内部进行换行。</li>
 </ul>
-<h3 id="10-background-clip-裁剪背景图片"><a href="#10-background-clip-裁剪背景图片" class="headerlink" title="10. background-clip 裁剪背景图片"></a><font color="#EE82EE">10. background-clip 裁剪背景图片</font></h3><ul>
+<h3 id="11-background-clip-裁剪背景图片"><a href="#11-background-clip-裁剪背景图片" class="headerlink" title="11. background-clip 裁剪背景图片"></a><font color="#EE82EE">11. background-clip 裁剪背景图片</font></h3><ul>
 <li>background-clip : border-box / padding-box / content-box;<br><div style="width:400px;height:100px;background-repeat: no-repeat;background-image:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577251943575&di=a4ef12d40891fb543a4b0a541b728246&imgtype=0&src=http%3A%2F%2Fdik.img.kttpdq.com%2Fpic%2F19%2F13131%2Fc671a4a7144ee484_1024x768.jpg');border:10px solid rgba(255,0,0,0.3);padding:40px;background-clip : border-box;color:#fff;">background-clip : border-box;</div><br><div style="width:400px;height:100px;background-repeat: no-repeat;background-image:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577251943575&di=a4ef12d40891fb543a4b0a541b728246&imgtype=0&src=http%3A%2F%2Fdik.img.kttpdq.com%2Fpic%2F19%2F13131%2Fc671a4a7144ee484_1024x768.jpg');border:10px solid rgba(255,0,0,0.3);padding:40px;background-clip : padding-box;color:#fff">background-clip : padding-box;</div><br><div style="width:400px;height:100px;background-repeat: no-repeat;background-image:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577251943575&di=a4ef12d40891fb543a4b0a541b728246&imgtype=0&src=http%3A%2F%2Fdik.img.kttpdq.com%2Fpic%2F19%2F13131%2Fc671a4a7144ee484_1024x768.jpg');border:10px solid rgba(255,0,0,0.3);padding:40px;background-clip : content-box;color:#fff">background-clip : content-box;</div><font color="red">* 注：webkit独有属性，且必须配合-webkit-text-fill-color:transparent;使用。有需要的时候可以深入学习。</font>
 
 
@@ -796,7 +696,7 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
 <table class="textCenter"><tr><td><strong>属性</strong></td><td><strong>值</strong></td><td>Min/Max</td><td>描述</td></tr><tr><td>color</td><td>整数</td><td>yes</td><td>每种色彩的字节数</td></tr><tr><td>color-index</td><td>整数</td><td>yes</td><td>色彩表中的色彩数</td></tr><tr><td>device-aspect-ratio</td><td>整/整</td><td>yes</td><td>宽高比例</td></tr><tr><td>device-height</td><td>length</td><td>yes</td><td>设备屏幕的输出高度</td></tr><tr><td>device-width</td><td>length</td><td>yes</td><td>设备屏幕的输出宽度</td></tr><tr><td>grid</td><td>整数</td><td>no</td><td>是否是基于格栅的设备</td></tr><tr><td>height</td><td>length</td><td>yes</td><td>渲染界面的高度</td></tr><tr><td>monochrome</td><td>整数</td><td>yes</td><td>单色帧缓冲器中每像素字</td></tr><tr><td>resolution</td><td>分辨率</td><td>dpi/dpcm</td><td>分辨率</td></tr><tr><td>scan</td><td>Progressive</td><td>interlaced</td><td>tv媒体类型的扫描方式</td></tr><tr><td>width</td><td>length</td><td>yes</td><td>渲染界面的宽度</td></tr><tr><td>orientation</td><td>Portrait/landscape</td><td>no</td><td>横屏或竖屏</td></tr></table>                                      
 
 <h3 id="2-物理像素和设备独立像素"><a href="#2-物理像素和设备独立像素" class="headerlink" title="2. 物理像素和设备独立像素"></a><font color="#EE82EE">2. 物理像素和设备独立像素</font></h3><p><strong>设备像素又称物理像素（physical pixel）</strong>，设备能控制显示的最小单位。<br><strong>设备独立像素（Device Pixel）：</strong>(也叫密度无关像素)，代表一个可以由程序使用并控制的虚拟像素，然后由相关系统转换为物理像素。<br><strong>CSS像素</strong>是pixel，是编程用的单位，是实际不存在的。<br><strong>DPR(DevicePixelRatio，设备像素比)</strong> = 物理（设备）像素 / 设备独立像素 ；<br>以iphone6为例：<br>DPR是2，也就是2^2=4个物理像素对应1个设备独立像素，也就是1px对应4个物理像素。</p>
-</a\></a\></div\></p\></span\></span\>
+
           
         
       
@@ -1095,21 +995,19 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
       
         
           
-            <p>HTML Hyper Text Message Language，超文本标记语言，是前端的三大基础语言（HTML、CSS、JS）之一</p>
+            <p>HTML （ Hyper Text Markup Language，超文本标记语言） 是前端的三大基础语言之一。</p>
 <h1 id="一、-HTML基础"><a href="#一、-HTML基础" class="headerlink" title="一、 HTML基础"></a><font color="#DC143C">一、 HTML基础</font></h1><h2 id="1-基础结构"><a href="#1-基础结构" class="headerlink" title="1. 基础结构"></a><font color="#FF69B4" size="3">1. 基础结构</font></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang = <span class="string">'en'</span>&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>最外层是&lt;html>&lt; /html&gt;标签，里面分别是&lt;head> &lt; /head&gt;和&lt;body>&lt; /body&gt;标签，首尾呼应，成对出现，相互嵌套，有特定含义。</li>
+<li>HTML标签：首尾呼应，相互嵌套，有特定含义。</li>
 </ul>
 <h2 id="2-简单标签"><a href="#2-简单标签" class="headerlink" title="2. 简单标签"></a><font color="#FF69B4" size="3">2. 简单标签</font></h2><h3 id="lt-html-lt-html"><a href="#lt-html-lt-html" class="headerlink" title="&lt;html>&lt;/html>"></a><font color="#EE82EE" size="3">&lt;html>&lt;/html></font></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;html lang = <span class="string">'en'</span>&gt; ...... &lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>lang属性：告诉搜索引擎爬虫，我们的网站是什么语言的。如：中文zh，英文en，德文de，法文fr等。<br>  SEO 搜索引擎优化<br><br></p>
+<p>lang属性：告诉搜索引擎爬虫，我们的网站是什么语言的。如：中文zh，英文en，德文de，法文fr等。<br>  SEO 搜索引擎优化</p>
 </blockquote>
-<h3 id="lt-head-lt-head"><a href="#lt-head-lt-head" class="headerlink" title="&lt;head>&lt;/head>"></a><font color="#EE82EE" size="3">&lt;head>&lt;/head></font></h3><p>head是头的意思，顾名思义，这里是放一些“头脑”性的东西。</p>
-<p>&lt;meta/>标签<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset = <span class="string">'UTF-8'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'keywords'</span> content = <span class="string">'淘宝,掏宝,网上购物,C2C,在线交易,交易市场,网上交易,交易市场,网上买,网上卖,购物网站,团购,网上贸易,安全购物,电子商务,放心买,供应,买卖信息,网店,一口价,拍卖,网上开店,网络购物,打折,免费开店,网购,频道,店铺'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'description'</span> content = <span class="string">'淘宝网 - 亚洲较大的网上交易平台，提供各类服饰、美容、家居、数码、话费/点卡充值… 数亿优质商品，同时提供担保交易(先收货后付款)等安全交易保障服务，并由商家提供退货承诺、破损补寄等消费者保障服务，让你安心享受网上购物乐趣！'</span>&gt;</span><br><span class="line">&lt;meta http-equiv = <span class="string">'cache-control'</span> content = <span class="string">'no-cache'</span>&gt;</span><br><span class="line">&lt;meta http-equiv = <span class="string">'expires'</span> content = <span class="string">'0'</span>&gt;</span><br><span class="line">&lt;meta http-equiv = <span class="string">'pragma'</span> content = <span class="string">'no-cache'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'viewport'</span> content = <span class="string">'width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no, viewport-fit=cover'</span>&gt;</span><br><span class="line">&lt;meta http-equiv = <span class="string">'X-UA-Compatible'</span> content = <span class="string">'IE=edge,chrome=1'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'HandheldFriendly'</span> content = <span class="string">'true'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'format-detection'</span> content = <span class="string">'telephone=no,email=no'</span>&gt;</span><br></pre></td></tr></table></figure></p>
-<font size="1"> 1.charset字符集，现在一般都用UTF-8.以前还有gb2312，gbk，unicode等。<br>  2.keywords网站的关键字，便于网络爬虫检索。<br>  3.description描述，简介作用同上。<br>  4.cache-control缓存控制，content的值可以是：Public 、 Private 、 no-Cache 、 no-Store。<br>  5.expires期限，用于设定网页的到期时间。一旦网页过期，必须到服务器上重新传输。<br>  6.pragma编译，用于设定禁止浏览器从本地机的缓存中调阅页面内容，设定后一旦离开网页就无法从Cache中再调出。<br>  7.viewport视口，宽度等于设备宽度，初始视角是1倍视角，最大视角是1倍视角，最小视角是1倍视角，用户是否可以伸缩网页不可以，视角尺寸是覆盖。<br>  8.X-UA-Compatible兼容IE，如果IE有安装Google Chrome Frame，那么就走安装的组件，如果没有，Edge 模式通知 Windows Internet Explorer以最高级别的可用模式显示内容。<br>  9.HandheldFriendly手持式友好，针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓<br>  10.format-detection格式监测，禁止将页面中的一连串数字识别为电话号码并设置为手机可拨打的链接。告诉设备不识别邮箱，点击之后不自动发送。</font>
-
-<p>  &lt;meta\/&gt;标签是个有“头脑”的标签，还有更所设置，需要时可以进一步探索呦~<br><br></p>
-<h3 id="lt-title-lt-title"><a href="#lt-title-lt-title" class="headerlink" title="&lt;title>&lt;/title>"></a><font color="#EE82EE" size="3">&lt;title>&lt;/title></font></h3><p>title是标题的意思，很简单。例如：</p>
+<p><br></p>
+<h3 id="lt-meta"><a href="#lt-meta" class="headerlink" title="&lt;meta/>"></a><font color="#EE82EE" size="3">&lt;meta/></font></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset = <span class="string">'UTF-8'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'keywords'</span> content = <span class="string">'淘宝,掏宝,网上购物,C2C,在线交易,交易市场,网上交易,交易市场,网上买,网上卖,购物网站,团购,网上贸易,安全购物,电子商务,放心买,供应,买卖信息,网店,一口价,拍卖,网上开店,网络购物,打折,免费开店,网购,频道,店铺'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'description'</span> content = <span class="string">'淘宝网 - 亚洲较大的网上交易平台，提供各类服饰、美容、家居、数码、话费/点卡充值… 数亿优质商品，同时提供担保交易(先收货后付款)等安全交易保障服务，并由商家提供退货承诺、破损补寄等消费者保障服务，让你安心享受网上购物乐趣！'</span>&gt;</span><br><span class="line">&lt;meta http-equiv = <span class="string">'cache-control'</span> content = <span class="string">'no-cache'</span>&gt;</span><br><span class="line">&lt;meta http-equiv = <span class="string">'expires'</span> content = <span class="string">'0'</span>&gt;</span><br><span class="line">&lt;meta http-equiv = <span class="string">'pragma'</span> content = <span class="string">'no-cache'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'viewport'</span> content = <span class="string">'width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no, viewport-fit=cover'</span>&gt;</span><br><span class="line">&lt;meta http-equiv = <span class="string">'X-UA-Compatible'</span> content = <span class="string">'IE=edge,chrome=1'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'HandheldFriendly'</span> content = <span class="string">'true'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'format-detection'</span> content = <span class="string">'telephone=no,email=no'</span>&gt;</span><br></pre></td></tr></table></figure>
+<p><font size="1"> 1.charset字符集，现在一般都用UTF-8，以前还有gb2312，gbk，unicode等。<br>  2.keywords网站的关键字，便于网络爬虫检索。<br>  3.description描述，同上。<br>  4.cache-control缓存控制，content的值可以是：Public 、 Private 、 no-Cache 、 no-Store。<br>  5.expires期限，用于设定网页的到期时间。一旦网页过期，必须到服务器上重新传输。<br>  6.pragma编译，用于设定禁止浏览器从本地机的缓存中调阅页面内容，设定后一旦离开网页就无法从Cache中再调出。<br>  7.viewport视口，宽度等于设备宽度，初始视角是1倍视角，最大视角是1倍视角，最小视角是1倍视角，用户是否可以伸缩网页不可以，视角尺寸是覆盖。<br>  8.X-UA-Compatible兼容IE，如果IE有安装Google Chrome Frame，那么就走安装的组件，如果没有，Edge 模式通知 Windows Internet Explorer以最高级别的可用模式显示内容。<br>  9.HandheldFriendly手持式友好，针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓<br>  10.format-detection格式监测，禁止将页面中的一连串数字识别为电话号码并设置为手机可拨打的链接。告诉设备不识别邮箱，点击之后不自动发送。</font><br>  &lt;meta/>标签，还有更多设置，需要时可以进一步探索~<br><br></p>
+<h3 id="lt-title-lt-title"><a href="#lt-title-lt-title" class="headerlink" title="&lt;title>&lt;/title>"></a><font color="#EE82EE" size="3">&lt;title>&lt;/title></font></h3><p>title是标题的意思。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;title&gt;&lt;i&gt;&lt;/i&gt;淘宝网，淘我喜欢&lt;/title&gt;</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h3 id="lt-h1-lt-h6"><a href="#lt-h1-lt-h6" class="headerlink" title="&lt;h1> ~ &lt;h6>"></a><font color="#EE82EE" size="3">&lt;h1> ~ &lt;h6></font></h3><p>h， headline（大字标题）， 标题标签:大小 加粗 独占一行<br><br></p>
@@ -1124,13 +1022,13 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
 </ul>
 <h2 id="3-常用标签"><a href="#3-常用标签" class="headerlink" title="3. 常用标签"></a><font color="#FF69B4" size="3">3. 常用标签</font></h2><h3 id="lt-img"><a href="#lt-img" class="headerlink" title="&lt;img/>"></a><font color="#EE82EE" size="3">&lt;img/></font></h3><p>src: source 资源<br>alt: 占位内容<br>title: 图片标题<br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576671258400&di=c67c10ee234839ef15a434012913dbd3&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201504%2F25%2F20150425010441_mNRky.jpeg" style="width:30px;height:30px;"><br><br></p>
 <h3 id="lt-a-lt-a"><a href="#lt-a-lt-a" class="headerlink" title="&lt;a>&lt;/a>"></a><font color="#EE82EE" size="3">&lt;a>&lt;/a></font></h3><ul>
-<li><p>href : hyperText reference 超文本引用<br>1、URL（相对路径，绝对路径，链接）<a href="https://www.baidu.com" target="_blank" rel="noopener">baidu</a><br>2、锚点 <a href="#footer">↓</a><br>3、协议限定符&lt;a href=’javascript:alert(‘点就点’);console.log(‘123’);’ target = ‘_self’&gt;点我<br>4、tel &amp; mailTo  <a href="tel:123456" target="_blank" rel="noopener">123456</a>  <a href="mailto:123456@789.com" target="_blank" rel="noopener">123456@789.com</a></p>
+<li><p>href : hyperText reference 超文本引用<br>1、URL（相对路径，绝对路径，链接）<a href="https://www.baidu.com" target="_blank" rel="noopener">baidu</a><br>2、锚点 <a href="#footer">↓</a><br>3、协议限定符<a href="javascript:{alert('点就点');console.log('123');}" target="_self">点我</a><br>4、tel &amp; mailTo  <a href="tel:123456" target="_blank" rel="noopener">123456</a>  <a href="mailto:123456@789.com" target="_blank" rel="noopener">123456@789.com</a></p>
 </li>
 <li><p>target属性<br>_self（默认值）<br>_blank<br>_parent<br>_top</p>
 </li>
 </ul>
 <p><br></p>
-<h3 id="lt-ul-lt-li-lt-li-lt-ul"><a href="#lt-ul-lt-li-lt-li-lt-ul" class="headerlink" title="&lt;ul>&lt;li>&lt;/li>&lt;/ul>"></a><font color="#EE82EE" size="3">&lt;ul>&lt;li>&lt;/li>&lt;/ul></font></h3><p>ul: unordered lists 无序列表 ( <font color=" red">不赞成使用</font> type : disc square circle )<br>ol: ordered lists 有序列表 ( type    : 1  A   a     I   i ， strat : number ， reversed)<br>li: list item 列表项</p>
+<h3 id="lt-ul-lt-li-lt-li-lt-ul"><a href="#lt-ul-lt-li-lt-li-lt-ul" class="headerlink" title="&lt;ul>&lt;li>&lt;/li>&lt;/ul>"></a><font color="#EE82EE" size="3">&lt;ul>&lt;li>&lt;/li>&lt;/ul></font></h3><p>ul: unordered lists 无序列表 ( <font color=" red">不赞成使用</font> type : disc square circle )<br>ol: ordered lists 有序列表 ( type    : 1  A   a     I   i ， start : number ， reversed)<br>li: list item 列表项</p>
 <p><br></p>
 <h3 id="lt-table-lt-table"><a href="#lt-table-lt-table" class="headerlink" title="&lt;table>&lt;/table>"></a><font color="#EE82EE" size="3">&lt;table>&lt;/table></font></h3><blockquote>
 <p>&lt;table>&lt;tr>&lt;td>&lt;/td>&lt;/tr>&lt;/table><br>  简单的 HTML 表格由 table 元素以及一个或多个 tr、th 或 td 元素组成。<br>  tr 元素定义表格行，th 元素定义表头，td 元素定义表格单元。<br>  更复杂的HTML表格也可能包括 caption、col、colgroup、thead、tfoot以及 tbody 元素。</p>
@@ -1480,30 +1378,41 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
             <blockquote>
 <p>捷径 == 踏实的方法</p>
 </blockquote>
-<h1 id="第一章、-基础"><a href="#第一章、-基础" class="headerlink" title="第一章、 基础"></a><font color="#DC143C">第一章、 基础</font></h1><p><br><br><br><br><br><br><br></p>
-<h1 id="第二章、-工具"><a href="#第二章、-工具" class="headerlink" title="第二章、 工具"></a><font color="#DC143C">第二章、 工具</font></h1><h3 id="1、cookie"><a href="#1、cookie" class="headerlink" title="1、cookie"></a>1、cookie</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> <span class="keyword">function</span> setCookie(name: string, value: string): void &#123;</span><br><span class="line">  const now = new Date();</span><br><span class="line">  now.setDate(now.getDate() + (1000 * 60 * 60 * 24 * 30));</span><br><span class="line">  // tslint:<span class="built_in">disable</span>-next-line: no-console</span><br><span class="line">  console.log(<span class="string">'在设置cookie时新增了SameSite=Lax;在某些情况下可能有限制，关注'</span>);</span><br><span class="line">  const str = `<span class="variable">$&#123;name&#125;</span>=<span class="variable">$&#123;value&#125;</span>;expires=<span class="variable">$&#123;now.toUTCString()&#125;</span>;path=/;SameSite=Lax;`;</span><br><span class="line">  document.cookie = str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> <span class="keyword">function</span> getCookie(name: string) &#123;</span><br><span class="line">  <span class="built_in">let</span> start;</span><br><span class="line">  <span class="built_in">let</span> end;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (document.cookie.length &gt; 0) &#123;</span><br><span class="line">    start = document.cookie.indexOf(`<span class="variable">$&#123;name&#125;</span>=`);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (start !== -1) &#123;</span><br><span class="line">      start = start + name.length + 1;</span><br><span class="line">      end = document.cookie.indexOf(<span class="string">';'</span>, start);</span><br><span class="line">      <span class="keyword">if</span> (end === -1) &#123;</span><br><span class="line">        end = document.cookie.length;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">return</span> unescape(document.cookie.substring(start, end));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> <span class="string">''</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br><br><br><br><br><br><br></p>
+<h1 id="第一章、-基础"><a href="#第一章、-基础" class="headerlink" title="第一章、 基础"></a><font color="#DC143C">第一章、 基础</font></h1><p>111</p>
+<p><br><br><br><br><br><br><br><br><br></p>
+<h1 id="第二章、-工具"><a href="#第二章、-工具" class="headerlink" title="第二章、 工具"></a><font color="#DC143C">第二章、 工具</font></h1><h2 id="1、cookie"><a href="#1、cookie" class="headerlink" title="1、cookie"></a>1、cookie</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> <span class="keyword">function</span> setCookie(name: string, value: string): void &#123;</span><br><span class="line">  const now = new Date();</span><br><span class="line">  now.setDate(now.getDate() + (1000 * 60 * 60 * 24 * 30));</span><br><span class="line">  // tslint:<span class="built_in">disable</span>-next-line: no-console</span><br><span class="line">  console.log(<span class="string">'在设置cookie时新增了SameSite=Lax;在某些情况下可能有限制，关注'</span>);</span><br><span class="line">  const str = `<span class="variable">$&#123;name&#125;</span>=<span class="variable">$&#123;value&#125;</span>;expires=<span class="variable">$&#123;now.toUTCString()&#125;</span>;path=/;SameSite=Lax;`;</span><br><span class="line">  document.cookie = str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> <span class="keyword">function</span> getCookie(name: string) &#123;</span><br><span class="line">  <span class="built_in">let</span> start;</span><br><span class="line">  <span class="built_in">let</span> end;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (document.cookie.length &gt; 0) &#123;</span><br><span class="line">    start = document.cookie.indexOf(`<span class="variable">$&#123;name&#125;</span>=`);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (start !== -1) &#123;</span><br><span class="line">      start = start + name.length + 1;</span><br><span class="line">      end = document.cookie.indexOf(<span class="string">';'</span>, start);</span><br><span class="line">      <span class="keyword">if</span> (end === -1) &#123;</span><br><span class="line">        end = document.cookie.length;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">return</span> unescape(document.cookie.substring(start, end));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> <span class="string">''</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br><br><br><br><br><br><br><br><br></p>
 <h1 id="第三章、-框架"><a href="#第三章、-框架" class="headerlink" title="第三章、 框架"></a><font color="#DC143C">第三章、 框架</font></h1><h2 id="一、React"><a href="#一、React" class="headerlink" title="一、React"></a><font color="#FF69B4">一、React</font></h2><h3 id="1、SPA"><a href="#1、SPA" class="headerlink" title="1、SPA"></a>1、SPA</h3><p>SPA，single page web application，单页面应用。</p>
-<p>优点：</p>
-<ol>
-<li><strong>用户体验好</strong><br> 切换不用刷新页面，显示流畅</li>
-<li><strong>前后端职责分离，减轻服务器压力</strong><br> 因为服务器先将一份包含了静态资源、JavsScript和模板的静荷数据(payload)发送到了客户端，之后客户端只需要获取渲染页面或视图所需要的数据即可。payload就是起关键作用的资源）</li>
-</ol>
-<p>缺点：</p>
-<ol>
-<li><strong>首屏加载时间长</strong></li>
-<li><strong>SEO不友好</strong></li>
-<li><strong>前进、后退管理</strong><br>由于单页面应用在一个页面中显示所有的内容，所以不能使用浏览器的前进后退功能，所有的页面切换需要自己建立堆栈管理，当然此问题也有解决方案。这才说到了我们今天想说的重点，就是有关react-router中对于history的管理withRouter （v4） 和createBrowserHistory （v3） ↓↓↓。</li>
-</ol>
-<h3 id="2、withRouter和createBrowserHistory"><a href="#2、withRouter和createBrowserHistory" class="headerlink" title="2、withRouter和createBrowserHistory"></a>2、withRouter和createBrowserHistory</h3><h4 id="2-1-react-router-是建立在history之上的"><a href="#2-1-react-router-是建立在history之上的" class="headerlink" title="2.1 react-router 是建立在history之上的"></a><strong>2.1 react-router 是建立在history之上的</strong></h4><p>history是一个管理js应用session会话历史的js库。它将不同环境（浏览器，node…）的变量统一成了一个简易的API来管理历史堆栈、导航、确认跳转、以及sessions间的持续状态。</p>
+<blockquote>
+<p>优点：用户体验好（ 切换不用刷新页面，显示流畅 ）、前后端职责分离，减轻服务器压力<br>    因为服务器先将一份包含了静态资源、JavsScript和模板的静荷数据(payload)发送到了客户端，之后客户端只需要获取渲染页面或视图所需要的数据即可。payload就是起关键作用的资源）</p>
+</blockquote>
+<blockquote>
+<p>缺点：首屏加载时间长、 SEO不友好、 <strong>前进、后退管理</strong><br>由于单页面应用在一个页面中显示所有的内容，所以不能使用浏览器的前进后退功能，所有的页面切换需要自己建立堆栈管理，当然此问题也有解决方案。这才说到了我们今天想说的重点，就是有关react-router中对于history的管理withRouter （v4） 和createBrowserHistory （v3） ↓↓↓。</p>
+</blockquote>
+<h3 id="2、withRouter和createBrowserHistory"><a href="#2、withRouter和createBrowserHistory" class="headerlink" title="2、withRouter和createBrowserHistory"></a>2、withRouter和createBrowserHistory</h3><h4 id="2-1-react-router-是建立在history之上的"><a href="#2-1-react-router-是建立在history之上的" class="headerlink" title="2.1 react-router 是建立在history之上的"></a><strong>2.1 react-router 是建立在history之上的</strong></h4><blockquote>
+<p>history是一个管理js应用session会话历史的js库。它将不同环境（浏览器，node…）的变量统一成了一个简易的API来管理历史堆栈、导航、确认跳转、以及sessions间的持续状态。</p>
+</blockquote>
 <p>可以使用 history对象的方法来改变当前的location：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">push(location)</span><br><span class="line">replace(location)</span><br><span class="line">go(n)</span><br><span class="line">goBack()</span><br><span class="line">goForward()</span><br></pre></td></tr></table></figure></p>
 <p>location对象包括：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pathname      同window.location.pathname</span><br><span class="line">search        同window.location.search</span><br><span class="line">state         一个捆绑在这个地址上的object对象</span><br><span class="line">action        PUSH, REPLACE, 或者 POP中的一个</span><br><span class="line">key           唯一ID</span><br></pre></td></tr></table></figure></p>
-<p>常用的三种history：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// HTML5 <span class="built_in">history</span>, 推荐，Browser <span class="built_in">history</span> 是由 React Router 创建浏览器应用推荐的 <span class="built_in">history</span>。它使用 History API 在浏览器中被创建用于处理 URL，新建一个像这样真实的`URL example.com/some/path`</span><br><span class="line">import createHistory from <span class="string">'history/lib/createBrowserHistory'</span></span><br><span class="line"> </span><br><span class="line">// Hash <span class="built_in">history</span></span><br><span class="line">import createHistory from <span class="string">'history/lib/createHashHistory'</span></span><br><span class="line"> </span><br><span class="line">// 内存 <span class="built_in">history</span> （如：node环境）</span><br><span class="line">import createHistory from <span class="string">'history/lib/createMemoryHistory'</span></span><br></pre></td></tr></table></figure></p>
+<p>常用的三种history：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// HTML5 <span class="built_in">history</span>, 推荐，Browser <span class="built_in">history</span> 是由 React Router 创建浏览器应用推荐的 <span class="built_in">history</span>。它使用 History API 在浏览器中被创建用于处理 URL，新建一个像这样真实的`URL example.com/some/path`</span><br><span class="line">import createHistory from <span class="string">'history/lib/createBrowserHistory'</span></span><br><span class="line"></span><br><span class="line">// Hash <span class="built_in">history</span></span><br><span class="line">import createHistory from <span class="string">'history/lib/createHashHistory'</span></span><br><span class="line"></span><br><span class="line">// 内存 <span class="built_in">history</span> （如：node环境）</span><br><span class="line">import createHistory from <span class="string">'history/lib/createMemoryHistory'</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="2-2-createBrowserHistory"><a href="#2-2-createBrowserHistory" class="headerlink" title="2.2 createBrowserHistory"></a><strong>2.2 createBrowserHistory</strong></h4><p>当我们使用react-router v3的时候，想跳转路径，我们一般这样处理：从react-router导出browserHistory，使用browserHistory.push()等等方法操作路由跳转。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import createHistory from <span class="string">'history/createBrowserHistory'</span>;</span><br><span class="line">const <span class="built_in">history</span> = createHistory();</span><br><span class="line">const &#123; pathname &#125; = window.location;</span><br><span class="line">history.push(&#123;pathname:<span class="string">'/onTmsSystem/waybillManage/waybillPrint'</span>,state: &#123;waybill_id: 123&#125;,&#125;);</span><br><span class="line">或者直接history.push(<span class="string">'/homePage'</span>);也可以</span><br></pre></td></tr></table></figure></p>
-<h4 id="2-3-withRouter"><a href="#2-3-withRouter" class="headerlink" title="2.3 withRouter"></a><strong>2.3 withRouter</strong></h4><p>react-router v4 在 Router 组件中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import &#123; withRouter, RouteComponentProps &#125; from <span class="string">'react-router-dom'</span>;</span><br><span class="line"></span><br><span class="line">interface IProps extends RouteComponentProps&lt;any&gt; &#123; ... &#125;</span><br><span class="line"></span><br><span class="line">const DesensitizationButton = (props: IProps) =&gt; &#123;</span><br><span class="line">  const HandleDesensitizate = () =&gt; &#123;</span><br><span class="line">    const &#123; pathname &#125; = window.location;</span><br><span class="line">    props.history.push(pathname);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">return</span> (</span><br><span class="line">    &lt;div onClick = &#123; HandleDesensitizate &#125;&gt;显示敏感信息&lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default withRouter(DesensitizationButton);</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-3-withRouter"><a href="#2-3-withRouter" class="headerlink" title="2.3 withRouter"></a><strong>2.3 withRouter</strong></h4><p>react-router v4 在 Router 组件中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123; withRouter, RouteComponentProps &#125; from <span class="string">'react-router-dom'</span>;</span><br><span class="line"></span><br><span class="line">interface IProps extends RouteComponentProps&lt;any&gt; &#123; ... &#125;</span><br><span class="line">const DesensitizationButton = (props: IProps) =&gt; &#123;</span><br><span class="line">  const HandleDesensitizate = () =&gt; &#123;</span><br><span class="line">    const &#123; pathname &#125; = window.location;</span><br><span class="line">    props.history.push(pathname);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">return</span> &lt;div onClick = &#123; HandleDesensitizate &#125;&gt;显示敏感信息&lt;/div&gt;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">export</span> default withRouter(DesensitizationButton);</span><br></pre></td></tr></table></figure></p>
 <h4 id="2-4-新发现"><a href="#2-4-新发现" class="headerlink" title="2.4 新发现"></a><strong>2.4 新发现</strong></h4><p>我只用过createBrowserHistory和withRouter，遇到一个不同的问题:<br>push当前pathName，withRouter会立即执行。createBrowserHistory不会，可以history.goback一下(耍赖)。<br>2020.1.2 记录</p>
-<p><br><br><br><br><br><br><br></p>
-<h1 id="第四章、-综合"><a href="#第四章、-综合" class="headerlink" title="第四章、 综合"></a><font color="#DC143C">第四章、 综合</font></h1><h2 id="一、引入方式"><a href="#一、引入方式" class="headerlink" title="一、引入方式"></a><font color="#FF69B4">一、引入方式</font></h2><h1 id="2019-03"><a href="#2019-03" class="headerlink" title="2019/03"></a><font color="MediumSpringGreen">2019/03</font></h1><h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><ol>
+<h3 id="3、骨架屏"><a href="#3、骨架屏" class="headerlink" title="3、骨架屏"></a>3、骨架屏</h3><p>我们知道MPA和SPA，其中，大行其道的SPA有首屏渲染时间（FCP）慢的缺点。<br>首屏渲染时间(FCP)因为首屏需要请求更多内容，比原来多了更多HTTP的往返时间(RTT)，这造成了白屏，如果白屏时间过长，用户体验会大打折扣，如果用户网速差，则FCP会更长。<br>为了优化这个问题，前端想了很多办法：</p>
+<ul>
+<li><p>加速或减少HTTP请求损耗：使用CDN加载公用库，使用强缓存和协商缓存，使用域名收敛，小图片使用Base64代替，使用Get请求代替Post请求，设置 Access-Control-Max-Age 减少预检请求，页面内跳转其他域名或请求其他域名的资源时使用浏览器prefetch预解析等；</p>
+</li>
+<li><p>延迟加载：非重要的库、非首屏图片延迟加载，SPA的组件懒加载等；</p>
+</li>
+<li><p>减少请求内容的体积：开启服务器Gzip压缩，JS、CSS文件压缩合并，减少cookies大小，SSR直接输出渲染后的HTML等；</p>
+</li>
+<li><p>浏览器渲染原理：优化关键渲染路径，尽可能减少阻塞渲染的JS、CSS；</p>
+</li>
+<li><p>优化用户等待体验：白屏使用加载<strong>进度条</strong>、<strong>菊花图</strong>、<strong>骨架屏</strong>代替等；</p>
+</li>
+</ul>
+<p><br><br><br><br><br><br><br><br><br></p>
+<h1 id="第四章、-综合"><a href="#第四章、-综合" class="headerlink" title="第四章、 综合"></a><font color="#DC143C">第四章、 综合</font></h1><h2 id="一、"><a href="#一、" class="headerlink" title="一、"></a><font color="#FF69B4">一、</font></h2><h1 id="2019-03"><a href="#2019-03" class="headerlink" title="2019/03"></a><font color="MediumSpringGreen">2019/03</font></h1><h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><ol>
 <li>hexo修改默认端口<br>1) 本机的4000端口被占用了，用hexo s -p 80 ，可以暂时修改启动端口，但是每次启动都要执行这个命令，不方便。<br>2) 可以找到node_modules\hexo-server\index.js文件，直接修改默认的port值，一劳永逸。</li>
 </ol>
 <h2 id="世界充满爱"><a href="#世界充满爱" class="headerlink" title="世界充满爱 "></a>世界充满爱 <span class="jingHeart"></span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">  .heart&#123;</span><br><span class="line">      display:inline-block;</span><br><span class="line">      font-size:15px;</span><br><span class="line">      -webkit-transform-origin:center;</span><br><span class="line">      -ms-transform-origin:center;</span><br><span class="line">      transform-origin:center;</span><br><span class="line">      -webkit-animation-name:heart-slow;</span><br><span class="line">      -ms-animation-name:heart-slow;</span><br><span class="line">      animation-name:heart-slow;</span><br><span class="line">      -webkit-animation-duration:2s;</span><br><span class="line">      -ms-animation-duration:2s;</span><br><span class="line">      animation-duration:2s;</span><br><span class="line">      -webkit-animation-iteration-count:1;</span><br><span class="line">      -ms-animation-iteration-count:1;</span><br><span class="line">      animation-iteration-count:1;</span><br><span class="line">      -webkit-animation-timing-function:ease-in-out;</span><br><span class="line">      -ms-animation-timing-function:ease-in-out;</span><br><span class="line">      animation-timing-function:ease-in-out;</span><br><span class="line">  &#125;</span><br><span class="line">  .heart:after,.heart:before&#123;</span><br><span class="line">      content: <span class="string">''</span>;</span><br><span class="line">      width: inherit;</span><br><span class="line">      height: inherit;</span><br><span class="line">      background: inherit;</span><br><span class="line">      border-radius: 50%;</span><br><span class="line">      -webkit-border-radius: 50%;</span><br><span class="line">      -moz-border-radius: 50%;</span><br><span class="line">      position: fixed;</span><br><span class="line">  &#125;</span><br><span class="line">  .heart:after&#123;</span><br><span class="line">      top: -6px;</span><br><span class="line">  &#125;</span><br><span class="line">  .heart:before&#123;</span><br><span class="line">      left: -6px;</span><br><span class="line">  &#125;</span><br><span class="line">  @-webkit-keyframes heart-slow&#123;</span><br><span class="line">      0%&#123;</span><br><span class="line">          width: 12px;</span><br><span class="line">          height: 12px;</span><br><span class="line">          position: fixed;</span><br><span class="line">          transform: rotate(45deg);</span><br><span class="line">          -webkit-transform: rotate(45deg);</span><br><span class="line">          -moz-transform: rotate(45deg);</span><br><span class="line">          opacity: 1;</span><br><span class="line">          transform:translateY(0px) rotate(45deg);</span><br><span class="line">      &#125;</span><br><span class="line">      100%&#123;</span><br><span class="line">          width: 12px;</span><br><span class="line">          height: 12px;</span><br><span class="line">          position: absolute;</span><br><span class="line">          transform: rotate(45deg);</span><br><span class="line">          -webkit-transform: rotate(45deg);</span><br><span class="line">          -moz-transform: rotate(45deg);</span><br><span class="line">          opacity: 0;</span><br><span class="line">          transform:translateY(-40px) rotate(45deg);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  @keyframes heart-slow&#123;</span><br><span class="line">      0%&#123;</span><br><span class="line">          width: 12px;</span><br><span class="line">          height: 12px;</span><br><span class="line">          position: absolute;</span><br><span class="line">          transform: rotate(45deg);</span><br><span class="line">          -webkit-transform: rotate(45deg);</span><br><span class="line">          -moz-transform: rotate(45deg);</span><br><span class="line">          opacity: 1;</span><br><span class="line">          transform:translateY(0px) rotate(45deg);</span><br><span class="line">      &#125;</span><br><span class="line">      100%&#123;</span><br><span class="line">          width: 12px;</span><br><span class="line">          height: 12px;</span><br><span class="line">          position: absolute;</span><br><span class="line">          transform: rotate(45deg);</span><br><span class="line">          -webkit-transform: rotate(45deg);</span><br><span class="line">          -moz-transform: rotate(45deg);</span><br><span class="line">          opacity: 0;</span><br><span class="line">          transform:translateY(-40px) rotate(45deg);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    document.onclick = <span class="keyword">function</span>(e)&#123;</span><br><span class="line">        var heart = document.createElement(<span class="string">"div"</span>);</span><br><span class="line">        heart.className = <span class="string">"heart"</span>;</span><br><span class="line">        heart.style.background = <span class="string">"rgb("</span>+255*Math.random()+<span class="string">","</span>+255*Math.random()+<span class="string">","</span>+255*Math.random()+<span class="string">")"</span>;</span><br><span class="line">        document.body.appendChild(heart);</span><br><span class="line">        $(<span class="string">".heart"</span>).css(<span class="string">"top"</span>,e.clientY-10);</span><br><span class="line">        $(<span class="string">".heart"</span>).css(<span class="string">"left"</span>,e.clientX-1);</span><br><span class="line">        setTimeout(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            document.body.removeChild(heart);</span><br><span class="line">        &#125;,2000);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
@@ -1720,7 +1629,7 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
