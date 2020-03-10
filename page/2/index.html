@@ -261,12 +261,281 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lemon">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/background3.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冬至">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/29/js/" itemprop="url">js</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-29T17:09:29+08:00">
+                2019-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端-基础知识/" itemprop="url" rel="index">
+                    <span itemprop="name">前端 - 基础知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>JavaScript，前端三大基础语言之一</p>
+<h1 id="第一章、-JS基础"><a href="#第一章、-JS基础" class="headerlink" title="第一章、 JS基础"></a><font color="#DC143C">第一章、 JS基础</font></h1><h2 id="第一节、-基础概念"><a href="#第一节、-基础概念" class="headerlink" title="第一节、 基础概念"></a><font color="#FF69B4">第一节、 基础概念</font></h2><p><strong>javaScript是单线程 、解释性、兼容于ECMA标准的脚本语言</strong></p>
+<blockquote>
+<p>浏览器是由外壳（Shell）和内核（kernel）组成，最重要的是内核（解析页面）。<br>  渲染引擎（html、css）<br>  JS引擎（执行js代码），目前最快的是Chrome的V8引擎。<br>  其他模块</p>
+</blockquote>
+<ul>
+<li>编译性语言：C    C++<br>先把语言编译一遍，形成一个新的文件，再执行。<br>优点：执行速度快<br>缺点：跨平台性差</li>
+<li>解释性语言：js    php     python<br>不需要编译成文件，<br>优点：跨平台性好<br>缺点：执行速度慢</li>
+<li>java结合两者优点，效率折中，java通过javac编译成.class语言，在jvm(Java Virtual Machine，java虚拟机)中执行。</li>
+</ul>
+<blockquote>
+<p><strong>ECMA标准</strong> - 为了取得技术优势，微软推出JScript，CEnvi推出ScriptEase，与javaScript一样可在浏览器中运行。为了统一规格，javascript兼容于ECMA（European Computer Manufacturers Association，欧洲计算机制造联合会）标准，因此也称为ECMAScript。</p>
+</blockquote>
+<blockquote>
+<p>单线程<br>  js执行队列：js执行主线程 &lt;- task1,1ms &lt;- task2,2ms &lt;- task2,1ms &lt;- task1,1ms &lt;- task1,1ms</p>
+</blockquote>
+<h2 id="第二节、-ECMAScript"><a href="#第二节、-ECMAScript" class="headerlink" title="第二节、 ECMAScript"></a><font color="#FF69B4">第二节、 ECMAScript</font></h2><p>js三大部分：<br>  ECMAScript（描述了该语言和基本对象）<br>  DOM（文档对象模型，描述了处理网页内容的方法和接口）<br>  BOM（浏览器对象模型，描述与浏览器进行交互的方法和接口）</p>
+<h3 id="一-引入"><a href="#一-引入" class="headerlink" title="一.引入"></a>一.引入</h3><p>行间样式（不过一般都不这样写）<br>页面内嵌&lt;script>&lt;/script>标签<br>外部引入&lt;script src = ‘xxx’>&lt;/script><br>（为符合W3C标准：结构、样式、行为相分离，通常会采用外部引入）</p>
+<h3 id="二-js基本语法"><a href="#二-js基本语法" class="headerlink" title="二.js基本语法"></a>二.js基本语法</h3><p><strong>1. 变量（variable）</strong><br>  1) 变量声明<br>     声明、赋值分解<br>     单一var声明<br>  2）命名规则<br>     1、变量名只能以英文字母、 _ 、 $开头<br>     2、变量名可以包括英文字母、 _ 、 $和数字<br>     3、不可以用系统的关键字、保留字作为变量名</p>
+<blockquote>
+<p>关键字<br>    var void if else switch case default do while try catch throw for continue break return in  delete typeof instanceof new this with finally function</p>
+</blockquote>
+<blockquote>
+<p>保留字<br>    boolean const char byte double float int long short enum interface  static  private    protected package    public import class super extends throws debugger export implements abstract    final        goto    native     synchronized    transient volatile</p>
+</blockquote>
+<p><strong>2. 值类型</strong><br>  a. 不可改变的原始值（栈类型 stack）： number   string     Boolean    undefined    null<br>  b. 引用值（堆数据 heap）： function  object  array</p>
+<p><strong>3. js语法基本规则</strong><br>  语句后面用分号结束；<br>  书写格式要规范，“ + - = /”两边都应有空格；<br>  js语法错误会引发后续代码终止，但不会影响其他js代码块；</p>
+<p><strong>4. js运算符</strong><br>   运算操作符 </p>
+<pre><code>+                        1）数字运算，字符串连接   2）任何数据了诶性+字符串都等于字符串
+- * / % = ()             1）优先级“=”最弱  “()”较高
+++ -- += -= /= *= %=
+</code></pre><p>   比较运算符<br>            &gt; &lt; == &gt;= &lt;= != === !==  1）结果为boolean值<br>   逻辑运算符<br>            &amp;&amp; || ！ 1）结果为真实值<br>   被认定为false的值<br>            undefined null NaN ‘’ “” 0 false</p>
+<p>   思考：</p>
+<ol>
+<li><p>请问以下c的值分别是什么？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;            var a = 0;              var a = 1;</span><br><span class="line">var b = 2;            var b = 2;              var b = 0;</span><br><span class="line">var c = a &amp;&amp; b;       var c = a &amp;&amp; b;         var c = a &amp;&amp; b;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请问以下c的值分别是什么？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;            var a = 0;              var a = 1;</span><br><span class="line">var b = 2;            var b = 2;              var b = 0;</span><br><span class="line">var c = a || b;       var c = a || b;         var c = a || b;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请问以下结果分别是什么？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 0;                       var a = 0;             </span><br><span class="line">var b = 2;                       var b = 2;        </span><br><span class="line">a &lt; b &amp;&amp; document.write(b)       a &gt; b &amp;&amp; document.write(b)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请问以下结果分别是什么？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NaN == NaN  [] == []  undefined == undefined  undefined == null</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请问以下的值分别是什么？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = 1 + 1 + <span class="string">'aini'</span> + 1 + 1;</span><br><span class="line">var b = 1 + 1 + <span class="string">'aini'</span> + ( 1 + 1 );</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请问以下结果是什么？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 1 / 0;</span><br><span class="line">var b = 1 / 0;</span><br><span class="line">document.write(a - b);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请问以下结果分别是什么？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = 0;                          var a = 0;</span><br><span class="line">var b = 10;                         var b = 10;</span><br><span class="line">b += a++;                           b += ++a;</span><br><span class="line">document.write(b,a);                document.write(b,a);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请问以下结果分别是什么？<br>var a = ( 10 * 3 - 4 / 2 + 1 ) % 2,<br> b = 3;<br>b %= a;<br>document.write(a++, –b);</p>
+</li>
+<li>var a = 123; var b = 234;请交换a 和 b的值。</li>
+</ol>
+<p><strong>5. 条件语句</strong><br>  if 、 if else 、 if else if<br>  for 、 while 、do while<br>  switch  case default<br>  break 、 continue</p>
+<p><strong>6. 引用值</strong><br>1）数组<br>2）对象<br>  编程行驶的区别：面向过程、面向对象<br>3）函数</p>
+<h2 id="第三节-DOM"><a href="#第三节-DOM" class="headerlink" title="第三节. DOM"></a><font color="#FF69B4">第三节. DOM</font></h2><h2 id="第四节-BOM"><a href="#第四节-BOM" class="headerlink" title="第四节. BOM"></a><font color="#FF69B4">第四节. BOM</font></h2><h2 id="正则表达式-RegExp（Regular-Expression）"><a href="#正则表达式-RegExp（Regular-Expression）" class="headerlink" title="正则表达式 RegExp（Regular Expression）"></a><font face="楷体" color="red" size="5">正则表达式 RegExp（Regular Expression）</font></h2><p>正则表达式是匹配特殊字符或有特殊搭配原则的字符的最佳选择。</p>
+<h3 id="一、创建方式："><a href="#一、创建方式：" class="headerlink" title="一、创建方式："></a>一、创建方式：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;1.直接量 (个人推荐直接量)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如：var reg = /^\d | \d$/igm;<br>&nbsp;&nbsp;&nbsp;&nbsp;2.new RegExp();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如：var reg = new RegExp(‘/^\\d | \\d$/‘);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="楷体" color="blue">注：①js字符串不许出现回车符号，但是“\”代表转义字符。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如：var a = “aaa\<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bbb”;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这样就不会报错了。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;②“\”代表转义字符，“\\”代表\。“\n”代表换行</font></p>
+<h3 id="二、基本语法："><a href="#二、基本语法：" class="headerlink" title="二、基本语法："></a>二、基本语法：</h3><p>RegExp对象标识正则表达式，是对字符转执行 模式匹配 的强大工具。</p>
+<ol>
+<li><p>compile&nbsp;&nbsp;&nbsp; 编译正则表达式<br>exec &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 检索字符串中指定的值，返回找到的值，并确定其位置<br>test &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;检索字符串中指定的值，返回true或false <font color="red">例：reg.test(str)</font></p>
+</li>
+<li><p>i &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代表不区&nbsp;&nbsp;分 <font face="黑体" size="2"><strong>大小写</strong> </font> （执行对大小写不敏感的匹配）<font color="red">例：/[abc]/i</font><br>g &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代表 <font face="黑体" size="2"><strong>全局</strong> </font> 匹配(查找所有匹配，而非找到第一个匹配后停止)<br>m  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="黑体" size="2"><strong>多行</strong> </font> 匹配</p>
+</li>
+<li><p>支持正则表达式的String对象的方法：<br>search  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;检索与正则表达式相匹配的值<br>match &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;找到一个或多个正则表达式的匹配 <font color="red">例：str.match(reg)</font><br>replace &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;替换与正则表达式匹配的子串<br>split  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;把字符串分割为字符串数组</p>
+</li>
+<li><p><font color="red">[]</font> 查找某法范围内的字符<br>[abc]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找方括号之间的任何字符<br>[^abc]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找任何不在方括号之间的字符<br>[0-9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找任何从0到9之间的数字<br>[a-z]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找任何从小写a到小写z之间的字符<br>[A-Z]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找任何从大写A到大写Z之间的字符<br>[A-z]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找任何从大写A到小写z之间的字符<br>[adj]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找给定集合内的任何字符<br>[^dss]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找给定集合外的任何字符<br>(red|green|blue) 查找任何指定的选项</p>
+</li>
+<li><p><font color="red">元字符</font> （Metacharacter）是有特殊含义的字符，简化操作。<br>. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找单个字符，除了换行和行结束符<br>\w &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找单词字符<br>\W &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查找非单词字符<br>\d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找数字字符<br>\D &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找非数字字符<br>\s &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找空白字符<br>\S &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查号非空白字符<br>\b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查找单词边界<br>\B &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查找非单词边界<br>\O &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找NUL字符<br>\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查找换行符<br>\f &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查找换页符<br>\r &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查找回车符<br>\t &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查找制表符<br>\v &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找垂直制表符<br>\xxx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找以八进制数xxx规定的字符<br>\xdd &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找以十六进制数dd规定的字符<br>\uxxx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找以十六极致xxxx规定的Unicode字符</p>
+</li>
+<li><p>正则匹配原则（贪心匹配原则） <font color="red">量词</font><br>n+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配任何包含至少一个n的字符串<br>n*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 匹配任何包含零个或多个n的字符串<br>n?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 匹配任何包含零个或一个n的字符串<br>n{x}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配包含x个n的序列的字符串<br>n{x,y}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配包含x至y个n的序列的字符串<br>n{x,}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 匹配包含至少x个n的字符串<br>n$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配任何结尾为n的字符串<br>^n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配任何开头为n的字符串<br>?=n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配任何其后紧接指定字符串n的字符串<br>?!n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配任何其后紧接非指定字符串n的字符串</p>
+</li>
+<li><p>RegExp对象属性<br>ignoreCase&nbsp;&nbsp;&nbsp;&nbsp;RegExp对象是否具有标志i<br>global&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RegExp对象是否具有标志g<br>multiline&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RegExp对象是否具有标志m<br>lastIndex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一个整数，表示开始下一次匹配的字符位置<br>source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;正则表达式的原文本</p>
+</li>
+</ol>
+<h3 id="三、进阶"><a href="#三、进阶" class="headerlink" title="三、进阶"></a>三、进阶</h3><ol>
+<li>\2、\1 <font color="red">反向子表达式引用</font></li>
+<li>正向预查功能 ?=<br>(?: )不记录该子表达式的内容 </li>
+</ol>
+<h2 id="BOM-Browser-Object-Model-浏览器对象模型"><a href="#BOM-Browser-Object-Model-浏览器对象模型" class="headerlink" title="BOM ( Browser Object Model , 浏览器对象模型 )"></a><font face="楷体" color="red" size="5">BOM ( Browser Object Model , 浏览器对象模型 )</font></h2><h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><ol>
+<li>定义：Browser Object Model（浏览器对象模型）</li>
+<li>BOM对象：window、history、Nacigator、screen、location等<br>&nbsp;<font color="blue" face="楷体">注：由于浏览器厂商不同，BOM对象的兼容性极低，所以一般，我们只用其中的部分功能。</font></li>
+</ol>
+<h3 id="二、BOM对象"><a href="#二、BOM对象" class="headerlink" title="二、BOM对象"></a>二、BOM对象</h3><ol>
+<li><font color="red" face="楷体" size="3">window对象</font><br>1) window对象代表浏览器中打开的窗口。 如果文档中包含框架（frame或ifram标签），浏览器会为文档创建一个window对象，并为每个框架创建一个额外的window对象<br>&nbsp;<font color="blue" face="楷体">注：没有应用于window对象的公开标准，不过所有路蓝旗都支持该对象</font><br>2) window对象集合：frames[]<br>返回窗口中所有命名的框架，该集合是window对象的数组，每个window对象若窗口中含有一个框架或&lt;iframe&gt;,属性frames。length存放数组frames[]中含有的元素个数。<br>&nbsp;<font color="blue" face="楷体">注：frames[]数组中引用的框架可能还包含框架，它们自己也具有frames[]数组</font><br>3) window对象的属性<br>closed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回窗口是否已被关闭<br>defaultStatus 设置或返回窗口状态栏中的默认文本<br>document&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对Document对象的只读引用，请参阅Document对象<br>history&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对History对象的只读引用，请参阅History对象<br>location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用于窗口或框架的Location对象，请参阅Location对象<br>Navigator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对Navigator对象的只读引用，请参阅Navigator对象<br>Screen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对Screen对象的只读引用，请参阅Screen对象<br>innerheight&nbsp;&nbsp;&nbsp;&nbsp;返回窗口文档显示区的高度<br>innerwidth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回窗口文档显示区的宽度<br>length&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回窗口中的框架数量<br>name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回窗口的名称<br>opener&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回对创建此窗口的窗口引用<br>outerheight&nbsp;&nbsp;&nbsp;&nbsp;返回窗口的外部高度（IE不支持）<br>outerwidth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回窗口的外部宽度（IE不支持）<br>pageXOffset&nbsp;&nbsp;&nbsp;设置或返回当前页面相对于窗口显示区左上角的x位置<br>pageYOffset&nbsp;&nbsp;&nbsp;设置或返回当前页面相对于窗口显示区左上角的y位置<br>parent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回父窗口<br>window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window属性等价于self属性，它包含了对窗口自身的引用<br>self&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回当前窗口的引用，等价于window属性<br>status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置窗口状态栏的文本<br>top&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回最顶层的先辈窗口<br>screenLeft&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;只读整数，声明了窗口的左上角在屏幕上的x坐标和y坐标<br>screenTop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IE、Safari和Opera支持screenLeft和screenTop<br>screenX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;只读整数，声明了窗口的左上角在屏幕上的x坐标和y坐标<br>screenY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FireFox和Safari支持screenX和screenY<br>4) window对象的方法<br>alert()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;显示带有一段消息和一个确认按钮的警告框<br>confirm()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;显示带有一段消息以及确认按钮和去取消按钮的对话框<br>createPopup() 创建一个pop-up窗口<br>print()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打印当前窗口的内容<br>prompt()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;显示可提示用户输入的对话框<br>blur()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可把键盘焦点从顶层浏览器窗口移走<br>focus()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;把键盘焦点给予一个窗口<br>setInterval()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按照指定的周期（以毫秒计算）来调用函数或计算表达式<br>setTimeout()&nbsp;&nbsp;&nbsp;&nbsp;在指定的好描述后调用函数或计算表达式<br>clearInterval()&nbsp;&nbsp; 取消由setInterval()设置的timeout<br>clearTimeout()&nbsp; 取消由setTimeout()设置的timeout<br>open()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打开一个新浏览器窗口<br>close()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关闭浏览器窗口<br>scrollBy()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按照指定的像素值来滚动内容<br>scrollTo()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;把内容滚动到指定的坐标<br>moveBy()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可相对窗口的当前坐标吧它移动到一个指定的像素<br>moveTo()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;把窗口的左上角移动到指定位置<br>resizeBy()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按照指定的像素调整窗口的大小<br>resizeTo()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;把窗口的大小调整到指定的宽度和高度</li>
+<li><font color="red" face="楷体" size="3">Navigator对象</font><br>1）包含有关浏览器的信息。<font face="楷体" color="blue">没有应用于Navigator对象的公开标准，不过所有浏览器都支持此对象</font><br>2) Navigator对象集合：plugins[]，返回对文档中所有嵌入式对象的引用该集合是一个Plugin对象的数组。其中的元素代表浏览器已经安装的插件，Plugin对象提供的是有关插件的信息。其中包括它所支持的MIME类型的列表。虽然plugins数组是由IE4定义的，但是在IE4中它却总是空的，因为IE4不支持插件和Plugin对象。<br>3） Navigator对象属性<br>appCodeName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回浏览器的代码名<br>appMinorVersion&nbsp;返回浏览器的次级版本<br>appName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回浏览器名称<br>appVersion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 返回浏览器的平台和版本信息<br>browserLanguage&nbsp;返回当前浏览器的语言<br>cookieEnabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回指明浏览器中是否启用cookie的布尔值<br>cpuClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回浏览器系统的CPU等级<br>onLine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回指明系统是否处于脱机模式的布尔值<br>platform&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回运行浏览器的操作系统平台<br>systemLanguage&nbsp;&nbsp;&nbsp;返回OS使用的默认语言<br>userLanguage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回由客户机发送服务器的user-agent头部的值<br>4）Navigator对象方法<br>javaEnabled()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;规定浏览器是否启用java<br>taintEnabled()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;规定浏览器是否启用数据污点(data tainting)</li>
+<li><font color="red" face="楷体" size="3">Screen对象</font><br>Screen对象包含有瓜客户端显示屏幕的信息。</li>
+<li><font color="red" face="楷体" size="3">History对象</font><br>1） History对象包含用户（在浏览器窗口中）访问过的URL，是window对象的一部分。可通过window.history属性进行访问。<font color="blue" face="楷体">注：没有应用于History对象的公开标准，不过所有浏览器都支持它。</font><br>2） History对象属性<br>length&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回浏览器历史列表中的数量<br>3） History对象方法<br>back()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加载history列表中的前一个URL<br>forward()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加载history列表中的下一个URL<br>go()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加载history列表中的某个具体页面</li>
+<li><font color="red" face="楷体" size="3">Location对象</font><br>1） Location对象包含有关当前URL的信息，是window对象的一部分，可通过window.location属性来访问<br>2） Location对象属性<br>hash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回从#号（#）开始的URL（锚）<br>host&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回主机名和当前URL的端口号<br>hostname&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回当前URL的主机名<br>href&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回完整的URL<br>pathname&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回当前URL的路径部分<br>port&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回当前URL的端口号<br>protocol&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回当前URL的协议<br>search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回从问好（?）开始的URL（查询部分）<br>3）Location对象方法<br>assign()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加载新的文档<br>reload()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重新加载当前文档<br>replace()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用新的文档替换当前文档<br><div class="border1">URL：<a href="https://www.baidu.com/s?ie-utf-88&amp;f=3&amp;rsv_bp=1" target="_blank" rel="noopener">https://www.baidu.com/s?ie-utf-88&amp;f=3&amp;rsv_bp=1</a><br><font color="red" face="楷体">资源定位符：</font>协议名(https)&nbsp;&nbsp;主机名(域名 <a href="http://www.baidu.com&nbsp;&nbsp;路径(/s)&nbsp;&nbsp;参数名=参数值(ie-utf-88)" target="_blank" rel="noopener">www.baidu.com&nbsp;&nbsp;路径(/s)&nbsp;&nbsp;参数名=参数值(ie-utf-88)</a><br></div><font color="blue" face="楷体">DNS -&gt; ID -&gt; 服务端 -&gt; 客户端</font>
+
+</li>
+</ol>
+<h2 id="json"><a href="#json" class="headerlink" title="json"></a><font face="楷体" color="red" size="5">json</font></h2><p>json是一种传输数据的格式（以对象为模板，本质上就是对象，但用途有区别。对象就是本地使用的数据类型，json是用来传输数据的数据类型）</p>
+<div class="border1"><font color="red" face="楷体">JSON.parse();</font>string -&gt; json<br><font color="red" face="楷体">JSON.stringgify();</font>json -&gt; string</div>
+
+<h2 id="异步加载js"><a href="#异步加载js" class="headerlink" title="异步加载js"></a><font face="楷体" color="red" size="5">异步加载js</font></h2><h3 id="一、js同步加载"><a href="#一、js同步加载" class="headerlink" title="一、js同步加载"></a>一、js同步加载</h3><ol>
+<li>js加载的缺点：加载工具方法没必要阻塞文档，使得js加载会影响页面效率，一旦网速不好，那么挣个网站将等待js加载而不进行后续渲染等工作。</li>
+<li>js加载不能满足的需求：有些工具方法需要按需加载，用到时再加载，不用时不加载。</li>
+<li>页面解析：加载一行，解析一行，遇到<link>标签，开启一个新线程，异步加载css。<h3 id="二、js异步加载"><a href="#二、js异步加载" class="headerlink" title="二、js异步加载"></a>二、js异步加载</h3></li>
+<li>javascript异步加载的三种方案：<br>1） defer异步加载，但要等到dom文档全部解析完才会被执行（只有IE能用。<font color="blue">执行时不阻塞页面</font>）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">".../xxx.js"</span> defer/async&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2） async异步加载，加载完就执行（async只能加载外部脚本，不能将js写在script标签里，w3c标准。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">执行时不阻塞页面</font>）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3） 创建script，插入到DOM中，onload，兼容，加载完毕后callBack。( <font color="red"> * 按需加载 * </font> ）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var cb = &#123;</span><br><span class="line">        <span class="built_in">test</span>:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            console.log(<span class="string">"回调函数"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">function</span> loadScript(url,callback)&#123;</span><br><span class="line">        var oScript = docuemnt.createElement(<span class="string">'script'</span>);</span><br><span class="line">        oScript.src=url;</span><br><span class="line">        <span class="keyword">if</span>(oScript.readyState)&#123;</span><br><span class="line">            oScript.onreadystatechange = <span class="function"><span class="title">function</span></span>()&#123;//IE</span><br><span class="line">                <span class="keyword">if</span>(oScript.readyState == <span class="string">'complete'</span> || oScript.readyState == <span class="string">'loaded'</span>)&#123;</span><br><span class="line">                    oScript.onreadystatechange = null;</span><br><span class="line">                    cb[callback]();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            oScript.onload = <span class="function"><span class="title">function</span></span>()&#123;//非IE</span><br><span class="line">                oScript.onload = null;</span><br><span class="line">                cb[callback]();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        document.body.appendChild(oScript);</span><br><span class="line">    &#125;</span><br><span class="line">    loadScript(<span class="string">"xxx.js"</span>,<span class="string">"test"</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="js加载时间线"><a href="#js加载时间线" class="headerlink" title="js加载时间线"></a><font face="楷体" color="red" size="5">js加载时间线</font></h2><p>js时间线：</p>
+<ol>
+<li>创建Document对象，开始解析页面。解析HTML元素和他们的文本内容后，添加Element对象和Text节点到文档中，这个阶段document.readyState = ‘loading’。</li>
+<li>遇到link外部css，创建线程加载，并继续解析文档。</li>
+<li>遇到script外部js并且没有设置defer或async，浏览器加载并阻塞，等待js加载完成并执行该脚本后，继续解析文档。</li>
+<li>遇到script外部js并且有设置defer或async，浏览器常见线程加载，并继续解析文档。对于async属性，脚本加载完成后立即执行（异步禁止使用document.write）</li>
+<li>遇到img等，先正常解析dom结构，然后浏览器开始加载src，并继续解析文档。</li>
+<li>当文档解析完成，document.readyState=’interactive’（document.onreadystatechange）</li>
+<li>文档解析完成后，所有设置有defer的脚本会按照顺序执行（注：与async不同，但同样禁止document.write）</li>
+<li>document对象触发DOMContentloaded事件，这也标志着程序执行从同步脚本执行阶段，转换为事件驱动阶段（document.addEventListener）</li>
+<li>当所有async的脚本加载完成并执行后、img等加载完成后，docuemnt.readyState = ‘complete’，window对象触发load事件。</li>
+<li>从此，以异步响应方式处理用户输入，网络事件等。<br><font color="red">docuemnt.write()能清除文档流，故异步加载禁止使用document.write()</font><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    console.log(<span class="string">"1.开始解析页面，document.readyState的值为"</span>,document.readyState,<span class="string">", 2 3 4 5 解析html,css,js,img等"</span>);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    document.addEventListener(<span class="string">'DOMContentLoaded'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        console.log(<span class="string">"8. document对象触发DOMContentloaded事件，这也标志着程序执行从同步脚本执行阶段，转换为事件驱动阶段（document.addEventListener）"</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    document.onreadystatechange = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        <span class="keyword">if</span>(document.readyState == <span class="string">"interactive"</span>)&#123;</span><br><span class="line">            console.log(<span class="string">"6.当页面解析完成后，onreadystatechange事件中document.readyState变为"</span>,document.readyState,<span class="string">"，7.defer执行"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(document.readyState == <span class="string">"complete"</span>)&#123;</span><br><span class="line">            console.log(<span class="string">"9.onreadystatechange事件中document.readyState变为"</span>,document.readyState);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    document.addEventListener(<span class="string">'DOMContentLoaded'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        console.log(<span class="string">"8. document对象触发DOMContentloaded事件，这也标志着程序执行从同步脚本执行阶段，转换为事件驱动阶段（document.addEventListener）"</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    window.onload = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        console.log(<span class="string">"9.window对象触发load事件"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(<span class="string">"1.开始解析页面，document.readyState的值为"</span>,document.readyState,<span class="string">", 2 3 4 5 解析html,css,js,img等"</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="零散知识点"><a href="#零散知识点" class="headerlink" title="零散知识点"></a><font face="楷体" color="red" size="5">零散知识点</font></h2><h3 id="一、DOCTYPE"><a href="#一、DOCTYPE" class="headerlink" title="一、DOCTYPE"></a>一、DOCTYPE</h3><ol>
+<li>渲染模式：标准模式、混杂模式（怪异模式）</li>
+<li>三种标准模式的写法：<br>1） &lt;!DOCTYPE html&gt;<br>2)  &lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01//EN” “<a href="http://www.w3.org/TR/html4/strict.dtd&quot;&gt;" target="_blank" rel="noopener">http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</a><br>3） &lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN”<br>“<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;" target="_blank" rel="noopener">http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</a></li>
+</ol>
+<h3 id="二、for属性-gt-js中表示htmlFor"><a href="#二、for属性-gt-js中表示htmlFor" class="headerlink" title="二、for属性 -&gt; js中表示htmlFor"></a>二、<label>for属性 -&gt; js中表示htmlFor</label></h3><p>属性映射HTML属性，映射到Element属性<br>img图片预加载<br>byClassName自己定义的写法<br>Math.random和彩票程序（0-36的随机数）</p>
+<h3 id="三、文档碎片"><a href="#三、文档碎片" class="headerlink" title="三、文档碎片"></a>三、文档碎片</h3><p>CDN<br>断电调试<br>typeof(new Array).<strong>proto</strong>.constructor();<br>forEach里不能用break</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/css/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lemon">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/background22.jpg">
+      <meta itemprop="image" content="/images/background3.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -696,7 +965,22 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
 <table class="textCenter"><tr><td><strong>属性</strong></td><td><strong>值</strong></td><td>Min/Max</td><td>描述</td></tr><tr><td>color</td><td>整数</td><td>yes</td><td>每种色彩的字节数</td></tr><tr><td>color-index</td><td>整数</td><td>yes</td><td>色彩表中的色彩数</td></tr><tr><td>device-aspect-ratio</td><td>整/整</td><td>yes</td><td>宽高比例</td></tr><tr><td>device-height</td><td>length</td><td>yes</td><td>设备屏幕的输出高度</td></tr><tr><td>device-width</td><td>length</td><td>yes</td><td>设备屏幕的输出宽度</td></tr><tr><td>grid</td><td>整数</td><td>no</td><td>是否是基于格栅的设备</td></tr><tr><td>height</td><td>length</td><td>yes</td><td>渲染界面的高度</td></tr><tr><td>monochrome</td><td>整数</td><td>yes</td><td>单色帧缓冲器中每像素字</td></tr><tr><td>resolution</td><td>分辨率</td><td>dpi/dpcm</td><td>分辨率</td></tr><tr><td>scan</td><td>Progressive</td><td>interlaced</td><td>tv媒体类型的扫描方式</td></tr><tr><td>width</td><td>length</td><td>yes</td><td>渲染界面的宽度</td></tr><tr><td>orientation</td><td>Portrait/landscape</td><td>no</td><td>横屏或竖屏</td></tr></table>                                      
 
 <h3 id="2-物理像素和设备独立像素"><a href="#2-物理像素和设备独立像素" class="headerlink" title="2. 物理像素和设备独立像素"></a><font color="#EE82EE">2. 物理像素和设备独立像素</font></h3><p><strong>设备像素又称物理像素（physical pixel）</strong>，设备能控制显示的最小单位。<br><strong>设备独立像素（Device Pixel）：</strong>(也叫密度无关像素)，代表一个可以由程序使用并控制的虚拟像素，然后由相关系统转换为物理像素。<br><strong>CSS像素</strong>是pixel，是编程用的单位，是实际不存在的。<br><strong>DPR(DevicePixelRatio，设备像素比)</strong> = 物理（设备）像素 / 设备独立像素 ；<br>以iphone6为例：<br>DPR是2，也就是2^2=4个物理像素对应1个设备独立像素，也就是1px对应4个物理像素。</p>
-
+<h1 id="三、-interview"><a href="#三、-interview" class="headerlink" title="三、 interview"></a><font color="#DC143C">三、 interview</font></h1><h2 id="1、块级元素和内联元素的区别？"><a href="#1、块级元素和内联元素的区别？" class="headerlink" title="1、块级元素和内联元素的区别？"></a>1、块级元素和内联元素的区别？</h2><ul>
+<li><p>常见的块元素：div、p、h1 ~ h6、form、table、ul、ol、hr、address<br>常见的内联元素：span、a、em、img、input、i、br - 换行</p>
+</li>
+<li><p>块级元素和内联元素之间的转换：<br>1.display<br>display:none; 不显示该元素，也不会保留该元素原先占有的文档流位置。<br>display:block; 块级元素。display:inline; 行内元素。display:inline-block; 行内块级元素。<br>2.float<br>当把行内元素设置完float:left/right后，该行内元素的display属性会被赋予block值，且拥有浮动特性。行内元素去除了之间的莫名空白。<br>3.position<br>当为行内元素进行定位时，position:absolute与position:fixed.都会使得原先的行内元素变为块级元素。</p>
+</li>
+</ul>
+<h2 id="2、css选择器的优先级"><a href="#2、css选择器的优先级" class="headerlink" title="2、css选择器的优先级"></a>2、css选择器的优先级</h2><pre><code>1、位于&lt;head/&gt;标签里的&lt;style/&gt;中所定义的CSS拥有最高级的优先权。
+</code></pre><p>  　2、第二级的优先属性由位于<style>标签中的 @import 引入样式表所定义。<br>  　3、第三级的优先属性由<link/>标签所引入的样式表定义。<br>  　4、第四级的优先属性由<link/>标签所引入的样式表内的 @import 导入样式表定义。<br>  　5、第五级优先的样式有用户设定。<br>  　最低级的优先权由浏览器默认。 </p>
+<pre><code>- 选择器的权重问题: 
+      // !important ---------&gt;   无穷
+      // 行间样式-------------&gt;   1000
+      // id------------------&gt;   100
+      // class|属性|伪类------&gt;   10
+      // 标签|伪元素 ---------&gt;    1
+      // 通配符---------------&gt;   0
+</code></pre></style></p>
           
         
       
@@ -749,7 +1033,7 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lemon">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/background22.jpg">
+      <meta itemprop="image" content="/images/background3.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -907,7 +1191,7 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lemon">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/background22.jpg">
+      <meta itemprop="image" content="/images/background3.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1004,52 +1288,46 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
 <blockquote>
 <p>lang属性：告诉搜索引擎爬虫，我们的网站是什么语言的。如：中文zh，英文en，德文de，法文fr等。<br>  SEO 搜索引擎优化</p>
 </blockquote>
-<p><br></p>
 <h3 id="lt-meta"><a href="#lt-meta" class="headerlink" title="&lt;meta/>"></a><font color="#EE82EE" size="3">&lt;meta/></font></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset = <span class="string">'UTF-8'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'keywords'</span> content = <span class="string">'淘宝,掏宝,网上购物,C2C,在线交易,交易市场,网上交易,交易市场,网上买,网上卖,购物网站,团购,网上贸易,安全购物,电子商务,放心买,供应,买卖信息,网店,一口价,拍卖,网上开店,网络购物,打折,免费开店,网购,频道,店铺'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'description'</span> content = <span class="string">'淘宝网 - 亚洲较大的网上交易平台，提供各类服饰、美容、家居、数码、话费/点卡充值… 数亿优质商品，同时提供担保交易(先收货后付款)等安全交易保障服务，并由商家提供退货承诺、破损补寄等消费者保障服务，让你安心享受网上购物乐趣！'</span>&gt;</span><br><span class="line">&lt;meta http-equiv = <span class="string">'cache-control'</span> content = <span class="string">'no-cache'</span>&gt;</span><br><span class="line">&lt;meta http-equiv = <span class="string">'expires'</span> content = <span class="string">'0'</span>&gt;</span><br><span class="line">&lt;meta http-equiv = <span class="string">'pragma'</span> content = <span class="string">'no-cache'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'viewport'</span> content = <span class="string">'width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no, viewport-fit=cover'</span>&gt;</span><br><span class="line">&lt;meta http-equiv = <span class="string">'X-UA-Compatible'</span> content = <span class="string">'IE=edge,chrome=1'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'HandheldFriendly'</span> content = <span class="string">'true'</span>&gt;</span><br><span class="line">&lt;meta name = <span class="string">'format-detection'</span> content = <span class="string">'telephone=no,email=no'</span>&gt;</span><br></pre></td></tr></table></figure>
-<p><font size="1"> 1.charset字符集，现在一般都用UTF-8，以前还有gb2312，gbk，unicode等。<br>  2.keywords网站的关键字，便于网络爬虫检索。<br>  3.description描述，同上。<br>  4.cache-control缓存控制，content的值可以是：Public 、 Private 、 no-Cache 、 no-Store。<br>  5.expires期限，用于设定网页的到期时间。一旦网页过期，必须到服务器上重新传输。<br>  6.pragma编译，用于设定禁止浏览器从本地机的缓存中调阅页面内容，设定后一旦离开网页就无法从Cache中再调出。<br>  7.viewport视口，宽度等于设备宽度，初始视角是1倍视角，最大视角是1倍视角，最小视角是1倍视角，用户是否可以伸缩网页不可以，视角尺寸是覆盖。<br>  8.X-UA-Compatible兼容IE，如果IE有安装Google Chrome Frame，那么就走安装的组件，如果没有，Edge 模式通知 Windows Internet Explorer以最高级别的可用模式显示内容。<br>  9.HandheldFriendly手持式友好，针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓<br>  10.format-detection格式监测，禁止将页面中的一连串数字识别为电话号码并设置为手机可拨打的链接。告诉设备不识别邮箱，点击之后不自动发送。</font><br>  &lt;meta/>标签，还有更多设置，需要时可以进一步探索~<br><br></p>
-<h3 id="lt-title-lt-title"><a href="#lt-title-lt-title" class="headerlink" title="&lt;title>&lt;/title>"></a><font color="#EE82EE" size="3">&lt;title>&lt;/title></font></h3><p>title是标题的意思。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;title&gt;&lt;i&gt;&lt;/i&gt;淘宝网，淘我喜欢&lt;/title&gt;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="lt-h1-lt-h6"><a href="#lt-h1-lt-h6" class="headerlink" title="&lt;h1> ~ &lt;h6>"></a><font color="#EE82EE" size="3">&lt;h1> ~ &lt;h6></font></h3><p>h， headline（大字标题）， 标题标签:大小 加粗 独占一行<br><br></p>
-<h3 id="lt-p-lt-p"><a href="#lt-p-lt-p" class="headerlink" title="&lt;p>&lt;/p>"></a><font color="#EE82EE" size="3">&lt;p>&lt;/p></font></h3><p>p, paragraph（段落），段落标签：成段展示，独占一行<br><br></p>
-<h3 id="结构化标签"><a href="#结构化标签" class="headerlink" title="结构化标签"></a><font color="#EE82EE" size="3">结构化标签</font></h3><p>&lt;span>&lt;/span>     </p>
-<p>&lt;div>&lt;/div><br><br></p>
-<h3 id="HTML编码"><a href="#HTML编码" class="headerlink" title="HTML编码"></a><font color="#EE82EE" size="3">HTML编码</font></h3><p>文字分隔符  &amp;nbsp ;<br>小于号    &amp;lt ;<br>大于号    &amp;gt ;<br>换行     &lt;br/&gt;<br>水平线   &lt;hr/&gt;<br><br></p>
-<h3 id="不建议使用的标签"><a href="#不建议使用的标签" class="headerlink" title="不建议使用的标签"></a><font color="#EE82EE" size="3">不建议使用的标签</font></h3><p>&lt;strong>&lt; /strong&gt;加粗标签<br>&lt;em>&lt; /em&gt;斜体标签</p>
-<p>&lt;address>&lt; /address&gt;地址标签<br>&lt;del>&lt; /del&gt;中划线（删除）标签</p>
+<p><font size="1"> 1.charset字符集，现在一般都用UTF-8，以前还有gb2312，gbk，unicode等。<br>  2.keywords网站的关键字，便于网络爬虫检索。<br>  3.description描述，同上。<br>  4.cache-control缓存控制，content的值可以是：Public 、 Private 、 no-Cache 、 no-Store。<br>  5.expires期限，用于设定网页的到期时间。一旦网页过期，必须到服务器上重新传输。<br>  6.pragma编译，用于设定禁止浏览器从本地机的缓存中调阅页面内容，设定后一旦离开网页就无法从Cache中再调出。<br>  7.viewport视口，宽度等于设备宽度，初始视角是1倍视角，最大视角是1倍视角，最小视角是1倍视角，用户是否可以伸缩网页不可以，视角尺寸是覆盖。<br>  8.X-UA-Compatible兼容IE，如果IE有安装Google Chrome Frame，那么就走安装的组件，如果没有，Edge 模式通知 Windows Internet Explorer以最高级别的可用模式显示内容。<br>  9.HandheldFriendly手持式友好，针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓<br>  10.format-detection格式监测，禁止将页面中的一连串数字识别为电话号码并设置为手机可拨打的链接。告诉设备不识别邮箱，点击之后不自动发送。</font><br>  &lt;meta/>标签，还有更多设置，需要时可以进一步探索~</p>
+<h3 id="lt-title-lt-title"><a href="#lt-title-lt-title" class="headerlink" title="&lt;title>&lt;/title>"></a><font color="#EE82EE" size="3">&lt;title>&lt;/title></font></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;title&gt;&lt;i&gt;&lt;/i&gt;淘宝网，淘我喜欢&lt;/title&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="lt-h1-lt-h6"><a href="#lt-h1-lt-h6" class="headerlink" title="&lt;h1> ~ &lt;h6>"></a><font color="#EE82EE" size="3">&lt;h1> ~ &lt;h6></font></h3><p>h， headline（大字标题）， 标题标签:大小 加粗 独占一行</p>
+<h3 id="lt-p-lt-p"><a href="#lt-p-lt-p" class="headerlink" title="&lt;p>&lt;/p>"></a><font color="#EE82EE" size="3">&lt;p>&lt;/p></font></h3><p>p, paragraph（段落），段落标签：成段展示，独占一行</p>
+<h3 id="结构化标签"><a href="#结构化标签" class="headerlink" title="结构化标签"></a><font color="#EE82EE" size="3">结构化标签</font></h3><p>&lt;span>&lt;/span>     &lt;div>&lt;/div></p>
+<h3 id="HTML编码"><a href="#HTML编码" class="headerlink" title="HTML编码"></a><font color="#EE82EE" size="3">HTML编码</font></h3><p>文字分隔符  &amp;nbsp ;<br>左尖角号    &amp;lt ;<br>右尖角号    &amp;gt ;<br>换行     &lt;br/&gt;<br>水平线   &lt;hr/&gt;</p>
+<h3 id="不建议使用的标签"><a href="#不建议使用的标签" class="headerlink" title="不建议使用的标签"></a><font color="#EE82EE" size="3">不建议使用的标签</font></h3><p>&lt;strong>&lt;/strong>加粗标签<br>&lt;em>&lt;/em>斜体标签</p>
+<p>&lt;address>&lt;/address>地址标签<br>&lt;del>&lt;/del>中划线（删除）标签</p>
 <ul>
-<li><font size="1">因为，我们有一个原则：结构样式行为相分离（html就是结构，css是样式，js的交互行为）。这种实现样式的标签，我们完全可以通过css操作不同标签来实现。</font><br><br></li>
+<li><font size="1">原则：结构样式行为相分离（html 结构，css 样式，js 交互行为）。<br>这种实现样式的标签，我们完全可以通过css操作不同标签来实现。</font><br><br></li>
 </ul>
-<h2 id="3-常用标签"><a href="#3-常用标签" class="headerlink" title="3. 常用标签"></a><font color="#FF69B4" size="3">3. 常用标签</font></h2><h3 id="lt-img"><a href="#lt-img" class="headerlink" title="&lt;img/>"></a><font color="#EE82EE" size="3">&lt;img/></font></h3><p>src: source 资源<br>alt: 占位内容<br>title: 图片标题<br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576671258400&di=c67c10ee234839ef15a434012913dbd3&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201504%2F25%2F20150425010441_mNRky.jpeg" style="width:30px;height:30px;"><br><br></p>
+<h2 id="3-常用标签"><a href="#3-常用标签" class="headerlink" title="3. 常用标签"></a><font color="#FF69B4" size="3">3. 常用标签</font></h2><h3 id="lt-img"><a href="#lt-img" class="headerlink" title="&lt;img/>"></a><font color="#EE82EE" size="3">&lt;img/></font></h3><p>src: source 资源<br>alt: 占位内容<br>title: 图片标题<br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576671258400&di=c67c10ee234839ef15a434012913dbd3&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201504%2F25%2F20150425010441_mNRky.jpeg" style="width:100px;"></p>
 <h3 id="lt-a-lt-a"><a href="#lt-a-lt-a" class="headerlink" title="&lt;a>&lt;/a>"></a><font color="#EE82EE" size="3">&lt;a>&lt;/a></font></h3><ul>
 <li><p>href : hyperText reference 超文本引用<br>1、URL（相对路径，绝对路径，链接）<a href="https://www.baidu.com" target="_blank" rel="noopener">baidu</a><br>2、锚点 <a href="#footer">↓</a><br>3、协议限定符<a href="javascript:{alert('点就点');console.log('123');}" target="_self">点我</a><br>4、tel &amp; mailTo  <a href="tel:123456" target="_blank" rel="noopener">123456</a>  <a href="mailto:123456@789.com" target="_blank" rel="noopener">123456@789.com</a></p>
 </li>
-<li><p>target属性<br>_self（默认值）<br>_blank<br>_parent<br>_top</p>
+<li><p>target属性: _self（默认值）、 _blank 、 _parent 、 _top</p>
 </li>
 </ul>
-<p><br></p>
 <h3 id="lt-ul-lt-li-lt-li-lt-ul"><a href="#lt-ul-lt-li-lt-li-lt-ul" class="headerlink" title="&lt;ul>&lt;li>&lt;/li>&lt;/ul>"></a><font color="#EE82EE" size="3">&lt;ul>&lt;li>&lt;/li>&lt;/ul></font></h3><p>ul: unordered lists 无序列表 ( <font color=" red">不赞成使用</font> type : disc square circle )<br>ol: ordered lists 有序列表 ( type    : 1  A   a     I   i ， start : number ， reversed)<br>li: list item 列表项</p>
-<p><br></p>
 <h3 id="lt-table-lt-table"><a href="#lt-table-lt-table" class="headerlink" title="&lt;table>&lt;/table>"></a><font color="#EE82EE" size="3">&lt;table>&lt;/table></font></h3><blockquote>
 <p>&lt;table>&lt;tr>&lt;td>&lt;/td>&lt;/tr>&lt;/table><br>  简单的 HTML 表格由 table 元素以及一个或多个 tr、th 或 td 元素组成。<br>  tr 元素定义表格行，th 元素定义表头，td 元素定义表格单元。<br>  更复杂的HTML表格也可能包括 caption、col、colgroup、thead、tfoot以及 tbody 元素。</p>
 </blockquote>
   <table><tr><th>年</th><th>月</th><th>日</th></tr><tbody><tr align="center"><td>1-1</td><td>1-2</td><td>1-3</td></tr><tr><td colspan="2">2-1</td></tr><tr><td>3-1</td></tr></tbody></table>
 
-<p><br></p>
+
 <h3 id="lt-form-lt-form"><a href="#lt-form-lt-form" class="headerlink" title="&lt;form>&lt;/form>"></a><font color="#EE82EE" size="3">&lt;form>&lt;/form></font></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;form method = <span class="string">'get'</span> action = <span class="string">'/user/register'</span>&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">      账号：</span><br><span class="line">    &lt;input <span class="built_in">type</span> = <span class="string">'text'</span> name = <span class="string">'username'</span>/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">      密码：</span><br><span class="line">    &lt;input <span class="built_in">type</span> = <span class="string">'password'</span> name = <span class="string">'password'</span>/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">      性别：</span><br><span class="line">    &lt;input <span class="built_in">type</span> = <span class="string">'radio'</span> name = <span class="string">'sex'</span> value = <span class="string">'1'</span> checked/&gt; 男</span><br><span class="line">    &lt;input <span class="built_in">type</span> = <span class="string">'radio'</span> name = <span class="string">'sex'</span> value = <span class="string">'2'</span>/&gt; 女</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">      爱好：</span><br><span class="line">    &lt;input <span class="built_in">type</span> = <span class="string">'checkBox'</span> name = <span class="string">'bobby'</span> value = <span class="string">'1'</span>/&gt; 唱  </span><br><span class="line">    &lt;input <span class="built_in">type</span> = <span class="string">'checkBox'</span> name = <span class="string">'bobby'</span> value = <span class="string">'2'</span> checked /&gt; 跳 </span><br><span class="line">    &lt;input <span class="built_in">type</span> = <span class="string">'checkBox'</span> name = <span class="string">'bobby'</span> value = <span class="string">'3'</span>/&gt; wrap  </span><br><span class="line">    &lt;input <span class="built_in">type</span> = <span class="string">'checkBox'</span> name = <span class="string">'bobby'</span> value = <span class="string">'4'</span>/&gt; 篮球🏀</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span> = <span class="string">'submit'</span> value = <span class="string">'注册'</span> /&gt;   </span><br><span class="line">    &lt;input <span class="built_in">type</span> = <span class="string">'reset'</span> value = <span class="string">'取消'</span>/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-<p><form method="get" action="/user/register"><br>    账号：<input type="text" name="username" placeholder="请输入账号"><br>    密码：<input type="password" name="password" placeholder="请设置密码"><br>    民族：<select name="nation"><option name="han">汉族</option><option name="minority">少数民族</option></select><br>    性别：<input type="radio" name="sex" value="1" checked> 男 <input type="radio" name="sex" value="2"> 女<br>    爱好：<input type="checkBox" name="bobby" value="1"> 唱  <input type="checkBox" name="bobby" value="2" checked> 跳 <input type="checkBox" name="bobby" value="3"> wrap  <input type="checkBox" name="bobby" value="4"> 篮球🏀<br>  <input type="submit" value="注册">   <input type="reset" value="取消"><br></form><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<h1 id="二、-HTML5"><a href="#二、-HTML5" class="headerlink" title="二、 HTML5"></a><font color="#DC143C">二、 HTML5</font></h1><p>html5.0是目前html的最高标准版本。</p>
-<h2 id="1-canvas"><a href="#1-canvas" class="headerlink" title="1. canvas"></a><font color="#FF69B4" size="3">1. canvas</font></h2><h3 id="1）应用场景"><a href="#1）应用场景" class="headerlink" title="1）应用场景"></a><strong>1）应用场景</strong></h3><p>  游戏、图表、动画、codepen.io（HTML5动效）</p>
-<h3 id="2）发展历史"><a href="#2）发展历史" class="headerlink" title="2）发展历史"></a><strong>2）发展历史</strong></h3><p>  最早在safari1.3中引入，IE9之前的浏览器不支持canvas。(<a href="http://caniuse.com，可测试兼容性" target="_blank" rel="noopener">http://caniuse.com，可测试兼容性</a>)</p>
-<h3 id="3）使用"><a href="#3）使用" class="headerlink" title="3）使用"></a><strong>3）使用</strong></h3><h4 id="1-添加canvas标签"><a href="#1-添加canvas标签" class="headerlink" title="1. 添加canvas标签"></a>1. 添加canvas标签</h4><p>  获得canvas元素<br>  获得canvas上下文对象<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id = <span class="string">'myCanvas'</span> width = 500 height = 500&gt;&lt;/canvas&gt;</span><br><span class="line">var canvas = document.getElementById(<span class="string">'myCanvas'</span>);</span><br><span class="line">var ctx = canvas.getContext(<span class="string">'2d'</span>);</span><br></pre></td></tr></table></figure></p>
-<h4 id="2-两个对象"><a href="#2-两个对象" class="headerlink" title="2. 两个对象"></a>2. 两个对象</h4><p>  元素对象（canvas元素）和上下文对象（通过getContext(‘2d’)方法获取到的CanvasRenderingContext对象）。<br>  元素对象相当于画布，上下文对象相当于画笔，接下来所有操作是基于上下文对象的。</p>
+<p><form method="get" action="/user/register"><br>    账号：<input type="text" name="username" placeholder="请输入账号"><br>    密码：<input type="password" name="password" placeholder="请设置密码"><br>    民族：<select name="nation"><option name="han">汉族</option><option name="minority">少数民族</option></select><br>    性别：<input type="radio" name="sex" value="1" checked> 男 <input type="radio" name="sex" value="2"> 女<br>    爱好：<input type="checkBox" name="bobby" value="1"> 唱  <input type="checkBox" name="bobby" value="2" checked> 跳 <input type="checkBox" name="bobby" value="3"> wrap  <input type="checkBox" name="bobby" value="4"> 篮球🏀<br>  <input type="submit" value="注册">   <input type="reset" value="取消"><br></form></p>
+<p><hr><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+<h1 id="二、-HTML5"><a href="#二、-HTML5" class="headerlink" title="二、 HTML5"></a><font color="#DC143C">二、 HTML5</font></h1><h2 id="1-canvas"><a href="#1-canvas" class="headerlink" title="1. canvas"></a><font color="#FF69B4">1. canvas</font></h2><h3 id="1）应用场景"><a href="#1）应用场景" class="headerlink" title="1）应用场景"></a>1）应用场景</h3><p>  游戏、图表、动画、codepen.io（HTML5动效）</p>
+<h3 id="2）发展历史"><a href="#2）发展历史" class="headerlink" title="2）发展历史"></a>2）发展历史</h3><p>  最早在safari1.3中引入，IE9之前的浏览器不支持canvas。(<a href="http://caniuse.com，可测试兼容性" target="_blank" rel="noopener">http://caniuse.com，可测试兼容性</a>)</p>
+<h3 id="3）使用"><a href="#3）使用" class="headerlink" title="3）使用"></a>3）使用</h3><h4 id="1-添加canvas标签"><a href="#1-添加canvas标签" class="headerlink" title="1. 添加canvas标签"></a>1. 添加canvas标签</h4><p>  获得canvas元素<br>  获得canvas上下文对象<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id = <span class="string">'myCanvas'</span> width = 500 height = 500&gt;&lt;/canvas&gt;</span><br><span class="line">var canvas = document.getElementById(<span class="string">'myCanvas'</span>);</span><br><span class="line">var ctx = canvas.getContext(<span class="string">'2d'</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-两个对象"><a href="#2-两个对象" class="headerlink" title="2. 两个对象"></a>2. 两个对象</h4><p>  元素对象（canvas）和上下文对象（通过getContext(‘2d’)方法获取到的CanvasRenderingContext对象）。<br>  元素对象相当于画布，上下文对象相当于画笔，接下来所有操作是基于上下文对象的。</p>
 <h4 id="3-线段"><a href="#3-线段" class="headerlink" title="3. 线段"></a>3. 线段</h4><p>  ctx.moveTo(x,y);   移动到x，y坐标点<br>  ctx.lineTo(x,y);从当前点绘制直线到x，y坐标<br>  ctx.stroke(); 描边<br>  ctx.strokeStyle=’red’; 设置描边颜色<br>  ctx.lineWidth = 20; 设置线段宽度<br>  ctx.closePath();闭合当前路径和回到起始点的区别<br>  ctx.fill();填充<br>  ctx.fillStyle=’green’; 设置填充颜色</p>
 <ul>
-<li>重点：fill 和 stroke方法都是作用在当前的所有子路径,完成一条路径后要重新开始另一条路径时，必须使用beginPath()方法（开始子路径的一个新的集合）。<h4 id="4-矩形"><a href="#4-矩形" class="headerlink" title="4. 矩形"></a>4. 矩形</h4>ctx.rect( x , y , dx , dy );<br>ctx.fillRect( x , y , dx , dy );<br>ctx.strokeRect( x , y , w , h );<br><font color="red">特殊点：strokeRect和fillRect自带beginPath属性。</font><br>ctx.strokeStyle = ‘red’;<br>ctx.strokeRect( 10 , 10 , 150 , 100 );<br>ctx.strokeStyle = ‘black’;<br>ctx.strokeRect( 200 , 10 , 100 , 150);<canvas id="myCanvas" width="600" height="200"></canvas>
-
-
-</li>
+<li>重点：fill 和 stroke方法都是作用在当前的所有子路径,完成一条路径后要重新开始另一条路径时，必须使用beginPath()方法（开始子路径的一个新的集合）。</li>
 </ul>
+<h4 id="4-矩形"><a href="#4-矩形" class="headerlink" title="4. 矩形"></a>4. 矩形</h4><p>  ctx.rect( x , y , dx , dy );<br>  ctx.fillRect( x , y , dx , dy );<br>  ctx.strokeRect( x , y , w , h );<br>  <font color="red">特殊点：strokeRect和fillRect自带beginPath属性。</font><br>  ctx.strokeStyle = ‘red’;<br>  ctx.strokeRect( 10 , 10 , 150 , 100 );<br>  ctx.strokeStyle = ‘black’;<br>  ctx.strokeRect( 200 , 10 , 100 , 150);</p>
+<canvas id="myCanvas" width="600" height="200"></canvas>
+
 <h4 id="5-擦除当前区域"><a href="#5-擦除当前区域" class="headerlink" title="5. 擦除当前区域"></a>5. 擦除当前区域</h4><p>  ctx.clearRect( x , y , dx , dy );<br>  <font color="red">不切断当前子路径，会擦除失效。</font><br>  ctx1.rect( 10 , 10 , 100 , 100 );<br>  ctx1.fill();<br>  ctx1.clearRect( 10 , 10 , 50 , 50);<br>  ctx1.beginPath();<br>  ctx1.rect(130,10,80,80);<br>  ctx1.fillStyle = ‘red’;<br>  ctx1.fill();</p>
 <canvas id="myCanvas1" width="600" height="120"></canvas>
 
@@ -1062,7 +1340,7 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
 <canvas id="myCanvas2" width="600" height="200"></canvas>
 
 
-<h4 id="11-渐变"><a href="#11-渐变" class="headerlink" title="11. 渐变"></a>11. 渐变</h4><p>  createLinearGradient( x1 , y1 , x2 , y2 );  线性渐变，必须在填充渐变的区域里定义渐变，否则无效<br>  createRadialGradient(x1,y1,r1,x2,y2,r2);    径向渐变，必须在填充渐变的区域里定义渐变，否则无效<br>  addColorStop( p , color );                   添加颜色变化<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var canvas3 = document.getElementById(<span class="string">"myCanvas3"</span>);</span><br><span class="line">var ctx3 = canvas3.getContext(<span class="string">'2d'</span>);</span><br><span class="line">var <span class="built_in">bg</span> = ctx2.createLinearGradient(0,0,0,500);</span><br><span class="line">bg.addColorStop(0,<span class="string">"red"</span>);</span><br><span class="line">bg.addColorStop(0.5,<span class="string">"green"</span>);</span><br><span class="line">ctx3.fillStyle = <span class="built_in">bg</span>;</span><br><span class="line">ctx3.fillRect(70,0,600,200);</span><br></pre></td></tr></table></figure></p>
+<h4 id="11-渐变"><a href="#11-渐变" class="headerlink" title="11. 渐变"></a>11. 渐变</h4><p>  createLinearGradient( x1 , y1 , x2 , y2 );  线性渐变，必须在填充渐变的区域里定义渐变，否则无效<br>  createRadialGradient(x1,y1,r1,x2,y2,r2);    径向渐变，必须在填充渐变的区域里定义渐变，否则无效<br>  addColorStop( p , color );                  添加颜色变化<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var canvas3 = document.getElementById(<span class="string">"myCanvas3"</span>);</span><br><span class="line">var ctx3 = canvas3.getContext(<span class="string">'2d'</span>);</span><br><span class="line">var <span class="built_in">bg</span> = ctx2.createLinearGradient(0,0,0,500);</span><br><span class="line">bg.addColorStop(0,<span class="string">"red"</span>);</span><br><span class="line">bg.addColorStop(0.5,<span class="string">"green"</span>);</span><br><span class="line">ctx3.fillStyle = <span class="built_in">bg</span>;</span><br><span class="line">ctx3.fillRect(70,0,600,200);</span><br></pre></td></tr></table></figure></p>
 <canvas id="myCanvas3" width="600" height="200"></canvas>
 
 <h4 id="12-阴影"><a href="#12-阴影" class="headerlink" title="12. 阴影"></a>12. 阴影</h4><p>  shadowColor<br>  shadowOffsetX<br>  shadowOffsetY<br>  shadowBlur<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var canvas4 = document.getElementById(<span class="string">"myCanvas4"</span>);</span><br><span class="line">var ctx4 = canvas4.getContext(<span class="string">'2d'</span>);</span><br><span class="line">ctx4.fillStyle=<span class="string">"SeaGreen"</span>;</span><br><span class="line">ctx4.shadowColor = <span class="string">"pink"</span>;</span><br><span class="line">ctx4.shadowBlur = 10;</span><br><span class="line">ctx4.shadowOffsetX = 30;</span><br><span class="line">ctx4.shadowOffsetY = -20;</span><br><span class="line">ctx4.fillRect(80,30,460,140);</span><br></pre></td></tr></table></figure></p>
@@ -1165,76 +1443,6 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           
         
       
@@ -1287,7 +1495,7 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lemon">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/background22.jpg">
+      <meta itemprop="image" content="/images/background3.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1594,7 +1802,7 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/background22.jpg" alt="Lemon">
+              <img class="site-author-image" itemprop="image" src="/images/background3.jpg" alt="Lemon">
             
               <p class="site-author-name" itemprop="name">Lemon</p>
               <p class="site-description motion-element" itemprop="description">随遇而安</p>
@@ -1607,7 +1815,7 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
