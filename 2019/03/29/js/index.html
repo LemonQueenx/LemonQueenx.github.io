@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="冬至">
 <meta property="og:description" content="JavaScript，前端三大基础语言之一 第一章、 JS基础第一节、 基础概念javaScript是单线程 、解释性、兼容于ECMA标准的脚本语言  浏览器是由外壳（Shell）和内核（kernel）组成，最重要的是内核（解析页面）。  渲染引擎（html、css）  JS引擎（执行js代码），目前最快的是Chrome的V8引擎。  其他模块   编译性语言：C    C++先把语言编译一遍，形">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-09T13:49:50.767Z">
+<meta property="og:updated_time" content="2020-03-11T13:02:25.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js">
 <meta name="twitter:description" content="JavaScript，前端三大基础语言之一 第一章、 JS基础第一节、 基础概念javaScript是单线程 、解释性、兼容于ECMA标准的脚本语言  浏览器是由外壳（Shell）和内核（kernel）组成，最重要的是内核（解析页面）。  渲染引擎（html、css）  JS引擎（执行js代码），目前最快的是Chrome的V8引擎。  其他模块   编译性语言：C    C++先把语言编译一遍，形">
@@ -411,7 +411,26 @@
 <li>var a = 123; var b = 234;请交换a 和 b的值。</li>
 </ol>
 <p><strong>5. 条件语句</strong><br>  if 、 if else 、 if else if<br>  for 、 while 、do while<br>  switch  case default<br>  break 、 continue</p>
-<p><strong>6. 引用值</strong><br>1）数组<br>2）对象<br>  编程行驶的区别：面向过程、面向对象<br>3）函数</p>
+<p><strong>6. 引用值</strong><br>1）数组<br>2）对象</p>
+<blockquote>
+<p>编程行驶的区别：面向过程、面向对象</p>
+</blockquote>
+<blockquote>
+<p>typeof: number 、 string 、 boolean 、 undefined 、 object 、 function六种数据类型<br>  <font color="red">(null 、[] 、object -&gt; object)</font></p>
+</blockquote>
+<blockquote>
+<p>类型转换：</p>
+<ol>
+<li>显示类型转换<br>Number()<br>String()<br>Boolean()<br>toString()<br>parseInt()<br>parseFloat()</li>
+<li>隐式类型转换<br>isNaN()     被认定NaN:undefined 、 NaN 、{}<br>++ / –  + / -（一元正负）<br>+<br>*、/ %<br>&amp;&amp; || !<br>&lt;   &gt;   &lt;=   &gt;=<br>==   !=</li>
+<li>不发生类型转换<br>=== !==</li>
+</ol>
+</blockquote>
+<p>3）函数</p>
+<ol>
+<li>函数声明、函数表达式</li>
+<li>参数</li>
+</ol>
 <h2 id="第三节-DOM"><a href="#第三节-DOM" class="headerlink" title="第三节. DOM"></a><font color="#FF69B4">第三节. DOM</font></h2><h2 id="第四节-BOM"><a href="#第四节-BOM" class="headerlink" title="第四节. BOM"></a><font color="#FF69B4">第四节. BOM</font></h2><h2 id="正则表达式-RegExp（Regular-Expression）"><a href="#正则表达式-RegExp（Regular-Expression）" class="headerlink" title="正则表达式 RegExp（Regular Expression）"></a><font face="楷体" color="red" size="5">正则表达式 RegExp（Regular Expression）</font></h2><p>正则表达式是匹配特殊字符或有特殊搭配原则的字符的最佳选择。</p>
 <h3 id="一、创建方式："><a href="#一、创建方式：" class="headerlink" title="一、创建方式："></a>一、创建方式：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;1.直接量 (个人推荐直接量)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如：var reg = /^\d | \d$/igm;<br>&nbsp;&nbsp;&nbsp;&nbsp;2.new RegExp();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如：var reg = new RegExp(‘/^\\d | \\d$/‘);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="楷体" color="blue">注：①js字符串不许出现回车符号，但是“\”代表转义字符。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如：var a = “aaa\<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bbb”;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这样就不会报错了。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;②“\”代表转义字符，“\\”代表\。“\n”代表换行</font></p>
 <h3 id="二、基本语法："><a href="#二、基本语法：" class="headerlink" title="二、基本语法："></a>二、基本语法：</h3><p>RegExp对象标识正则表达式，是对字符转执行 模式匹配 的强大工具。</p>
@@ -600,7 +619,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
