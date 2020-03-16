@@ -2782,16 +2782,16 @@ localhost:4000/admin（受到密码保护）
 </blockquote>
 <h2 id="第二节、-ECMAScript"><a href="#第二节、-ECMAScript" class="headerlink" title="第二节、 ECMAScript"></a><font color="#FF69B4">第二节、 ECMAScript</font></h2><p>js三大部分：<br>  ECMAScript（描述了该语言和基本对象）<br>  DOM（文档对象模型，描述了处理网页内容的方法和接口）<br>  BOM（浏览器对象模型，描述与浏览器进行交互的方法和接口）</p>
 <h3 id="一-引入"><a href="#一-引入" class="headerlink" title="一.引入"></a>一.引入</h3><p>行间样式（不过一般都不这样写）<br>页面内嵌&lt;script>&lt;/script>标签<br>外部引入&lt;script src = ‘xxx’>&lt;/script><br>（为符合W3C标准：结构、样式、行为相分离，通常会采用外部引入）</p>
-<h3 id="二-js基本语法"><a href="#二-js基本语法" class="headerlink" title="二.js基本语法"></a>二.js基本语法</h3><p><strong>1. 变量（variable）</strong><br>  1) 变量声明<br>     声明、赋值分解<br>     单一var声明<br>  2）命名规则<br>     1、变量名只能以英文字母、 _ 、 $开头<br>     2、变量名可以包括英文字母、 _ 、 $和数字<br>     3、不可以用系统的关键字、保留字作为变量名</p>
+<h3 id="二-js基本语法"><a href="#二-js基本语法" class="headerlink" title="二.js基本语法"></a>二.js基本语法</h3><h4 id="1-变量（variable）"><a href="#1-变量（variable）" class="headerlink" title="1. 变量（variable）"></a><strong>1. 变量（variable）</strong></h4><p>  1) 变量声明<br>     声明、赋值分解<br>     单一var声明<br>  2）命名规则<br>     1、变量名只能以英文字母、 _ 、 $开头<br>     2、变量名可以包括英文字母、 _ 、 $和数字<br>     3、不可以用系统的关键字、保留字作为变量名</p>
 <blockquote>
 <p>关键字<br>    var void if else switch case default do while try catch throw for continue break return in  delete typeof instanceof new this with finally function</p>
 </blockquote>
 <blockquote>
 <p>保留字<br>    boolean const char byte double float int long short enum interface  static  private    protected package    public import class super extends throws debugger export implements abstract    final        goto    native     synchronized    transient volatile</p>
 </blockquote>
-<p><strong>2. 值类型</strong><br>  a. 不可改变的原始值（栈类型 stack）： number   string     Boolean    undefined    null<br>  b. 引用值（堆数据 heap）： function  object  array</p>
-<p><strong>3. js语法基本规则</strong><br>  语句后面用分号结束；<br>  书写格式要规范，“ + - = /”两边都应有空格；<br>  js语法错误会引发后续代码终止，但不会影响其他js代码块；</p>
-<p><strong>4. js运算符</strong><br>   运算操作符 </p>
+<h4 id="2-值类型"><a href="#2-值类型" class="headerlink" title="2. 值类型"></a><strong>2. 值类型</strong></h4><p>  a. 不可改变的原始值（栈类型 stack）： number   string     Boolean    undefined    null<br>  b. 引用值（堆数据 heap）： function  object  array</p>
+<h4 id="3-js语法基本规则"><a href="#3-js语法基本规则" class="headerlink" title="3. js语法基本规则"></a><strong>3. js语法基本规则</strong></h4><p>  语句后面用分号结束；<br>  书写格式要规范，“ + - = /”两边都应有空格；<br>  js语法错误会引发后续代码终止，但不会影响其他js代码块；</p>
+<h4 id="4-js运算符"><a href="#4-js运算符" class="headerlink" title="4. js运算符"></a><strong>4. js运算符</strong></h4><p>   运算操作符 </p>
 <pre><code>+                        1）数字运算，字符串连接   2）任何数据了诶性+字符串都等于字符串
 - * / % = ()             1）优先级“=”最弱  “()”较高
 ++ -- += -= /= *= %=
@@ -2823,8 +2823,8 @@ localhost:4000/admin（受到密码保护）
 </li>
 <li>var a = 123; var b = 234;请交换a 和 b的值。</li>
 </ol>
-<p><strong>5. 条件语句</strong><br>  if 、 if else 、 if else if<br>  for 、 while 、do while<br>  switch  case default<br>  break 、 continue</p>
-<p><strong>6. 引用值</strong><br>1）数组<br>2）对象</p>
+<h4 id="5-条件语句"><a href="#5-条件语句" class="headerlink" title="5. 条件语句"></a><strong>5. 条件语句</strong></h4><p>  if 、 if else 、 if else if<br>  for 、 while 、do while<br>  switch  case default<br>  break 、 continue</p>
+<h4 id="6-引用值"><a href="#6-引用值" class="headerlink" title="6. 引用值"></a><strong>6. 引用值</strong></h4><p>1）数组<br>2）对象</p>
 <blockquote>
 <p>编程行驶的区别：面向过程、面向对象</p>
 </blockquote>
@@ -2842,8 +2842,58 @@ localhost:4000/admin（受到密码保护）
 <p>3）函数</p>
 <ol>
 <li>函数声明、函数表达式</li>
-<li>参数</li>
+<li><p>参数(形参、实参、实参列表)<br><font color="red">注意：形参、实参、实参列表（argumentd）的映射关系。</font></p>
+<blockquote>
+<p>大加法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">BigAdd</span></span>() &#123;</span><br><span class="line">  var sum = 0;</span><br><span class="line">  <span class="keyword">for</span> (var i = 0 ; i &lt; arguments.length ; i++) &#123;</span><br><span class="line">    sum += arguments[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> sum; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>返回值<br>return什么，函数便等于什么<br>（函数名用 <font color="red">小驼峰式</font> 写法）</p>
+</li>
+<li>作用域<br>定义：变量（变量作用域又称上下文）和函数生效（能被访问）的区域<br>全局变量、局部变量<br>作用域的访问顺序</li>
 </ol>
+<h3 id="三、js运行"><a href="#三、js运行" class="headerlink" title="三、js运行"></a>三、js运行</h3><ul>
+<li><p>语法分析<br>预编译<br>解释执行</p>
+<p>（规律）函数声明提升、变量声明提升<br>（原理）预编译发生咋爱执行的额前一刻。一个函数执行，函数会先发生预编译，预编译过程中会产生执行期上下文对象。Activation Object 活动对象（AO）</p>
+</li>
+</ul>
+<h4 id="1、预编译"><a href="#1、预编译" class="headerlink" title="1、预编译"></a>1、预编译</h4><blockquote>
+<p>四部曲<br>    1、创建AP对象<br>    2、找形参和变量声明，将变量和形参名作为AO属性名，值为undefined<br>    3、将实参值和形参统一<br>    4、在函数体里面找函数声明，值赋予函数体<br>    <font color="red">* 每个函数最后都有一个return，当执行到这一步时，AO被处理掉，函数就不执行了。</font></p>
+</blockquote>
+<blockquote>
+<p>全局也能预编译<br>    三步：<br>    1、创建GO（Global Object）对象<br>    2、找变量声明，将变量名作为GO属性名，值为undefined<br>    3、找函数声明，值赋予函数体</p>
+</blockquote>
+<h4 id="2、作用域精解"><a href="#2、作用域精解" class="headerlink" title="2、作用域精解"></a>2、作用域精解</h4><ul>
+<li><p>[[scope]]：每个javascript函数都是一个对象，对象中有些属性我们可以访问，有些不可以，这些属性仅供javascript引擎存取，[[scope]]就是其中一个。[[scope]]指的就是我们所说的作用域，其中存储了运行期上下文的集合。</p>
+</li>
+<li><p>作用域链：[[scope]]中所存储的执行期上下文对象的集合，这个集合呈链式链接。我们把这个链式链接叫做作用域链。</p>
+</li>
+<li><p>运行期上下文：当函数执行时，会创建一个称为执行期上下文的内部对象。一个执行期上下文定义了一个函数执行时的环境，函数每次执行时对象的执行期上下文都是独一无二的，所以多次调用一个函数会导致创建多个执行期上下文，当函数执行完，执行上下文被销毁。</p>
+</li>
+<li><p>查找变量：从作用域链的顶端依次向下查找。</p>
+</li>
+</ul>
+<h4 id="3、闭包"><a href="#3、闭包" class="headerlink" title="3、闭包"></a>3、闭包</h4><blockquote>
+<p>当内部函数被保存到外部时，会生成闭包，闭包会导致原有作用域链不释放，造成内存泄露</p>
+</blockquote>
+<p>闭包的作用<br>a) 实现共有变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">函数累加器（公有变量）</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;                               <span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;</span><br><span class="line">  var num = 0;                                var num = 0;</span><br><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">b</span></span>()&#123;                               <span class="keyword">function</span> <span class="function"><span class="title">b</span></span>()&#123;</span><br><span class="line">    console.log(++num);                          console.log(++num);</span><br><span class="line">  &#125;                                           &#125;</span><br><span class="line">  <span class="built_in">return</span>  b;                                  <span class="keyword">function</span> <span class="function"><span class="title">c</span></span>()&#123;</span><br><span class="line">&#125;                                                console.log(--num);</span><br><span class="line">var getCounter = a();                          &#125;</span><br><span class="line">getCounter();    ---&gt; 1                        <span class="built_in">return</span> [b,c];</span><br><span class="line">getCounter();    ---&gt; 2                      &#125;</span><br><span class="line">getCounter();    ---&gt; 3                      var getCounterArr = a();  </span><br><span class="line">                                             getCounterArr[0]();    ---&gt; 1   </span><br><span class="line">                                             getCounterArr[1]();    ---&gt; 0</span><br></pre></td></tr></table></figure></p>
+<p>b) 可以做缓存<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">eater</span></span>()&#123;</span><br><span class="line">  var food = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">eat</span></span>()&#123;</span><br><span class="line">    console.log(food);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">function</span> buy(foods)&#123;</span><br><span class="line">    food = foods;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> &#123; eat: eat, buy: buy &#125;;</span><br><span class="line">&#125;</span><br><span class="line">var person = eater();</span><br><span class="line">person.buy(<span class="string">'apple'</span>);</span><br><span class="line">person.eat();          ----&gt; <span class="string">'apple'</span></span><br></pre></td></tr></table></figure></p>
+<p>c) 可以实现封装、属性私有化<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">wrapper</span></span>()&#123;</span><br><span class="line">  var slice = Array.prototype.slice;</span><br><span class="line">  ...很多变量</span><br><span class="line">  <span class="keyword">function</span> $()&#123;</span><br><span class="line">    ...很多变量</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">add</span></span>()&#123;...&#125;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">show</span></span>()&#123;...&#125;</span><br><span class="line">    ...很多函数</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> &#123;add: add,show: show...很多函数&#125;;</span><br><span class="line">&#125;</span><br><span class="line">var $ = wrapper();</span><br><span class="line">var obj = $();</span><br></pre></td></tr></table></figure></p>
+<font color="red">注：闭包会大量占用内存资源（作用域链不释放），因此，能少用还是少用，要了解闭包的原理再使用，否则浪费内存。</font>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h2 id="第三节-DOM"><a href="#第三节-DOM" class="headerlink" title="第三节. DOM"></a><font color="#FF69B4">第三节. DOM</font></h2><h2 id="第四节-BOM"><a href="#第四节-BOM" class="headerlink" title="第四节. BOM"></a><font color="#FF69B4">第四节. BOM</font></h2><h2 id="正则表达式-RegExp（Regular-Expression）"><a href="#正则表达式-RegExp（Regular-Expression）" class="headerlink" title="正则表达式 RegExp（Regular Expression）"></a><font face="楷体" color="red" size="5">正则表达式 RegExp（Regular Expression）</font></h2><p>正则表达式是匹配特殊字符或有特殊搭配原则的字符的最佳选择。</p>
 <h3 id="一、创建方式："><a href="#一、创建方式：" class="headerlink" title="一、创建方式："></a>一、创建方式：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;1.直接量 (个人推荐直接量)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如：var reg = /^\d | \d$/igm;<br>&nbsp;&nbsp;&nbsp;&nbsp;2.new RegExp();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如：var reg = new RegExp(‘/^\\d | \\d$/‘);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="楷体" color="blue">注：①js字符串不许出现回车符号，但是“\”代表转义字符。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如：var a = “aaa\<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bbb”;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这样就不会报错了。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;②“\”代表转义字符，“\\”代表\。“\n”代表换行</font></p>
 <h3 id="二、基本语法："><a href="#二、基本语法：" class="headerlink" title="二、基本语法："></a>二、基本语法：</h3><p>RegExp对象标识正则表达式，是对字符转执行 模式匹配 的强大工具。</p>
