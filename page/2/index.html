@@ -261,6 +261,883 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/React/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lemon">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/background3.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冬至">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/15/React/" itemprop="url">React</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T11:04:06+08:00">
+                2019-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端-主流框架/" itemprop="url" rel="index">
+                    <span itemprop="name">前端 - 主流框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、React发展历史"><a href="#一、React发展历史" class="headerlink" title="一、React发展历史"></a><font color="#c06">一、React发展历史</font></h1><blockquote>
+<p>传统页面 : 服务器把数据和页面给浏览器，用户输入数据浏览器把数据传入服务器，服务器处理后再返回新的页面（前后端不分家时代）<br>Facebook认为MVC的可读性、可扩展性和可维护性都不适合大型项目开发（每当需要添加一项新的功能或特性时，系统的复杂度就成级数增长，致使代码变得脆弱和不可预测）。</p>
+</blockquote>
+<blockquote>
+<p>Model（模型）:  处理应用程序数据逻辑的部分。通常负责在数据库中存取数据。<br>  View（视图）:  处理数据显示的部分。通常是依据模型数据创建的。<br>  Controller（控制器）:  处理用户交互的部分。通常负责从视图获取数据，并向模型发送数据。</p>
+</blockquote>
+<h1 id="二、理论知识"><a href="#二、理论知识" class="headerlink" title="二、理论知识"></a><font color="#c06">二、理论知识</font></h1><h2 id="1、主要原理和特点"><a href="#1、主要原理和特点" class="headerlink" title="1、主要原理和特点"></a>1、主要原理和特点</h2><h3 id="1）Virtual-DOM"><a href="#1）Virtual-DOM" class="headerlink" title="1）Virtual DOM"></a><font color="#f26">1）Virtual DOM</font></h3><p><strong>效率高</strong> 虚拟DOM：传统web页面一般是直接操作DOM，代价很大，涉及重绘重排非常耗性能，而React 为了尽可能减少对DOM的操作，提供了一种不同的而又强大的方式来更新DOM，代替直接操作DOM,就是Virtual dom, 一个轻量级虚拟的dom。更新virtual dom时不保证马上影响真实dom，react会等到事件循环结束，然后利用<font color="blue">diff算法</font>，通过当前新的dom与之前做比较，计算出最小的步骤更新真实的dom。</p>
+<h3 id="2）组件"><a href="#2）组件" class="headerlink" title="2）组件"></a><font color="#f26">2）组件</font></h3><p><strong>天生组件化</strong> Components组件：在dom树上的节点被称为元素，在这里不同称为virtual dom，整体称为component， 众多的virtual dom的节点就是一个完整的抽象的组件。</p>
+<h3 id="3）单项数据流"><a href="#3）单项数据流" class="headerlink" title="3）单项数据流"></a><font color="#f26">3）单项数据流</font></h3><p><strong>清晰</strong> 从父节点传递到子节点，因为组件是简单而且易于把握的，他们只需从父节点获取props渲染即可。</p>
+<h3 id="4）state-amp-amp-props"><a href="#4）state-amp-amp-props" class="headerlink" title="4）state&amp;&amp;props"></a><font color="#f26">4）state&amp;&amp;props</font></h3><p>state属性包含定义组件所需要的一些数据，当数据发生变化时，将会调用Render重现渲染，<br>React 把组件看成是一个状态机（State Machines）。通过与用户的交互，实现不同状态，然后渲染 UI，让用户界面和数据保持一致。</p>
+<h3 id="5）生命周期钩子"><a href="#5）生命周期钩子" class="headerlink" title="5）生命周期钩子"></a><font color="#f26">5）生命周期钩子</font></h3><p>组件载入阶段：<br>  componentWillMount:组件即将被装载、渲染到页面上，只调用1次<br>  render:组件在这里生成虚拟的 DOM 节点<br>  componentDidMount:组件真正在被装载之后，这里可以拿到真实DOM执行操作，只调用1次</p>
+<p>运行中状态：<br>  componentWillReceiveProps(nextProps):组件将要接收到新属性的时候调用，在这时setState不会触发额外的render,因为此时已经有一次来自父组件引发的render了。<br>  shouldComponentUpdate:组件接受到新属性或者新状态的时候（返回 false，接收数据后不更新，阻止 render ，后面的函数不会继续执行）<br>  componentWillUpdate:组件即将更新不能修改属性和状态。（这里也会调用render）<br>  componentDidUpdate:组件已经更新</p>
+<p>销毁阶段：<br>  componentWillUnmount:组件即将销毁，这时候可以销毁绑定的事件监听或者定时器什么的。</p>
+<p>应用场景：<br>复杂场景下的高性能<br>重用组件库，组件组合（ant.design-支付宝组件库）<br>懒人必备</p>
+<h2 id="2、手动搭建react配置"><a href="#2、手动搭建react配置" class="headerlink" title="2、手动搭建react配置"></a>2、手动搭建react配置</h2><h3 id="1）package-json"><a href="#1）package-json" class="headerlink" title="1）package.json"></a>1）package.json</h3><p>package.json是下载依赖包的“说明书”，主要介绍其中的3个属性。<br><strong>1.devDependencies 开发依赖</strong><br><strong>2.dependencies 生产依赖</strong><br><strong>3.script 定义脚本命令(npm run …)</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"webpack-dev-server --progress --colors --devtool source-map"</span>,</span><br><span class="line">    <span class="string">"build"</span>: <span class="string">"git rm -rf dist&amp;&amp;node build/build.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"react1"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;&#125;,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">"jiyingying"</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"webpack-dev-server"</span>: <span class="string">"^3.1.9"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"babel"</span>: <span class="string">"^6.23.0"</span>,</span><br><span class="line">    <span class="string">"babel-core"</span>: <span class="string">"^6.24.0"</span>,</span><br><span class="line">    <span class="string">"babel-loader"</span>: <span class="string">"^7.1.5"</span>,</span><br><span class="line">    <span class="string">"babel-preset-es2015"</span>: <span class="string">"^6.24.0"</span>,</span><br><span class="line">    <span class="string">"babel-preset-react"</span>: <span class="string">"^6.23.0"</span>,</span><br><span class="line">    <span class="string">"babel-preset-stage-0"</span>: <span class="string">"^6.22.0"</span>,</span><br><span class="line">    <span class="string">"babel-preset-stage-2"</span>: <span class="string">"^6.22.0"</span>,</span><br><span class="line">    <span class="string">"babel-preset-env"</span>: <span class="string">"^1.7.0"</span>,</span><br><span class="line">    <span class="string">"css-loader"</span>: <span class="string">"^0.27.3"</span>,</span><br><span class="line">    <span class="string">"file-loader"</span>: <span class="string">"^0.10.1"</span>,</span><br><span class="line">    <span class="string">"react"</span>: <span class="string">"^15.3.0"</span>,</span><br><span class="line">    <span class="string">"react-dom"</span>: <span class="string">"^15.3.0"</span>,</span><br><span class="line">    <span class="string">"style-loader"</span>: <span class="string">"^0.23.1"</span>,</span><br><span class="line">    <span class="string">"url-loader"</span>: <span class="string">"^0.5.8"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"^4.41.2"</span>,</span><br><span class="line">    <span class="string">"webpack-cli"</span>: <span class="string">"^3.3.9"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2）webpack-config-js"><a href="#2）webpack-config-js" class="headerlink" title="2）webpack.config.js"></a>2）webpack.config.js</h3><p>module.exports模块导出 =<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;entry <font color="blue">入口文件</font> : ‘./src/js/entry.js<font color="blue">入口文件的相对地址</font>‘,<br>&nbsp;&nbsp;&nbsp;&nbsp;output <font color="blue">出口文件</font> : {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path <font color="blue">出口文件路径</font> : __dirname+’/static/‘ <font color="blue">相对地址+出口文件夹名称</font>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;publicPath <font color="blue">公共路径</font> : “<a href="http://localhost:8080/static" target="_blank" rel="noopener">http://localhost:8080/static</a> <font color="blue">路径值</font>“,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;filename <font color="blue">出口文件名称</font> : ‘index.js <font color="blue">出口文件名称值</font>‘<br>&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;module <font color="blue">模块配置</font> : {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rules <font color="blue">（规定使用什么loader解析相应文件，2.0版本之后是rules，1.0是loaders）</font> : [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{test : /.less$/ , <font color="red">use</font> : <font color="red">[</font>‘style-loader’,’css-loader’,’less-loader’<font color="red">]</font> } <font color="blue">解析less文件</font>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test <font color="blue"></font> : /.js$/  <font color="blue">使用babel-loader解析js</font> ,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loader  <font color="blue">当只有1个loader时，可以写loaader，当其后的值是多个时，写use</font>  : “babel-loader”  ,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exclude <font color="blue">表示哪些目录中的 .js 文件不要进行 babel-loader,include与之相反</font> :/node_modules/ <font color="blue"></font> ,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;query <font color="blue">询问</font> : {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;presets <font color="blue">预置</font> : [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;require.resolve(‘babel-preset-es2015’) <font color="blue">识别es6</font> ,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;require.resolve(‘babel-preset-react’) <font color="blue">识别JSX语法</font> ,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;require.resolve(‘babel-preset-stage-0’) <font color="blue">识别es7</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{test:/.(jpg|png)$/,loader:’url-loader’} <font color="blue">解析jpg和png文件</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devServer <font color="blue">设备服务器配置</font> :{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port <font color="blue">端口号</font> :3030,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;historyApiFallback:true,//单页面应用<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inline:true,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;historyApiFallback: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disableHostCheck: true,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hot <font color="blue">热更新</font> : true,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy <font color="blue">代理</font> : {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;”/api/“: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target: “<a href="http://jiyingying.m.ncfwxlocal.com/&quot;" target="_blank" rel="noopener">http://jiyingying.m.ncfwxlocal.com/&quot;</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;secure: false,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;changeOrigin: true<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  entry:<span class="string">'./src/js/entry.js'</span>,</span><br><span class="line">  output:&#123;</span><br><span class="line">      path:__dirname+<span class="string">'/static/'</span>,</span><br><span class="line">      publicPath:<span class="string">"http://localhost:3030/static"</span>,</span><br><span class="line">      filename:<span class="string">'index.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  module:&#123;</span><br><span class="line">      rules:[</span><br><span class="line">          &#123;<span class="built_in">test</span>:/\.less$/,use:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'less-loader'</span>]&#125;,</span><br><span class="line">          &#123;</span><br><span class="line">              <span class="built_in">test</span>:/\.js$/,</span><br><span class="line">              loader:<span class="string">"babel-loader"</span>,</span><br><span class="line">              exclude:/node_modules/,</span><br><span class="line">              query:&#123;</span><br><span class="line">                  presets:[</span><br><span class="line">                      require.resolve(<span class="string">'babel-preset-es2015'</span>),</span><br><span class="line">                      require.resolve(<span class="string">'babel-preset-react'</span>),</span><br><span class="line">                      require.resolve(<span class="string">'babel-preset-stage-0'</span>)</span><br><span class="line">                  ]</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;<span class="built_in">test</span>:/\.(jpg|png)$/,loader:<span class="string">'url-loader'</span>&#125;</span><br><span class="line">      ]</span><br><span class="line">  &#125;,</span><br><span class="line">  devServer:&#123;</span><br><span class="line">      port:3030,</span><br><span class="line">      historyApiFallback:<span class="literal">true</span>,//单页面应用</span><br><span class="line">      inline:<span class="literal">true</span>,</span><br><span class="line">      historyApiFallback: <span class="literal">true</span>,</span><br><span class="line">      disableHostCheck: <span class="literal">true</span>,</span><br><span class="line">      hot: <span class="literal">true</span>,</span><br><span class="line">      proxy: &#123;</span><br><span class="line">          <span class="string">"/api/"</span>: &#123;</span><br><span class="line">            target: <span class="string">"http://jiyingying.m.ncfwxlocal.com/"</span>,</span><br><span class="line">            secure: <span class="literal">false</span>,</span><br><span class="line">            changeOrigin: <span class="literal">true</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">const path = require(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./src/js/entry.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.resolve(__dirname,<span class="string">'dist'</span>),</span><br><span class="line">    publicPath:<span class="string">'/dist'</span>,</span><br><span class="line">    filename:<span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules:[&#123;</span><br><span class="line">        <span class="built_in">test</span>: /\.js$/,</span><br><span class="line">        loader: <span class="string">"babel-loader"</span>,</span><br><span class="line">        exclude: /node_modules/,</span><br><span class="line">        query: &#123;</span><br><span class="line">            presets: [</span><br><span class="line">              require.resolve(<span class="string">'babel-preset-es2015'</span>),</span><br><span class="line">              require.resolve(<span class="string">'babel-preset-react'</span>),</span><br><span class="line">              require.resolve(<span class="string">'babel-preset-stage-0'</span>),</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;,</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    port: 8083,</span><br><span class="line">    historyApiFallback: <span class="literal">true</span>,</span><br><span class="line">    inline: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3）创建第一个react组件"><a href="#3）创建第一个react组件" class="headerlink" title="3）创建第一个react组件"></a>3）创建第一个react组件</h3><p>按照配置，创建对应的入口文件，文件基本内容如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">var React = require(<span class="string">'react'</span>);</span><br><span class="line">var ReactDom = require(<span class="string">'react-dom'</span>);</span><br><span class="line"></span><br><span class="line">var App = React.createClass(&#123;</span><br><span class="line">  <span class="function"><span class="title">render</span></span>() &#123;</span><br><span class="line">    const fontStyle = &#123;</span><br><span class="line">      color:<span class="string">'green'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    const arr = [<span class="string">'小白兔'</span>,<span class="string">'白又白'</span>,<span class="string">'两只耳朵竖起来'</span>];</span><br><span class="line">    <span class="built_in">return</span> &lt;div style=&#123;&#123; color: <span class="string">'red'</span>, &#125;&#125;&gt;</span><br><span class="line">            外层</span><br><span class="line">            &lt;div style = &#123; fontStyle &#125;&gt;内层&lt;/div&gt;</span><br><span class="line">            &lt;ul className = <span class="string">'ulClass'</span>&gt;</span><br><span class="line">              &#123;</span><br><span class="line">                arr.map( (item,index) =&gt; &lt;li key = &#123;index&#125;&gt;&#123;item&#125;&lt;/li&gt; )</span><br><span class="line">              &#125;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">            &lt;div&gt;&#123;this.props.name&#125;&lt;/div&gt;</span><br><span class="line">           &lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">ReactDom.render(</span><br><span class="line">  &lt;App name = <span class="string">'ji'</span>/&gt;,</span><br><span class="line">  document.getElementById(<span class="string">'root'</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>1）自定义组件的首字母必须大写<br>2）JSX语法 ： tyle的添加方式：行间直接写 或 行间变量声明<br>             数组方法<br>             className<br><strong><em>注意：不要在render中定义变量，这里只是为了讲述上述知识点</em></strong></p>
+<p>目前创建组件的方式有三种，分别是createClass、es6的class组件、函数式组件、<br>推荐阅读：<a href="https://www.jianshu.com/p/1dc57d51348b" target="_blank" rel="noopener">https://www.jianshu.com/p/1dc57d51348b</a></p>
+<p>目前认为，createClass的效率比较慢，之后可能会被废弃，但是现在还没有。常用class组件，也有函数式组件，但是具体什么时候用class组件或函数式组件，暂时还没有定论。<br>createClass的实现，源码底层还会调用React.createElement等方法实现。但是我们轻易不要直接调用这些工具方法。</p>
+<h4 id="createClass创建组件"><a href="#createClass创建组件" class="headerlink" title="createClass创建组件"></a>createClass创建组件</h4><p>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var App = React.createClass(&#123;</span><br><span class="line">  <span class="function"><span class="title">render</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> &lt;div style=&#123;&#123; color: <span class="string">'red'</span>, &#125;&#125;&gt;</span><br><span class="line">            外层</span><br><span class="line">            &lt;div style = &#123; fontStyle &#125;&gt;内层&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;&#123;this.props.name&#125;&lt;/div&gt;</span><br><span class="line">           &lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h4 id="class组件"><a href="#class组件" class="headerlink" title="class组件"></a>class组件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import React,&#123; Component &#125; from <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line">class RefCom extends Component&#123;</span><br><span class="line">  constructor(props)&#123;</span><br><span class="line">    super(props);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">componentDidMount</span></span>()&#123;</span><br><span class="line">    console.log(this.refs.inp,<span class="string">'componentDidMount---ref  this.ref.xxx'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">render</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> &lt;div&gt;</span><br><span class="line">            我是ref组件.</span><br><span class="line">            &lt;input ref = &#123;<span class="string">'inp'</span>&#125;/&gt;</span><br><span class="line">           &lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default RefCom;</span><br></pre></td></tr></table></figure>
+<h4 id="function组件"><a href="#function组件" class="headerlink" title="function组件"></a>function组件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import React from <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line">const FunCom  = () =&gt;&#123;</span><br><span class="line">    <span class="built_in">return</span> &lt;div&gt;</span><br><span class="line">            我是纯函数式组件.</span><br><span class="line">            &lt;input/&gt;</span><br><span class="line">           &lt;/div&gt;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default FunCom;</span><br></pre></td></tr></table></figure>
+<p><br><br><br><br><br></p>
+<h2 id="3、create-react-app搭建react"><a href="#3、create-react-app搭建react" class="headerlink" title="3、create-react-app搭建react"></a>3、create-react-app搭建react</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install create-react-app -g</span><br><span class="line">create-react-app xxx</span><br><span class="line">即可</span><br></pre></td></tr></table></figure>
+<p><br><br><br><br><br></p>
+<h2 id="4、核心概念"><a href="#4、核心概念" class="headerlink" title="4、核心概念"></a>4、核心概念</h2><h3 id="1）props"><a href="#1）props" class="headerlink" title="1）props"></a>1）props</h3><p>通过props传递数据 ——  (父 -&gt; 子)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var React = require(<span class="string">'react'</span>);</span><br><span class="line">var ReactDom = require(<span class="string">'react-dom'</span>);</span><br><span class="line"></span><br><span class="line">var App = React.createClass(&#123;</span><br><span class="line">  <span class="function"><span class="title">render</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> &lt;div&gt;</span><br><span class="line">            &#123; this.props.name &#125;</span><br><span class="line">           &lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">ReactDom.render(</span><br><span class="line">  &lt;App name = <span class="string">'ji'</span>/&gt;,</span><br><span class="line">  document.getElementById(<span class="string">'root'</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<font color="#a11"><strong>可嵌套子组件：this.props.children</strong></font>
+
+
+<h3 id="2）生命周期"><a href="#2）生命周期" class="headerlink" title="2）生命周期"></a>2）生命周期</h3><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571811626995&di=7d95187511e62586fc2cb5fd3a0b7d49&imgtype=0&src=http%3A%2F%2Fimg2018.cnblogs.com%2Fblog%2F331769%2F201903%2F331769-20190314070341633-1595341780.png"><br><img src="http://img2018.cnblogs.com/common/1401779/201910/1401779-20191020010458965-2059977376.png"><br><img src="../../../../images/reactLifeCycle.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">import * as React from <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line">var ChildCom = React.createClass(&#123;</span><br><span class="line">  getDefaultProps(e)&#123;</span><br><span class="line">    console.log(<span class="string">'初始化阶段：getDefaultProps------'</span>,e);</span><br><span class="line">  &#125;,</span><br><span class="line">  getInitialState(e) &#123;</span><br><span class="line">    console.log(<span class="string">'初始化阶段：getInitialState,相当于constructor构造函数。'</span>,e);</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">      date: new Date(),</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  componentWillMount(e)&#123;</span><br><span class="line">    console.log(<span class="string">'componentWillMount------'</span>,e);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">changeTime</span></span>()&#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      date: new Date()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  componentDidMount(e)&#123;</span><br><span class="line">    console.log(<span class="string">'componentDidMount------'</span>,e);</span><br><span class="line">    // setInterval(this.changeTime,1000)    </span><br><span class="line">  &#125;,</span><br><span class="line">  componentWillReceiveProps(e)&#123;</span><br><span class="line">    console.log(<span class="string">'componentWillReceiveProps------'</span>,e);</span><br><span class="line">  &#125;,</span><br><span class="line">  shouldComponentUpdate(nextProps, nextState)&#123;</span><br><span class="line">    console.log(<span class="string">'shouldComponentUpdate------'</span>,nextProps,nextState);</span><br><span class="line">    <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  componentWillUpdate(e)&#123;</span><br><span class="line">    console.log(<span class="string">'componentWillUpdate------'</span>,e);</span><br><span class="line">  &#125;,</span><br><span class="line">  componentWillUnmount(e)&#123;</span><br><span class="line">    console.log(<span class="string">'componentWillUnmount------'</span>,e);</span><br><span class="line">  &#125;,</span><br><span class="line">  componentDidUpdate(e)&#123;</span><br><span class="line">    console.log(<span class="string">'componentDidUpdate------'</span>,e);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">changeState</span></span>()&#123;</span><br><span class="line">    this.changeTime();</span><br><span class="line">  &#125;,</span><br><span class="line">  render(e) &#123;</span><br><span class="line">    console.log(<span class="string">'render------'</span>,e,this.state.date);</span><br><span class="line">    <span class="built_in">return</span>  &lt;div style=&#123;&#123; marginTop:<span class="string">'100px'</span>,color: <span class="string">'green'</span>, &#125;&#125; &gt;</span><br><span class="line">              &lt;div&gt;&#123;this.props.who&#125;&lt;/div&gt;</span><br><span class="line">              ：小爱同学，几点了？</span><br><span class="line">              现在时间是</span><br><span class="line">              &lt;span&gt;&#123;this.state.date.toLocaleTimeString()&#125;&lt;/span&gt;</span><br><span class="line">              &lt;div style=&#123;&#123; marginTop:<span class="string">'100px'</span>,color: <span class="string">'red'</span>, &#125;&#125;  onClick = &#123; this.changeState &#125; &gt;改变子组件ChildCom的props，&lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default ChildCom;</span><br></pre></td></tr></table></figure>
+<p>可以自己试试，确实是上面图示的钩子函数的执行顺序~~~<br>这里可以看到初始化mounting、updating（改变props或state）阶段，没有测试卸载阶段！！<br><strong><em>shouldComponentUpdate要谨慎操作，也要小心操作，因为出错将阻塞，甚至造成页面卡死。true继续执行</em></strong></p>
+<p>react生命周期有哪些？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">组件载入阶段：</span><br><span class="line">  componentWillMount: 组件即将被装载、渲染到页面上，只调用1次</span><br><span class="line">  render: 组件在这里生成虚拟的 DOM 节点</span><br><span class="line">  componentDidMount:组件真正在被装载之后，这里可以拿到真实DOM执行操作，只调用1次</span><br><span class="line"></span><br><span class="line">运行中状态：</span><br><span class="line">  componentWillReceiveProps(nextProps):组件将要接收到新属性的时候调用，在这时setState不会触发额外的render,因为此时已经有一次来自父组件引发的render了。</span><br><span class="line">  shouldComponentUpdate:组件接受到新属性或者新状态的时候（返回 <span class="literal">false</span>，接收数据后不更新，阻止 render ，后面的函数不会继续执行）</span><br><span class="line">  componentWillUpdate:组件即将更新不能修改属性和状态。（这里也会调用render）</span><br><span class="line">  componentDidUpdate:组件已经更新</span><br><span class="line"></span><br><span class="line">销毁阶段：</span><br><span class="line">  componentWillUnmount:组件即将销毁，这时候可以销毁绑定的事件监听或者定时器什么的。</span><br></pre></td></tr></table></figure>
+<p><font color="red">获取虚拟DOM：</font><br>ref<br>this.refs</p>
+<h1 id="三、React-Hook"><a href="#三、React-Hook" class="headerlink" title="三、React Hook"></a><font color="#c06">三、React Hook</font></h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><p><strong>React Hooks 要解决的问题是状态共享</strong>，称为 <strong>状态逻辑复用</strong>会更恰当，因为只共享数据处理逻辑，不会共享数据本身。</p>
+<blockquote>
+<p>它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</p>
+</blockquote>
+<p>意思很明了，就是拓展函数式组件的边界。结果也很清晰，只要 Class 组件能实现的，函数式组件 + Hooks都能胜任。</p>
+<h2 id="2-概述"><a href="#2-概述" class="headerlink" title="2 概述"></a>2 概述</h2><h3 id="2-1-Hook是什么"><a href="#2-1-Hook是什么" class="headerlink" title="2.1 Hook是什么"></a>2.1 Hook是什么</h3><blockquote>
+<p>Hook 是一个特殊的函数，它可以让你“钩入” React 的特性。</p>
+</blockquote>
+<p>何时使用hook?</p>
+<blockquote>
+<p>如果你在编写函数组件并意识到需要向其添加一些 state，以前的做法是必须将其它转化为 class组件或者在项目中我们经常是用reducer来管理。现在你可以在现有的函数组件中使用 Hook。</p>
+</blockquote>
+<p>规则有哪些？</p>
+<ul>
+<li>只在最顶层使用 Hook<ul>
+<li>不要在循环，条件，嵌套函数中调用Hook</li>
+<li>确保Hook在每次组件render时调用顺序都是一样的</li>
+</ul>
+</li>
+<li>不要在普通的 JavaScript 函数中调用 Hook<ul>
+<li>在 React 的函数组件中调用 Hook</li>
+<li>在自定义的Hook中调用Hook</li>
+</ul>
+</li>
+</ul>
+<p>React Hooks 带来的好处不仅是 “更新粒度更细，代码更清晰”，还有如下三个特性：</p>
+<ol>
+<li>多个状态不会产生嵌套，写法还是平铺的。</li>
+<li>Hooks 可以引用其他 Hooks。</li>
+<li>更容易将组件的 UI 与状态分离。</li>
+</ol>
+<p>第二点展开说一下：Hooks 可以引用其他 Hooks，我们可以这么做：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">import &#123; useState, useEffect &#125; from &quot;react&quot;;</span><br><span class="line"></span><br><span class="line">// 底层 Hooks, 返回布尔值：是否在线</span><br><span class="line">function useFriendStatusBoolean(friendID) &#123;</span><br><span class="line">  const [isOnline, setIsOnline] = useState(null);</span><br><span class="line"></span><br><span class="line">  function handleStatusChange(status) &#123;</span><br><span class="line">    setIsOnline(status.isOnline);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  useEffect(() =&gt; &#123;</span><br><span class="line">    ChatAPI.subscribeToFriendStatus(friendID, handleStatusChange);</span><br><span class="line">    return () =&gt; &#123;</span><br><span class="line">      ChatAPI.unsubscribeFromFriendStatus(friendID, handleStatusChange);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  return isOnline;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 上层 Hooks，根据在线状态返回字符串：Loading... or Online or Offline</span><br><span class="line">function useFriendStatusString(props) &#123;</span><br><span class="line">  const isOnline = useFriendStatusBoolean(props.friend.id);</span><br><span class="line"></span><br><span class="line">  if (isOnline === null) &#123;</span><br><span class="line">    return &quot;Loading...&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  return isOnline ? &quot;Online&quot; : &quot;Offline&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 使用了底层 Hooks 的 UI</span><br><span class="line">function FriendListItem(props) &#123;</span><br><span class="line">  const isOnline = useFriendStatusBoolean(props.friend.id);</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;li style=&#123;&#123; color: isOnline ? &quot;green&quot; : &quot;black&quot; &#125;&#125;&gt;&#123;props.friend.name&#125;&lt;/li&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 使用了上层 Hooks 的 UI</span><br><span class="line">function FriendListStatus(props) &#123;</span><br><span class="line">  const status = useFriendStatusString(props);</span><br><span class="line"></span><br><span class="line">  return &lt;li&gt;&#123;status&#125;&lt;/li&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个例子中，有两个 Hooks：<code>useFriendStatusBoolean</code> 与 <code>useFriendStatusString</code>, <code>useFriendStatusString</code> 是利用 <code>useFriendStatusBoolean</code> 生成的新 Hook，这两个 Hook 可以给不同的 UI：<code>FriendListItem</code>、<code>FriendListStatus</code> 使用，而因为两个 Hooks 数据是联动的，因此两个 UI 的状态也是联动的。</p>
+<p><strong>“有状态的组件没有渲染，有渲染的组件没有状态”</strong>：理想的情况</p>
+<ul>
+<li><code>useFriendStatusBoolean</code> 与 <code>useFriendStatusString</code> 是有状态的组件（使用 <code>useState</code>），没有渲染（返回非 UI 的值），这样就可以作为 <strong>Custom Hooks</strong> 被任何 UI 组件调用。</li>
+<li><code>FriendListItem</code> 与 <code>FriendListStatus</code> 是有渲染的组件（返回了 JSX），没有状态（没有使用 <code>useState</code>），这就是一个纯函数 UI 组件，</li>
+</ul>
+<h3 id="2-2-常用Hooks"><a href="#2-2-常用Hooks" class="headerlink" title="2.2 常用Hooks"></a>2.2 常用Hooks</h3><h4 id="2-2-1-useState"><a href="#2-2-1-useState" class="headerlink" title="2.2.1 useState"></a>2.2.1 useState</h4><blockquote>
+<p>可以让函数组件在生命周期中，有维护自己的数据和状态的功能。</p>
+<p>区别与class组件：在class组件中，state 总是一个对象，可以在该对象上添加保存属性；对于 hooks，state 不必是对象，它可以是你想要的任何类型-数组、数字、布尔值、字符串等等。每次调用useState都会创建一个state块，其中包含一个值。</p>
+</blockquote>
+<ul>
+<li>useState 的参数有两种：<ol>
+<li>如果是函数，这是一种惰性初始 state，这个函数就只会在初始渲染时候调用，函数的返回值就是 state 的初始值。</li>
+<li>如果是数据，直接作为 state 的初始值。</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const [test, setTest] = React.useState(0);</span><br><span class="line"></span><br><span class="line">const [test, setTest] = React.useState(() =&gt; &#123;</span><br><span class="line">  return 123;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>setTest方法设置的test值，在下一次组件render中才能使用。</li>
+<li>setTest更新值的方式是全部覆盖式更新，这跟class组件的setState不一样。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 如果要更新单个值</span><br><span class="line">const [test, setTest] = React.useState(&#123; aa: 1, bb: 2 &#125;);</span><br><span class="line">setTest(&#123;</span><br><span class="line">  ...test,</span><br><span class="line">  aa: 10,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>我应该使用单个还是多个 state 变量？</p>
+<blockquote>
+<p>把所有 state 都放在同一个 <code>useState</code> 调用中，或是每一个字段都对应一个 <code>useState</code> 调用，这两方式都能跑通。当你在这两个极端之间找到平衡，然后把相关 state 组合到几个独立的 state 变量时，组件就会更加的可读。</p>
+</blockquote>
+</li>
+<li><p>可不可以不通过setState直接给state赋值？</p>
+<blockquote>
+<p>“state” is read-only。</p>
+<p>直接改变state的值会报错</p>
+<p>修改复杂类型的state的属性，没有效果，组件不会从新渲染</p>
+</blockquote>
+</li>
+<li><p>如何比较state?</p>
+<blockquote>
+<p>React 使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description" target="_blank" rel="noopener"><code>Object.is</code> 比较算法</a> 来比较 state。</p>
+<p>我们更新一个 state 变量，我们会 <em>替换</em> 它的值。这和 class 中的 <code>this.setState</code> 不一样，后者会把更新后的字段 <em>合并</em> 入对象中。</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="2-2-1-useEffect"><a href="#2-2-1-useEffect" class="headerlink" title="2.2.1 useEffect"></a>2.2.1 useEffect</h4><blockquote>
+<p>可以让我们在函数组件中执行副作用操作</p>
+<p>当 React 渲染组件时，会保存已使用的 effect，并在更新完 DOM 后执行它。这个过程在每次渲染时都会发生，包括首次渲染。</p>
+<p>虽然 <code>useEffect</code> 会在浏览器绘制后延迟执行，但会保证在任何新的渲染前执行。React 将在组件更新前刷新上一轮渲染的 effect。</p>
+<p>每次我们重新渲染，都会生成<em>新的</em> effect，替换掉之前的。某种意义上讲，effect 更像是渲染结果的一部分 —— 每个 effect “属于”一次特定的渲染。</p>
+<p>每一个组件内的函数（包括事件处理函数，effects，定时器或者API调用等等）会捕获某次渲染中定义的props和state。</p>
+</blockquote>
+<p>useEffect hook 就是执行组件副作用的钩子。<code>React.useEffect(callback, dependences)</code></p>
+<p>需要着重理解useEffect的执行时机。主要根据 dependences 的情况来区分：</p>
+<ol>
+<li>dependences不传的时候，每次组件dom渲染结束后，都会走一遍这个useEffect；</li>
+<li>dependences传空数组的时候，表示该useEffect不依赖任何变量，只有在组件第一次dom渲染后执行；</li>
+<li>dependences传非空数组的时候，表示该useEffect依赖该数组中的元素变化，当组件dom渲染结束后，如果这些依赖项发生了改变的话，就要执行一次这个useEffect。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">useEffect(() =&gt; &#123;</span><br><span class="line">  console.log(&apos;dom挂载&apos;);</span><br><span class="line">  return () =&gt; &#123;</span><br><span class="line">    console.log(&apos;dom卸载&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, [count]);</span><br></pre></td></tr></table></figure>
+<p>上述代码的执行结果是：</p>
+<ul>
+<li>初始dom渲染后打印出 <code>dom挂载</code></li>
+<li>count发生变化后，组件再次render时，先执行 <code>dom卸载</code>，再执行 <code>dom挂载</code></li>
+<li>以此类推下去</li>
+</ul>
+<p>这个过程理解就可以说明：<code>为什么每次组件render都有自己的state和effect和事件</code>。</p>
+<ul>
+<li><p>无需清楚的effect</p>
+</li>
+<li><p>需要清除的effect (定时器，绑定事件，订阅，防止内存泄漏)</p>
+<blockquote>
+<p>在class组件中，我们需要在<code>componentDidMount</code> 和 <code>componentWillUnmount</code>、<code>componentDidUpdate</code>中来写入绑定和清除的代码。业务逻辑分布在各个生命周期中难以维护且容器出错。useEffect可以在同一个地方执行绑定和清除的代码。可读性可维护性更强。只用在effect函数内部执行绑定方法，再return一个清除的方法即可。</p>
+<p>effect 在每次渲染的时候都会执行。这就是为什么 React <em>会</em>在执行当前 effect 之前对上一个 effect 进行清除。</p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li><p>为什么要在组件内部调用useEffect?</p>
+<blockquote>
+<p>放在组件内部让我们可以在effec中直接访问state。它已经保存在函数作用域中。Hook使用了js的闭包机制。</p>
+</blockquote>
+</li>
+<li><p>如果我的 effect 的依赖频繁变化，我该怎么办？</p>
+<blockquote>
+<p>某些时候我只想在函数组件挂载的时候运行它，但是在effect中却用到了组件内的state,props等变量。这时候就会引起某些bug。</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="2-2-4-useContext"><a href="#2-2-4-useContext" class="headerlink" title="2.2.4 useContext"></a>2.2.4 useContext</h4><blockquote>
+<p>useContext 接受上下文对象（从React.createContext返回的值）并返回当前上下文值。</p>
+<p>当前的 <code>context</code> 值由上层组件中距离当前组件最近的 <code>&lt;CountContext.Provider&gt;</code> 的 <code>value</code> prop 决定。</p>
+<p>当Context Provider的value发生变化是，他的所有子级消费者都会rerender。</p>
+</blockquote>
+<p><code>useContext</code> 的参数必须是 <em>context 对象本身</em></p>
+<h4 id="2-2-5-useReducer"><a href="#2-2-5-useReducer" class="headerlink" title="2.2.5 useReducer"></a>2.2.5 useReducer</h4><blockquote>
+<p><a href="https://zh-hans.reactjs.org/docs/hooks-reference.html#usestate" target="_blank" rel="noopener"><code>useState</code></a> 的替代方案。它接收一个形如 <code>(state, action) =&gt; newState</code> 的 reducer，并返回当前的 state 以及与其配套的 <code>dispatch</code> 方法。</p>
+<p> state 逻辑较复杂且包含多个子值，或者下一个 state 依赖于之前的 state 等。并且，使用 useReducer 还能给那些会触发深更新的组件做性能优化，因为你可以向子组件传递 dispatch 而不是回调函数 。</p>
+<p>React 会确保 <code>dispatch</code> 函数的标识是稳定的，并且不会在组件重新渲染时改变。这就是为什么可以安全地从 <code>useEffect</code> 或 <code>useCallback</code> 的依赖列表中省略 <code>dispatch</code>。</p>
+</blockquote>
+<ul>
+<li><p>指定初始化state</p>
+<blockquote>
+<p>将初始 state 作为第二个参数传入 <code>useReducer</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const [state, dispatch] = useReducer(</span><br><span class="line">    reducer,</span><br><span class="line">    &#123;count: initialCount&#125;</span><br><span class="line">  );</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>惰性初始化</p>
+<blockquote>
+<p>需要将 <code>init</code> 函数作为 <code>useReducer</code> 的第三个参数传入，这样初始 state 将被设置为 <code>init(initialArg)</code></p>
+<p>这么做可以将用于计算 state 的逻辑提取到 reducer 外部，这也为将来对重置 state 的 action 做处理提供了便利</p>
+<p>局部状态不推荐使用 <code>useReducer</code> ，会导致函数内部状态过于复杂，难以阅读。 <code>useReducer</code> 建议在多组件间通信时，结合 <code>useContext</code> 一起使用。</p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li><p>如何自己写一个useReducer</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function useReducer(reducer, initialState) &#123;</span><br><span class="line">  const [state, setState] = useState(initialState);</span><br><span class="line"></span><br><span class="line">  function dispatch(action) &#123;</span><br><span class="line">    const nextState = reducer(state, action);</span><br><span class="line">    setState(nextState);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return [state, dispatch];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="2">
+<li><p>如何用useReducer创建一个redux</p>
+<blockquote>
+<p>真正实现一个 Redux 功能，也就是全局维持一个状态，任何组件 <code>useReducer</code> 都会访问到同一份数据，可以和useContext一起使用。</p>
+<p>大体思路是利用 <code>useContext</code> 共享一份数据，作为 Custom Hooks 的数据源。将useReducer中获取state和dispatch当做参数传递给useContext</p>
+</blockquote>
+</li>
+</ol>
+<p>总结起来就是：</p>
+<ul>
+<li>如果你的页面<code>state</code>很简单，可以直接使用<code>useState</code></li>
+<li>如果你的页面<code>state</code>比较复杂（state是一个对象或者state非常多散落在各处）请使用userReducer</li>
+<li>如果你的页面组件层级比较深，并且需要子组件触发<code>state</code>的变化，可以考虑useReducer + useContext</li>
+</ul>
+<h4 id="2-2-6-useCallback"><a href="#2-2-6-useCallback" class="headerlink" title="2.2.6 useCallback"></a>2.2.6 useCallback</h4><blockquote>
+<p>返回一个 <a href="https://en.wikipedia.org/wiki/Memoization" target="_blank" rel="noopener">memoized</a> 回调函数。</p>
+<p>该回调函数仅在某个依赖项改变时才会更新。当你把回调函数传递给经过优化的并使用引用相等性,去避免非必要渲染<br>useCallback(fn, deps) 相当于 useMemo(() =&gt; fn, deps)</p>
+<p>所有回调函数中引用的值都应该出现在依赖项数组中</p>
+<p>推荐所有函数组件内函数的用 <code>React.useCallback</code> 包裹，以保证准确性与性能。推荐<code>useCallback</code> 第二个参数必须写</p>
+</blockquote>
+<p>1.拿到onChange抛出的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">export const useInputValue = val =&gt; &#123;</span><br><span class="line">  let [value, setValue] = useState(val);</span><br><span class="line">  let onChange = useCallback(function(event) &#123;</span><br><span class="line">    setValue(event.currentTarget.value);</span><br><span class="line">  &#125;, []);//保证inputDom只绑定监听事件一次</span><br><span class="line"></span><br><span class="line">  return &#123;</span><br><span class="line">    value,</span><br><span class="line">    onChange</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> 效果：通过 useInputValue() 拿到 Input 框当前用户输入的值，而不是手动监听 onChange 再腾一个 otherInputValue 和一个回调函数把这一堆逻辑写在无关的地方。</p>
+</blockquote>
+<h4 id="2-2-7-useMemo"><a href="#2-2-7-useMemo" class="headerlink" title="2.2.7 useMemo"></a>2.2.7 useMemo</h4><blockquote>
+<p>返回一个memoized值 <code>const memoizedValue = useMemo(() =&gt; computeExpensiveValue(a, b), [a, b]);</code><br>你可以把 <code>useMemo</code> 作为一种性能优化的手段</p>
+</blockquote>
+<p>两个参数依次是计算函数（通常是组件函数）和依赖状态列表，当依赖的状态发生改变时，才会触发计算函数的执行。如果没有指定依赖，则每一次渲染过程都会执行该计算函数。</p>
+<p>前面我们说过了当状态发生变化时，没有设置关联状态的 useEffect 会全部执行。同样的，通过计算出来的值或者引入的组件也会重新计算/挂载一遍，即使与其关联的状态没有发生任何变化。 </p>
+<p>在类组件中我们有 shouldComponetUpdate 以及 React.memo 帮助我们去做性能优化。所以在函数组件中就出现了useMemo。</p>
+<p><code>在业务中，我们可以用  useMemo  来处理计算结果的缓存或引入组件的防止重复挂载优化。</code>其接受两个参数，第一个参数为一个 Getter 方法，返回值为要缓存的数据或组件，第二个参数为该返回值相关联的状态，当其中任何一个状态发生变化时就会重新调用 Getter 方法生成新的返回值。</p>
+<blockquote>
+<p>初次接受  useMemo  时可能我们会觉得该钩子只是用来做计算结果的缓存，返回值只能是一个数字或字符串。其实  useMemo  并不关心我们的返回值类型是什么，它只是在关联状态发生变动时重新调用我们传递的 Getter 方法 生成新的返回值，也就是说  <code>useMemo  生成的是 Getter 方法与依赖数组的关联关系</code>。因此，如果我们将函数的返回值替换为一个组件，那么就可以实现对组件挂载/重新挂载的性能优化。</p>
+</blockquote>
+<h4 id="2-2-8-useRef"><a href="#2-2-8-useRef" class="headerlink" title="2.2.8 useRef"></a>2.2.8 useRef</h4><blockquote>
+<p>useRef 返回一个<strong>可变</strong>的 ref 对象，其 .current 属性被初始化为传入的参数（initialValue）。返回的 ref 对象在组件的整个生命周期内保持不变。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const refContainer = useRef(initialValue);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> <code>useRef()</code> 和自建一个 <code>{current: ...}</code> 对象的唯一区别是，<code>useRef</code> 会在每次渲染时返回同一个 ref 对象。</p>
+<p>当 ref 对象内容发生变化时，useRef 并不会通知你。变更 .current 属性不会引发组件重新渲染。如果想要在 React 绑定或解绑 DOM 节点的 ref 时运行某些代码，则需要使用回调 ref 来实现。</p>
+</blockquote>
+<p>useRef hook的作用：</p>
+<ul>
+<li>获取DOM元素的节点</li>
+<li>获取子组件的实例</li>
+<li>渲染周期之间共享数据的存储（state不能存储跨渲染周期的数据，因为state的保存会触发组件重渲染）</li>
+</ul>
+<p>useRef之所以总能取到变量最新值的原因：它保存的变量不会随着每次数据的变化重新生成，所以相当于保存了一份该变量的引用，所以总能保持在最后一次赋值的状态。</p>
+<h2 id="3-特点"><a href="#3-特点" class="headerlink" title="3 特点"></a>3 特点</h2><h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><ol>
+<li>让在函数组件中有可维护的状态和数据</li>
+<li>函数组件业务变更无需修改成class组件</li>
+<li>告别了繁杂的this和难以记忆的生命周期</li>
+<li>合并的生命周期componentDidMount、componentDidUpdate、和 componentWillUnmount</li>
+<li>更好的完成状态之间的共享.</li>
+<li>多个状态不会产生嵌套，写法还是平铺的，也解决了高阶组件和函数组件的嵌套过深</li>
+<li>Hooks 可以引用其他 Hooks。</li>
+<li>useReducer集成redux</li>
+<li>useEffect接受脏操作等到react更新了DOM之后，它再依次执行我们定义的副作用函数。‘</li>
+<li>状态与UI的界限份的越来越清晰</li>
+</ol>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ol>
+<li>有些hooks行为怪异很难理解。 useEffect最甚；有时候依赖和回调写的不注意就容易死循环。</li>
+<li>规矩很多（ 函数必须以 “use” 命名开头，顺序，不能在条件判断循环中声明等等)</li>
+<li>逻辑复杂的场景中或者系统的主要架构中用hook进行状态或者数据管理还是不太放心。</li>
+<li>社区好像更热衷于造轮子</li>
+</ol>
+<h4 id="关于React副作用"><a href="#关于React副作用" class="headerlink" title="关于React副作用"></a>关于React副作用</h4><p>有些同学可能会对「副作用」这个概念不理解。我简单的说一下我的看法。很多人都看过一个React公式</p>
+<blockquote>
+<p>UI = F(props)</p>
+</blockquote>
+<p>翻译成普通话就是：一个组件最终的dom结构与样式是由父级传递的props决定的。</p>
+<p>了解过函数式编程的同学，应该知道过一个概念，叫「纯函数」。意思是固定的输入必然有固定的输出，它不依赖任何外部因素，也不会对外部环境产生影响。</p>
+<p>react希望自己的组件渲染也是个纯函数，所以有了纯函数组件。然而真正的业务场景是有各种状态的，实际影响UI的还有内部的state。(其实还有context，暂时先不讨论）。</p>
+<p>UI = F(props, state, context)</p>
+<p>这个state可能会因为各种原因产生变化，从而导致组件的渲染结果不一致。相同的入参（props）下，每次render都有可能返回不同的UI。因此任何导致此现象的行为都是副作用（side effects）。比如用户点击下一页，导致页码与列表发生变化，这就是副作用。同样的props，不点击时是第一页数据，点击一下后，变成了第二页的数据or请求失败的页面or其他UI交互。<br>当然state是明面上影响了UI，暗地里，可能还有其他因素会影响UI。比如组件内运用了缓存，导致每次渲染可能都不一样，这也是副作用。</p>
+<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4 总结"></a>4 总结</h3><blockquote>
+<p>应该理性的选择，hook和现在的项目系统不冲突，现在也是模块化开发，可以从新的模块入手来尝试在模块内部用hook来处理数据和逻辑状态。</p>
+<p>在一些简单的页面里，引入redux，saga那一套东西显得有些大材小用，而且开发起来也有些繁琐，使用hook会更灵活轻便一些。</p>
+<p>我们也可以开发一些常用的hook，当老项目有新的功能完全可以用Hook去开发，如果对老的组件进行修改时就可以考虑给老组件上Hook，不建议一上来就进行大改。随着常用Hook组件库的丰富，后期改起来也会非常快。</p>
+<p>在使用Hook时难免少不了一些常用的Hook，如果可以将这些常用的Hook封装起来。变成工具库。</p>
+</blockquote>
+<h3 id="5-参考资料"><a href="#5-参考资料" class="headerlink" title="5 参考资料"></a>5 参考资料</h3><ul>
+<li><p><a href="https://github.com/dt-fe/weekly/blob/v2/120.%E7%B2%BE%E8%AF%BB%E3%80%8AReact%20Hooks%20%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E3%80%8B.md" target="_blank" rel="noopener">React Hooks 最佳实践</a></p>
+</li>
+<li><p><a href="https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/" target="_blank" rel="noopener">useEffect 完整指南</a></p>
+</li>
+<li><p><a href="https://www.robinwieruch.de/react-hooks-fetch-data" target="_blank" rel="noopener">How to fetch data with React Hooks?</a></p>
+</li>
+<li><p><a href="https://www.robinwieruch.de/react-hooks-fetch-data" target="_blank" rel="noopener">How to fetch data with React Hooks?</a></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lemon">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/background3.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冬至">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/29/js/" itemprop="url">js</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-29T17:09:29+08:00">
+                2019-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端-基础知识/" itemprop="url" rel="index">
+                    <span itemprop="name">前端 - 基础知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>JavaScript，前端三大基础语言之一</p>
+<h1 id="第一章、-JS基础"><a href="#第一章、-JS基础" class="headerlink" title="第一章、 JS基础"></a><font color="#DC143C">第一章、 JS基础</font></h1><h2 id="第一节、-基础概念"><a href="#第一节、-基础概念" class="headerlink" title="第一节、 基础概念"></a><font color="#FF69B4">第一节、 基础概念</font></h2><p><strong>javaScript是单线程 、解释性、兼容于ECMA标准的脚本语言</strong></p>
+<blockquote>
+<p>浏览器是由外壳（Shell）和内核（kernel）组成，最重要的是内核（解析页面）。<br>  渲染引擎（html、css）<br>  JS引擎（执行js代码），目前最快的是Chrome的V8引擎。<br>  其他模块</p>
+</blockquote>
+<ul>
+<li>编译性语言：C    C++<br>先把语言编译一遍，形成一个新的文件，再执行。<br>优点：执行速度快<br>缺点：跨平台性差</li>
+<li>解释性语言：js    php     python<br>不需要编译成文件，<br>优点：跨平台性好<br>缺点：执行速度慢</li>
+<li>java结合两者优点，效率折中，java通过javac编译成.class语言，在jvm(Java Virtual Machine，java虚拟机)中执行。</li>
+</ul>
+<blockquote>
+<p><strong>ECMA标准</strong> - 为了取得技术优势，微软推出JScript，CEnvi推出ScriptEase，与javaScript一样可在浏览器中运行。为了统一规格，javascript兼容于ECMA（European Computer Manufacturers Association，欧洲计算机制造联合会）标准，因此也称为ECMAScript。</p>
+</blockquote>
+<blockquote>
+<p>单线程<br>  js执行队列：js执行主线程 &lt;- task1,1ms &lt;- task2,2ms &lt;- task2,1ms &lt;- task1,1ms &lt;- task1,1ms</p>
+</blockquote>
+<h2 id="第二节、-ECMAScript"><a href="#第二节、-ECMAScript" class="headerlink" title="第二节、 ECMAScript"></a><font color="#FF69B4">第二节、 ECMAScript</font></h2><p>js三大部分：<br>  ECMAScript（描述了该语言和基本对象）<br>  DOM（文档对象模型，描述了处理网页内容的方法和接口）<br>  BOM（浏览器对象模型，描述与浏览器进行交互的方法和接口）</p>
+<h3 id="一、引入"><a href="#一、引入" class="headerlink" title="一、引入"></a>一、引入</h3><p>行间样式（不过一般都不这样写）<br>页面内嵌&lt;script>&lt;/script>标签<br>外部引入&lt;script src = ‘xxx’>&lt;/script><br>（为符合W3C标准：结构、样式、行为相分离，通常会采用外部引入）</p>
+<h3 id="二、js基本语法"><a href="#二、js基本语法" class="headerlink" title="二、js基本语法"></a>二、js基本语法</h3><h4 id="1-变量（variable）"><a href="#1-变量（variable）" class="headerlink" title="1. 变量（variable）"></a><strong>1. 变量（variable）</strong></h4><p>  1) 变量声明<br>     声明、赋值分解<br>     单一var声明<br>  2）命名规则<br>     1、变量名只能以英文字母、 _ 、 $开头<br>     2、变量名可以包括英文字母、 _ 、 $和数字<br>     3、不可以用系统的关键字、保留字作为变量名</p>
+<blockquote>
+<p>关键字<br>    var void if else switch case default do while try catch throw for continue break return in  delete typeof instanceof new this with finally function</p>
+</blockquote>
+<blockquote>
+<p>保留字<br>    boolean const char byte double float int long short enum interface  static  private    protected package    public import class super extends throws debugger export implements abstract    final        goto    native     synchronized    transient volatile</p>
+</blockquote>
+<h4 id="2-值类型"><a href="#2-值类型" class="headerlink" title="2. 值类型"></a><strong>2. 值类型</strong></h4><p>  a. 不可改变的原始值（栈类型 stack）： number   string     Boolean    undefined    null<br>  b. 引用值（堆数据 heap）： function  object  array</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 以下两个值分别是什么？</span><br><span class="line">   var num1 = 1,2;</span><br><span class="line">   var num2 = (1,2);</span><br><span class="line">2. 以下,x的最终值是什么？</span><br><span class="line">    var x = 1;</span><br><span class="line">    if (function f() &#123;&#125;) &#123;</span><br><span class="line">      x += typeof f;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-js语法基本规则"><a href="#3-js语法基本规则" class="headerlink" title="3. js语法基本规则"></a><strong>3. js语法基本规则</strong></h4><p>  语句后面用分号结束；<br>  书写格式要规范，“ + - = /”两边都应有空格；<br>  js语法错误会引发后续代码终止，但不会影响其他js代码块；</p>
+<h4 id="4-js运算符"><a href="#4-js运算符" class="headerlink" title="4. js运算符"></a><strong>4. js运算符</strong></h4><p>   运算操作符 </p>
+<pre><code>+                        1）数字运算，字符串连接   2）任何数据了诶性+字符串都等于字符串
+- * / % = ()             1）优先级“=”最弱  “()”较高
+++ -- += -= /= *= %=
+</code></pre><p>   比较运算符<br>            &gt; &lt; == &gt;= &lt;= != === !==  1）结果为boolean值<br>   逻辑运算符<br>            &amp;&amp; || ！ 1）结果为真实值<br>   被认定为false的值<br>            undefined null NaN ‘’ “” 0 false</p>
+<p>   思考：</p>
+<ol>
+<li><p>请问以下c的值分别是什么？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;            var a = 0;              var a = 1;</span><br><span class="line">var b = 2;            var b = 2;              var b = 0;</span><br><span class="line">var c = a &amp;&amp; b;       var c = a &amp;&amp; b;         var c = a &amp;&amp; b;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请问以下c的值分别是什么？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;            var a = 0;              var a = 1;</span><br><span class="line">var b = 2;            var b = 2;              var b = 0;</span><br><span class="line">var c = a || b;       var c = a || b;         var c = a || b;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请问以下结果分别是什么？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 0;                       var a = 0;             </span><br><span class="line">var b = 2;                       var b = 2;        </span><br><span class="line">a &lt; b &amp;&amp; document.write(b)       a &gt; b &amp;&amp; document.write(b)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请问以下结果分别是什么？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NaN == NaN  [] == []  undefined == undefined  undefined == null</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请问以下的值分别是什么？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = 1 + 1 + <span class="string">'aini'</span> + 1 + 1;</span><br><span class="line">var b = 1 + 1 + <span class="string">'aini'</span> + ( 1 + 1 );</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请问以下结果是什么？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 1 / 0;</span><br><span class="line">var b = 1 / 0;</span><br><span class="line">document.write(a - b);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请问以下结果分别是什么？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = 0;                          var a = 0;</span><br><span class="line">var b = 10;                         var b = 10;</span><br><span class="line">b += a++;                           b += ++a;</span><br><span class="line">document.write(b,a);                document.write(b,a);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请问以下结果分别是什么？<br>var a = ( 10 * 3 - 4 / 2 + 1 ) % 2,<br> b = 3;<br>b %= a;<br>document.write(a++, –b);</p>
+</li>
+<li>var a = 123; var b = 234;请交换a 和 b的值。</li>
+</ol>
+<h4 id="5-条件语句"><a href="#5-条件语句" class="headerlink" title="5. 条件语句"></a><strong>5. 条件语句</strong></h4><p>  if 、 if else 、 if else if<br>  for 、 while 、do while<br>  switch  case default<br>  break 、 continue</p>
+<h4 id="6-引用值"><a href="#6-引用值" class="headerlink" title="6. 引用值"></a><strong>6. 引用值</strong></h4><p>1）数组<br>2）对象</p>
+<blockquote>
+<p>编程行驶的区别：面向过程、面向对象</p>
+</blockquote>
+<blockquote>
+<p>typeof: number 、 string 、 boolean 、 undefined 、 object 、 function六种数据类型<br>  <font color="red">(null 、[] 、object -&gt; object)</font></p>
+</blockquote>
+<blockquote>
+<p>类型转换：</p>
+<ol>
+<li>显示类型转换<br>Number()<br>String()<br>Boolean()<br>toString()<br>parseInt()<br>parseFloat()</li>
+<li>隐式类型转换<br>isNaN()     被认定NaN:undefined 、 NaN 、{}<br>++ / –  + / -（一元正负）<br>+<br>*、/ %<br>&amp;&amp; || !<br>&lt;   &gt;   &lt;=   &gt;=<br>==   !=</li>
+<li>不发生类型转换<br>=== !==</li>
+</ol>
+</blockquote>
+<p>3）函数</p>
+<ol>
+<li>函数声明、函数表达式</li>
+<li><p>参数(形参、实参、实参列表)<br><font color="red">注意：形参、实参、实参列表（argumentd）的映射关系。</font></p>
+<blockquote>
+<p>大加法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">BigAdd</span></span>() &#123;</span><br><span class="line">  var sum = 0;</span><br><span class="line">  <span class="keyword">for</span> (var i = 0 ; i &lt; arguments.length ; i++) &#123;</span><br><span class="line">    sum += arguments[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> sum; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>返回值<br>return什么，函数便等于什么<br>（函数名用 <font color="red">小驼峰式</font> 写法）</p>
+</li>
+<li>作用域<br>定义：变量（变量作用域又称上下文）和函数生效（能被访问）的区域<br>全局变量、局部变量<br>作用域的访问顺序</li>
+</ol>
+<h3 id="三、js运行"><a href="#三、js运行" class="headerlink" title="三、js运行"></a>三、js运行</h3><ul>
+<li><p>语法分析<br>预编译<br>解释执行</p>
+<p>（规律）函数声明提升、变量声明提升<br>（原理）预编译发生咋爱执行的额前一刻。一个函数执行，函数会先发生预编译，预编译过程中会产生执行期上下文对象。Activation Object 活动对象（AO）</p>
+</li>
+</ul>
+<h4 id="1、预编译"><a href="#1、预编译" class="headerlink" title="1、预编译"></a>1、预编译</h4><blockquote>
+<p>四部曲<br>    1、创建AO对象<br>    2、找形参和变量声明，将变量和形参名作为AO属性名，值为undefined<br>    3、将实参值和形参统一<br>    4、在函数体里面找函数声明，值赋予函数体<br>    <font color="red">* 每个函数最后都有一个return，当执行到这一步时，AO被处理掉，函数就不执行了。</font></p>
+</blockquote>
+<blockquote>
+<p>全局也能预编译<br>    三步：<br>    1、创建GO（Global Object）对象<br>    2、找变量声明，将变量名作为GO属性名，值为undefined<br>    3、找函数声明，值赋予函数体</p>
+</blockquote>
+<h4 id="2、作用域精解"><a href="#2、作用域精解" class="headerlink" title="2、作用域精解"></a>2、作用域精解</h4><ul>
+<li><p>[[scope]]：每个javascript函数都是一个对象，对象中有些属性我们可以访问，有些不可以，这些属性仅供javascript引擎存取，[[scope]]就是其中一个。[[scope]]指的就是我们所说的作用域，其中存储了运行期上下文的集合。</p>
+</li>
+<li><p>作用域链：[[scope]]中所存储的执行期上下文对象的集合，这个集合呈链式链接。我们把这个链式链接叫做作用域链。</p>
+</li>
+<li><p>运行期上下文：当函数执行时，会创建一个称为执行期上下文的内部对象。一个执行期上下文定义了一个函数执行时的环境，函数每次执行时对象的执行期上下文都是独一无二的，所以多次调用一个函数会导致创建多个执行期上下文，当函数执行完，执行上下文被销毁。</p>
+</li>
+<li><p>查找变量：从作用域链的顶端依次向下查找。</p>
+</li>
+</ul>
+<h4 id="3、闭包"><a href="#3、闭包" class="headerlink" title="3、闭包"></a>3、闭包</h4><blockquote>
+<p>当内部函数被保存到外部时，会生成闭包，闭包会导致原有作用域链不释放，造成内存泄露</p>
+</blockquote>
+<p>闭包的作用<br>a) 实现共有变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">函数累加器（公有变量）</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;                               <span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;</span><br><span class="line">  var num = 0;                                var num = 0;</span><br><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">b</span></span>()&#123;                               <span class="keyword">function</span> <span class="function"><span class="title">b</span></span>()&#123;</span><br><span class="line">    console.log(++num);                          console.log(++num);</span><br><span class="line">  &#125;                                           &#125;</span><br><span class="line">  <span class="built_in">return</span>  b;                                  <span class="keyword">function</span> <span class="function"><span class="title">c</span></span>()&#123;</span><br><span class="line">&#125;                                                console.log(--num);</span><br><span class="line">var getCounter = a();                          &#125;</span><br><span class="line">getCounter();    ---&gt; 1                        <span class="built_in">return</span> [b,c];</span><br><span class="line">getCounter();    ---&gt; 2                      &#125;</span><br><span class="line">getCounter();    ---&gt; 3                      var getCounterArr = a();  </span><br><span class="line">                                             getCounterArr[0]();    ---&gt; 1   </span><br><span class="line">                                             getCounterArr[1]();    ---&gt; 0</span><br></pre></td></tr></table></figure></p>
+<p>b) 可以做缓存<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">eater</span></span>()&#123;</span><br><span class="line">  var food = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">eat</span></span>()&#123;</span><br><span class="line">    console.log(food);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">function</span> buy(foods)&#123;</span><br><span class="line">    food = foods;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> &#123; eat: eat, buy: buy &#125;;</span><br><span class="line">&#125;</span><br><span class="line">var person = eater();</span><br><span class="line">person.buy(<span class="string">'apple'</span>);</span><br><span class="line">person.eat();          ----&gt; <span class="string">'apple'</span></span><br></pre></td></tr></table></figure></p>
+<p>c) 可以实现封装、属性私有化<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">wrapper</span></span>()&#123;</span><br><span class="line">  var slice = Array.prototype.slice;</span><br><span class="line">  ...很多变量</span><br><span class="line">  <span class="keyword">function</span> $()&#123;</span><br><span class="line">    ...很多变量</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">add</span></span>()&#123;...&#125;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">show</span></span>()&#123;...&#125;</span><br><span class="line">    ...很多函数</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> &#123;add: add,show: show...很多函数&#125;;</span><br><span class="line">&#125;</span><br><span class="line">var $ = wrapper();</span><br><span class="line">var obj = $();</span><br></pre></td></tr></table></figure></p>
+<font color="red">注：闭包会大量占用内存资源（作用域链不释放），因此，能少用还是少用，要了解闭包的原理再使用，否则浪费内存。</font>
+
+
+<h4 id="4、立即执行函数"><a href="#4、立即执行函数" class="headerlink" title="4、立即执行函数"></a>4、立即执行函数</h4><ul>
+<li><p>此类函数没有生命，在一次执行完后立即释放，适合做初始化工作。</p>
+</li>
+<li><p>写法：(function())<font color="red">w3c推荐</font>  或   (function)()</p>
+<pre><code>函数声明❌  函数表达式✅
+只有函数表达式+()才能执行（能被执行符号执行的表达式，执行一次，函数就被忽略，不能再使用）
+</code></pre></li>
+<li><p>+ - ！ &amp;&amp; ||可以是一个函数声明变成一个表达式<br>+function test(){}();          —&gt;可以执行，但是再test()会报错<br>true &amp;&amp; function test(){}();   —&gt;✅<br>false || function test(){}();  —&gt;✅</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">jQuery中用到的就是闭包，立即执行函数和原型</span><br><span class="line">(<span class="function"><span class="title">function</span></span> ()&#123;</span><br><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">jQuery</span></span>()&#123;</span><br><span class="line">    <span class="built_in">return</span> jQuery.prototype.init();</span><br><span class="line">  &#125;</span><br><span class="line">  jQuery.prototype.init = <span class="function"><span class="title">funtcion</span></span>()&#123;...&#125;</span><br><span class="line">  jQuery.prototype.init.prototype = jQuery.prototype;</span><br><span class="line"></span><br><span class="line">  window.$ = jQuery;</span><br><span class="line">&#125;())</span><br><span class="line">这样后续，$就替代jQuery。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="5、闭包的高级应用"><a href="#5、闭包的高级应用" class="headerlink" title="5、闭包的高级应用"></a>5、闭包的高级应用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">test</span></span> () &#123;</span><br><span class="line">  var arr = [];</span><br><span class="line">  <span class="keyword">for</span>(var i = 0 ; i &lt; 10 ; i ++)&#123;</span><br><span class="line">    arr[i] = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">      console.log(i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line">var outerArr = <span class="built_in">test</span>();</span><br><span class="line"><span class="keyword">for</span>(var j = 0 ; j &lt; 10 ; j++)&#123;</span><br><span class="line">  outerArr[j]();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">结果是10个10 ，这是为什么呢？</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">test</span></span>() &#123;</span><br><span class="line">  var arr = [];</span><br><span class="line">  <span class="keyword">for</span>(var i = 0 ; i &lt; 10 ; i++ ) &#123;</span><br><span class="line">    arr[i] =(<span class="keyword">function</span>(j)&#123;</span><br><span class="line">      console.log(j);</span><br><span class="line">    &#125;(i))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line">var outerArr = <span class="built_in">test</span>();</span><br><span class="line"><span class="keyword">for</span>(var j = 0 ; j &lt; 10 ; j++)&#123;</span><br><span class="line">  outerArr[j]();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="6、对象"><a href="#6、对象" class="headerlink" title="6、对象"></a>6、对象</h4><h5 id="1）对象的创建方法"><a href="#1）对象的创建方法" class="headerlink" title="1）对象的创建方法"></a>1）对象的创建方法</h5><ul>
+<li>字面量<ul>
+<li>var obj = {}</li>
+<li>缺点：没创建一次只对应一个对象，比较局限。</li>
+</ul>
+</li>
+<li>构造函数<ul>
+<li>系统自带：new Object(); Array(); Number(); Boolean; Date();</li>
+<li>自定义 <font color="green">一般以一个函数为构造函数，函数名要大写</font></li>
+</ul>
+</li>
+<li>Object.create(原型)方法</li>
+</ul>
+<h5 id="2）属性的增删改查"><a href="#2）属性的增删改查" class="headerlink" title="2）属性的增删改查"></a>2）属性的增删改查</h5><blockquote>
+<p> 增 obj.attrValue = ‘hahaha’;<br>   删 delete obj.attrValue;<br>   改 obj.haha = ‘heihei’;   obj[haha] = ‘heihei’;  obj[‘haha’] = ‘heihei’;<br>   查 obj.haha   obj[haha]  obj[‘haha’]</p>
+</blockquote>
+<h5 id="3）包装类"><a href="#3）包装类" class="headerlink" title="3）包装类"></a>3）包装类</h5><p>   String();<br>   Boolean();<br>   Number();</p>
+<h5 id="4）对象的枚举"><a href="#4）对象的枚举" class="headerlink" title="4）对象的枚举"></a>4）对象的枚举</h5><ol>
+<li><p>for （ in ）<br>不仅可以遍历对象，还可以遍历数组</p>
+</li>
+<li><p>对象的枚举</p>
+<ul>
+<li><font color="red">hasOwnProperty</font><br>是否是对象自己的属性。</li>
+</ul>
+<ul>
+<li>for（ in ）可以遍历自己及圆形的属性。但是，当圆形是系统的Object.prototype的时候不会遍历。</li>
+<li>hasOwnPrototype 只对自己对象的属性为true，对自己原型上的属性为false，其他更为false。</li>
+</ul>
+<ul>
+<li><font color="red">in</font><br>是否是对象上或者原型链上的属性。换句话说，只要对象能调用的属性就是true。</li>
+<li><font color="red">instanceof</font><br>浅：A是否是B构造函数的构造出来的<br>深：A原型链上有没有B的原型</li>
+</ul>
+</li>
+</ol>
+<h4 id="7、原型"><a href="#7、原型" class="headerlink" title="7、原型"></a>7、原型</h4><ol>
+<li>定义：原型是function对象的一个属性，它定义了构造函数制造出的对象的公共祖先，通过该构造函数产生的对象，可以继承该该原型的属性和方法，原型也是对象。</li>
+<li>利用原型的特点和概念，可以提取共有属性</li>
+<li>对象如何查看原型 -&gt; 隐式属性 __proto__ (指向原型)</li>
+<li>对象如何查看对象的构造函数 -&gt; constructor</li>
+</ol>
+<blockquote>
+<p>每个构造函数都有原型prototype，prototype也是对象<br>  每个对象都有<strong>proto</strong>属性， __proto__ 的值就是构造函数的原型prototype<br>  prototype 下有个属性：constructor指向该对象的构造函数 或 该构造函数自己。</p>
+</blockquote>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Factory</span></span>()&#123;&#125;</span><br><span class="line">Factory.prototype.name = <span class="string">'wang'</span></span><br><span class="line">var obj = new Factory();</span><br><span class="line"></span><br><span class="line">obj.__proto__                  ---&gt;      &#123;name: <span class="string">"wang"</span>, constructor: ƒ&#125;</span><br><span class="line">Factory.prototype              ---&gt;      &#123;name: <span class="string">"wang"</span>, constructor: ƒ&#125;</span><br><span class="line">obj.__proto__.constructor      ---&gt;       ƒ <span class="function"><span class="title">Factory</span></span>()&#123;&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1） 构造函数.prototype.属性  是增加或修改原型的属性<br>      构造函数.prototype = {…} 是重写，覆盖本来的原型<br>  2） 构造函数构造出的对象，在出生（定义）时就知道了原型的地址。这时是谁就是谁，你可以给我的原型prototype增加或修改属性，但是如果你在我出生后在修改构造函数的原型，就和我没关系了。我的原型还是我出生时候的原型。</p>
+</blockquote>
+<h4 id="8、原型链"><a href="#8、原型链" class="headerlink" title="8、原型链"></a>8、原型链</h4><ul>
+<li><font color="red">谁调用的方法，方法内部的this就指向谁，没人调用则指向全局对象（window）</font>
+</li>
+<li><p><font color="red">绝大多数对象的最终都会继承自Object.prototype</font><br>Object.create(null)，null创建出来的对象没有原型，NoPrototies</p>
+</li>
+</ul>
+<h4 id="9、this指向问题"><a href="#9、this指向问题" class="headerlink" title="9、this指向问题"></a>9、this指向问题</h4><p>以下结果是什么，为什么？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var num = 123;</span><br><span class="line">num.toString();</span><br></pre></td></tr></table></figure></p>
+<p>结果是”123”，因为原型链中从底部向顶部查找toString()方法，数字的Number包装类里就有toString()方法，所以没有继续找Object的toString()方法。</p>
+<h5 id="1）-call的实现原理"><a href="#1）-call的实现原理" class="headerlink" title="1） call的实现原理"></a>1） call的实现原理</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.call = <span class="keyword">function</span>(thisArg)&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (typeof this !== <span class="string">'function'</span>) &#123; // 调用call的若不是函数则报错</span><br><span class="line">    throw new TypeError(<span class="string">'Error'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">                                </span><br><span class="line">  thisArg = thisArg || window;      //若thisArg不存在，thisArg指向window</span><br><span class="line">  thisArg.fn = this;                // 将调用call函数的函数对象添加到thisArg的属性中</span><br><span class="line"></span><br><span class="line">  const res = thisArg.fn([...arguments].slice(1)); //去除参数的第一个值后执行这个添加的函数</span><br><span class="line">  delete thisArg.fn                 // 删除该属性</span><br><span class="line">  <span class="built_in">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">test</span></span> () &#123;</span><br><span class="line">  console.log(<span class="string">'我是测试函数'</span>, this.name);</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;</span><br><span class="line">  name: <span class="string">'obj'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">test.call(obj);     ---&gt; 我是测试函数 obj</span><br></pre></td></tr></table></figure>
+<h5 id="2）apply的实现原理"><a href="#2）apply的实现原理" class="headerlink" title="2）apply的实现原理"></a>2）apply的实现原理</h5><p>apply的实现原理和call一样，只不过是传入的参数不同处理不同而已<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//Function.prototype.apply = <span class="keyword">function</span>(thisArg,args)</span><br><span class="line">//去除参数的第一个值后执行这个添加的函数</span><br><span class="line">const res = thisArg.fn(...args);//只是参数处理不用，args这里直接接受数组</span><br></pre></td></tr></table></figure></p>
+<h5 id="3）bind的实现原理"><a href="#3）bind的实现原理" class="headerlink" title="3）bind的实现原理"></a>3）bind的实现原理</h5><p>将绑定函数当做构造函数使用，bind 提供的 this 指向无效，但是还是可以预设参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Test3(a, b) &#123;</span><br><span class="line">  this.a = a;</span><br><span class="line">  this.b = b;</span><br><span class="line">&#125;</span><br><span class="line">Test3.prototype.add = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">  <span class="built_in">return</span> this.a + this.b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果不用 bind，正常来说这样处理</span></span><br><span class="line">var t1 = new Test3(1, 2);</span><br><span class="line">t1.add(); <span class="comment"># 3, this 指向 t1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 bind</span></span><br><span class="line">var NewTest3 = Test3.bind(null, 3);</span><br><span class="line">var t2 = new NewTest3(4);</span><br><span class="line">t2.add(); <span class="comment"># 7, this 指向 t2</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.bind = <span class="keyword">function</span> (oThis) &#123;</span><br><span class="line">  <span class="keyword">if</span>(typeof this !== <span class="string">'function'</span>) &#123;</span><br><span class="line">    throw new TypeError(<span class="string">'Function.prototype.bind - what is trying to bebound is noe callable'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var aArgs = Array.prototype.slice.call(arguments, 1),</span><br><span class="line">      fToBind = this,</span><br><span class="line">      fNop = <span class="function"><span class="title">function</span></span> () &#123;&#125;,</span><br><span class="line">      fBound = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        <span class="comment"># 当通过new方法调用时，this就是fNop的一个实例</span></span><br><span class="line">        <span class="built_in">return</span> fToBind.apply(this instanceof fNop ? this : (oThis || this) , aArgs.concat(Array.prototype.slice.call(arguments)));</span><br><span class="line">      &#125;;</span><br><span class="line"></span><br><span class="line">  fNop.prototype = this.prototype;</span><br><span class="line">  fBound.prototype = new fNop();</span><br><span class="line">  <span class="built_in">return</span> fBound;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>call 、 apply 和 bind的区别：<br>1）apply、call 都是直接诶执行调用函数，并让this执行第一个参数<br>              二者只是传参格式不同：call(obj,arguments1, arguments2…)<br>                                apply(obj,[arguments1, arguments2…])<br>2）bind绑定this后返回一个函数闭包，不直接执行。（将绑定函数当做构造函数使用，bind 提供的 this 指向无效，但是还是可以预设参数）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function test()&#123;var a = 12;this.sayA = function()&#123;console.log(this.a);&#125;&#125;</span><br><span class="line">var oTest = new test()</span><br><span class="line">oTest.sayA();   ---&gt; undefined</span><br></pre></td></tr></table></figure>
+<p>阿里经典面试题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var name = &apos;222&apos;;</span><br><span class="line">var a = &#123;</span><br><span class="line">  name: &apos;111&apos;,</span><br><span class="line">  say: function () &#123;</span><br><span class="line">    console.log(this.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">a.say();</span><br><span class="line">var b = &#123;</span><br><span class="line">  name: &apos;333&apos;,</span><br><span class="line">  say: function (fun) &#123;</span><br><span class="line">    fun();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">b.say(a.say);</span><br><span class="line">b.say = a.say;</span><br><span class="line">b.say();</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function test() &#123;foo = 2; this.foo = 4; console.log(this.foo);&#125;</span><br><span class="line">test();</span><br><span class="line">new test();</span><br><span class="line"></span><br><span class="line">function test() &#123;this.foo = 4;foo = 2; console.log(this.foo);&#125;</span><br><span class="line">test();</span><br><span class="line">new test();</span><br></pre></td></tr></table></figure>
+<p>先查AO。再查GO，<br>局部变量 - this - 全局</p>
+<h4 id="10、继承发展史"><a href="#10、继承发展史" class="headerlink" title="10、继承发展史"></a>10、继承发展史</h4><p>1、传统形式：会沿着原型链一脉相承，继承父辈祖辈的所有属性，但课呢鞥很多属性是没用的。</p>
+<p>2、借用构造函数：不能继承借用构造函数的原型，每次构造函数都要多走一个函数。（call/apply）</p>
+<p>3、共享原型：不能随便改动自己的原型</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Fathor</span></span> () &#123;...&#125;</span><br><span class="line">var oFather = new Father();</span><br><span class="line"></span><br><span class="line">Son.prototype = Fathor.prototype;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Son</span></span> () &#123;...&#125;</span><br><span class="line">var oSon = new Son();</span><br></pre></td></tr></table></figure>
+<p>这样，共用属性都放在原型里，再共享原型（继承），但是，如果其中更改了Son的原型,这样Father的原型也随之改变（如：Son.prototype.name = ‘wang’;则Father.prototype.name也会如上）。这样的相互影响有时并不是我们想要的。</p>
+<p>4、圣杯模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Father</span></span> () &#123;&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Son</span></span> () &#123;&#125;</span><br><span class="line"><span class="keyword">function</span> inherit (target, origin) &#123;</span><br><span class="line">  var oFn = <span class="function"><span class="title">function</span></span> () &#123;&#125;;</span><br><span class="line">  oFn.prototype = origin.prototype;</span><br><span class="line">  target.prototype =  new oFn();</span><br><span class="line">&#125;</span><br><span class="line">inherit(Son,Father);</span><br><span class="line">var oSon = new Son();</span><br><span class="line">var oFather = new Father();</span><br><span class="line"></span><br><span class="line">Son.prototype.name = <span class="string">'wang'</span>;</span><br><span class="line">oSon.name          ----&gt;    <span class="string">'wang'</span></span><br><span class="line">oFather.name       ----&gt;    undefined</span><br></pre></td></tr></table></figure></p>
+<h4 id="11、模块化开发"><a href="#11、模块化开发" class="headerlink" title="11、模块化开发"></a>11、模块化开发</h4><h5 id="1）-命名空间"><a href="#1）-命名空间" class="headerlink" title="1） 命名空间"></a>1） 命名空间</h5><ol>
+<li>污染全局<br>是指你在a.js中var a = 10; 在 b.js中var a = 20; 如果你同事应用a.js和b.js，那么变量a就会冲突，究竟用a.js里的a还是b.js里的a。（不同的人开发难免会出现相同命名） </li>
+<li>模块化开发<br>将一个完整的项目，分解成多个模块，不同的人开发不同的模块，最后协同整合。</li>
+<li>命名空间<br>模块化开发的方式，很容易发生全局变量污染的问题，因此我们需要管理变量，可以采用命名空间的方式管理变量。</li>
+</ol>
+<h5 id="2）-匿名函数自执行-封闭作用域"><a href="#2）-匿名函数自执行-封闭作用域" class="headerlink" title="2） 匿名函数自执行 封闭作用域"></a>2） 匿名函数自执行 封闭作用域</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var jQuery = (<span class="function"><span class="title">function</span></span> () &#123;                     <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">  <span class="comment"># AO -&gt; jQuery(功能)                             # AO -&gt; jQuery(功能)            </span></span><br><span class="line">  var slice=Array.prototype.slice;                var slice = Array.prototype.slice;</span><br><span class="line">  var toString=Object,prototype.toString;         var toString = Object,prototype.toString;</span><br><span class="line">  ...                                             ...</span><br><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">jQuery</span></span> ()&#123;...使用变量slice toString&#125;     <span class="keyword">function</span> <span class="function"><span class="title">jQuery</span></span> ()&#123;...使用变量slice toString&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">return</span> jQuery;                                   window.$ = jQuery;</span><br><span class="line">&#125;)();                                            &#125;)();</span><br><span class="line">匿名函数自执行+封闭作用域+闭包                        匿名函数自执行+封闭作用域</span><br><span class="line">使原有的AO不释放，通过<span class="built_in">return</span>赋给变量                  将jQuery赋给全局变量</span><br><span class="line">该变量有函数功能，但无法使用其中的变量                  该变量有函数功能，但无法使用其中的变量</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>测试：这种解决办法能有效管理变量，防止变量污染</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ctl.js                                           cst.js</span><br><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;                                     (<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  var name = <span class="string">'ctl'</span>;                                var name = <span class="string">'cst'</span>;</span><br><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">show</span></span> () &#123;                               var age = 18;</span><br><span class="line">    console.log(name,  age);                       <span class="keyword">function</span> <span class="function"><span class="title">show</span></span> () &#123;</span><br><span class="line">  &#125;                                                   console.log(name,  age);&#125;</span><br><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">change</span></span>() &#123;                              <span class="keyword">function</span> <span class="function"><span class="title">change</span></span>() &#123;</span><br><span class="line">    name += <span class="string">'10'</span>;                                     name += <span class="string">'10'</span>;</span><br><span class="line">  &#125;                                                 &#125;</span><br><span class="line"></span><br><span class="line">  window.ctlMake = &#123;show: show, change: change&#125;;    window.cstMake = &#123;show: show, change: change&#125;;</span><br><span class="line">&#125;)();                                              &#125;)();</span><br><span class="line"></span><br><span class="line">index.html</span><br><span class="line">&lt;script src = <span class="string">'ctl.js'</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src = <span class="string">'cst.js'</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  cstMake.show();           -----&gt; <span class="string">"cst"</span></span><br><span class="line">  ctlMake.show();           -----&gt; 报错：age is not defined</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><font color="red">* 每一个功能入口就是执行自己的函数，调用自己的变量，不会相互污染。</font><br>PS：当然啦，现在的前端自动化构建工具是，就不用麻烦了。</p>
+</li>
+</ul>
+<h5 id="3）-链式调用模式"><a href="#3）-链式调用模式" class="headerlink" title="3） 链式调用模式"></a>3） 链式调用模式</h5><p>思考问题：</p>
+<ol>
+<li>如何实现链式调用模式（模仿jquery）</li>
+<li>obj.eat().drink().play().laugh().sleep();<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var mrDeng = &#123;</span><br><span class="line">  eat: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    console.log(<span class="string">'eat'</span>);</span><br><span class="line">    reeturn this;</span><br><span class="line">  &#125;,</span><br><span class="line">  drink: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    console.log(<span class="string">'drink'</span>);</span><br><span class="line">    reeturn this;</span><br><span class="line">  &#125;,</span><br><span class="line">  paly: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    console.log(<span class="string">'paly'</span>);</span><br><span class="line">    reeturn this;</span><br><span class="line">  &#125;,</span><br><span class="line">  laugh: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    console.log(<span class="string">'laugh'</span>);</span><br><span class="line">    reeturn this;</span><br><span class="line">  &#125;,</span><br><span class="line">  sleep: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    console.log(<span class="string">'sleep'</span>);</span><br><span class="line">    reeturn this;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>jQuery有一个经典的使用方法：通过$()将标签选中，包装成一个对象（如$(‘div’)），这个对象中有很多方法。可以调用一些方法去操作你选中的那个标签，可.css()再。css()，链式调用<br>$(‘div’).css().css().attr().addClass();</p>
+<h4 id="12、克隆"><a href="#12、克隆" class="headerlink" title="12、克隆"></a>12、克隆</h4><p>判断数据类型的四种方式：typeof toString instaceof contructor </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">浅克隆：</span><br><span class="line">function cloneFactory (copy, origin) &#123;</span><br><span class="line">  copy = copy || &#123;&#125;;</span><br><span class="line">  for (var props in origin) &#123;</span><br><span class="line">    copy[props] = origin[props];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">深克隆：</span><br><span class="line">function deepClone (copy, origin) &#123;</span><br><span class="line">  copy = copy || &#123;&#125;;</span><br><span class="line">  var arrStr = &apos;[Object Array]&apos;;</span><br><span class="line">  for (var props in origin) &#123;</span><br><span class="line">    if (origin[props] !== null &amp;&amp; (origin[props] === &apos;object&apos;) ) &#123;</span><br><span class="line">      if (Object.prototype.toString.call(origin[props]) === arrStr) &#123;</span><br><span class="line">        copy[props] = [];</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">         copy[props] = &#123;&#125;;</span><br><span class="line">      &#125;</span><br><span class="line">      deepClone(copy[props], origin[props]);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      copy[props] = origin[props];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">深克隆优化版本：</span><br><span class="line">function deepCloneFactory(copy, origin) &#123;</span><br><span class="line">  copy = copy || &#123;&#125;;</span><br><span class="line">  var arr = [],obj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  for (var props in origin) &#123;</span><br><span class="line">    if (origin[props] === copy[props]) &#123;</span><br><span class="line">      continue;</span><br><span class="line">    &#125;</span><br><span class="line">    for (var attrs in copy) &#123;</span><br><span class="line">      if (attrs === props) &#123;</span><br><span class="line">        if (Object.prototype.toString.call(origin[props]) === &apos;[object Array]&apos;) &#123;</span><br><span class="line">          arr = copy[attrs];</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          obj = copy[attrs];</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (origin.hasOenProperty(props)) &#123;</span><br><span class="line">      if (origin[props] !== null &amp;&amp; typeof origin[props] === &apos;object&apos;) &#123;</span><br><span class="line">        if (Object.prototype.toString.call(origin[props] === &apos;[object Array]&apos;)) &#123;</span><br><span class="line">          copy[props] = arr;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          copy[props] = obj;</span><br><span class="line">        &#125;</span><br><span class="line">        deepCloneFactory(copy[props], origin[props]);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        copy[props] = origin[props];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="13、数组"><a href="#13、数组" class="headerlink" title="13、数组"></a>13、数组</h4><h5 id="1、创建方式"><a href="#1、创建方式" class="headerlink" title="1、创建方式"></a>1、创建方式</h5><p>  1）new Array(length/content)<br>  2）字面量</p>
+<h5 id="2、数组的读和写"><a href="#2、数组的读和写" class="headerlink" title="2、数组的读和写"></a>2、数组的读和写</h5>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr[num]               <span class="comment"># 不可溢出读</span></span><br><span class="line">arr[num] = xxx;        <span class="comment"># 可溢出读</span></span><br></pre></td></tr></table></figure>
+<h5 id="3、数组的常用方法"><a href="#3、数组的常用方法" class="headerlink" title="3、数组的常用方法"></a>3、数组的常用方法</h5><ol>
+<li><p>改变原数组<br>push     尾部加值，改变原数组，返回数组长度<br>pop      尾部弹指，改变原数组，返回被弹出的值<br>shift    首部弹值，改变原数组，返回被弹出的值<br>unshift  首部加值，改变原数组，返回数组长度<br>splice   在数组任意位加或删，返回截取的数组<br>reverse  倒序<br>sort     只能排单位数字，可</p>
+<pre><code>arr.sort(function(a,b) {
+  return a-b;
+})
+</code></pre><p><font color="red">* 让有序数组输出乱序：</font> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,4,5,6,7,8,9];</span><br><span class="line">console.log(arr.sort(() =&gt; Math.random()-0.5));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不改变原数组<br>concat    返回连接后的数组，不改变原数组<br>join -&gt; split<br>toString<br>slice</p>
+<p><font color="orange">forEach</font>  只是简单的将数组遍历，类似于军人接受检阅，但是检阅结束并不会返回任何东西，也不会改变原数组,forEach的返回永远是undefind<br><font color="orange">map</font>      可以比喻成去超市买东西，你拿了一个物品清单，然后服务员帮你拿好东西，返回给你一个物品的新数组，但是对清单原数组不发生改变<br><font color="orange">filter</font>   就是让男生排队身高高于180的就归入到新数组中，最后返回一个里面装着所有180+的男生的数组，不改变原数组<br><font color="orange">reduce</font>    主要是为了对所有数组进行累加，最后返回一个值，不改变原数组，类似让男生把排队把把身高加起来<br><font color="orange">find</font>     就是你去找人想找一个180的男生帮你去搬砖，只要找到第一个就停止遍历，因为只要找一个，为了减少无用的操作，虽然其他方法也能实现同样的要过，但是最好用find()</p>
+</li>
+</ol>
+<h4 id="13、-类数组"><a href="#13、-类数组" class="headerlink" title="13、 类数组"></a>13、 类数组</h4><ol>
+<li>可以利用属性名模拟数组的特性</li>
+<li>可以动态的增长length属性</li>
+<li>如果强行让类数组调用push方法，则会根据length属性值的位置进行属性的扩充</li>
+</ol>
+<ul>
+<li>要有索引（数字）属性，必须有length属性，最好加上push可以向数组一样用。如果再加上splice，控制台输出和数组一样。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">1. 问题1:</span><br><span class="line">  var obj = &#123;</span><br><span class="line">    2: &apos;a&apos;,</span><br><span class="line">    3: &apos;b&apos;,</span><br><span class="line">    length: 2,</span><br><span class="line">    push: Array.prototype.push</span><br><span class="line">  &#125;;</span><br><span class="line">  obj.push(&apos;c&apos;);</span><br><span class="line">  obj.push(&apos;d&apos;);</span><br><span class="line">  console.log(obj);  ---&gt; &#123;2: &quot;c&quot;, 3: &quot;d&quot;, length: 4, push: ƒ&#125;</span><br><span class="line"></span><br><span class="line">2. 问题2：编写方法对所有数据类型都能判断准确。</span><br><span class="line">  function myType (myVar) &#123;</span><br><span class="line">    var cache = &#123;</span><br><span class="line">      &apos;[object Number]&apos;: &apos;number-object&apos;,</span><br><span class="line">      &apos;[object String]&apos;: &apos;string-object&apos;,</span><br><span class="line">      &apos;[object Boolean]&apos;: &apos;bool-object&apos;,</span><br><span class="line">      &apos;[object Array]&apos;: &apos;array&apos;,</span><br><span class="line">      &apos;[object Object]&apos;: &apos;object&apos;,</span><br><span class="line">    &#125;;</span><br><span class="line">    if (myVar === null) &#123;</span><br><span class="line">      return &apos;null&apos;;</span><br><span class="line">    &#125; else if (typeof myVar === &apos;object&apos;) &#123;</span><br><span class="line">      return cache[Object.prototype.toString.call(myVar)];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      return typeof myVar;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第三节-DOM"><a href="#第三节-DOM" class="headerlink" title="第三节. DOM"></a><font color="#FF69B4">第三节. DOM</font></h2><h2 id="第四节-BOM"><a href="#第四节-BOM" class="headerlink" title="第四节. BOM"></a><font color="#FF69B4">第四节. BOM</font></h2><h2 id="正则表达式-RegExp（Regular-Expression）"><a href="#正则表达式-RegExp（Regular-Expression）" class="headerlink" title="正则表达式 RegExp（Regular Expression）"></a><font face="楷体" color="red" size="5">正则表达式 RegExp（Regular Expression）</font></h2><p>正则表达式是匹配特殊字符或有特殊搭配原则的字符的最佳选择。</p>
+<h3 id="一、创建方式："><a href="#一、创建方式：" class="headerlink" title="一、创建方式："></a>一、创建方式：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;1.直接量 (个人推荐直接量)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如：var reg = /^\d | \d$/igm;<br>&nbsp;&nbsp;&nbsp;&nbsp;2.new RegExp();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如：var reg = new RegExp(‘/^\\d | \\d$/‘);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="楷体" color="blue">注：①js字符串不许出现回车符号，但是“\”代表转义字符。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如：var a = “aaa\<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bbb”;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这样就不会报错了。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;②“\”代表转义字符，“\\”代表\。“\n”代表换行</font></p>
+<h3 id="二、基本语法："><a href="#二、基本语法：" class="headerlink" title="二、基本语法："></a>二、基本语法：</h3><p>RegExp对象标识正则表达式，是对字符转执行 模式匹配 的强大工具。</p>
+<ol>
+<li><p>compile&nbsp;&nbsp;&nbsp; 编译正则表达式<br>exec &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 检索字符串中指定的值，返回找到的值，并确定其位置<br>test &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;检索字符串中指定的值，返回true或false <font color="red">例：reg.test(str)</font></p>
+</li>
+<li><p>i &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代表不区&nbsp;&nbsp;分 <font face="黑体" size="2"><strong>大小写</strong> </font> （执行对大小写不敏感的匹配）<font color="red">例：/[abc]/i</font><br>g &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代表 <font face="黑体" size="2"><strong>全局</strong> </font> 匹配(查找所有匹配，而非找到第一个匹配后停止)<br>m  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="黑体" size="2"><strong>多行</strong> </font> 匹配</p>
+</li>
+<li><p>支持正则表达式的String对象的方法：<br>search  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;检索与正则表达式相匹配的值<br>match &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;找到一个或多个正则表达式的匹配 <font color="red">例：str.match(reg)</font><br>replace &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;替换与正则表达式匹配的子串<br>split  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;把字符串分割为字符串数组</p>
+</li>
+<li><p><font color="red">[]</font> 查找某法范围内的字符<br>[abc]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找方括号之间的任何字符<br>[^abc]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找任何不在方括号之间的字符<br>[0-9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找任何从0到9之间的数字<br>[a-z]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找任何从小写a到小写z之间的字符<br>[A-Z]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找任何从大写A到大写Z之间的字符<br>[A-z]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找任何从大写A到小写z之间的字符<br>[adj]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找给定集合内的任何字符<br>[^dss]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找给定集合外的任何字符<br>(red|green|blue) 查找任何指定的选项</p>
+</li>
+<li><p><font color="red">元字符</font> （Metacharacter）是有特殊含义的字符，简化操作。<br>. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找单个字符，除了换行和行结束符<br>\w &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找单词字符<br>\W &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查找非单词字符<br>\d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找数字字符<br>\D &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找非数字字符<br>\s &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找空白字符<br>\S &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查号非空白字符<br>\b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查找单词边界<br>\B &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查找非单词边界<br>\O &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找NUL字符<br>\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查找换行符<br>\f &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查找换页符<br>\r &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查找回车符<br>\t &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查找制表符<br>\v &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找垂直制表符<br>\xxx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找以八进制数xxx规定的字符<br>\xdd &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找以十六进制数dd规定的字符<br>\uxxx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查找以十六极致xxxx规定的Unicode字符</p>
+</li>
+<li><p>正则匹配原则（贪心匹配原则） <font color="red">量词</font><br>n+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配任何包含至少一个n的字符串<br>n*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 匹配任何包含零个或多个n的字符串<br>n?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 匹配任何包含零个或一个n的字符串<br>n{x}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配包含x个n的序列的字符串<br>n{x,y}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配包含x至y个n的序列的字符串<br>n{x,}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 匹配包含至少x个n的字符串<br>n$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配任何结尾为n的字符串<br>^n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配任何开头为n的字符串<br>?=n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配任何其后紧接指定字符串n的字符串<br>?!n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配任何其后紧接非指定字符串n的字符串</p>
+</li>
+<li><p>RegExp对象属性<br>ignoreCase&nbsp;&nbsp;&nbsp;&nbsp;RegExp对象是否具有标志i<br>global&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RegExp对象是否具有标志g<br>multiline&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RegExp对象是否具有标志m<br>lastIndex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一个整数，表示开始下一次匹配的字符位置<br>source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;正则表达式的原文本</p>
+</li>
+</ol>
+<h3 id="三、进阶"><a href="#三、进阶" class="headerlink" title="三、进阶"></a>三、进阶</h3><ol>
+<li>\2、\1 <font color="red">反向子表达式引用</font></li>
+<li>正向预查功能 ?=<br>(?: )不记录该子表达式的内容 </li>
+</ol>
+<h2 id="BOM-Browser-Object-Model-浏览器对象模型"><a href="#BOM-Browser-Object-Model-浏览器对象模型" class="headerlink" title="BOM ( Browser Object Model , 浏览器对象模型 )"></a><font face="楷体" color="red" size="5">BOM ( Browser Object Model , 浏览器对象模型 )</font></h2><h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><ol>
+<li>定义：Browser Object Model（浏览器对象模型）</li>
+<li>BOM对象：window、history、Nacigator、screen、location等<br>&nbsp;<font color="blue" face="楷体">注：由于浏览器厂商不同，BOM对象的兼容性极低，所以一般，我们只用其中的部分功能。</font></li>
+</ol>
+<h3 id="二、BOM对象"><a href="#二、BOM对象" class="headerlink" title="二、BOM对象"></a>二、BOM对象</h3><ol>
+<li><font color="red" face="楷体" size="3">window对象</font><br>1) window对象代表浏览器中打开的窗口。 如果文档中包含框架（frame或ifram标签），浏览器会为文档创建一个window对象，并为每个框架创建一个额外的window对象<br>&nbsp;<font color="blue" face="楷体">注：没有应用于window对象的公开标准，不过所有路蓝旗都支持该对象</font><br>2) window对象集合：frames[]<br>返回窗口中所有命名的框架，该集合是window对象的数组，每个window对象若窗口中含有一个框架或&lt;iframe&gt;,属性frames。length存放数组frames[]中含有的元素个数。<br>&nbsp;<font color="blue" face="楷体">注：frames[]数组中引用的框架可能还包含框架，它们自己也具有frames[]数组</font><br>3) window对象的属性<br>closed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回窗口是否已被关闭<br>defaultStatus 设置或返回窗口状态栏中的默认文本<br>document&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对Document对象的只读引用，请参阅Document对象<br>history&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对History对象的只读引用，请参阅History对象<br>location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用于窗口或框架的Location对象，请参阅Location对象<br>Navigator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对Navigator对象的只读引用，请参阅Navigator对象<br>Screen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对Screen对象的只读引用，请参阅Screen对象<br>innerheight&nbsp;&nbsp;&nbsp;&nbsp;返回窗口文档显示区的高度<br>innerwidth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回窗口文档显示区的宽度<br>length&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回窗口中的框架数量<br>name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回窗口的名称<br>opener&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回对创建此窗口的窗口引用<br>outerheight&nbsp;&nbsp;&nbsp;&nbsp;返回窗口的外部高度（IE不支持）<br>outerwidth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回窗口的外部宽度（IE不支持）<br>pageXOffset&nbsp;&nbsp;&nbsp;设置或返回当前页面相对于窗口显示区左上角的x位置<br>pageYOffset&nbsp;&nbsp;&nbsp;设置或返回当前页面相对于窗口显示区左上角的y位置<br>parent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回父窗口<br>window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window属性等价于self属性，它包含了对窗口自身的引用<br>self&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回当前窗口的引用，等价于window属性<br>status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置窗口状态栏的文本<br>top&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回最顶层的先辈窗口<br>screenLeft&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;只读整数，声明了窗口的左上角在屏幕上的x坐标和y坐标<br>screenTop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IE、Safari和Opera支持screenLeft和screenTop<br>screenX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;只读整数，声明了窗口的左上角在屏幕上的x坐标和y坐标<br>screenY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FireFox和Safari支持screenX和screenY<br>4) window对象的方法<br>alert()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;显示带有一段消息和一个确认按钮的警告框<br>confirm()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;显示带有一段消息以及确认按钮和去取消按钮的对话框<br>createPopup() 创建一个pop-up窗口<br>print()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打印当前窗口的内容<br>prompt()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;显示可提示用户输入的对话框<br>blur()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可把键盘焦点从顶层浏览器窗口移走<br>focus()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;把键盘焦点给予一个窗口<br>setInterval()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按照指定的周期（以毫秒计算）来调用函数或计算表达式<br>setTimeout()&nbsp;&nbsp;&nbsp;&nbsp;在指定的好描述后调用函数或计算表达式<br>clearInterval()&nbsp;&nbsp; 取消由setInterval()设置的timeout<br>clearTimeout()&nbsp; 取消由setTimeout()设置的timeout<br>open()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打开一个新浏览器窗口<br>close()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关闭浏览器窗口<br>scrollBy()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按照指定的像素值来滚动内容<br>scrollTo()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;把内容滚动到指定的坐标<br>moveBy()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可相对窗口的当前坐标吧它移动到一个指定的像素<br>moveTo()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;把窗口的左上角移动到指定位置<br>resizeBy()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按照指定的像素调整窗口的大小<br>resizeTo()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;把窗口的大小调整到指定的宽度和高度</li>
+<li><font color="red" face="楷体" size="3">Navigator对象</font><br>1）包含有关浏览器的信息。<font face="楷体" color="blue">没有应用于Navigator对象的公开标准，不过所有浏览器都支持此对象</font><br>2) Navigator对象集合：plugins[]，返回对文档中所有嵌入式对象的引用该集合是一个Plugin对象的数组。其中的元素代表浏览器已经安装的插件，Plugin对象提供的是有关插件的信息。其中包括它所支持的MIME类型的列表。虽然plugins数组是由IE4定义的，但是在IE4中它却总是空的，因为IE4不支持插件和Plugin对象。<br>3） Navigator对象属性<br>appCodeName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回浏览器的代码名<br>appMinorVersion&nbsp;返回浏览器的次级版本<br>appName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回浏览器名称<br>appVersion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 返回浏览器的平台和版本信息<br>browserLanguage&nbsp;返回当前浏览器的语言<br>cookieEnabled&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回指明浏览器中是否启用cookie的布尔值<br>cpuClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回浏览器系统的CPU等级<br>onLine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回指明系统是否处于脱机模式的布尔值<br>platform&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回运行浏览器的操作系统平台<br>systemLanguage&nbsp;&nbsp;&nbsp;返回OS使用的默认语言<br>userLanguage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回由客户机发送服务器的user-agent头部的值<br>4）Navigator对象方法<br>javaEnabled()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;规定浏览器是否启用java<br>taintEnabled()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;规定浏览器是否启用数据污点(data tainting)</li>
+<li><font color="red" face="楷体" size="3">Screen对象</font><br>Screen对象包含有瓜客户端显示屏幕的信息。</li>
+<li><font color="red" face="楷体" size="3">History对象</font><br>1） History对象包含用户（在浏览器窗口中）访问过的URL，是window对象的一部分。可通过window.history属性进行访问。<font color="blue" face="楷体">注：没有应用于History对象的公开标准，不过所有浏览器都支持它。</font><br>2） History对象属性<br>length&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回浏览器历史列表中的数量<br>3） History对象方法<br>back()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加载history列表中的前一个URL<br>forward()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加载history列表中的下一个URL<br>go()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加载history列表中的某个具体页面</li>
+<li><font color="red" face="楷体" size="3">Location对象</font><br>1） Location对象包含有关当前URL的信息，是window对象的一部分，可通过window.location属性来访问<br>2） Location对象属性<br>hash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回从#号（#）开始的URL（锚）<br>host&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回主机名和当前URL的端口号<br>hostname&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回当前URL的主机名<br>href&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回完整的URL<br>pathname&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回当前URL的路径部分<br>port&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回当前URL的端口号<br>protocol&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回当前URL的协议<br>search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置或返回从问好（?）开始的URL（查询部分）<br>3）Location对象方法<br>assign()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加载新的文档<br>reload()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重新加载当前文档<br>replace()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用新的文档替换当前文档<br><div class="border1">URL：<a href="https://www.baidu.com/s?ie-utf-88&amp;f=3&amp;rsv_bp=1" target="_blank" rel="noopener">https://www.baidu.com/s?ie-utf-88&amp;f=3&amp;rsv_bp=1</a><br><font color="red" face="楷体">资源定位符：</font>协议名(https)&nbsp;&nbsp;主机名(域名 <a href="http://www.baidu.com&nbsp;&nbsp;路径(/s)&nbsp;&nbsp;参数名=参数值(ie-utf-88)" target="_blank" rel="noopener">www.baidu.com&nbsp;&nbsp;路径(/s)&nbsp;&nbsp;参数名=参数值(ie-utf-88)</a><br></div><font color="blue" face="楷体">DNS -&gt; ID -&gt; 服务端 -&gt; 客户端</font>
+
+</li>
+</ol>
+<h2 id="json"><a href="#json" class="headerlink" title="json"></a><font face="楷体" color="red" size="5">json</font></h2><p>json是一种传输数据的格式（以对象为模板，本质上就是对象，但用途有区别。对象就是本地使用的数据类型，json是用来传输数据的数据类型）</p>
+<div class="border1"><font color="red" face="楷体">JSON.parse();</font>string -&gt; json<br><font color="red" face="楷体">JSON.stringgify();</font>json -&gt; string</div>
+
+<h2 id="异步加载js"><a href="#异步加载js" class="headerlink" title="异步加载js"></a><font face="楷体" color="red" size="5">异步加载js</font></h2><h3 id="一、js同步加载"><a href="#一、js同步加载" class="headerlink" title="一、js同步加载"></a>一、js同步加载</h3><ol>
+<li>js加载的缺点：加载工具方法没必要阻塞文档，使得js加载会影响页面效率，一旦网速不好，那么挣个网站将等待js加载而不进行后续渲染等工作。</li>
+<li>js加载不能满足的需求：有些工具方法需要按需加载，用到时再加载，不用时不加载。</li>
+<li>页面解析：加载一行，解析一行，遇到<link>标签，开启一个新线程，异步加载css。<h3 id="二、js异步加载"><a href="#二、js异步加载" class="headerlink" title="二、js异步加载"></a>二、js异步加载</h3></li>
+<li>javascript异步加载的三种方案：<br>1） defer异步加载，但要等到dom文档全部解析完才会被执行（只有IE能用。<font color="blue">执行时不阻塞页面</font>）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">".../xxx.js"</span> defer/async&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2） async异步加载，加载完就执行（async只能加载外部脚本，不能将js写在script标签里，w3c标准。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">执行时不阻塞页面</font>）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3） 创建script，插入到DOM中，onload，兼容，加载完毕后callBack。( <font color="red"> * 按需加载 * </font> ）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var cb = &#123;</span><br><span class="line">        <span class="built_in">test</span>:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            console.log(<span class="string">"回调函数"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">function</span> loadScript(url,callback)&#123;</span><br><span class="line">        var oScript = docuemnt.createElement(<span class="string">'script'</span>);</span><br><span class="line">        oScript.src=url;</span><br><span class="line">        <span class="keyword">if</span>(oScript.readyState)&#123;</span><br><span class="line">            oScript.onreadystatechange = <span class="function"><span class="title">function</span></span>()&#123;//IE</span><br><span class="line">                <span class="keyword">if</span>(oScript.readyState == <span class="string">'complete'</span> || oScript.readyState == <span class="string">'loaded'</span>)&#123;</span><br><span class="line">                    oScript.onreadystatechange = null;</span><br><span class="line">                    cb[callback]();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            oScript.onload = <span class="function"><span class="title">function</span></span>()&#123;//非IE</span><br><span class="line">                oScript.onload = null;</span><br><span class="line">                cb[callback]();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        document.body.appendChild(oScript);</span><br><span class="line">    &#125;</span><br><span class="line">    loadScript(<span class="string">"xxx.js"</span>,<span class="string">"test"</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="js加载时间线"><a href="#js加载时间线" class="headerlink" title="js加载时间线"></a><font face="楷体" color="red" size="5">js加载时间线</font></h2><p>js时间线：</p>
+<ol>
+<li>创建Document对象，开始解析页面。解析HTML元素和他们的文本内容后，添加Element对象和Text节点到文档中，这个阶段document.readyState = ‘loading’。</li>
+<li>遇到link外部css，创建线程加载，并继续解析文档。</li>
+<li>遇到script外部js并且没有设置defer或async，浏览器加载并阻塞，等待js加载完成并执行该脚本后，继续解析文档。</li>
+<li>遇到script外部js并且有设置defer或async，浏览器常见线程加载，并继续解析文档。对于async属性，脚本加载完成后立即执行（异步禁止使用document.write）</li>
+<li>遇到img等，先正常解析dom结构，然后浏览器开始加载src，并继续解析文档。</li>
+<li>当文档解析完成，document.readyState=’interactive’（document.onreadystatechange）</li>
+<li>文档解析完成后，所有设置有defer的脚本会按照顺序执行（注：与async不同，但同样禁止document.write）</li>
+<li>document对象触发DOMContentloaded事件，这也标志着程序执行从同步脚本执行阶段，转换为事件驱动阶段（document.addEventListener）</li>
+<li>当所有async的脚本加载完成并执行后、img等加载完成后，docuemnt.readyState = ‘complete’，window对象触发load事件。</li>
+<li>从此，以异步响应方式处理用户输入，网络事件等。<br><font color="red">docuemnt.write()能清除文档流，故异步加载禁止使用document.write()</font><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    console.log(<span class="string">"1.开始解析页面，document.readyState的值为"</span>,document.readyState,<span class="string">", 2 3 4 5 解析html,css,js,img等"</span>);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    document.addEventListener(<span class="string">'DOMContentLoaded'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        console.log(<span class="string">"8. document对象触发DOMContentloaded事件，这也标志着程序执行从同步脚本执行阶段，转换为事件驱动阶段（document.addEventListener）"</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    document.onreadystatechange = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        <span class="keyword">if</span>(document.readyState == <span class="string">"interactive"</span>)&#123;</span><br><span class="line">            console.log(<span class="string">"6.当页面解析完成后，onreadystatechange事件中document.readyState变为"</span>,document.readyState,<span class="string">"，7.defer执行"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(document.readyState == <span class="string">"complete"</span>)&#123;</span><br><span class="line">            console.log(<span class="string">"9.onreadystatechange事件中document.readyState变为"</span>,document.readyState);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    document.addEventListener(<span class="string">'DOMContentLoaded'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        console.log(<span class="string">"8. document对象触发DOMContentloaded事件，这也标志着程序执行从同步脚本执行阶段，转换为事件驱动阶段（document.addEventListener）"</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    window.onload = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        console.log(<span class="string">"9.window对象触发load事件"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(<span class="string">"1.开始解析页面，document.readyState的值为"</span>,document.readyState,<span class="string">", 2 3 4 5 解析html,css,js,img等"</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="零散知识点"><a href="#零散知识点" class="headerlink" title="零散知识点"></a><font face="楷体" color="red" size="5">零散知识点</font></h2><h3 id="一、DOCTYPE"><a href="#一、DOCTYPE" class="headerlink" title="一、DOCTYPE"></a>一、DOCTYPE</h3><ol>
+<li>渲染模式：标准模式、混杂模式（怪异模式）</li>
+<li>三种标准模式的写法：<br>1） &lt;!DOCTYPE html&gt;<br>2)  &lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01//EN” “<a href="http://www.w3.org/TR/html4/strict.dtd&quot;&gt;" target="_blank" rel="noopener">http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</a><br>3） &lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN”<br>“<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;" target="_blank" rel="noopener">http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</a></li>
+</ol>
+<h3 id="二、for属性-gt-js中表示htmlFor"><a href="#二、for属性-gt-js中表示htmlFor" class="headerlink" title="二、for属性 -&gt; js中表示htmlFor"></a>二、<label>for属性 -&gt; js中表示htmlFor</label></h3><p>属性映射HTML属性，映射到Element属性<br>img图片预加载<br>byClassName自己定义的写法<br>Math.random和彩票程序（0-36的随机数）</p>
+<h3 id="三、文档碎片"><a href="#三、文档碎片" class="headerlink" title="三、文档碎片"></a>三、文档碎片</h3><p>CDN<br>断电调试<br>typeof(new Array).<strong>proto</strong>.constructor();<br>forEach里不能用break</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/css/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1546,7 +2423,7 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
