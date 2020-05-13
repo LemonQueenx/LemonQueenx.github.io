@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4f2405;
+  background: #b1983b;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1914,6 +1914,7 @@ pre .javascript .function {
   border-bottom-color: #000;
 }
 .post-toc .nav-item {
+  list-style: none;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: justify;
@@ -2997,7 +2998,7 @@ html {
   font-family: "ziti";
 }
 body {
-  background-image: url("/images/background3.jpg");
+  background-image: url("/images/background7.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3242,6 +3243,15 @@ body {
 .tag-cloud-tags a {
   font-size: 12px !important;
   color: #555 !important;
+}
+.post-warning {
+  width: 80%;
+  height: auto;
+  background: rgba(255,229,100,0.3);
+  border-left-width: 9px;
+  border-left-style: solid;
+  border-left-color: #ffe564;
+  padding: 20px 45px 20px 26px;
 }
 @-moz-keyframes shaky-slow {
   0% {
