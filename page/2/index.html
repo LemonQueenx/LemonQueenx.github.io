@@ -261,6 +261,145 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/29/accumulate201906/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lemon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/background7.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="立夏">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/29/accumulate201906/" itemprop="url">accumulate201906</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T14:24:37+08:00">
+                2019-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="2019-05"><a href="#2019-05" class="headerlink" title="2019-05"></a>2019-05</h1><ol>
+<li><p><strong>windows快捷键</strong><br>打开画图，win+R -&gt; mspaint</p>
+</li>
+<li><p><strong>VSCode快捷键</strong><br>Alt+Shift+f     代码格式化<br>Alt+z           自动折行显示<br>Shift+左右键    选择<br>Alt+左右键      光标<br>Ctrl+b         关闭/打开左侧面板<br>Ctrl+`         关闭/打开底部面板</p>
+</li>
+<li><p><strong>input去掉边框</strong><br>input{outline: none;}</p>
+</li>
+<li><p><strong>body字段换行</strong><br>body{word-wrap: break-word;}</p>
+</li>
+<li><p><strong>table的border</strong><br>border-collapse属性是定义表格的边框是分开还是合并的，属性值分别有collapse separate  inherit</p>
+</li>
+<li><p><strong>text-align</strong><br>start<br>如果内容方向是左至右，则等于left，反之则为right。<br>end<br>如果内容方向是左至右，则等于right，反之则为left。<br>left<br>行内内容向左侧边对齐。<br>right<br>行内内容向右侧边对齐。<br>center<br>行内内容居中。<br>justify<br>文字向两侧对齐，对最后一行无效。<br>justify-all<br>和justify一致，但是强制使最后一行两端对齐。<br>match-parent<br>和inherit类似，区别在于start和end的值根据父元素的direction确定，并被替换为恰当的left或right。</p>
+</li>
+<li><p><strong>铺满首屏</strong><br>html,body{height:100%;}</p>
+</li>
+<li><p><strong>映射网络硬盘</strong><br>\10.20.xx.xx\mydev<br>devdevdev</p>
+</li>
+<li><p><strong>返回顶部</strong><br>window.addEventListener(‘scroll’, function(){<br>if(document.documentElement.scrollTop&gt;667){<br> $(“.JS_top”).css(“display”,”block”);<br>}else{<br> $(“.JS_top”).css(“display”,”none”);<br>}<br>});<br>$(“.JS_top”).on(“click”,function(){<br>window.scrollTo(0,0);<br>})</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/15/vue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1366,16 +1505,16 @@ React DOM 会将元素和它的子元素与它们之前的状态进行比较，�
 </ul>
 <h3 id="协调"><a href="#协调" class="headerlink" title="协调"></a><font color="#00BFFF">协调</font></h3><p>当组件的 props 或 state 发生变化时，React 通过将最新返回的元素与原先渲染的元素进行比较，来决定是否有必要进行一次实际的 DOM 更新。当它们不相等时，React 才会更新 DOM。这个过程被称为“协调”。</p>
 <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<h1 id="六、React-Hook"><a href="#六、React-Hook" class="headerlink" title="六、React Hook"></a><font color="#4169E1">六、React Hook</font></h1><h2 id="1）-简介"><a href="#1）-简介" class="headerlink" title="1） 简介"></a><font color="#00BFFF">1） 简介</font></h2><p><strong>React Hooks 要解决的问题是状态共享</strong>，称为 <strong>状态逻辑复用</strong>会更恰当，因为只共享数据处理逻辑，不会共享数据本身。</p>
-<blockquote>
-<p>Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</p>
+<h1 id="六、React-Hook"><a href="#六、React-Hook" class="headerlink" title="六、React Hook"></a><font color="#4169E1">六、React Hook</font></h1><h2 id="1）-简介"><a href="#1）-简介" class="headerlink" title="1） 简介"></a><font color="#00BFFF">1） 简介</font></h2><blockquote>
+<p>Hook是React 16.8的新特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</p>
 </blockquote>
+<p><strong>React Hooks 要解决的问题是状态共享</strong>，称为 <strong>状态逻辑复用</strong> 会更恰当，因为只共享数据处理逻辑，不会共享数据本身。</p>
 <p>意思很明了，就是拓展函数式组件的边界。结果也很清晰，只要 Class 组件能实现的，函数式组件 + Hooks都能胜任。</p>
 <h2 id="2）-Hook是什么"><a href="#2）-Hook是什么" class="headerlink" title="2） Hook是什么"></a><font color="#00BFFF">2） Hook是什么</font></h2><blockquote>
-<p>Hook 是一些可以让你在函数组件里“钩入” React state 及生命周期等特性的函数。Hook 不能在 class 组件中使用 —— 这使得你不使用 class 也能使用 React。</p>
+<p>Hook 是一些可以让你在函数组件里“钩入” React state 及生命周期等特性的函数，这使得你不使用 class 也能使用 React。（Hook 不能在 class 组件中使用） </p>
 </blockquote>
 <blockquote>
-<p>规则有哪些？</p>
+<p>规则</p>
 <ul>
 <li>只在最顶层使用 Hook<ul>
 <li>不要在循环，条件，嵌套函数中调用Hook</li>
@@ -1389,40 +1528,18 @@ React DOM 会将元素和它的子元素与它们之前的状态进行比较，�
 </li>
 </ul>
 </blockquote>
-<blockquote>
-<p>React Hooks 带来的好处不仅是 “更新粒度更细，代码更清晰”，还有如下三个特性：</p>
-<ol>
-<li>多个状态不会产生嵌套，写法还是平铺的。</li>
-<li>Hooks 可以引用其他 Hooks。</li>
-<li>更容易将组件的 UI 与状态分离。</li>
-</ol>
-</blockquote>
-<p>第二点展开说一下：Hooks 可以引用其他 Hooks，我们可以这么做：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">import &#123; useState, useEffect &#125; from &quot;react&quot;;</span><br><span class="line"></span><br><span class="line">// 底层 Hooks, 返回布尔值：是否在线</span><br><span class="line">function useFriendStatusBoolean(friendID) &#123;</span><br><span class="line">  const [isOnline, setIsOnline] = useState(null);</span><br><span class="line"></span><br><span class="line">  function handleStatusChange(status) &#123;</span><br><span class="line">    setIsOnline(status.isOnline);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  useEffect(() =&gt; &#123;</span><br><span class="line">    ChatAPI.subscribeToFriendStatus(friendID, handleStatusChange);</span><br><span class="line">    return () =&gt; &#123;</span><br><span class="line">      ChatAPI.unsubscribeFromFriendStatus(friendID, handleStatusChange);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  return isOnline;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 上层 Hooks，根据在线状态返回字符串：Loading... or Online or Offline</span><br><span class="line">function useFriendStatusString(props) &#123;</span><br><span class="line">  const isOnline = useFriendStatusBoolean(props.friend.id);</span><br><span class="line"></span><br><span class="line">  if (isOnline === null) &#123;</span><br><span class="line">    return &quot;Loading...&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  return isOnline ? &quot;Online&quot; : &quot;Offline&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 使用了底层 Hooks 的 UI</span><br><span class="line">function FriendListItem(props) &#123;</span><br><span class="line">  const isOnline = useFriendStatusBoolean(props.friend.id);</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;li style=&#123;&#123; color: isOnline ? &quot;green&quot; : &quot;black&quot; &#125;&#125;&gt;&#123;props.friend.name&#125;&lt;/li&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 使用了上层 Hooks 的 UI</span><br><span class="line">function FriendListStatus(props) &#123;</span><br><span class="line">  const status = useFriendStatusString(props);</span><br><span class="line"></span><br><span class="line">  return &lt;li&gt;&#123;status&#125;&lt;/li&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个例子中，有两个 Hooks：<code>useFriendStatusBoolean</code> 与 <code>useFriendStatusString</code>, <code>useFriendStatusString</code> 是利用 <code>useFriendStatusBoolean</code> 生成的新 Hook，这两个 Hook 可以给不同的 UI：<code>FriendListItem</code>、<code>FriendListStatus</code> 使用，而因为两个 Hooks 数据是联动的，因此两个 UI 的状态也是联动的。</p>
-<p><strong>“有状态的组件没有渲染，有渲染的组件没有状态”</strong>：理想的情况</p>
-<ul>
-<li><code>useFriendStatusBoolean</code> 与 <code>useFriendStatusString</code> 是有状态的组件（使用 <code>useState</code>），没有渲染（返回非 UI 的值），这样就可以作为 <strong>Custom Hooks</strong> 被任何 UI 组件调用。</li>
-<li><code>FriendListItem</code> 与 <code>FriendListStatus</code> 是有渲染的组件（返回了 JSX），没有状态（没有使用 <code>useState</code>），这就是一个纯函数 UI 组件，</li>
-</ul>
+<p>理想的情况 : <font color="#0f0"><strong>“有状态的组件没有渲染，有渲染的组件没有状态”</strong></font></p>
 <h2 id="3）-常用Hooks"><a href="#3）-常用Hooks" class="headerlink" title="3） 常用Hooks"></a><font color="#00BFFF">3） 常用Hooks</font></h2><h3 id="useState"><a href="#useState" class="headerlink" title="useState"></a>useState</h3><blockquote>
 <p>可以让函数组件在生命周期中，有维护自己的数据和状态的功能。</p>
-<p>区别与class组件：在class组件中，state 总是一个对象，可以在该对象上添加保存属性；对于 hooks，state 不必是对象，它可以是你想要的任何类型-数组、数字、布尔值、字符串等等。每次调用useState都会创建一个state块，其中包含一个值。</p>
 </blockquote>
-<ul>
-<li><p>useState 的参数有两种：</p>
-<ol>
+<h4 id="1-参数"><a href="#1-参数" class="headerlink" title="1. 参数"></a>1. 参数</h4><ol>
 <li>如果是函数，这是一种惰性初始 state，这个函数就只会在初始渲染时候调用，函数的返回值就是 state 的初始值。</li>
 <li>如果是数据，直接作为 state 的初始值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const [test, setTest] = React.useState(0);</span><br><span class="line"></span><br><span class="line">const [test, setTest] = React.useState(() =&gt; &#123;</span><br><span class="line">  return 123;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-</li>
-<li><p>setTest更新值的方式是全部覆盖式更新，这跟class组件的setState不一样。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 如果要更新单个值</span><br><span class="line">const [test, setTest] = React.useState(&#123; aa: 1, bb: 2 &#125;);</span><br><span class="line">setTest(&#123;</span><br><span class="line">  ...test,</span><br><span class="line">  aa: 10,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>函数式更新</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Counter(&#123;initialCount&#125;) &#123;</span><br><span class="line">  const [count, setCount] = useState(initialCount);</span><br><span class="line">  <span class="built_in">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      Count: &#123;count&#125;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; setCount(initialCount)&#125;&gt;Reset&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; setCount(prevCount =&gt; prevCount - 1)&#125;&gt;-&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; setCount(prevCount =&gt; prevCount + 1)&#125;&gt;+&lt;/button&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
+<h4 id="2-覆盖式更新"><a href="#2-覆盖式更新" class="headerlink" title="2. 覆盖式更新"></a>2. 覆盖式更新</h4><p>  setTest更新值的方式是全部覆盖式更新，这跟class组件的setState不一样。<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 如果要更新单个值</span><br><span class="line">const [test, setTest] = React.useState(&#123; aa: 1, bb: 2 &#125;);</span><br><span class="line">setTest(&#123;</span><br><span class="line">  ...test,</span><br><span class="line">  aa: 10,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-函数式更新"><a href="#3-函数式更新" class="headerlink" title="3. 函数式更新"></a>3. 函数式更新</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Counter(&#123;initialCount&#125;) &#123;</span><br><span class="line">  const [count, setCount] = useState(initialCount);</span><br><span class="line">  <span class="built_in">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      Count: &#123;count&#125;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; setCount(initialCount)&#125;&gt;Reset&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; setCount(prevCount =&gt; prevCount - 1)&#125;&gt;-&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; setCount(prevCount =&gt; prevCount + 1)&#125;&gt;+&lt;/button&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-QA"><a href="#4-QA" class="headerlink" title="4. QA"></a>4. QA</h4><ol>
 <li><p>我应该使用单个还是多个 state 变量？</p>
 <blockquote>
 <p>把所有 state 都放在同一个 <code>useState</code> 调用中，或是每一个字段都对应一个 <code>useState</code> 调用，这两方式都能跑通。当你在这两个极端之间找到平衡，然后把相关 state 组合到几个独立的 state 变量时，组件就会更加的可读。</p>
@@ -1435,24 +1552,31 @@ React DOM 会将元素和它的子元素与它们之前的状态进行比较，�
 </li>
 <li><p>如何比较state?</p>
 <blockquote>
-<p>React 使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description" target="_blank" rel="noopener"><code>Object.is</code> 比较算法</a> 来比较 state。<br>我们更新一个 state 变量，我们会 <font color="#0f0"><strong>替换</strong></font> 它的值。这和 class 中的 <code>this.setState</code> 不一样，后者会把更新后的字段 <strong>合并</strong> 入对象中。</p>
+<p>React 使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description" target="_blank" rel="noopener"><code>Object.is</code> 比较算法</a> 来比较 state。<br>我们更新一个 state 变量，我们会 <font color="#0f0"><strong>替换</strong></font> 它的值。这和 class 中的 <code>this.setState</code> 不一样，this.setState会把更新后的字段合并入对象中。</p>
 </blockquote>
 </li>
 </ol>
-</li>
-</ul>
-<h3 id="useEffect"><a href="#useEffect" class="headerlink" title="useEffect"></a>useEffect</h3><h4 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h4><blockquote>
-<p>数据获取，设置订阅以及手动更改 React 组件中的 DOM 都属于副作用。 useEffect可以让我们在函数组件中执行副作用操作</p>
+<h3 id="useEffect"><a href="#useEffect" class="headerlink" title="useEffect"></a>useEffect</h3><h4 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h4><h5 id="关于React副作用"><a href="#关于React副作用" class="headerlink" title="关于React副作用"></a>关于React副作用</h5><blockquote>
+<p>UI = F(props)</p>
 </blockquote>
+<p>翻译成普通话就是：一个组件最终的dom结构与样式是由父级传递的props决定的。</p>
+<p>了解过函数式编程的同学，应该知道过一个概念，叫「纯函数」。意思是固定的输入必然有固定的输出，它不依赖任何外部因素，也不会对外部环境产生影响。</p>
+<p>react希望自己的组件渲染也是个纯函数，所以有了纯函数组件。然而真正的业务场景是有各种状态的，实际影响UI的还有内部的state。(其实还有context，暂时先不讨论）。</p>
+<blockquote>
+<p>UI = F(props, state, context)</p>
+</blockquote>
+<p>这个state可能会因为各种原因产生变化，从而导致组件的渲染结果不一致。相同的入参（props）下，每次render都有可能返回不同的UI。因此任何导致此现象的行为都是副作用（side effects）。比如用户点击下一页，导致页码与列表发生变化，这就是副作用。同样的props，不点击时是第一页数据，点击一下后，变成了第二页的数据or请求失败的页面or其他UI交互。<br>当然state是明面上影响了UI，暗地里，可能还有其他因素会影响UI。比如组件内运用了缓存，导致每次渲染可能都不一样，这也是副作用。</p>
+<h5 id="处理副作用"><a href="#处理副作用" class="headerlink" title="处理副作用"></a>处理副作用</h5><p>数据获取，设置订阅以及手动更改 React 组件中的 DOM 都属于副作用。 useEffect可以让我们在函数组件中执行副作用操作</p>
 <div class="post-warning"><strong>提示</strong><br>如果你熟悉 React class 的生命周期函数，你可以把 useEffect Hook 看做 componentDidMount，componentDidUpdate 和 componentWillUnmount 这三个函数的组合。</div>
 
-<blockquote>
-<p>当 React 渲染组件时，会保存已使用的 effect，并在更新完 DOM 后执行它。这个过程在每次渲染时都会发生，包括首次渲染。<br>虽然 <code>useEffect</code> 会在浏览器绘制后延迟执行，但会保证在任何新的渲染前执行。React 将在组件更新前刷新上一轮渲染的 effect。<br>每次我们重新渲染，都会生成<strong>新的</strong> effect，替换掉之前的。某种意义上讲，effect 更像是渲染结果的一部分 —— 每个 effect “属于”一次特定的渲染。</p>
+
+<h5 id="细化粒度"><a href="#细化粒度" class="headerlink" title="细化粒度"></a>细化粒度</h5><blockquote>
+<p>每次我们重新渲染，都会生成 <strong>新的</strong> effect，替换掉之前的。某种意义上讲，effect 更像是渲染结果的一部分 —— 每个 effect “属于”一次特定的渲染。</p>
 </blockquote>
 <blockquote>
 <p>提示: 使用多个 Effect 实现关注点分离<br>  使用 Hook 其中一个目的就是要解决 class 中生命周期函数经常包含不相关的逻辑，但又把相关逻辑分离到了几个不同方法中的问题。<br>  Hook 允许我们按照代码的用途分离他们</p>
 </blockquote>
-<h4 id="2、使用"><a href="#2、使用" class="headerlink" title="2、使用"></a>2、使用</h4><h5 id="2-1）用法"><a href="#2-1）用法" class="headerlink" title="2.1）用法"></a>2.1）用法</h5><p>useEffect hook 就是执行组件副作用的钩子。<code>React.useEffect(callback, dependences)</code><br>需要着重理解useEffect的执行时机。主要根据 dependences 的情况来区分：</p>
+<h4 id="2、使用"><a href="#2、使用" class="headerlink" title="2、使用"></a>2、使用</h4><h5 id="2-1）用法"><a href="#2-1）用法" class="headerlink" title="2.1）用法"></a>2.1）用法</h5><p>useEffect的执行时机，主要根据 dependences 的情况来区分：</p>
 <ol>
 <li>dependences不传的时候，每次组件dom渲染结束后，都会走一遍这个useEffect；</li>
 <li>dependences传空数组的时候，表示该useEffect不依赖任何变量，只有在组件第一次dom渲染后执行；</li>
@@ -1488,7 +1612,10 @@ React DOM 会将元素和它的子元素与它们之前的状态进行比较，�
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState, useEffect &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">function FriendStatus(props) &#123;</span><br><span class="line">  const [isOnline, setIsOnline] = useState(null);</span><br><span class="line"></span><br><span class="line">  useEffect(() =&gt; &#123;</span><br><span class="line">    function handleStatusChange(status) &#123;</span><br><span class="line">      setIsOnline(status.isOnline);</span><br><span class="line">    &#125;</span><br><span class="line">    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);</span><br><span class="line">    // Specify how to clean up after this effect:</span><br><span class="line">    return function cleanup() &#123;</span><br><span class="line">      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  if (isOnline === null) &#123;</span><br><span class="line">    return &apos;Loading...&apos;;</span><br><span class="line">  &#125;</span><br><span class="line">  return isOnline ? &apos;Online&apos; : &apos;Offline&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h5 id="2-4）QA"><a href="#2-4）QA" class="headerlink" title="2.4）QA"></a>2.4）QA</h5><ol>
+<h5 id="2-4）执行"><a href="#2-4）执行" class="headerlink" title="2.4）执行"></a>2.4）执行</h5><blockquote>
+<p>并非所有 effect 都可以被延迟执行。例如，在浏览器执行下一次绘制前，用户可见的 DOM 变更就必须同步执行，这样用户才不会感觉到视觉上的不一致。（概念上类似于被动监听事件和主动监听事件的区别。）React 为此提供了一个额外的 useLayoutEffect Hook 来处理这类 effect。它和 useEffect 的结构相同，区别只是调用时机不同。</p>
+</blockquote>
+<h5 id="2-5）QA"><a href="#2-5）QA" class="headerlink" title="2.5）QA"></a>2.5）QA</h5><ol>
 <li><p>为什么要在组件内部调用useEffect?</p>
 <blockquote>
 <p>放在组件内部让我们可以在effect中直接访问state。它已经保存在函数作用域中。Hook使用了js的闭包机制。</p>
@@ -1510,13 +1637,13 @@ React DOM 会将元素和它的子元素与它们之前的状态进行比较，�
 </blockquote>
 </li>
 </ol>
-<h3 id="2-2-4-useContext"><a href="#2-2-4-useContext" class="headerlink" title="2.2.4 useContext"></a>2.2.4 useContext</h3><blockquote>
+<h3 id="useContext"><a href="#useContext" class="headerlink" title="useContext"></a>useContext</h3><blockquote>
 <p>useContext 接受上下文对象（从React.createContext返回的值）并返回当前上下文值。</p>
 <p>当前的 <code>context</code> 值由上层组件中距离当前组件最近的 <code>&lt;CountContext.Provider&gt;</code> 的 <code>value</code> prop 决定。</p>
-<p>当Context Provider的value发生变化是，他的所有子级消费者都会rerender。</p>
+<p>当Context Provider的value发生变化时，他的所有子级消费者都会rerender。</p>
 </blockquote>
 <p><code>useContext</code> 的参数必须是 <em>context 对象本身</em></p>
-<h3 id="2-2-5-useReducer"><a href="#2-2-5-useReducer" class="headerlink" title="2.2.5 useReducer"></a>2.2.5 useReducer</h3><blockquote>
+<h3 id="useReducer"><a href="#useReducer" class="headerlink" title="useReducer"></a>useReducer</h3><blockquote>
 <p><a href="https://zh-hans.reactjs.org/docs/hooks-reference.html#usestate" target="_blank" rel="noopener"><code>useState</code></a> 的替代方案。它接收一个形如 <code>(state, action) =&gt; newState</code> 的 reducer，并返回当前的 state 以及与其配套的 <code>dispatch</code> 方法。</p>
 <p> state 逻辑较复杂且包含多个子值，或者下一个 state 依赖于之前的 state 等。并且，使用 useReducer 还能给那些会触发深更新的组件做性能优化，因为你可以向子组件传递 dispatch 而不是回调函数 。</p>
 <p>React 会确保 <code>dispatch</code> 函数的标识是稳定的，并且不会在组件重新渲染时改变。这就是为什么可以安全地从 <code>useEffect</code> 或 <code>useCallback</code> 的依赖列表中省略 <code>dispatch</code>。</p>
@@ -1555,7 +1682,7 @@ React DOM 会将元素和它的子元素与它们之前的状态进行比较，�
 <li>如果你的页面<code>state</code>比较复杂（state是一个对象或者state非常多散落在各处）请使用userReducer</li>
 <li>如果你的页面组件层级比较深，并且需要子组件触发<code>state</code>的变化，可以考虑useReducer + useContext</li>
 </ul>
-<h3 id="2-2-6-useCallback"><a href="#2-2-6-useCallback" class="headerlink" title="2.2.6 useCallback"></a>2.2.6 useCallback</h3><blockquote>
+<h3 id="useCallback"><a href="#useCallback" class="headerlink" title="useCallback"></a>useCallback</h3><blockquote>
 <p>返回一个 <a href="https://en.wikipedia.org/wiki/Memoization" target="_blank" rel="noopener">memoized</a> 回调函数。</p>
 <p>该回调函数仅在某个依赖项改变时才会更新。当你把回调函数传递给经过优化的并使用引用相等性,去避免非必要渲染<br>useCallback(fn, deps) 相当于 useMemo(() =&gt; fn, deps)</p>
 <p>所有回调函数中引用的值都应该出现在依赖项数组中</p>
@@ -1566,7 +1693,7 @@ React DOM 会将元素和它的子元素与它们之前的状态进行比较，�
 <blockquote>
 <p> 效果：通过 useInputValue() 拿到 Input 框当前用户输入的值，而不是手动监听 onChange 再腾一个 otherInputValue 和一个回调函数把这一堆逻辑写在无关的地方。</p>
 </blockquote>
-<h3 id="2-2-7-useMemo"><a href="#2-2-7-useMemo" class="headerlink" title="2.2.7 useMemo"></a>2.2.7 useMemo</h3><blockquote>
+<h3 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo"></a>useMemo</h3><blockquote>
 <p>返回一个memoized值 <code>const memoizedValue = useMemo(() =&gt; computeExpensiveValue(a, b), [a, b]);</code><br>你可以把 <code>useMemo</code> 作为一种性能优化的手段</p>
 </blockquote>
 <p>两个参数依次是计算函数（通常是组件函数）和依赖状态列表，当依赖的状态发生改变时，才会触发计算函数的执行。如果没有指定依赖，则每一次渲染过程都会执行该计算函数。</p>
@@ -1576,7 +1703,7 @@ React DOM 会将元素和它的子元素与它们之前的状态进行比较，�
 <blockquote>
 <p>初次接受  useMemo  时可能我们会觉得该钩子只是用来做计算结果的缓存，返回值只能是一个数字或字符串。其实  useMemo  并不关心我们的返回值类型是什么，它只是在关联状态发生变动时重新调用我们传递的 Getter 方法 生成新的返回值，也就是说  <code>useMemo  生成的是 Getter 方法与依赖数组的关联关系</code>。因此，如果我们将函数的返回值替换为一个组件，那么就可以实现对组件挂载/重新挂载的性能优化。</p>
 </blockquote>
-<h3 id="2-2-8-useRef"><a href="#2-2-8-useRef" class="headerlink" title="2.2.8 useRef"></a>2.2.8 useRef</h3><blockquote>
+<h3 id="useRef"><a href="#useRef" class="headerlink" title="useRef"></a>useRef</h3><blockquote>
 <p>useRef 返回一个<strong>可变</strong>的 ref 对象，其 .current 属性被初始化为传入的参数（initialValue）。返回的 ref 对象在组件的整个生命周期内保持不变。</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const refContainer = useRef(initialValue);</span><br></pre></td></tr></table></figure>
@@ -1591,7 +1718,8 @@ React DOM 会将元素和它的子元素与它们之前的状态进行比较，�
 <li>渲染周期之间共享数据的存储（state不能存储跨渲染周期的数据，因为state的保存会触发组件重渲染）</li>
 </ul>
 <p>useRef之所以总能取到变量最新值的原因：它保存的变量不会随着每次数据的变化重新生成，所以相当于保存了一份该变量的引用，所以总能保持在最后一次赋值的状态。</p>
-<h2 id="3-特点"><a href="#3-特点" class="headerlink" title="3 特点"></a>3 特点</h2><h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><ol>
+<h3 id="useImperativeHandle"><a href="#useImperativeHandle" class="headerlink" title="useImperativeHandle"></a>useImperativeHandle</h3><h3 id="useLayoutEffect"><a href="#useLayoutEffect" class="headerlink" title="useLayoutEffect"></a>useLayoutEffect</h3><h3 id="useDebugValue"><a href="#useDebugValue" class="headerlink" title="useDebugValue"></a>useDebugValue</h3><p>useDebugValue 可用于在 React 开发者工具中显示自定义 hook 的标签。</p>
+<h2 id="4-特点"><a href="#4-特点" class="headerlink" title="4) 特点"></a>4) 特点</h2><h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><ol>
 <li>让在函数组件中有可维护的状态和数据</li>
 <li>函数组件业务变更无需修改成class组件</li>
 <li>告别了繁杂的this和难以记忆的生命周期</li>
@@ -1609,32 +1737,21 @@ React DOM 会将元素和它的子元素与它们之前的状态进行比较，�
 <li>逻辑复杂的场景中或者系统的主要架构中用hook进行状态或者数据管理还是不太放心。</li>
 <li>社区好像更热衷于造轮子</li>
 </ol>
-<h4 id="关于React副作用"><a href="#关于React副作用" class="headerlink" title="关于React副作用"></a>关于React副作用</h4><p>有些同学可能会对「副作用」这个概念不理解。我简单的说一下我的看法。很多人都看过一个React公式</p>
-<blockquote>
-<p>UI = F(props)</p>
-</blockquote>
-<p>翻译成普通话就是：一个组件最终的dom结构与样式是由父级传递的props决定的。</p>
-<p>了解过函数式编程的同学，应该知道过一个概念，叫「纯函数」。意思是固定的输入必然有固定的输出，它不依赖任何外部因素，也不会对外部环境产生影响。</p>
-<p>react希望自己的组件渲染也是个纯函数，所以有了纯函数组件。然而真正的业务场景是有各种状态的，实际影响UI的还有内部的state。(其实还有context，暂时先不讨论）。</p>
-<p>UI = F(props, state, context)</p>
-<p>这个state可能会因为各种原因产生变化，从而导致组件的渲染结果不一致。相同的入参（props）下，每次render都有可能返回不同的UI。因此任何导致此现象的行为都是副作用（side effects）。比如用户点击下一页，导致页码与列表发生变化，这就是副作用。同样的props，不点击时是第一页数据，点击一下后，变成了第二页的数据or请求失败的页面or其他UI交互。<br>当然state是明面上影响了UI，暗地里，可能还有其他因素会影响UI。比如组件内运用了缓存，导致每次渲染可能都不一样，这也是副作用。</p>
-<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4 总结"></a>4 总结</h3><blockquote>
+<h3 id="5）总结"><a href="#5）总结" class="headerlink" title="5）总结"></a>5）总结</h3><blockquote>
 <p>应该理性的选择，hook和现在的项目系统不冲突，现在也是模块化开发，可以从新的模块入手来尝试在模块内部用hook来处理数据和逻辑状态。</p>
 <p>在一些简单的页面里，引入redux，saga那一套东西显得有些大材小用，而且开发起来也有些繁琐，使用hook会更灵活轻便一些。</p>
 <p>我们也可以开发一些常用的hook，当老项目有新的功能完全可以用Hook去开发，如果对老的组件进行修改时就可以考虑给老组件上Hook，不建议一上来就进行大改。随着常用Hook组件库的丰富，后期改起来也会非常快。</p>
 <p>在使用Hook时难免少不了一些常用的Hook，如果可以将这些常用的Hook封装起来。变成工具库。</p>
 </blockquote>
-<h3 id="5-参考资料"><a href="#5-参考资料" class="headerlink" title="5 参考资料"></a>5 参考资料</h3><ul>
+<ul>
 <li><p><a href="https://github.com/dt-fe/weekly/blob/v2/120.%E7%B2%BE%E8%AF%BB%E3%80%8AReact%20Hooks%20%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E3%80%8B.md" target="_blank" rel="noopener">React Hooks 最佳实践</a></p>
 </li>
 <li><p><a href="https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/" target="_blank" rel="noopener">useEffect 完整指南</a></p>
 </li>
 <li><p><a href="https://www.robinwieruch.de/react-hooks-fetch-data" target="_blank" rel="noopener">How to fetch data with React Hooks?</a></p>
 </li>
-<li><p><a href="https://www.robinwieruch.de/react-hooks-fetch-data" target="_blank" rel="noopener">How to fetch data with React Hooks?</a></p>
-</li>
 </ul>
-
+<h1 id="七、有价值的QA"><a href="#七、有价值的QA" class="headerlink" title="七、有价值的QA"></a><font color="#4169E1">七、有价值的QA</font></h1>
           
         
       
@@ -3453,7 +3570,7 @@ align-content      flex-start | flex-end | center | space-between | spac-around 
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
