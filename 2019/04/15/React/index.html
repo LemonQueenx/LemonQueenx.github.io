@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/lifeCycleA.png">
 <meta property="og:image" content="http://yoursite.com/images/lifeCycleB.png">
-<meta property="og:updated_time" content="2020-05-18T12:18:04.050Z">
+<meta property="og:updated_time" content="2020-05-19T07:46:39.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React">
 <meta name="twitter:description" content="一、React是什么React 是一个用于构建用户界面的 JavaScript 库。 MVC -&amp;gt; React 效率高虚拟DOM：传统web页面一般是直接操作DOM，代价很大，涉及重绘重排非常耗性能，而React 为了尽可能减少对DOM的操作，提供了一种不同的而又强大的方式来更新DOM，代替直接操作DOM,就是Virtual dom，一个轻量级虚拟的dom。更新virtual do">
@@ -270,7 +270,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lemon">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/background7.jpg">
+      <meta itemprop="image" content="/images/background10.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1219,7 +1219,11 @@ React DOM 会将元素和它的子元素与它们之前的状态进行比较，�
 <li><p><a href="https://www.robinwieruch.de/react-hooks-fetch-data" target="_blank" rel="noopener">How to fetch data with React Hooks?</a></p>
 </li>
 </ul>
-<h1 id="七、有价值的QA"><a href="#七、有价值的QA" class="headerlink" title="七、有价值的QA"></a><font color="#4169E1">七、有价值的QA</font></h1>
+<h1 id="七、有价值的QA"><a href="#七、有价值的QA" class="headerlink" title="七、有价值的QA"></a><font color="#4169E1">七、有价值的QA</font></h1><p>. 节流、防抖和requestAnimationFrame<br>节流：基于时间的频率来进行抽样更改 (例如 _.throttle)<br>防抖：一段时间的不活动之后发布更改 (例如 _.debounce)<br>requestAnimationFrame 节流：基于 requestAnimationFrame 的抽样更改 (例如 raf-schd)</p>
+<ol start="2">
+<li>应该如何更新那些依赖于当前的 state 的 state 呢？<br>给 setState 传递一个函数，而不是一个对象，就可以确保每次的调用都是使用最新版的 state。<br>传递一个函数可以让你在函数内访问到当前的 state 的值。因为 setState 的调用是分批的，所以你可以链式地进行更新，并确保它们是一个建立在另一个之上的，这样才不会发生冲突：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">this.setState((state) =&gt; &#123;</span><br><span class="line">  // 重要：在更新的时候读取 `state`，而不是 `this.state`。</span><br><span class="line">  <span class="built_in">return</span> &#123;count: state.count + 1&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ol>
+
       
     </div>
     
@@ -1327,10 +1331,10 @@ React DOM 会将元素和它的子元素与它们之前的状态进行比较，�
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/background7.jpg" alt="Lemon">
+              <img class="site-author-image" itemprop="image" src="/images/background10.jpg" alt="Lemon">
             
               <p class="site-author-name" itemprop="name">Lemon</p>
-              <p class="site-description motion-element" itemprop="description">随遇而安</p>
+              <p class="site-description motion-element" itemprop="description">乘风破浪</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -1340,7 +1344,7 @@ React DOM 会将元素和它的子元素与它们之前的状态进行比较，�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
