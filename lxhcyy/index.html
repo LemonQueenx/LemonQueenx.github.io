@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News - 离线缓存应用</title>
+  <link rel="stylesheet" href="./css/global.css" />
+  <script src="./js/jquery-1.8.1.js"></script>
+  <script>
+    window.APP = {};
+    $(document).ready(function(){
+      APP.applicationController.start();
+    });
+  </script>
+  <script type="text/javascript" src="./js/database.js"></script>
+  <script type="text/javascript" src="./js/templates.js"></script>
+  <script type="text/javascript" src="./js/application/applicationController.js"></script>
+  <script type="text/javascript" src="./js/articles/articles.js"></script>
+  <script type="text/javascript" src="./js/articles/articleController.js"></script>
+</head>
+<body>
+   <div id="loading">Loading...</div>
+</body>
+</html>
