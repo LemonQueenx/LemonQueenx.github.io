@@ -23,18 +23,54 @@ APP.articlesController = (function(){
     $.ajax({
       dataType: 'json',
       type: 'GET',
-      url: 'http://gz-cvm-ebuild-ningzhang-dev001.gz.sftcwl.com:7300/mock/5f3e70c6879510406f5b732c/oca/articles',
+      url: '/lxhcyy/api/articles.json',
       success(res) {
+        console.log(res, 'res');
         APP.article.deleteArticles(function() {
           APP.article.insertAritcles(res?.data, function() {
             $('#headlines').html(APP.templates.articleList(res?.data));
           });
         });
       },
-      error(){
-        if (failureCallback) {
-          failureCallback();
-        }
+      error(res){
+        const str = res.responseText;
+        const item = str.split('[')[1].split('},').join('').split('{');
+        const mapData =  (item || []).filter(item => item).map((item) => {
+          const idS = item.search(/id/) + 5;
+          const idE = item.substring(idS).search(/,/);
+          const id = item.substring(idS, idS+idE);
+          const authorS = item.search(/author/) + 10;
+          const authorE = item.substring(authorS).search(/,/) - 1;
+          const author = item.substring(authorS, authorS+authorE);
+          const dateS = item.search(/date/) + 8;
+          const dateE = item.substring(dateS).search(/,/) - 1;
+          const date = item.substring(dateS, dateS+dateE);
+          const bodyS = item.search(/body/) + 8;
+          const bodyE = item.substring(bodyS).search(/,/) - 1;
+          const body = item.substring(bodyS, bodyS+bodyE);
+          const headlinesS = item.search(/headlines/) + 13;
+          const headlinesE = item.substring(headlinesS).search(/,/) - 1;
+          const headlines = item.substring(headlinesS, headlinesS+headlinesE);
+          return {
+            id,
+            author,
+            date,
+            headlines,
+            body
+          };
+        });
+        console.log('mapData', mapData);
+
+        // 因为我们现在访问的是json文件，所以ajax会失败，则以下：
+        APP.article.deleteArticles(function() {
+          APP.article.insertAritcles(mapData, function() {
+            $('#headlines').html(APP.templates.articleList(mapData));
+          });
+        });
+        // 正常如果是http请求，则以下：
+        // if (failureCallback) {
+        //   failureCallback();
+        // }
       }
     });
   }
