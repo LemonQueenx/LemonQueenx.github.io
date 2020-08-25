@@ -48,14 +48,14 @@ APP.articlesController = (function(){
           const bodyS = item.search(/body/) + 8;
           const bodyE = item.substring(bodyS).search(/,/) - 1;
           const body = item.substring(bodyS, bodyS+bodyE);
-          const headlinesS = item.search(/headlines/) + 13;
-          const headlinesE = item.substring(headlinesS).search(/,/) - 1;
-          const headlines = item.substring(headlinesS, headlinesS+headlinesE);
+          const headlineS = item.search(/headline/) + 12;
+          const headlineE = item.substring(headlineS).search(/,/) - 1;
+          const headline = item.substring(headlineS, headlineS+headlineE);
           return {
             id,
             author,
             date,
-            headlines,
+            headline,
             body
           };
         });
