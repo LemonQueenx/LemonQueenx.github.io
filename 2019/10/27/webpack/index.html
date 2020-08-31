@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="立夏">
 <meta property="og:description" content="https://www.webpackjs.com/ 一、基础概念1.1） 前端工程化  所谓工程化，可以简单认为是将框架的职责拓宽再拓宽，主旨是帮业务团队更好的完成需求，工程化会预测到一些常碰到的问题，将之扼杀在摇篮里，而这种路径是可重用的，是具有可持续性的，比如第一个优化去冗余，实在多次取去除冗余代码，思考冗余出现的原因，得出一个避免冗余的方案。 1.2）自动化构建工具  requireJS和">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-16T12:37:18.239Z">
+<meta property="og:updated_time" content="2020-08-31T08:44:23.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack">
 <meta name="twitter:description" content="https://www.webpackjs.com/ 一、基础概念1.1） 前端工程化  所谓工程化，可以简单认为是将框架的职责拓宽再拓宽，主旨是帮业务团队更好的完成需求，工程化会预测到一些常碰到的问题，将之扼杀在摇篮里，而这种路径是可重用的，是具有可持续性的，比如第一个优化去冗余，实在多次取去除冗余代码，思考冗余出现的原因，得出一个避免冗余的方案。 1.2）自动化构建工具  requireJS和">
@@ -314,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端-开发工具/" itemprop="url" rel="index">
-                    <span itemprop="name">前端 - 开发工具</span>
+                  <a href="/categories/1）前端-基础/" itemprop="url" rel="index">
+                    <span itemprop="name">1）前端 - 基础</span>
                   </a>
                 </span>
 
@@ -394,7 +394,7 @@
 <p>需要在html页面上手动添加独立打包出来的css:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> <span class="built_in">type</span>=<span class="string">""</span> href=<span class="string">"./out/index.css"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
 <p>在ExtractTextPlugin的extract方法有两个参数，第一个参数是经过编译后通过style-loader单独提取出文件来，而第二个参数就是用来编译代码的loader。<br>当然，插件也支持所有独立样式打包成一个css文件。增加多一个参数即可。<br>new ExtractTextPlugin(‘style.css’,{allChunks:true});</p>
 <p>至于你是打包成一个文件还是怎样 根据实际情况来定！</p>
-<p><strong>4、挂载全局库</strong><br>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var providePlugin = new webpack.ProvidePlugin(&#123;$: <span class="string">'jquery'</span>, jQuery: <span class="string">'jquery'</span>, <span class="string">'window.jQuery'</span>: <span class="string">'jquery'</span>&#125;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  ...</span><br><span class="line">  plugins: [ providePlugin ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>4、挂载全局库</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var providePlugin = new webpack.ProvidePlugin(&#123;$: <span class="string">'jquery'</span>, jQuery: <span class="string">'jquery'</span>, <span class="string">'window.jQuery'</span>: <span class="string">'jquery'</span>&#125;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  ...</span><br><span class="line">  plugins: [ providePlugin ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
 <p>5、还有很多插件 比如 ：autoprefixer<br>我们在书写css时 按规范 ，构建 时 利用 autoprefixer 可以输出 -webkit -moz 这样浏览器的前缀<br>npm install autoprefixer-loader –save-dev</p>
 <hr>
@@ -431,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/21/面试题/" rel="next" title="面试题">
-                <i class="fa fa-chevron-left"></i> 面试题
+              <a href="/2019/09/20/Hexo博客搭建全记录/" rel="next" title="Hexo博客搭建全记录">
+                <i class="fa fa-chevron-left"></i> Hexo博客搭建全记录
               </a>
             
           </div>
@@ -441,8 +441,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/12/09/前端算法题汇总/" rel="prev" title="前端算法题汇总">
-                前端算法题汇总 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/03/22/前端试题集锦（基础）/" rel="prev" title="前端试题集锦（基础）">
+                前端试题集锦（基础） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -522,7 +522,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -533,7 +533,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -544,7 +544,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

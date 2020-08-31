@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="立夏">
 <meta property="og:description" content="git是什么？请看git官网（https://git-scm.com/）上的简介。（Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.Git">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-16T12:37:07.941Z">
+<meta property="og:updated_time" content="2020-08-31T08:44:51.271Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git命令集合">
 <meta name="twitter:description" content="git是什么？请看git官网（https://git-scm.com/）上的简介。（Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.Git">
@@ -314,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端-开发工具/" itemprop="url" rel="index">
-                    <span itemprop="name">前端 - 开发工具</span>
+                  <a href="/categories/3）前端-周边/" itemprop="url" rel="index">
+                    <span itemprop="name">3）前端 - 周边</span>
                   </a>
                 </span>
 
@@ -368,6 +368,23 @@
 <ol start="2">
 <li><strong>往别人的github上推项目</strong><br>1.git init初始化本地仓库<br>2.git remote add origin <a href="https://github.com/AronJava/hackathon.git远程关联" target="_blank" rel="noopener">https://github.com/AronJava/hackathon.git远程关联</a><br>3.创建本地分支 git add .<br>git commit -m “xxx”<br>此时本地有了master分支<br>git branch  jyy创建自己的分支<br>git checkout jyy切换到自己的分支<br>git push -u origin jyy将本地jyy分支推向远程，远程会自动创建jyy分支</li>
 </ol>
+<h1 id="Git提交规范"><a href="#Git提交规范" class="headerlink" title="Git提交规范"></a>Git提交规范</h1><p>目前，我们使用了commitizen工具集来规范commit提交，遵循Angular团队的规范，并进行了定制化配置。</p>
+<blockquote>
+<p>格式规范： type(scope): subject</p>
+</blockquote>
+<ol>
+<li><p>我们可以使用git commit命令，不过提交描述要符合上述书写规范，否则无法通过校验。</p>
+<blockquote>
+<p>type和subject是必需，scope是可选，例如：<br>git commit -m ‘feat(containers): 提交新功能’<br>git commit -m ‘feat: 提交新功能’</p>
+</blockquote>
+</li>
+<li><p>我们可以通过npx git cz或npm run commit命令进行选择方式提交。</p>
+</li>
+<li><p>我们还可以全局安装commitizen，使用git cz命令进行选择方式提交。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">type类型的可选范围：</span><br><span class="line"></span><br><span class="line">feat:     新功能</span><br><span class="line">fix:      修复 BUG</span><br><span class="line">refactor: 重构代码，理论上不影响现有功能 (不是修复 bug 或是添加新功能)</span><br><span class="line">vstyle:   修改代码格式，不影响代码逻辑 (空格、代码格式化、缺少分号等)</span><br><span class="line">chore:    构建过程或辅助工具和库 (如文档生成) 的更改</span><br><span class="line">test:     增加或修改测试用例</span><br><span class="line">docs:     修改文档</span><br><span class="line">perf:     提升性能</span><br><span class="line">revert:   回滚到某一个版本 (带上版本号)</span><br></pre></td></tr></table></figure>
+<div class="post-warning">注意：<br>type必须是范围内的一个，<br>scope是我们修改的模块或者说影响的范围，建议填写模块名。冒号后要有一个空格。<br>subject是短说明。</div>
 
       
     </div>
@@ -462,8 +479,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -480,7 +506,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -491,7 +517,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -502,7 +528,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -525,6 +551,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git提交规范"><span class="nav-number">1.</span> <span class="nav-text">Git提交规范</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
