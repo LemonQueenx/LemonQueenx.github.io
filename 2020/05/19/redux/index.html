@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="一、介绍redux是一个可预测的状态管理容器。开发体验好（redux-devtools），轻量(2KB)，也支持除了react之外的其他UI库一起用。  我理解redux是自己维护一套数据（状态，store）：action是描述将要改变某个数据，reducer是根据state和action来返回一个新的state，同步到store中。 通过dispatch方法派发action，通过provider">
+<meta name="description" content="一、介绍Redux 是 JavaScript 状态容器，提供可预测化的状态管理。Redux 除了和 React 一起用外，还支持其它界面库。 它体小精悍（只有2kB，包括依赖）。  应用中所有的 state 都以一个对象树的形式储存在一个单一的 store 中。 惟一改变 state 的是dispatch方法派发 action（一个描述发生什么的对象）。 reducers描述 action 如何改">
 <meta name="keywords" content="React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redux">
 <meta property="og:url" content="http://yoursite.com/2020/05/19/redux/index.html">
 <meta property="og:site_name" content="立夏">
-<meta property="og:description" content="一、介绍redux是一个可预测的状态管理容器。开发体验好（redux-devtools），轻量(2KB)，也支持除了react之外的其他UI库一起用。  我理解redux是自己维护一套数据（状态，store）：action是描述将要改变某个数据，reducer是根据state和action来返回一个新的state，同步到store中。 通过dispatch方法派发action，通过provider">
+<meta property="og:description" content="一、介绍Redux 是 JavaScript 状态容器，提供可预测化的状态管理。Redux 除了和 React 一起用外，还支持其它界面库。 它体小精悍（只有2kB，包括依赖）。  应用中所有的 state 都以一个对象树的形式储存在一个单一的 store 中。 惟一改变 state 的是dispatch方法派发 action（一个描述发生什么的对象）。 reducers描述 action 如何改">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-31T08:48:11.062Z">
+<meta property="og:updated_time" content="2020-09-07T03:38:15.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redux">
-<meta name="twitter:description" content="一、介绍redux是一个可预测的状态管理容器。开发体验好（redux-devtools），轻量(2KB)，也支持除了react之外的其他UI库一起用。  我理解redux是自己维护一套数据（状态，store）：action是描述将要改变某个数据，reducer是根据state和action来返回一个新的state，同步到store中。 通过dispatch方法派发action，通过provider">
+<meta name="twitter:description" content="一、介绍Redux 是 JavaScript 状态容器，提供可预测化的状态管理。Redux 除了和 React 一起用外，还支持其它界面库。 它体小精悍（只有2kB，包括依赖）。  应用中所有的 state 都以一个对象树的形式储存在一个单一的 store 中。 惟一改变 state 的是dispatch方法派发 action（一个描述发生什么的对象）。 reducers描述 action 如何改">
 
 
 
@@ -351,17 +351,24 @@
       
 
       
-        <h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a><font color="#8A2BE2">一、介绍</font></h1><p>redux是一个可预测的状态管理容器。<br>开发体验好（redux-devtools），轻量(2KB)，也支持除了react之外的其他UI库一起用。</p>
+        <h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a><font color="#8A2BE2">一、介绍</font></h1><p><strong>Redux 是 JavaScript 状态容器，提供可预测化的状态管理。</strong><br>Redux 除了和 React 一起用外，还支持其它界面库。 它体小精悍（只有2kB，包括依赖）。</p>
 <blockquote>
-<p>我理解redux是自己维护一套数据（状态，store）：action是描述将要改变某个数据，reducer是根据state和action来返回一个新的state，同步到store中。</p>
-<p>通过dispatch方法派发action，通过provider顶层组件把store同步到所有组件。</p>
+<p>应用中所有的 state 都以一个对象树的形式储存在一个单一的 store 中。 惟一改变 state 的是dispatch方法派发 action（一个描述发生什么的对象）。 reducers描述 action 如何改变 state 树。通过provider顶层组件把store同步到所有组件。</p>
 </blockquote>
+<p>安装：<br>npm install –save redux</p>
+<p>附加包：<br>npm install –save react-redux<br>npm install –save-dev redux-devtools</p>
+<p>使用ts还需：<br>npm install @types/react-redux</p>
 <h2 id="1、动机"><a href="#1、动机" class="headerlink" title="1、动机"></a><font color="#BA55D3">1、动机</font></h2><p>随着js单页应用的日趋复杂，js要管理越来越多的状态，难管理难预测。</p>
 <h2 id="2、三大原则"><a href="#2、三大原则" class="headerlink" title="2、三大原则"></a><font color="#BA55D3">2、三大原则</font></h2><ol>
 <li>单一数据源<br>整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。</li>
 <li>State 是只读的<br>唯一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。</li>
 <li>使用纯函数来执行修改<br>为了描述 action 如何改变 state tree ，你需要编写 reducers。</li>
 </ol>
+<h2 id="3、先前技术"><a href="#3、先前技术" class="headerlink" title="3、先前技术"></a><font color="#BA55D3">3、先前技术</font></h2><h3 id="Flux"><a href="#Flux" class="headerlink" title="Flux"></a>Flux</h3><p>更新逻辑全部集中于一个特定的层（Flux 里的 store，Redux 里的 reducer）。<br>都不允许程序直接修改数据，而是用一个叫作 “action” 的普通对象来对更改进行描述。</p>
+<p>不同于 Flux ，Redux 并没有 dispatcher 的概念。原因是它依赖纯函数来替代事件处理器。纯函数构建简单，也不需额外的实体来管理它们。<br>和 Flux 的另一个重要区别，是 Redux 设想你永远不会变动你的数据。</p>
+<h3 id="Immutable"><a href="#Immutable" class="headerlink" title="Immutable"></a>Immutable</h3><p>Immutable 是一个可实现持久数据结构的 JavaScript 库。它性能很好，并且命名符合 JavaScript API 的语言习惯 。</p>
+<p>Immutable 及类似的库都可以与 Redux 对接良好。尽可随意捆绑使用！</p>
+<p>Redux 并不在意你如何存储 state，state 可以是普通对象，不可变对象，或者其它类型。 为了从 server 端写同构应用或融合它们的 state ，你可能要用到序列化或反序列化的机制。但除此以外，你可以使用任何数据存储的库，只要它支持数据的不可变动性。</p>
 <h2 id="4、生态系统"><a href="#4、生态系统" class="headerlink" title="4、生态系统"></a><font color="#BA55D3">4、生态系统</font></h2><p><a href="https://www.redux.org.cn/docs/introduction/Ecosystem.html" target="_blank" rel="noopener">生态系统</a></p>
 <ol>
 <li>与不同框架绑定</li>
@@ -371,7 +378,7 @@
 </li>
 <li>Actions</li>
 <li>工具集<blockquote>
-<p>reduxjs、<font color="#0f0">reselect</font>等</p>
+<p>reduxjs、reselect等</p>
 </blockquote>
 </li>
 <li>Store<blockquote>
@@ -379,26 +386,26 @@
 </blockquote>
 </li>
 <li>不可变（Immutable）数据<blockquote>
-<p>数据结构:facebook/<font color="#0f0">immutable-js</font> 、 rtfeldman/seamless-immutable 、 planttheidea/crio 、 aearly/icepick<br>不可变更新（Immutable Update）实用程序<br>Immutable/Redux 互操作: gajus/<font color="#0f0">redux-immutable</font>、 eadmundo/redux-seamless-immutable</p>
+<p>数据结构:facebook/immutable-js 、 rtfeldman/seamless-immutable 、 planttheidea/crio 、 aearly/icepick<br>不可变更新（Immutable Update）实用程序<br>Immutable/Redux 互操作: gajus/redux-immutable、 eadmundo/redux-seamless-immutable</p>
 </blockquote>
 </li>
 <li>副作用（Side Effects）<blockquote>
-<p>广泛使用: gaearon/redux-thunk 、  redux-saga/<font color="#0f0">redux-saga</font> 、 redux-observable/redux-observable 、 redux-loop/redux-loop 、<br>Promises: acdlite/redux-promise 、 lelandrichardson/redux-pack</p>
+<p>广泛使用: gaearon/redux-thunk 、  redux-saga/redux-saga 、 redux-observable/redux-observable 、 redux-loop/redux-loop 、<br>Promises: acdlite/redux-promise 、 lelandrichardson/redux-pack</p>
 </blockquote>
 </li>
 <li>中间件<blockquote>
-<p>Networks and Sockets: svrcekmichal/redux-axios-middleware<br>异步行为:  wyze/<font color="#0f0">redux-debounce</font> 符合 FSA 标准的 Redux 中间件可以实现 action 的防抖。<br>分析<br>实体和集合</p>
+<p>Networks and Sockets: svrcekmichal/redux-axios-middleware<br>异步行为:  wyze/redux-debounce 符合 FSA 标准的 Redux 中间件可以实现 action 的防抖。<br>分析<br>实体和集合</p>
 </blockquote>
 </li>
 <li>组件 state 和封装</li>
 <li>开发者工具<blockquote>
-<p>Debuggers and Viewers: reduxjs/<font color="#0f0">redux-devtools</font> 、 zalmoxisus/redux-devtools-extension 、 infinitered/reactotron<br>开发者工具监视器<br>日志<br>突变检测</p>
+<p>Debuggers and Viewers: reduxjs/redux-devtools 、 zalmoxisus/redux-devtools-extension 、 infinitered/reactotron<br>开发者工具监视器<br>日志<br>突变检测</p>
 </blockquote>
 </li>
 <li>测试</li>
 <li>路由</li>
 <li>Forms<blockquote>
-<p>ReactTraining/<font color="#0f0">react-router-redux</font>: 保持 state 与路由同步<br>等等</p>
+<p>ReactTraining/react-router-redux: 保持 state 与路由同步<br>等等</p>
 </blockquote>
 </li>
 <li>更高级别的抽象<blockquote>
@@ -417,10 +424,15 @@
 <li><p>combineReducers()工具类</p>
 </li>
 </ul>
-<h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a><font color="#BA55D3">Store</font></h2><p>Redux 应用只有一个单一的 store</p>
+<h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a><font color="#BA55D3">Store</font></h2><p><strong>Redux 应用只有一个单一的 store。</strong></p>
+<blockquote>
+<p>action 描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。</p>
+<p>Store 就是把它们联系到一起的对象。Store 有以下职责：<br>维持应用的 state；<br>提供 getState() 方法获取 state；<br>提供 dispatch(action) 方法更新 state；<br>通过 subscribe(listener) 注册监听器;<br>通过 subscribe(listener) 返回的函数注销监听器。</p>
+</blockquote>
 <h2 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a><font color="#BA55D3">数据流</font></h2><ul>
 <li>严格的单向数据流是 Redux 架构的设计核心。</li>
 </ul>
+<p>这意味着应用中所有的数据都遵循相同的生命周期，这样可以让应用变得更加可预测且容易理解。同时也鼓励做数据范式化，这样可以避免使用多个且独立的无法相互引用的重复数据。</p>
 <p>Redux 应用中数据的生命周期遵循下面 4 个步骤：</p>
 <ol>
 <li>调用 store.dispatch(action)。</li>
@@ -428,45 +440,55 @@
 <li>根 reducer 应该把多个子 reducer 输出合并成一个单一的 state 树。</li>
 <li>Redux store 保存了根 reducer 返回的完整 state 树。</li>
 </ol>
+<h2 id="搭配react"><a href="#搭配react" class="headerlink" title="搭配react"></a><font color="#BA55D3">搭配react</font></h2><h3 id="容器组件（Smart-Container-Components）和展示组件（Dumb-Presentational-Components）"><a href="#容器组件（Smart-Container-Components）和展示组件（Dumb-Presentational-Components）" class="headerlink" title="容器组件（Smart/Container Components）和展示组件（Dumb/Presentational Components）"></a>容器组件（Smart/Container Components）和展示组件（Dumb/Presentational Components）</h3><blockquote>
+<p>大部分的组件都应该是展示型的，但一般需要少数的几个容器组件把它们和 Redux store 连接起来。<br>技术上讲你可以直接使用 store.subscribe() 来编写容器组件。但不建议这么做的原因是无法使用 React Redux 带来的性能优化。也因此，不要手写容器组件，而使用 React Redux 的 connect() 方法来生成，</p>
+</blockquote>
 <h2 id="示例：Todo-List"><a href="#示例：Todo-List" class="headerlink" title="示例：Todo List"></a><font color="#BA55D3">示例：Todo List</font></h2><p>action   创建函数、对象<br>reducer  combineReducers<br>store    createStore<br>provider store</p>
 <p>connect  mapStateToProps  mapDispatchToProps  PropsType</p>
 <p><br><br><br><br><br><br><br><br><br></p>
-<h1 id="三、高级"><a href="#三、高级" class="headerlink" title="三、高级"></a><font color="#8A2BE2">三、高级</font></h1><h2 id="异步-Action"><a href="#异步-Action" class="headerlink" title="异步 Action"></a><font color="#BA55D3">异步 Action</font></h2><ul>
-<li><p><strong>Action</strong></p>
-<blockquote>
-<p>当调用异步 API 时，有两个非常关键的时刻：发起请求的时刻，和接收到响应的时刻（也可能是超时）。</p>
-<p>这两个时刻都可能会更改应用的 state；为此，你需要 dispatch 普通的同步 action。一般情况下，每个 API 请求都需要 dispatch 至少三种 action：</p>
-<p>一种通知 reducer 请求开始的 action。</p>
-<p>对于这种 action，reducer 可能会切换一下 state 中的 isFetching 标记。以此来告诉 UI 来显示加载界面。</p>
-<p>一种通知 reducer 请求成功的 action。</p>
-<p>对于这种 action，reducer 可能会把接收到的新数据合并到 state 中，并重置 isFetching。UI 则会隐藏加载界面，并显示接收到的数据。</p>
-<p>一种通知 reducer 请求失败的 action。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; type: &apos;FETCH_POSTS_REQUEST&apos; &#125;</span><br><span class="line">&#123; type: &apos;FETCH_POSTS_FAILURE&apos;, error: &apos;Oops&apos; &#125;</span><br><span class="line">&#123; type: &apos;FETCH_POSTS_SUCCESS&apos;, response: &#123; ... &#125; &#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p><strong>同步 Action 创建函数（Action Creator）</strong></p>
-</li>
-<li><strong>设计 state 结构</strong></li>
-<li><strong>处理 Action</strong></li>
-<li><strong>异步 action 创建函数</strong></li>
+<h1 id="三、高级"><a href="#三、高级" class="headerlink" title="三、高级"></a><font color="#8A2BE2">三、高级</font></h1><h2 id="异步-Action"><a href="#异步-Action" class="headerlink" title="异步 Action"></a><font color="#BA55D3">异步 Action</font></h2><h3 id="Action-1"><a href="#Action-1" class="headerlink" title="Action"></a><strong>Action</strong></h3><p>  调用异步API，有两个非常关键的时刻：发起请求的时刻和接收到响应的时刻（也可能是超时）。</p>
+<ul>
+<li>一种通知 reducer 请求开始的 action。</li>
+<li>一种通知 reducer 请求成功的 action。</li>
+<li>一种通知 reducer 请求失败的 action。</li>
 </ul>
-<h2 id="异步数据流"><a href="#异步数据流" class="headerlink" title="异步数据流"></a><font color="#BA55D3">异步数据流</font></h2><h2 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a><font color="#BA55D3">Middleware</font></h2><h2 id="搭配-React-Router"><a href="#搭配-React-Router" class="headerlink" title="搭配 React Router"></a><font color="#BA55D3">搭配 React Router</font></h2><ul>
-<li><p>安装 React Router、配置后备(fallback) URL、配置 Express、配置 WebpackDevServer</p>
-</li>
-<li><p>连接 React Router 和 Redux 应用</p>
+<p>为了区分这三种 action，可以在 action 里添加一个 status 字段作为标记位，又或者为它们定义不同的 type：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; type: &apos;FETCH_POSTS_REQUEST&apos; &#125;</span><br><span class="line">&#123; type: &apos;FETCH_POSTS_FAILURE&apos;, error: &apos;Oops&apos; &#125;</span><br><span class="line">&#123; type: &apos;FETCH_POSTS_SUCCESS&apos;, response: &#123; ... &#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>这应该是团队共同达成的约定。使用多个 type 会降低犯错误的机率，但是如果使用像 redux-actions 这类的辅助库来生成 action 创建函数和 reducer 的话，这就完全不是问题了。<br>无论使用哪种约定，一定要在整个应用中保持统一。</p>
+<h3 id="设计-state-结构"><a href="#设计-state-结构" class="headerlink" title="设计 state 结构"></a><strong>设计 state 结构</strong></h3><h3 id="处理-Action"><a href="#处理-Action" class="headerlink" title="处理 Action"></a><strong>处理 Action</strong></h3><h3 id="异步-action-创建函数"><a href="#异步-action-创建函数" class="headerlink" title="异步 action 创建函数"></a><strong>异步 action 创建函数</strong></h3><blockquote>
+<p>最后，如何把 之前定义 的同步 action 创建函数和网络请求结合起来呢？标准的做法是使用 Redux Thunk 中间件。通过使用指定的 middleware，action 创建函数除了返回 action 对象外还可以返回函数。这时，这个 action 创建函数就成为了 thunk。</p>
+<p>当 action 创建函数返回函数时，这个函数会被 Redux Thunk middleware 执行。这个函数并不需要保持纯净；它还可以带有副作用，包括执行异步 API 请求。这个函数还可以 dispatch action，就像 dispatch 前面定义的同步 action 一样。</p>
+<p>我们仍可以在 actions.js 里定义这些特殊的 thunk action 创建函数。</p>
+<p>thunk 的一个优点是它的结果可以再次被 dispatch：</p>
+</blockquote>
+<div class="post-warning">fetch API<br>它是替代 XMLHttpRequest 用来发送网络请求的非常新的 API。由于目前大多数浏览器原生还不支持它，建议使用 cross_fetch 库,每次使用 fetch 前都这样调用一下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import fetch from &apos;cross_fetch&apos;;</span><br></pre></td></tr></table></figure><br><br>在底层，它在浏览器端使用 whatwg-fetch polyfill，在服务器端使用 node-fetch，所以如果当你把应用改成 同构 时，并不需要改变 API 请求。<br>注意，fetch polyfill 假设你已经使用了 Promise 的 polyfill。确保你使用 Promise polyfill 的一个最简单的办法是在所有应用代码前启用 Babel 的 ES6 polyfill，在应用中其它任何代码执行前调用一次：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &apos;babel-polyfill&apos;;</span><br></pre></td></tr></table></figure><br><br></div>
+
+<p>Thunk middleware 并不是 Redux 处理异步 action 的唯一方式：<br>可以使用 redux-promise 或者 redux-promise-middleware 来 dispatch Promise 来替代函数。<br>可以使用 redux-observable 来 dispatch Observable。<br>可以使用 redux-saga 中间件来创建更加复杂的异步 action。<br>可以使用 redux-pack 中间件 dispatch 基于 Promise 的异步 Action。<br>甚至可以写一个自定义的 middleware 来描述 API 请求。</p>
+<h2 id="异步数据流"><a href="#异步数据流" class="headerlink" title="异步数据流"></a><font color="#BA55D3">异步数据流</font></h2><blockquote>
+<p>默认情况下，createStore() 所创建的 Redux store 没有使用 middleware，所以只支持 同步数据流。</p>
+<p>可以使用 applyMiddleware() 来增强 createStore()。虽然这不是必须的，但是它可以帮助你用简便的方式来描述异步的 action。</p>
+<p>当 middleware 链中的最后一个 middleware 开始 dispatch action 时，这个 action 必须是一个普通对象。这是 同步式的 Redux 数据流 开始的地方。</p>
+</blockquote>
+<h2 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a><font color="#BA55D3">Middleware</font></h2><p>Redux middleware 被用于解决不同的问题，但其中的概念是类似的。<strong>它提供的是位于 action 被发起之后，到达 reducer 之前的扩展点。</strong> 可以利用 Redux middleware 来进行日志记录、创建崩溃报告、调用异步接口或者路由等等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">middleware：</span><br><span class="line">const logger = store =&gt; next =&gt; action =&gt; &#123;</span><br><span class="line">  console.log(&apos;dispatching&apos;, action)</span><br><span class="line">  let result = next(action)</span><br><span class="line">  console.log(&apos;next state&apos;, store.getState())</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const crashReporter = store =&gt; next =&gt; action =&gt; &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    return next(action)</span><br><span class="line">  &#125; catch (err) &#123;</span><br><span class="line">    console.error(&apos;Caught an exception!&apos;, err)</span><br><span class="line">    Raven.captureException(err, &#123;</span><br><span class="line">      extra: &#123;</span><br><span class="line">        action,</span><br><span class="line">        state: store.getState()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    throw err</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">然后是将它们引用到 Redux store 中：</span><br><span class="line"></span><br><span class="line">import &#123; createStore, combineReducers, applyMiddleware &#125; from &apos;redux&apos;</span><br><span class="line"></span><br><span class="line">let todoApp = combineReducers(reducers)</span><br><span class="line">let store = createStore(</span><br><span class="line">  todoApp,</span><br><span class="line">  // applyMiddleware() 告诉 createStore() 如何处理中间件</span><br><span class="line">  applyMiddleware(logger, crashReporter)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="搭配-React-Router"><a href="#搭配-React-Router" class="headerlink" title="搭配 React Router"></a><font color="#BA55D3">搭配 React Router</font></h2><h3 id="安装-React-Router"><a href="#安装-React-Router" class="headerlink" title="安装 React Router"></a>安装 React Router</h3><p>  npm install –save react-router</p>
+<h3 id="配置后备-fallback-URL"><a href="#配置后备-fallback-URL" class="headerlink" title="配置后备(fallback) URL"></a>配置后备(fallback) URL</h3><p>在集成 React Router 之前，我们需要配置一下我们的开发服务器。 显然，我们的开发服务器无法感知配置在 React Router 中的 route。 比如：想访问并刷新 /todos，由于是一个单页面应用，你的开发服务器需要生成并返回 index.html。 这里，将演示如何在流行的开发服务器上启用这项功能。</p>
+<h4 id="配置-Express"><a href="#配置-Express" class="headerlink" title="配置 Express"></a>配置 Express</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const express = require(&apos;express&apos;);</span><br><span class="line">const app = express();</span><br><span class="line"></span><br><span class="line">app.get(&apos;*&apos;, (req, res) =&gt; &#123;</span><br><span class="line">  fs.readFile(path.join(compiler.outputPath, `static/index.html`), (err, file) =&gt; &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">      res.sendStatus(404);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      res.send(file.toString());</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="配置-WebpackDevServer"><a href="#配置-WebpackDevServer" class="headerlink" title="配置 WebpackDevServer"></a>配置 WebpackDevServer</h4><p>如果你正在使用 WebpackDevServer 来返回你的 index.html 页面， 你可以增加如下配置到 webpack.config.dev.js：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  historyApiFallback: true,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="连接-React-Router-和-Redux-应用"><a href="#连接-React-Router-和-Redux-应用" class="headerlink" title="连接 React Router 和 Redux 应用"></a>连接 React Router 和 Redux 应用</h3><blockquote>
+<p>在 React 应用中，通常你会用 &lt;Router /> 包裹 &lt;Route />。 如此，当 URL 变化的时候，&lt;Router /> 将会匹配到指定的路由，然后渲染路由绑定的组件。 &lt;Route /> 用来显式地把路由映射到应用的组件结构上。 用 path 指定 URL，用 component 指定路由命中 URL 后需要渲染的那个组件。</p>
+</blockquote>
+<blockquote>
+<p>另外，在我们的 Redux 应用中，我们仍将使用 <provider>。 <provider> 是由 React Redux 提供的高阶组件，用来让你将 Redux 绑定到 React </provider></provider></p>
+</blockquote>
 <blockquote>
 <p>也许你想将 ‘#’ 从 URL 中移除（例如：<a href="http://localhost:3000/#/?_k=4sbb0i）。" target="_blank" rel="noopener">http://localhost:3000/#/?_k=4sbb0i）。</a> 你需要从 React Router 导入 browserHistory 来实现：<br>  import { Router, Route, browserHistory } from ‘react-router’;<br>  然后将它传给 &lt; Router /&gt; 来移除 URL 中的 ‘#’：</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Router, Route, browserHistory &#125; from <span class="string">'react-router'</span>;</span><br><span class="line">import createHistory from <span class="string">'history/createBrowserHistory'</span>;</span><br><span class="line"></span><br><span class="line">const <span class="built_in">history</span> = createHistory();</span><br><span class="line"></span><br><span class="line">&lt;Router <span class="built_in">history</span> = &#123; <span class="built_in">history</span> &#125;&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"/(:filter)"</span> component=&#123;App&#125; /&gt;</span><br><span class="line">&lt;/Router&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-</li>
-<li><p>通过 React Router 导航<br>React Router 提供了 <link> 来实现导航功能。</p>
-</li>
-<li><p>从 URL 中读取数据</p>
-</li>
-</ul>
-<p>npm install redux-thunk redux-logger cross-fetch –save</p>
-<p>参考：<a href="http://cn.redux.js.org/" target="_blank" rel="noopener">http://cn.redux.js.org/</a></p>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; PropTypes &#125; from &apos;react&apos;;</span><br><span class="line">import &#123; Provider &#125; from &apos;react-redux&apos;;</span><br><span class="line">import &#123; Router, Route, browserHistory &#125; from &apos;react-router&apos;;</span><br><span class="line">import App from &apos;./App&apos;;</span><br><span class="line"></span><br><span class="line">const Root = (&#123; store &#125;) =&gt; (</span><br><span class="line">  &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &lt;Router history=&#123;browserHistory&#125;&gt;</span><br><span class="line">      &lt;Route path=&quot;/(:filter)&quot; component=&#123;App&#125; /&gt; //当我们尝试从 URL 中读取参数 (:filter)</span><br><span class="line">    &lt;/Router&gt;</span><br><span class="line">  &lt;/Provider&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">Root.propTypes = &#123;</span><br><span class="line">  store: PropTypes.object.isRequired,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">export default Root;</span><br></pre></td></tr></table></figure>
+<h3 id="通过-React-Router-导航"><a href="#通过-React-Router-导航" class="headerlink" title="通过 React Router 导航"></a>通过 React Router 导航</h3><p>React Router 提供了 <link> 来实现导航功能。</p>
+<p>containers/FilterLink.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import &#123; Link &#125; from &apos;react-router&apos;;</span><br><span class="line"></span><br><span class="line">const FilterLink = (&#123; filter, children &#125;) =&gt; (</span><br><span class="line">  &lt;Link</span><br><span class="line">    to=&#123;filter === &apos;all&apos; ? &apos;&apos; : filter&#125;</span><br><span class="line">    activeStyle=&#123;&#123;</span><br><span class="line">      textDecoration: &apos;none&apos;,</span><br><span class="line">      color: &apos;black&apos;</span><br><span class="line">    &#125;&#125;</span><br><span class="line">  &gt;</span><br><span class="line">    &#123;children&#125;</span><br><span class="line">  &lt;/Link&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">export default FilterLink;</span><br></pre></td></tr></table></figure></p>
+<p>components/Footer.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;</span><br><span class="line">import FilterLink from &apos;../containers/FilterLink&apos;</span><br><span class="line"></span><br><span class="line">const Footer = () =&gt; (</span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    Show:</span><br><span class="line">    &#123;&quot; &quot;&#125;</span><br><span class="line">    &lt;FilterLink filter=&quot;all&quot;&gt;</span><br><span class="line">      All</span><br><span class="line">    &lt;/FilterLink&gt;</span><br><span class="line">    &#123;&quot;, &quot;&#125;</span><br><span class="line">    &lt;FilterLink filter=&quot;active&quot;&gt;</span><br><span class="line">      Active</span><br><span class="line">    &lt;/FilterLink&gt;</span><br><span class="line">    &#123;&quot;, &quot;&#125;</span><br><span class="line">    &lt;FilterLink filter=&quot;completed&quot;&gt;</span><br><span class="line">      Completed</span><br><span class="line">    &lt;/FilterLink&gt;</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">export default Footer</span><br></pre></td></tr></table></figure></p>
+<p>这时，如果你点击 <filterlink>，你将看到你的 URL 在 ‘/complete’，’/active’，’/‘ 间切换。 甚至还支持浏览的回退功能，可以从历史记录中找到之前的 URL 并回退。</filterlink></p>
+<h3 id="从-URL-中读取数据"><a href="#从-URL-中读取数据" class="headerlink" title="从 URL 中读取数据"></a>从 URL 中读取数据</h3><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a><font color="#BA55D3">示例</font></h2>
       
     </div>
     
@@ -587,7 +609,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -598,7 +620,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -609,7 +631,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -642,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、介绍"><span class="nav-number">1.</span> <span class="nav-text">一、介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、动机"><span class="nav-number">1.1.</span> <span class="nav-text">1、动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、三大原则"><span class="nav-number">1.2.</span> <span class="nav-text">2、三大原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、生态系统"><span class="nav-number">1.3.</span> <span class="nav-text">4、生态系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、基础"><span class="nav-number">2.</span> <span class="nav-text">二、基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Action"><span class="nav-number">2.1.</span> <span class="nav-text">Action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reducer"><span class="nav-number">2.2.</span> <span class="nav-text">Reducer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Store"><span class="nav-number">2.3.</span> <span class="nav-text">Store</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据流"><span class="nav-number">2.4.</span> <span class="nav-text">数据流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例：Todo-List"><span class="nav-number">2.5.</span> <span class="nav-text">示例：Todo List</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、高级"><span class="nav-number">3.</span> <span class="nav-text">三、高级</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#异步-Action"><span class="nav-number">3.1.</span> <span class="nav-text">异步 Action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步数据流"><span class="nav-number">3.2.</span> <span class="nav-text">异步数据流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Middleware"><span class="nav-number">3.3.</span> <span class="nav-text">Middleware</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭配-React-Router"><span class="nav-number">3.4.</span> <span class="nav-text">搭配 React Router</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、介绍"><span class="nav-number">1.</span> <span class="nav-text">一、介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、动机"><span class="nav-number">1.1.</span> <span class="nav-text">1、动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、三大原则"><span class="nav-number">1.2.</span> <span class="nav-text">2、三大原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、先前技术"><span class="nav-number">1.3.</span> <span class="nav-text">3、先前技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flux"><span class="nav-number">1.3.1.</span> <span class="nav-text">Flux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Immutable"><span class="nav-number">1.3.2.</span> <span class="nav-text">Immutable</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、生态系统"><span class="nav-number">1.4.</span> <span class="nav-text">4、生态系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、基础"><span class="nav-number">2.</span> <span class="nav-text">二、基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Action"><span class="nav-number">2.1.</span> <span class="nav-text">Action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reducer"><span class="nav-number">2.2.</span> <span class="nav-text">Reducer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Store"><span class="nav-number">2.3.</span> <span class="nav-text">Store</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据流"><span class="nav-number">2.4.</span> <span class="nav-text">数据流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭配react"><span class="nav-number">2.5.</span> <span class="nav-text">搭配react</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#容器组件（Smart-Container-Components）和展示组件（Dumb-Presentational-Components）"><span class="nav-number">2.5.1.</span> <span class="nav-text">容器组件（Smart/Container Components）和展示组件（Dumb/Presentational Components）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例：Todo-List"><span class="nav-number">2.6.</span> <span class="nav-text">示例：Todo List</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、高级"><span class="nav-number">3.</span> <span class="nav-text">三、高级</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#异步-Action"><span class="nav-number">3.1.</span> <span class="nav-text">异步 Action</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Action-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">Action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计-state-结构"><span class="nav-number">3.1.2.</span> <span class="nav-text">设计 state 结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理-Action"><span class="nav-number">3.1.3.</span> <span class="nav-text">处理 Action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步-action-创建函数"><span class="nav-number">3.1.4.</span> <span class="nav-text">异步 action 创建函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步数据流"><span class="nav-number">3.2.</span> <span class="nav-text">异步数据流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Middleware"><span class="nav-number">3.3.</span> <span class="nav-text">Middleware</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭配-React-Router"><span class="nav-number">3.4.</span> <span class="nav-text">搭配 React Router</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-React-Router"><span class="nav-number">3.4.1.</span> <span class="nav-text">安装 React Router</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置后备-fallback-URL"><span class="nav-number">3.4.2.</span> <span class="nav-text">配置后备(fallback) URL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-Express"><span class="nav-number">3.4.2.1.</span> <span class="nav-text">配置 Express</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-WebpackDevServer"><span class="nav-number">3.4.2.2.</span> <span class="nav-text">配置 WebpackDevServer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接-React-Router-和-Redux-应用"><span class="nav-number">3.4.3.</span> <span class="nav-text">连接 React Router 和 Redux 应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-React-Router-导航"><span class="nav-number">3.4.4.</span> <span class="nav-text">通过 React Router 导航</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从-URL-中读取数据"><span class="nav-number">3.4.5.</span> <span class="nav-text">从 URL 中读取数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">3.5.</span> <span class="nav-text">示例</span></a></li></ol></li></ol></div>
             
 
           </div>

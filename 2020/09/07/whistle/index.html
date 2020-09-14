@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,">
+  <meta name="keywords" content="跨平台代理抓包工具,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1、重拾博客 2019年9月20日时隔半年，再次拾起博客，物是人非，要把博客重新在各种新装备中重新搭建起来，好在之前在硬盘中存了数据，直接本地电脑连接github即可。 1）git –config user.name ‘xxx’2) git –config user.email ‘xxx’3) ssh-keygen -t rsa -C  &amp;#39;xxx@qq.com‘4) 之后在github中建">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="whistle 是什么whistle是基于Node实现的跨平台web调试代理工具，类似的工具有Windows平台上的Fiddler，主要用于查看、修改HTTP、HTTPS、Websocket的请求、响应，也可以作为HTTP代理服务器使用，不同于Fiddler通过断点修改请求响应的方式，whistle采用的是类似配置系统hosts的方式，一切操作都可以通过配置实现，支持域名、路径、正则表达式、通配符">
+<meta name="keywords" content="跨平台代理抓包工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客搭建全记录">
-<meta property="og:url" content="http://yoursite.com/2019/09/20/Hexo博客搭建全记录/index.html">
+<meta property="og:title" content="whistle">
+<meta property="og:url" content="http://yoursite.com/2020/09/07/whistle/index.html">
 <meta property="og:site_name" content="立夏">
-<meta property="og:description" content="1、重拾博客 2019年9月20日时隔半年，再次拾起博客，物是人非，要把博客重新在各种新装备中重新搭建起来，好在之前在硬盘中存了数据，直接本地电脑连接github即可。 1）git –config user.name ‘xxx’2) git –config user.email ‘xxx’3) ssh-keygen -t rsa -C  &amp;#39;xxx@qq.com‘4) 之后在github中建">
+<meta property="og:description" content="whistle 是什么whistle是基于Node实现的跨平台web调试代理工具，类似的工具有Windows平台上的Fiddler，主要用于查看、修改HTTP、HTTPS、Websocket的请求、响应，也可以作为HTTP代理服务器使用，不同于Fiddler通过断点修改请求响应的方式，whistle采用的是类似配置系统hosts的方式，一切操作都可以通过配置实现，支持域名、路径、正则表达式、通配符">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-31T08:44:45.191Z">
+<meta property="og:updated_time" content="2020-09-07T08:58:51.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客搭建全记录">
-<meta name="twitter:description" content="1、重拾博客 2019年9月20日时隔半年，再次拾起博客，物是人非，要把博客重新在各种新装备中重新搭建起来，好在之前在硬盘中存了数据，直接本地电脑连接github即可。 1）git –config user.name ‘xxx’2) git –config user.email ‘xxx’3) ssh-keygen -t rsa -C  &amp;#39;xxx@qq.com‘4) 之后在github中建">
+<meta name="twitter:title" content="whistle">
+<meta name="twitter:description" content="whistle 是什么whistle是基于Node实现的跨平台web调试代理工具，类似的工具有Windows平台上的Fiddler，主要用于查看、修改HTTP、HTTPS、Websocket的请求、响应，也可以作为HTTP代理服务器使用，不同于Fiddler通过断点修改请求响应的方式，whistle采用的是类似配置系统hosts的方式，一切操作都可以通过配置实现，支持域名、路径、正则表达式、通配符">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/20/Hexo博客搭建全记录/">
+  <link rel="canonical" href="http://yoursite.com/2020/09/07/whistle/">
 
 
 
 
 
-  <title>Hexo博客搭建全记录 | 立夏</title>
+  <title>whistle | 立夏</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/20/Hexo博客搭建全记录/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/07/whistle/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lemon">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo博客搭建全记录</h1>
+          <h1 class="post-title" itemprop="name headline">whistle</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-20T23:27:31+08:00">
-                2019-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-07T15:56:03+08:00">
+                2020-09-07
               </time>
             
 
@@ -351,33 +351,26 @@
       
 
       
-        <h1 id="1、重拾博客"><a href="#1、重拾博客" class="headerlink" title="1、重拾博客"></a>1、重拾博客</h1><ul>
-<li>2019年9月20日<br>时隔半年，再次拾起博客，物是人非，要把博客重新在各种新装备中重新搭建起来，好在之前在硬盘中存了数据，直接本地电脑连接github即可。<blockquote>
-<p>1）git –config user.name ‘xxx’<br>2) git –config user.email ‘xxx’<br>3) ssh-keygen -t rsa -C  <a href="mailto:&#39;xxx@qq.com" target="_blank" rel="noopener">&#39;xxx@qq.com</a>‘<br>4) 之后在github中建立新的SSH key<br>5）ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a><br>在第五步的时候需要到了一个问题：ssh: connect to host github.com port 22: Connection timed out。所以在.ssh文件加下，新建了config文件用于修改端口号，文件内容如下：</p>
+        <h1 id="whistle-是什么"><a href="#whistle-是什么" class="headerlink" title="whistle 是什么"></a>whistle 是什么</h1><p>whistle是基于Node实现的跨平台web调试代理工具，类似的工具有Windows平台上的Fiddler，主要用于查看、修改HTTP、HTTPS、Websocket的请求、响应，也可以作为HTTP代理服务器使用，不同于Fiddler通过断点修改请求响应的方式，whistle采用的是类似配置系统hosts的方式，一切操作都可以通过配置实现，支持域名、路径、正则表达式、通配符、通配路径等多种匹配方式，且可以通过Node模块扩展功能。</p>
+<h1 id="whistle-的直观优点"><a href="#whistle-的直观优点" class="headerlink" title="whistle 的直观优点"></a>whistle 的直观优点</h1><ol>
+<li>免费；</li>
+<li>简便，安装启动操作都简便，界面友好，真机调试，扩展性好，社区活跃；</li>
+<li>功能丰富，各大抓包工具应有的功能他都有，足够应对日常开发场景；</li>
+<li>跨平台（Win/Mac/Linux）；</li>
+</ol>
+<h1 id="whistle使用方法"><a href="#whistle使用方法" class="headerlink" title="whistle使用方法"></a>whistle使用方法</h1><h2 id="1-安装-Node"><a href="#1-安装-Node" class="headerlink" title="1. 安装 Node"></a>1. 安装 Node</h2><p>whistle支持v0.10.0以上版本的Node，为获取更好的性能，推荐安装最新版本的Node。</p>
+<h2 id="2-安装-whistle"><a href="#2-安装-whistle" class="headerlink" title="2. 安装 whistle"></a>2. 安装 whistle</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g whistle</span><br></pre></td></tr></table></figure>
+<p>Mac或Linux的非root用户需要在命令行前面加sudo，如：sudo npm install -g whistle</p>
+<p>npm默认镜像是在国外，有时候安装速度很慢或者出现安装不了的情况，如果无法安装或者安装很慢，可以使用taobao的镜像安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install cnpm -g --registry=https://registry.npm.taobao.org</span><br><span class="line">$ cnpm install -g whistle</span><br></pre></td></tr></table></figure></p>
+<p>或者直接指定镜像安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install whistle -g --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>Host github.com<br>User <a href="mailto:2544531706@163.com" target="_blank" rel="noopener">2544531706@163.com</a><br>Hostname ssh.github.com<br>PreferredAuthentications publickey<br>IdentityFile ~/.ssh/id_rsa<br>Port 443</li>
+<li>whistle安装完成后，执行命令 whistle help 或 w2 help，查看whistle的帮助信息</li>
 </ul>
+<h2 id="3-启动-whistle"><a href="#3-启动-whistle" class="headerlink" title="3. 启动 whistle"></a>3. 启动 whistle</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">启动</span><br><span class="line">// 启动 whistle，默认端口 8899，Note: 如果要防止其他人访问配置页面，可以在启动时加上登录用户名和密码  `-n yourusername -w yourpassword`</span><br><span class="line">$ w2 start</span><br><span class="line"></span><br><span class="line">// 重启 whsitle:</span><br><span class="line">$ w2 restart</span><br><span class="line"> </span><br><span class="line">// 停止 whistle:</span><br><span class="line">$ w2 stop</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">// 调试模式启动 whistle(主要用于查看 whistle 的异常及插件开发):</span><br><span class="line">$ w2 run</span><br></pre></td></tr></table></figure>
+<h2 id="4-配置代理"><a href="#4-配置代理" class="headerlink" title="4. 配置代理"></a>4. 配置代理</h2><blockquote>
+<p>代理服务器：127.0.0.1 (如果部署在远程服务器或虚拟机上，改成对应服务器或虚拟机的ip即可)<br>默认端口：8899 (如果端口被占用，可以在启动时通过 -p 来指定新的端口，更多信息可以通过执行命令行 w2 help (v0.7.0及以上版本也可以使用w2 help) 查看)<br>勾选上 对所有协议均使用相同的代理服务器</p>
 </blockquote>
-</li>
-</ul>
-<p><br></p>
-<h1 id="2、配置about"><a href="#2、配置about" class="headerlink" title="2、配置about"></a>2、配置about</h1><ul>
-<li><p>2019年12月19日<br>本意：想给hexo配置about。</p>
-<blockquote>
-<p>解决：</p>
-<ul>
-<li>第一种方式<br>1、使用hexo-admin插件，方便后台登录管理hexo博客，编写文章。<br>  npm install –save hexo-admin  （ 插件地址：<a href="https://github.com/jaredly/hexo-admin）" target="_blank" rel="noopener">https://github.com/jaredly/hexo-admin）</a><br>  hexo s<br>  localhost:4000/admin<br>2、配置admin<br>  添加用户名与密码  settings  -&gt;  Setup authentification here</li>
-</ul>
-</blockquote>
-<p>  3、之后设置用户名和密码</p>
-<pre><code>hexo s
-localhost:4000/admin（受到密码保护）
-</code></pre><ul>
-<li>第二种方式<br>在source目录下，直接新建about文件夹，新建index.md,<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: about</span><br><span class="line"><span class="built_in">type</span>: about</span><br><span class="line">date: 2019-03-08 16:40:49</span><br><span class="line">---</span><br><span class="line">直接在这里编辑文字吧~</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
+<h2 id="5-安装根证书"><a href="#5-安装根证书" class="headerlink" title="5. 安装根证书"></a>5. 安装根证书</h2><p>  如图所示，点击 HTTPS-&gt;Download RootCA;</p>
 
       
     </div>
@@ -395,7 +388,7 @@ localhost:4000/admin（受到密码保护）
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/跨平台代理抓包工具/" rel="tag"># 跨平台代理抓包工具</a>
           
         </div>
       
@@ -408,8 +401,8 @@ localhost:4000/admin（受到密码保护）
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/19/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2020/08/26/frame/" rel="next" title="frame">
+                <i class="fa fa-chevron-left"></i> frame
               </a>
             
           </div>
@@ -417,10 +410,6 @@ localhost:4000/admin（受到密码保护）
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/27/webpack/" rel="prev" title="webpack">
-                webpack <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -554,7 +543,7 @@ localhost:4000/admin（受到密码保护）
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、重拾博客"><span class="nav-number">1.</span> <span class="nav-text">1、重拾博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、配置about"><span class="nav-number">2.</span> <span class="nav-text">2、配置about</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#whistle-是什么"><span class="nav-number">1.</span> <span class="nav-text">whistle 是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#whistle-的直观优点"><span class="nav-number">2.</span> <span class="nav-text">whistle 的直观优点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#whistle使用方法"><span class="nav-number">3.</span> <span class="nav-text">whistle使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装-Node"><span class="nav-number">3.1.</span> <span class="nav-text">1. 安装 Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装-whistle"><span class="nav-number">3.2.</span> <span class="nav-text">2. 安装 whistle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-启动-whistle"><span class="nav-number">3.3.</span> <span class="nav-text">3. 启动 whistle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-配置代理"><span class="nav-number">3.4.</span> <span class="nav-text">4. 配置代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-安装根证书"><span class="nav-number">3.5.</span> <span class="nav-text">5. 安装根证书</span></a></li></ol></li></ol></div>
             
 
           </div>
