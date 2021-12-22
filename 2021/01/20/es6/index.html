@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第一节、 块级作用域 ES5，以function来划分作用域，但是{}却限定不了var的作用域。ES6，增加了let和const，声明在{} -&amp;gt; “function、if、for等”的变量作用域被限制在块级  let 和 const 生命周期在块级作用域中没有变量提升，不可重复声明let声明变量，const声明常量   块级作用域的出现，实际上使用广泛的立即执行匿名函数不在必要了。防止变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="es6">
+<meta property="og:url" content="http://yoursite.com/2021/01/20/es6/index.html">
+<meta property="og:site_name" content="小寒">
+<meta property="og:description" content="第一节、 块级作用域 ES5，以function来划分作用域，但是{}却限定不了var的作用域。ES6，增加了let和const，声明在{} -&amp;gt; “function、if、for等”的变量作用域被限制在块级  let 和 const 生命周期在块级作用域中没有变量提升，不可重复声明let声明变量，const声明常量   块级作用域的出现，实际上使用广泛的立即执行匿名函数不在必要了。防止变量">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-01-21T10:01:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="es6">
+<meta name="twitter:description" content="第一节、 块级作用域 ES5，以function来划分作用域，但是{}却限定不了var的作用域。ES6，增加了let和const，声明在{} -&amp;gt; “function、if、for等”的变量作用域被限制在块级  let 和 const 生命周期在块级作用域中没有变量提升，不可重复声明let声明变量，const声明常量   块级作用域的出现，实际上使用广泛的立即执行匿名函数不在必要了。防止变量">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/01/20/es6/">
+
+
+
+
+
+  <title>es6 | 小寒</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小寒</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-窝">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            窝
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/20/es6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lemon">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/background22.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小寒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">es6</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-20T14:33:08+08:00">
+                2021-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/基础/" itemprop="url" rel="index">
+                    <span itemprop="name">基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第一节、-块级作用域"><a href="#第一节、-块级作用域" class="headerlink" title="第一节、 块级作用域"></a><font color="#1B90D6">第一节、 块级作用域</font></h2><blockquote>
+<p>ES5，以function来划分作用域，但是{}却限定不了var的作用域。<br>ES6，增加了let和const，声明在{} -&gt; “function、if、for等”的变量作用域被限制在块级</p>
+</blockquote>
+<h3 id="let-和-const"><a href="#let-和-const" class="headerlink" title="let 和 const"></a>let 和 const</h3><blockquote>
+<p>生命周期在块级作用域中<br>没有变量提升，不可重复声明<br>let声明变量，const声明常量</p>
+</blockquote>
+<ul>
+<li>块级作用域的出现，实际上使用广泛的立即执行匿名函数不在必要了。防止变量污染。<br></li>
+</ul>
+<h2 id="第二节、-解构赋值"><a href="#第二节、-解构赋值" class="headerlink" title="第二节、 解构赋值"></a><font color="#1B90D6">第二节、 解构赋值</font></h2><ol>
+<li><p>本质上属于模式匹配，也就是只要等号两边的模式相同，左边的变量就会被赋予对应的值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var [a, b, c] = [1, 2, 3];                  // 1, 2, 3</span><br><span class="line"><span class="built_in">let</span> [foo, [[bar], bax]] = [1, [[2], 3]];    // 1, 2, 3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解构失败则为undefined，也存在不完全解构。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const [a, b, c] = [1];       // 1, undefined, undefined  解构失败</span><br><span class="line"><span class="built_in">let</span> [foo, [[bar], bax]] = [1, [[2, 3], 4]];  // 1, 2, 4  不完全解构</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>赋默认值（只有右侧严格等于undefined的时候才生效）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const [a, b=123, c] = [1];   // 1, 123, undefined</span><br><span class="line"><span class="built_in">let</span> [foo=1] = [null];        // null</span><br><span class="line"></span><br><span class="line">// 惰性求值</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fn</span></span> () &#123; <span class="built_in">return</span> <span class="string">'abc'</span>; &#125;</span><br><span class="line"><span class="built_in">let</span> [a=fn()] = [1];          // 1</span><br><span class="line"><span class="built_in">let</span> [b=fn()] = [];           // <span class="string">'abc'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象的解构赋值(按照属性名来决定)</p>
+<ul>
+<li><p>注意：一个已声明的变量用于解构赋值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var x;</span><br><span class="line">&#123; x &#125; = &#123; x: 1 &#125;;    // Uncaught SyntaxError: Unexpected token <span class="string">'='</span></span><br><span class="line">                     // js引擎会将&#123;x&#125;理解成一个代码块，从而发生语法错误</span><br><span class="line">(&#123; x &#125; = &#123; x: 1 &#125;);  // ()将其转换为表达式，从而避免上述语法问题</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果变量名和属性名不一致，必须（属性名不是变量，我们可以理解成一种模式）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var &#123; foo: bar &#125; = &#123; foo: 1,  bar: 2 &#125;;</span><br><span class="line">foo;       // Uncaught ReferenceError: foo is not defined</span><br><span class="line">bar;       // 1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>和数组的解构赋值一样，对象的解构赋值也可嵌套</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123; P: [<span class="string">'hello'</span>, &#123;y: <span class="string">'world'</span>&#125;] &#125;;</span><br><span class="line">var &#123; P: [x, &#123;y&#125;] &#125; = obj;</span><br><span class="line"></span><br><span class="line">obj;      // &#123;P: Array(2)&#125;</span><br><span class="line">x;        // <span class="string">'hello'</span></span><br><span class="line">y;        // <span class="string">'world'</span></span><br><span class="line">P;        // Uncaught ReferenceError: P is not defined</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>默认值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var &#123; x, y=x, z &#125; = &#123; x: 1 &#125;;</span><br><span class="line">x;       // 1</span><br><span class="line">y;       // 1</span><br><span class="line">z;       // undefined</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>字符串的解构赋值，字符串会转化成一个类数组的对象</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var [a,b,c,d,e,f] = <span class="string">"hello"</span>;</span><br><span class="line">var &#123; length: len &#125; = <span class="string">"hello"</span>;</span><br><span class="line">a;      // h</span><br><span class="line">b;      // e</span><br><span class="line">c;      // l</span><br><span class="line">d;      // l</span><br><span class="line">e;      // o</span><br><span class="line">f;      // undefined</span><br><span class="line">len;    // 5</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="6">
+<li><p>数值和布尔值的解构赋值，如果等号右边是数值或者布尔值，则会先转为对象</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var &#123; toString: a &#125; = 123;</span><br><span class="line">var &#123; toString: b &#125; = <span class="literal">true</span>;</span><br><span class="line">a;                                 // ƒ <span class="function"><span class="title">toString</span></span>() &#123; [native code] &#125;</span><br><span class="line">b;                                 // ƒ <span class="function"><span class="title">toString</span></span>() &#123; [native code] &#125;</span><br><span class="line">a === Number.prototype.toString;   // <span class="literal">true</span></span><br><span class="line">b === Boolean.prototype.toString;  // <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数参数的解构赋值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="built_in">test</span>(&#123; x=0, y=0 &#125; = &#123;&#125;) &#123;</span><br><span class="line">  console.log([x ,y]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">test</span>(&#123;x: 1, y: 2&#125;);  // [1, 2]</span><br><span class="line"><span class="built_in">test</span>(&#123;x: 1&#125;);        // [1, 0]</span><br><span class="line"><span class="built_in">test</span>(&#123;&#125;);            // [0, 0]</span><br><span class="line"><span class="built_in">test</span>();              // [0, 0]</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> move(&#123; x, y &#125; = &#123;x: 0, y: 0&#125;) &#123;</span><br><span class="line">  console.log([x ,y]);</span><br><span class="line">&#125;</span><br><span class="line">move(&#123;x: 1, y: 2&#125;);  // [1, 2]</span><br><span class="line">move(&#123;x: 1&#125;);        // [1, undefined]</span><br><span class="line">move(&#123;&#125;);            // [undefined, undefined]</span><br><span class="line">move();              // [0, 0]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解构赋值的应用</p>
+<ul>
+<li><p>交换变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;</span><br><span class="line">var b = 2;</span><br><span class="line">[a, b] = [b, a];</span><br><span class="line">a, b;            // 2, 1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数参数的定义</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> fn (&#123;x=1, y, z&#125; = &#123;&#125;)&#123;console.log(x, y, z);&#125;</span><br><span class="line">fn();    // 1, undefined, undefined</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从函数中返回多个值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">example</span></span> () &#123;</span><br><span class="line">  <span class="built_in">return</span> [1, 2, 3];</span><br><span class="line">&#125;</span><br><span class="line">const [a, b, c] = example();</span><br><span class="line">a, b, c           // 1, 2, 3</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>提交数据<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var jsonData = &#123;</span><br><span class="line">  id: 42,</span><br><span class="line">  status: 2000,</span><br><span class="line">&#125;;</span><br><span class="line">const &#123; id, status &#125; = jsonData;</span><br><span class="line">id, status;       // 42, 2000</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="第三节、-数组扩展"><a href="#第三节、-数组扩展" class="headerlink" title="第三节、 数组扩展"></a><font color="#1B90D6">第三节、 数组扩展</font></h2><h3 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h3><p>用于将两类对象转化为真正的数组</p>
+<ol>
+<li>类数组 （所谓类似数组的对象，本质上必须有length属性）</li>
+<li>可遍历对象 （ES6新增Set和Map两种数据结构）</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var sameArr = &#123;</span><br><span class="line">  0: 1,</span><br><span class="line">  a: <span class="string">'b'</span>,</span><br><span class="line">  5: <span class="string">'c'</span>,</span><br><span class="line">  length: 6,</span><br><span class="line">  splice: <span class="function"><span class="title">function</span></span>()&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line">var arr = Array.from(sameArr);</span><br><span class="line"></span><br><span class="line">sameArr       // Object(6) [1, empty × 4, <span class="string">"c"</span>, a: <span class="string">"b"</span>, splice: ƒ]</span><br><span class="line">                 0: 1 5: <span class="string">"c"</span> a: <span class="string">"b"</span> length: 6 splice: ƒ ()__proto__: Object </span><br><span class="line"></span><br><span class="line">arr;          // [1, undefined, undefined, undefined, undefined, <span class="string">"c"</span>]</span><br><span class="line"></span><br><span class="line">sameArr.forEach(item =&gt; console.log(item)); // Uncaught TypeError: sameArr.forEach is not a <span class="keyword">function</span></span><br><span class="line"></span><br><span class="line">arr.forEach(item =&gt; console.log(item)); // 1  undefined undefined undefined undefined  c</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Array.from 还接受第二个参数，作用类似于数组的map方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = Array.from(sameArr, (item) =&gt; item + 123);</span><br><span class="line">arr;           // [124, NaN, NaN, NaN, NaN, <span class="string">"c123"</span>]</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of()"></a>Array.of()</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = new Array();            // [undefined * 10]</span><br><span class="line">var arr1 = Array.of(10, 2, 3);    // [10, 2, 3]</span><br></pre></td></tr></table></figure>
+<h3 id="copyWithin"><a href="#copyWithin" class="headerlink" title="copyWithin()"></a>copyWithin()</h3><p>  在当前数组内部，将指定位置的成员复制到其他位置（会覆盖原来成员），然后返回当前数组，也就是说，copyWithin()方法会修改当前数组。</p>
+<ul>
+<li>接受三个参数：<br>target（必需）：从该位置开始替换数据<br>start（可选）：从该位置开始读取数据，默认为0，如果为负值，表示倒数。<br>end（可选）：到该位置前停止读取数据，默认等于数组长度，如果为负值，表示倒数。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];</span><br><span class="line">arr.copyWithin(0, 2, 4);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="find-和-findIndex"><a href="#find-和-findIndex" class="headerlink" title="find() 和 findIndex()"></a>find() 和 findIndex()</h3><ul>
+<li>find       用于找出第一个符合条件的数组成员。没有则返回undefined。<br>findIndex  类似，返回第一个符合条件的数组成员的位置。没有则返回-1。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];</span><br><span class="line">var newArr = arr.find((item) =&gt; item &gt; 5);         // 6</span><br><span class="line">var newIndex = arr.findIndex((item) =&gt; item &gt; 5);  // 5</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="fill"><a href="#fill" class="headerlink" title="fill()"></a>fill()</h3><p>填充数组<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5];</span><br><span class="line">arr.fill(<span class="string">'a'</span>);                // [<span class="string">"a"</span>, <span class="string">"a"</span>, <span class="string">"a"</span>, <span class="string">"a"</span>, <span class="string">"a"</span>]</span><br><span class="line">arr.fill(<span class="string">'a'</span>, 2);             // [1, 2, <span class="string">"a"</span>, <span class="string">"a"</span>, <span class="string">"a"</span>]</span><br><span class="line">arr.fill(<span class="string">'a'</span>, 2, 4);          // [1, 2, <span class="string">"a"</span>, <span class="string">"a"</span>, 5]</span><br></pre></td></tr></table></figure></p>
+<h3 id="entries-keys-valueof"><a href="#entries-keys-valueof" class="headerlink" title="entries() keys() valueof()"></a>entries() keys() valueof()</h3><p>ES6提供三个新的方法 – entries, keys()和values() – 用于遍历数组。它们都返回一个遍历器对象，可以用for…of循环进行遍历，唯一的区别是keys()是对键名的遍历,values()是对键值的遍历，entries()是对键值对的遍历。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> index of [<span class="string">'a'</span>, <span class="string">'b'</span>].keys()) &#123; console.log(index); &#125;     // 0 1</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> elem of [<span class="string">'a'</span>, <span class="string">'b'</span>].values()) &#123; console.log(elem); &#125;      // <span class="string">'a'</span> <span class="string">'b'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> [index, elem] of [<span class="string">'a'</span>, <span class="string">'b'</span>].entries()) &#123; console.log(index, elem); &#125;      // 0 <span class="string">"a"</span>    1 <span class="string">"b"</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="includes"><a href="#includes" class="headerlink" title="includes()"></a>includes()</h3><p>某个数组是否包含给定的值，与字符串的includes方法类似。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, NaN];</span><br><span class="line">console.log(arr.indexOf(<span class="string">'c'</span>));    // 2</span><br><span class="line">console.log(arr.indexOf(NaN));    // -1    NaN不等于NaN</span><br><span class="line">console.log(arr.includes(<span class="string">'c'</span>));   // <span class="literal">true</span></span><br><span class="line">console.log(arr.includes(NaN));   // <span class="literal">true</span>  includes没有这个问题</span><br></pre></td></tr></table></figure></p>
+<h2 id="第四节、-对象扩展"><a href="#第四节、-对象扩展" class="headerlink" title="第四节、 对象扩展"></a><font color="#1B90D6">第四节、 对象扩展</font></h2><h3 id="1-属性"><a href="#1-属性" class="headerlink" title="1. 属性"></a>1. 属性</h3><p>ES6 允许直接写入变量和函数，作为对象的属性和方法。（ES6允许在对象中，只写属性名不写属性值，这时属性值等于属性名所代表的的变量）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123; name&#125;;                                 // &#123;name: <span class="string">""</span>&#125;</span><br><span class="line"></span><br><span class="line">const name = <span class="string">'hahaha'</span>;</span><br><span class="line">const obj = &#123; name &#125;;                                // &#123;name: <span class="string">"hahaha"</span>&#125;</span><br><span class="line"></span><br><span class="line">const name = <span class="function"><span class="title">function</span></span>()&#123;sonsole.log(<span class="string">'name:test'</span>);&#125;;</span><br><span class="line">const obj = &#123; name &#125;;                                // &#123;name: ƒ&#125;</span><br><span class="line"></span><br><span class="line">const obj = &#123; <span class="function"><span class="title">name</span></span>()&#123;console.log(<span class="string">'name:test'</span>);&#125; &#125;;   // &#123;name: ƒ&#125;</span><br></pre></td></tr></table></figure></p>
+<p>属性表达式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const name = <span class="string">'test'</span>;</span><br><span class="line">const obj = &#123;             // &#123;<span class="built_in">test</span>: <span class="string">"haha"</span>, test1: <span class="string">"heihei"</span>, test2: <span class="string">"houhou"</span>&#125;</span><br><span class="line">  [name]: <span class="string">'haha'</span>,</span><br><span class="line">  [name+<span class="string">'1'</span>]: <span class="string">'heihei'</span>,</span><br><span class="line">  [name+<span class="string">'2'</span>]: <span class="string">'houhou'</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-Object-is"><a href="#2-Object-is" class="headerlink" title="2. Object.is()"></a>2. Object.is()</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+0 === -0              // <span class="literal">true</span></span><br><span class="line">NaN === NaN            // <span class="literal">false</span></span><br><span class="line">Object.is(+0, -0);     // <span class="literal">false</span></span><br><span class="line">Object.is(NaN, NaN);   // <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-Object-assign"><a href="#3-Object-assign" class="headerlink" title="3. Object.assign()"></a>3. Object.assign()</h3><p>对象合并（浅拷贝）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const a = &#123; a: 1, b: <span class="string">'xxx'</span> &#125;;</span><br><span class="line">const b = &#123; b: <span class="string">'bbb'</span>, c: &#123; d: 1, e: 2 &#125; &#125;;</span><br><span class="line">const f = &#123; c: &#123; d: 2, e: 2, g: 3 &#125;, h: <span class="string">'hahaha'</span> &#125;;</span><br><span class="line"></span><br><span class="line">Object.assign(f, b, a);   // &#123;c: &#123;&#123;d: 1, e: 2&#125;&#125;, h: <span class="string">"hahaha"</span>, b: <span class="string">"xxx"</span>, a: 1&#125;</span><br></pre></td></tr></table></figure></p>
+<font size="1">$.extend({}) 扩展<br>$.extend({}, {}) 浅拷贝<br>$.extend(true, {}, {}) 深拷贝</font>
+
+<h3 id="4-Object-entries-Object-keys-Object-valueof"><a href="#4-Object-entries-Object-keys-Object-valueof" class="headerlink" title="4. Object.entries()  Object.keys()  Object.valueof()"></a>4. Object.entries()  Object.keys()  Object.valueof()</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123; b: <span class="string">'bbb'</span>, c: &#123; d: 1, e: 2 &#125; &#125;;</span><br><span class="line">  </span><br><span class="line">Object.keys(obj);      // [<span class="string">"b"</span>, <span class="string">"c"</span>]</span><br><span class="line">Object.values(obj);    // [<span class="string">"bbb"</span>, &#123;d: 1, e: 2&#125;]</span><br><span class="line">Object.entries(obj);   // [[<span class="string">"b"</span>, <span class="string">"bbb"</span>], [<span class="string">"c"</span>, &#123;d: 1, e: 2&#125;]]</span><br></pre></td></tr></table></figure>
+<h3 id="5-Object-getPrototypeOf-Object-setPrototypeOf"><a href="#5-Object-getPrototypeOf-Object-setPrototypeOf" class="headerlink" title="5. Object.getPrototypeOf()   Object.setPrototypeOf()"></a>5. Object.getPrototypeOf()   Object.setPrototypeOf()</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123; a: 1 &#125;;</span><br><span class="line">const obj1 = &#123; b: <span class="function"><span class="title">function</span></span>()&#123;console.log(<span class="string">'bbb'</span>);&#125; &#125;;</span><br><span class="line"></span><br><span class="line">obj.__proto__ = obj1;</span><br><span class="line">Object.setPrototypeOf(obj, obj1);</span><br><span class="line"></span><br><span class="line">obj.b();                              // <span class="string">'bbb'</span></span><br><span class="line">Object.getPrototypeOf(obj);           // &#123;b: ƒ&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-扩展运算符-…"><a href="#6-扩展运算符-…" class="headerlink" title="6. 扩展运算符 …"></a>6. 扩展运算符 …</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const arr = [1,2,3];</span><br><span class="line">const arr1 = [...arr, <span class="string">'c'</span>];      // [1, 2, 3, <span class="string">"c"</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="第五节、-函数扩展"><a href="#第五节、-函数扩展" class="headerlink" title="第五节、 函数扩展"></a><font color="#1B90D6">第五节、 函数扩展</font></h2><h3 id="1-扩展运算符-…"><a href="#1-扩展运算符-…" class="headerlink" title="1. 扩展运算符 …"></a>1. 扩展运算符 …</h3><p>ES6韵如rest参数（形式为“…变量名”），用于获取函数的多余参数，这样就不需要使用arguments对象了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const a = (...values) =&gt; &#123;console.log(values);&#125;</span><br><span class="line">a(1,2,3,4,5);     // [1,2,3,4,5]</span><br><span class="line"></span><br><span class="line">const a = (a, ...values) =&gt; &#123;console.log(values);&#125;</span><br><span class="line">a(1,2,3,4,5);     // [2,3,4,5]</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-箭头函数"><a href="#2-箭头函数" class="headerlink" title="2. 箭头函数"></a>2. 箭头函数</h3><ol>
+<li>箭头函数内的this值不会改变<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">const id = 10;</span><br><span class="line">const fn = () =&gt; &#123;console.log(this.id);&#125;   // this指向window</span><br><span class="line">const obj = &#123; id: 20, fn &#125;;</span><br><span class="line">const obj1 = &#123; id: 30 &#125;;</span><br><span class="line">fn();                          // undefined</span><br><span class="line">obj.fn();                      // undefined</span><br><span class="line">obj.fn.call(obj1);             // undefined</span><br><span class="line"></span><br><span class="line">var id = 10;</span><br><span class="line">const fn = () =&gt; &#123;console.log(this.id);&#125;</span><br><span class="line">const obj = &#123; id: 20, fn &#125;;</span><br><span class="line">const obj1 = &#123; id: 30 &#125;;</span><br><span class="line">fn();                          // 10</span><br><span class="line">obj.fn();                      // 10</span><br><span class="line">obj.fn.call(obj1);             // 10</span><br><span class="line"></span><br><span class="line">var id = 10;</span><br><span class="line">const fn = () =&gt; &#123;this.id = 1; console.log(this.id);&#125;</span><br><span class="line">const obj = &#123; id: 20, fn &#125;;</span><br><span class="line">const obj1 = &#123; id: 30 &#125;;</span><br><span class="line">fn();                          // 1</span><br><span class="line">obj.fn();                      // 1</span><br><span class="line">obj.fn.call(obj1);             // 1</span><br><span class="line"></span><br><span class="line">const id = 10;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fn</span></span> () &#123;console.log(this.id);&#125;</span><br><span class="line">const obj = &#123; id: 20, fn  &#125;;</span><br><span class="line">const obj1 = &#123; id: 30 &#125;;</span><br><span class="line">obj.fn();                      // 20</span><br><span class="line">obj.fn.call(obj1);             // 30</span><br><span class="line"></span><br><span class="line">const fn1 = obj.fn;</span><br><span class="line">fn1();                         // undefined</span><br><span class="line"></span><br><span class="line">const fn2 = obj.fn.bind(obj1);</span><br><span class="line">fn2();                         // 30</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>全局定义的const和let不会被挂载到全局对象（如window）下，而是存在于块作用域（Script）中。<br>我们可以用debugger在控制台测一下</p>
+<p>这里不是太理解，埋个？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 定义时</span><br><span class="line">const id = 10;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fn</span></span> () &#123;setTimeout(<span class="function"><span class="title">function</span></span>()&#123;console.log(this.id)&#125;, 0);&#125;       // undefined</span><br><span class="line">const obj1 = &#123; id: 30 &#125;;</span><br><span class="line">fn.call(obj1);</span><br><span class="line"></span><br><span class="line">const id = 10;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fn</span></span> () &#123;setTimeout(()=&gt;console.log(this.id), 0);&#125;               // 30</span><br><span class="line">const obj1 = &#123; id: 30 &#125;;</span><br><span class="line">fn.call(obj1);</span><br></pre></td></tr></table></figure></p>
+<h2 id="第六节、-类-class"><a href="#第六节、-类-class" class="headerlink" title="第六节、 类  class"></a><font color="#1B90D6">第六节、 类  class</font></h2><h3 id="class基本语法"><a href="#class基本语法" class="headerlink" title="class基本语法"></a>class基本语法</h3><blockquote>
+<p>JS的传统方法是通过构造函数，定义并生成新对象。<br>构造函数的prototype属性，在ES6的类上面继续存在（事实上，类的所有方法都定义在类的prototype属性上）。<br>类的内部所有定义的方法都是不可枚举的。<br>类的实例共享一个原型对象。<br>class 的本质是 function。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Person &#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span></span>() &#123; // 不写默认为&#123;&#125;</span><br><span class="line">    this.name = <span class="string">'Person Class'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">operate</span></span>()&#123;</span><br><span class="line">    console.log(<span class="string">'laugh smile cry fire happy sad'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">const child = new Person(); // Person &#123;name: <span class="string">"Person Class"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="class的继承"><a href="#class的继承" class="headerlink" title="class的继承"></a>class的继承</h3><p>extends supor<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Ancestors &#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span></span>() &#123;</span><br><span class="line">    this.level = <span class="string">'Ancestors Class'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">create</span></span>() &#123;</span><br><span class="line">    console.log(<span class="string">'Creating the world'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Person extends Ancestors &#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span></span>() &#123;</span><br><span class="line">    super();  // 必须</span><br><span class="line">    this.name = <span class="string">'Person Class'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">operate</span></span>()&#123;</span><br><span class="line">    console.log(<span class="string">'laugh smile cry fire happy sad'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">const child = new Person(); // Person &#123;level: <span class="string">"Ancestors Class"</span>, name: <span class="string">"Person Class"</span>&#125;</span><br><span class="line">child.operate();            // 可调用</span><br><span class="line">child.create();             // 可调用</span><br></pre></td></tr></table></figure></p>
+<h3 id="class的静态方法-static"><a href="#class的静态方法-static" class="headerlink" title="class的静态方法 static"></a>class的静态方法 static</h3><p>不需要实例化。 ES6 中规定，Class 内部只有静态方法，没有静态属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Person&#123;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    this.name = &apos;Person Class&apos;;</span><br><span class="line">  &#125;</span><br><span class="line">  operate()&#123;</span><br><span class="line">    console.log(&apos;laugh smile cry fire happy sad&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">  static originLook() &#123;</span><br><span class="line">    console.log(&apos;nature is new&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">const child = new Person();</span><br><span class="line">child.originLook();       // Uncaught TypeError: child.originLook is not a function</span><br></pre></td></tr></table></figure></p>
+<h2 id="第七节、-Set-和-Map"><a href="#第七节、-Set-和-Map" class="headerlink" title="第七节、 Set 和 Map"></a><font color="#1B90D6">第七节、 Set 和 Map</font></h2><h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><blockquote>
+<p> ES6提供了新的数据结构Set，类似于数组，但是成员的值都是唯一的，没有重复的值。<br> Set本身是构造函数，用来生成Set数据结构，Set函数可以接受数组（或类数组）作为参数，用来初始化。<br>可以用来去除数组中重复的成员。</p>
+</blockquote>
+<blockquote>
+<p>Set.prototype.constructor： 构造函数，默认就是Set函数<br>Set.prototype.size：返回Set实例的成员总数</p>
+</blockquote>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const arr = [1,2,3,3,3,2,1];</span><br><span class="line">const a = new Set(arr);                // Set(3) &#123;1, 2, 3&#125; </span><br><span class="line">const b = Array.from(new Set(arr));    // [1, 2, 3]   将Set结构转换为数组，也算是一种数组去重的方法</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Set数据的四个操作方法：<br>add()<br>delete()<br>has()<br>clear()</p>
+</li>
+<li><p>Set数据的四个遍历方法：<br>keys()<br>values()<br>entries()<br>forEach()</p>
+</li>
+</ul>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p>Map 对象保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。</p>
+<h4 id="Maps-和-Objects-的区别"><a href="#Maps-和-Objects-的区别" class="headerlink" title="Maps 和 Objects 的区别"></a>Maps 和 Objects 的区别</h4><p>  一个 Object 的键只能是字符串或者 Symbols，但一个 Map 的<strong>键可以是任意值</strong>。<br>  Map 中的键值是<strong>有序</strong>的（FIFO 原则），而添加到对象中的键则不是。<br>  Map 的键值对个数可以从 <strong>size</strong> 属性获取，而 Object 的键值对个数只能手动计算。<br>  Object 都有自己的原型，原型链上的键名有可能和你自己在对象上的设置的键名产生冲突。</p>
+<h4 id="key-可以是字符串、对象"><a href="#key-可以是字符串、对象" class="headerlink" title="key 可以是字符串、对象"></a>key 可以是字符串、对象</h4><ul>
+<li><p>key 可以是字符串</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var myMap = new Map();</span><br><span class="line">var keyString = <span class="string">"a string"</span>; </span><br><span class="line">myMap.set(keyString, <span class="string">"和键'a string'关联的值"</span>);</span><br><span class="line">myMap.get(keyString);         // <span class="string">"和键'a string'关联的值"</span></span><br><span class="line">myMap.get(<span class="string">"a string"</span>);        // <span class="string">"和键'a string'关联的值"</span>,因为 keyString === <span class="string">'a string'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>key 是对象</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var myMap = new Map();</span><br><span class="line">var keyObj = &#123;&#125;, </span><br><span class="line">myMap.set(keyObj, <span class="string">"和键 keyObj 关联的值"</span>);</span><br><span class="line">myMap.get(keyObj);             // <span class="string">"和键 keyObj 关联的值"</span></span><br><span class="line">myMap.get(&#123;&#125;);                 // undefined, 因为 keyObj !== &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>key 是函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var myMap = new Map();</span><br><span class="line">var keyFunc = <span class="function"><span class="title">function</span></span> () &#123;&#125;;</span><br><span class="line">myMap.set(keyFunc, <span class="string">"和键 keyFunc 关联的值"</span>);</span><br><span class="line">myMap.get(keyFunc);              // <span class="string">"和键 keyFunc 关联的值"</span></span><br><span class="line">myMap.get(<span class="function"><span class="title">function</span></span>() &#123;&#125;)         // undefined, 因为 keyFunc !== <span class="function"><span class="title">function</span></span> () &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>key 是 NaN<br><em>虽然NaN和任何值甚至和自己都不相等，但是NaN作为Map的键来说是没有区别的。</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var myMap = new Map();</span><br><span class="line">myMap.set(NaN, <span class="string">"not a number"</span>);</span><br><span class="line">myMap.get(NaN);                   // <span class="string">"not a number"</span></span><br><span class="line">var otherNaN = Number(<span class="string">"foo"</span>);</span><br><span class="line">myMap.get(otherNaN);              // <span class="string">"not a number"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Set数据的四个操作方法："><a href="#Set数据的四个操作方法：" class="headerlink" title="Set数据的四个操作方法："></a>Set数据的四个操作方法：</h4><p>  add()<br>  delete()<br>  has()<br>  clear()</p>
+<h4 id="Set数据的四个遍历方法："><a href="#Set数据的四个遍历方法：" class="headerlink" title="Set数据的四个遍历方法："></a>Set数据的四个遍历方法：</h4><p>  keys()<br>  values()<br>  entries()<br>  forEach()</p>
+<h2 id="第八节、-Promise"><a href="#第八节、-Promise" class="headerlink" title="第八节、 Promise"></a><font color="#1B90D6">第八节、 Promise</font></h2><p>Promise是异步编程的一种解决方案。</p>
+<h3 id="1、Promise-的含义"><a href="#1、Promise-的含义" class="headerlink" title="1、Promise 的含义"></a>1、Promise 的含义</h3><p>所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。</p>
+<ul>
+<li><p><strong>对象的状态不受外界影响。</strong> Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。这也是Promise这个名字的由来，它的英语意思就是“承诺”，表示其他手段无法改变。</p>
+</li>
+<li><p><strong>一旦状态改变，就不会再变，任何时候都可以得到这个结果</strong>。Promise对象的状态改变，只有两种可能：从pending变为fulfilled和从pending变为rejected。只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果，这时就称为 resolved（已定型）。如果改变已经发生了，你再对Promise对象添加回调函数，也会立即得到这个结果。这与事件（Event）完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。<br>注意，为了行文方便，本章后面的resolved统一只指fulfilled状态，不包含rejected状态。</p>
+</li>
+</ul>
+<h3 id="2、基本用法"><a href="#2、基本用法" class="headerlink" title="2、基本用法"></a>2、基本用法</h3><p>ES6 规定，Promise对象是一个构造函数，用来生成Promise实例。</p>
+<h2 id="第九节、-Iterator"><a href="#第九节、-Iterator" class="headerlink" title="第九节、 Iterator"></a><font color="#1B90D6">第九节、 Iterator</font></h2><h2 id="第十节、-Symbol"><a href="#第十节、-Symbol" class="headerlink" title="第十节、 Symbol"></a><font color="#1B90D6">第十节、 Symbol</font></h2><!-- 
+
+
+
+
+1. function和箭头函数的区别
+> this的指向： 使用function定义的函数，this的指向随着调用环境的变化而变化的，而箭头函数中的this指向是固定不变的，一直指向的是定义函数的环境。
+>
+> 构造函数： function是可以定义构造函数的，而箭头函数是不行的。
+>
+> 变量提升： 由于js的内存机制，function的级别最高，而用箭头函数定义函数的时候，需要var(let const定义的时候更不必说)关键词，而var所定义的变量不能得到变量提升，故箭头函数一定要定义于调用之前！
+
+ -->
+<p><style>.post-tip{background-color: #eaf8ff;color: #4e7182;border-left: 5px solid #1eb4ff;padding: 10px;}</style><br><!-- 
+  一级 #0472B4
+  二级 #1B90D6
+--></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/13/html-1/" rel="next" title="你不知道的html">
+                <i class="fa fa-chevron-left"></i> 你不知道的html
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/02/19/younontknowjs/" rel="prev" title="younontknowjs">
+                younontknowjs <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/background22.jpg" alt="Lemon">
+            
+              <p class="site-author-name" itemprop="name">Lemon</p>
+              <p class="site-description motion-element" itemprop="description">乘风破浪</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一节、-块级作用域"><span class="nav-number">1.</span> <span class="nav-text">第一节、 块级作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#let-和-const"><span class="nav-number">1.1.</span> <span class="nav-text">let 和 const</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二节、-解构赋值"><span class="nav-number">2.</span> <span class="nav-text">第二节、 解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三节、-数组扩展"><span class="nav-number">3.</span> <span class="nav-text">第三节、 数组扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-from"><span class="nav-number">3.1.</span> <span class="nav-text">Array.from()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-of"><span class="nav-number">3.2.</span> <span class="nav-text">Array.of()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copyWithin"><span class="nav-number">3.3.</span> <span class="nav-text">copyWithin()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#find-和-findIndex"><span class="nav-number">3.4.</span> <span class="nav-text">find() 和 findIndex()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fill"><span class="nav-number">3.5.</span> <span class="nav-text">fill()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#entries-keys-valueof"><span class="nav-number">3.6.</span> <span class="nav-text">entries() keys() valueof()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#includes"><span class="nav-number">3.7.</span> <span class="nav-text">includes()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四节、-对象扩展"><span class="nav-number">4.</span> <span class="nav-text">第四节、 对象扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-属性"><span class="nav-number">4.1.</span> <span class="nav-text">1. 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Object-is"><span class="nav-number">4.2.</span> <span class="nav-text">2. Object.is()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Object-assign"><span class="nav-number">4.3.</span> <span class="nav-text">3. Object.assign()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Object-entries-Object-keys-Object-valueof"><span class="nav-number">4.4.</span> <span class="nav-text">4. Object.entries()  Object.keys()  Object.valueof()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Object-getPrototypeOf-Object-setPrototypeOf"><span class="nav-number">4.5.</span> <span class="nav-text">5. Object.getPrototypeOf()   Object.setPrototypeOf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-扩展运算符-…"><span class="nav-number">4.6.</span> <span class="nav-text">6. 扩展运算符 …</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五节、-函数扩展"><span class="nav-number">5.</span> <span class="nav-text">第五节、 函数扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-扩展运算符-…"><span class="nav-number">5.1.</span> <span class="nav-text">1. 扩展运算符 …</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-箭头函数"><span class="nav-number">5.2.</span> <span class="nav-text">2. 箭头函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第六节、-类-class"><span class="nav-number">6.</span> <span class="nav-text">第六节、 类  class</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#class基本语法"><span class="nav-number">6.1.</span> <span class="nav-text">class基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class的继承"><span class="nav-number">6.2.</span> <span class="nav-text">class的继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class的静态方法-static"><span class="nav-number">6.3.</span> <span class="nav-text">class的静态方法 static</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第七节、-Set-和-Map"><span class="nav-number">7.</span> <span class="nav-text">第七节、 Set 和 Map</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">7.1.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">7.2.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Maps-和-Objects-的区别"><span class="nav-number">7.2.1.</span> <span class="nav-text">Maps 和 Objects 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#key-可以是字符串、对象"><span class="nav-number">7.2.2.</span> <span class="nav-text">key 可以是字符串、对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set数据的四个操作方法："><span class="nav-number">7.2.3.</span> <span class="nav-text">Set数据的四个操作方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set数据的四个遍历方法："><span class="nav-number">7.2.4.</span> <span class="nav-text">Set数据的四个遍历方法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第八节、-Promise"><span class="nav-number">8.</span> <span class="nav-text">第八节、 Promise</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、Promise-的含义"><span class="nav-number">8.1.</span> <span class="nav-text">1、Promise 的含义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、基本用法"><span class="nav-number">8.2.</span> <span class="nav-text">2、基本用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第九节、-Iterator"><span class="nav-number">9.</span> <span class="nav-text">第九节、 Iterator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十节、-Symbol"><span class="nav-number">10.</span> <span class="nav-text">第十节、 Symbol</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lemon</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

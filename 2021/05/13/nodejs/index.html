@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="初识  Node.js 是一个开源与跨平台的 JavaScript 运行时环境。  Node.js 在浏览器外运行 V8 JavaScript 引擎（Google Chrome 的内核）。   Node.js 2009年诞生。   常见的Node.js 框架和工具，比如：Express。 入门V8 JavaScript 引擎  V8 提供了执行 JavaScript 的运行时环境。 DOM 和其他">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs">
+<meta property="og:url" content="http://yoursite.com/2021/05/13/nodejs/index.html">
+<meta property="og:site_name" content="小寒">
+<meta property="og:description" content="初识  Node.js 是一个开源与跨平台的 JavaScript 运行时环境。  Node.js 在浏览器外运行 V8 JavaScript 引擎（Google Chrome 的内核）。   Node.js 2009年诞生。   常见的Node.js 框架和工具，比如：Express。 入门V8 JavaScript 引擎  V8 提供了执行 JavaScript 的运行时环境。 DOM 和其他">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-06-24T02:33:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nodejs">
+<meta name="twitter:description" content="初识  Node.js 是一个开源与跨平台的 JavaScript 运行时环境。  Node.js 在浏览器外运行 V8 JavaScript 引擎（Google Chrome 的内核）。   Node.js 2009年诞生。   常见的Node.js 框架和工具，比如：Express。 入门V8 JavaScript 引擎  V8 提供了执行 JavaScript 的运行时环境。 DOM 和其他">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/05/13/nodejs/">
+
+
+
+
+
+  <title>nodejs | 小寒</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小寒</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-窝">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            窝
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/13/nodejs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lemon">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/background22.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小寒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">nodejs</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-13T20:07:53+08:00">
+                2021-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="初识"><a href="#初识" class="headerlink" title="初识"></a>初识</h1><p>  Node.js 是一个开源与跨平台的 JavaScript 运行时环境。<br>  Node.js 在浏览器外运行 V8 JavaScript 引擎（Google Chrome 的内核）。</p>
+<p>  Node.js 2009年诞生。</p>
+<p>  常见的Node.js 框架和工具，比如：Express。</p>
+<h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><h2 id="V8-JavaScript-引擎"><a href="#V8-JavaScript-引擎" class="headerlink" title="V8 JavaScript 引擎"></a><font color="#ff99cc">V8 JavaScript 引擎</font></h2><p>  <a href="https://v8.dev/" target="_blank" rel="noopener">V8</a> 提供了执行 JavaScript 的运行时环境。 DOM 和其他 Web 平台 API 则由浏览器提供。</p>
+<p>  JavaScript 引擎独立于托管它的浏览器。 这个关键的特性推动了 Node.js 的兴起。 V8 于 2009 年被选为为 Node.js 提供支持的引擎，并且随着 Node.js 的爆炸性发展，V8 成为了现在为大量的服务器端代码（使用 JavaScript 编写）提供支持的引擎。</p>
+<p>  V8 使用 C++ 编写，并且不断地被改进。 它是可移植的，且可运行于 Mac、Windows、Linux 和其他一些系统。</p>
+<h2 id="从命令行运行-Node-js-脚本"><a href="#从命令行运行-Node-js-脚本" class="headerlink" title="从命令行运行 Node.js 脚本"></a><font color="#ff99cc">从命令行运行 Node.js 脚本</font></h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node xxx.js</span><br></pre></td></tr></table></figure>
+<h2 id="Node-js程序中退出"><a href="#Node-js程序中退出" class="headerlink" title="Node.js程序中退出"></a><font color="#ff99cc">Node.js程序中退出</font></h2><pre><code>命令行：Ctrl + c
+程序：
+1）process.exit()
+  如：process.exit(1)  不写默认0。 [退出码](http://nodejs.cn/api/process.html#process_exit_codes)
+
+  也可以设置 process.exitCode 属性：
+  process.exitCode = 1
+  当程序结束时，Node.js 会返回该退出码。
+
+  当进程完成所有处理后，程序会正常地退出。
+</code></pre>  <div class="post-warning">注意：process 不需要 “require”，它是自动可用的。</div>
+
+<pre><code>2）信号
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">process.on(&apos;SIGTERM&apos;, () =&gt; &#123;</span><br><span class="line">  server.close(() =&gt; &#123;</span><br><span class="line">    console.log(&apos;进程已终止&apos;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</code></pre>  <div class="post-warning">什么是信号？信号是一个 POSIX 内部通信系统：发送通知给进程，以告知其发生的事件。</div>
+
+<pre><code>SIGKILL 是告诉进程要立即终止的信号，理想情况下，其行为类似于 process.exit()。
+
+SIGTERM 是告诉进程要正常终止的信号。它是从进程管理者（如 upstart 或 supervisord）等发出的信号。
+
+可以从程序内部另一个函数中发送此信号：
+process.kill(process.pid, &apos;SIGTERM&apos;)
+或从另一个正在运行的 Node.js 程序、或从系统中运行的其他任何的应用程序（能知道要终止的进程的 PID）。
+</code></pre><h2 id="从-Node-js-读取环境变量"><a href="#从-Node-js-读取环境变量" class="headerlink" title="从 Node.js 读取环境变量"></a><font color="#ff99cc">从 Node.js 读取环境变量</font></h2><pre><code>Node.js 的 process 核心模块提供了 env 属性，该属性承载了在启动进程时设置的所有环境变量。
+这是访问 NODE_ENV 环境变量的示例，该环境变量默认情况下被设置为 development。在脚本运行之前将其设置为 &quot;production&quot;，则可告诉 Node.js 这是生产环境。
+可以用相同的方式访问设置的任何自定义的环境变量。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.env.NODE_ENV // &quot;development&quot;</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="使用-Node-js-REPL"><a href="#使用-Node-js-REPL" class="headerlink" title="使用 Node.js REPL"></a><font color="#ff99cc">使用 Node.js REPL</font></h2>  <div class="post-warning">REPL 也被称为运行评估打印循环，是一种编程语言环境（主要是控制台窗口），它使用单个表达式作为用户输入，并在执行后将结果返回到控制台。</div>
+
+<ol>
+<li><p>终端直接执行node<br>会等待js代码的输入，酷。<br>Ctrl+c 或者.exit退出程序。<br>使用 tab 键自动补全</p>
+</li>
+<li><p>点提示<br>尝试输入 JavaScript 类的名称，例如 Number，添加一个点号并按下 tab。REPL 会打印可以在该类上访问的所有属性和方法。<br>通过输入 global. 并按下 tab，可以检查可以访问的全局变量。</p>
+</li>
+<li><p>点命令<br>REPL 有一些特殊的命令，所有这些命令都以点号 . 开头。它们是：<br>.help: 显示点命令的帮助。<br>.editor: 启用编辑器模式，可以轻松地编写多行 JavaScript 代码。当处于此模式时，按下 ctrl-D 可以运行编写的代码。<br>.break: 当输入多行的表达式时，输入 .break 命令可以中止进一步的输入。相当于按下 ctrl-C。<br>.clear: 将 REPL 上下文重置为空对象，并清除当前正在输入的任何多行的表达式。<br>.load: 加载 JavaScript 文件（相对于当前工作目录）。<br>.save: 将在 REPL 会话中输入的所有内容保存到文件（需指定文件名）。<br>.exit: 退出 REPL（相当于按下两次 ctrl-C）。</p>
+</li>
+</ol>
+<h2 id="Node-js-从命令行接收参数"><a href="#Node-js-从命令行接收参数" class="headerlink" title="Node.js 从命令行接收参数"></a><font color="#ff99cc">Node.js 从命令行接收参数</font></h2><pre><code>process 对象的argv属性。
+</code></pre><h2 id="使用-Node-js-输出到命令行"><a href="#使用-Node-js-输出到命令行" class="headerlink" title="使用 Node.js 输出到命令行"></a><font color="#ff99cc">使用 Node.js 输出到命令行</font></h2><h3 id="使用控制台模块的基础输出"><a href="#使用控制台模块的基础输出" class="headerlink" title="使用控制台模块的基础输出"></a>使用控制台模块的基础输出</h3><p>   Node.js 提供了 console 模块，该模块提供了大量非常有用的与命令行交互的方法。它基本上与浏览器中的 console 对象相同。最基础、最常用的方法是 console.log()，该方法会打印传入到控制台的字符串。<br>   可以传入多个变量到 console.log，也可以通过传入变量和格式说明符来格式化用语。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;我的%s已经%d岁&apos;, &apos;猫&apos;, 2); // 我的猫已经2岁</span><br></pre></td></tr></table></figure></p>
+<pre><code>%s 会格式化变量为字符串
+%d 会格式化变量为数字
+%i 会格式化变量为其整数部分
+%o 会格式化变量为对象
+</code></pre><h3 id="清空控制台"><a href="#清空控制台" class="headerlink" title="清空控制台"></a>清空控制台</h3><pre><code>console.clear()
+</code></pre><h3 id="元素计数"><a href="#元素计数" class="headerlink" title="元素计数"></a>元素计数</h3><pre><code>console.count()
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const oranges = [&apos;橙子&apos;, &apos;橙子&apos;]</span><br><span class="line">const apples = [&apos;苹果&apos;]</span><br><span class="line">oranges.forEach(fruit =&gt; &#123;</span><br><span class="line">  console.count(fruit)</span><br><span class="line">&#125;)</span><br><span class="line">apples.forEach(fruit =&gt; &#123;</span><br><span class="line">  console.count(fruit)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">橙子: 1</span><br><span class="line">橙子: 2</span><br><span class="line">苹果: 1</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="打印堆栈踪迹"><a href="#打印堆栈踪迹" class="headerlink" title="打印堆栈踪迹"></a>打印堆栈踪迹</h3><pre><code>在某些情况下，打印函数的调用堆栈踪迹很有用，console.trace()
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const function2 = () =&gt; console.trace()</span><br><span class="line">const function1 = () =&gt; function2()</span><br><span class="line">function1()</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="计算耗时"><a href="#计算耗时" class="headerlink" title="计算耗时"></a>计算耗时</h3>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const doSomething = () =&gt; console.log(&apos;测试&apos;)</span><br><span class="line">const measureDoingSomething = () =&gt; &#123;</span><br><span class="line">  console.time(&apos;开始&apos;)</span><br><span class="line">  //做点事，并测量所需的时间。</span><br><span class="line">  doSomething()</span><br><span class="line">  console.timeEnd(&apos;开始&apos;)</span><br><span class="line">&#125;</span><br><span class="line">measureDoingSomething()</span><br><span class="line"></span><br><span class="line">开始: 10401.35498046875 ms</span><br></pre></td></tr></table></figure>
+<h3 id="stdout-和-stderr"><a href="#stdout-和-stderr" class="headerlink" title="stdout 和 stderr"></a>stdout 和 stderr</h3><pre><code>console.log 非常适合在控制台中打印消息。 这就是所谓的标准输出（或称为 stdout）。
+console.error 会打印到 stderr 流。
+它不会出现在控制台中，但是会出现在错误日志中。
+</code></pre><h3 id="为输出着色"><a href="#为输出着色" class="headerlink" title="为输出着色"></a>为输出着色</h3><p>   1）可以使用转义序列在控制台中为文本的输出着色。 转义序列是一组标识颜色的字符。<br>    console.log(‘\033[30m%s\033[0m’, ‘你好’) // 黑色<br>    console.log(‘\033[31m%s\033[0m’, ‘你好’) // 红色<br>    console.log(‘\033[32m%s\033[0m’, ‘你好’) // 绿色<br>    console.log(‘\033[33m%s\033[0m’, ‘你好’) // 黄色<br>    console.log(‘\033[34m%s\033[0m’, ‘你好’) // 深蓝<br>    console.log(‘\033[35m%s\033[0m’, ‘你好’) // 深粉<br>    console.log(‘\033[36m%s\033[0m’, ‘你好’) // 浅蓝<br>    console.log(‘\033[37m%s\033[0m’, ‘你好’) // 白色<br>    console.log(‘\x1b[33m%s\x1b[0m’, ‘你好’)  // 黄色</p>
+<p>  2） 为控制台输出着色的最简单方法是使用库。 Chalk 是一个这样的库，除了为其着色外，它还有助于其他样式的设置（例如使文本变为粗体、斜体或带下划线）。<br>      可以使用 npm install chalk 进行安装，然后就可以使用它：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const chalk = require(&apos;chalk&apos;)</span><br><span class="line">console.log(chalk.yellow(&apos;你好&apos;))</span><br></pre></td></tr></table></figure></p>
+<h3 id="创建进度条"><a href="#创建进度条" class="headerlink" title="创建进度条"></a>创建进度条</h3><p>   Progress 是一个很棒的软件包，可在控制台中创建进度条。 使用 npm install progress 进行安装。</p>
+<p>   以下代码段会创建一个 10 步的进度条，每 100 毫秒完成一步。 当进度条结束时，则清除定时器：<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const ProgressBar = require(&apos;progress&apos;)</span><br><span class="line"></span><br><span class="line">const bar = new ProgressBar(&apos;:bar&apos;, &#123; total: 10 &#125;)</span><br><span class="line">const timer = setInterval(() =&gt; &#123;</span><br><span class="line">  bar.tick()</span><br><span class="line">  if (bar.complete) &#123;</span><br><span class="line">    clearInterval(timer)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, 100)</span><br></pre></td></tr></table></figure></p>
+<h2 id="在-Node-js-中从命令行接收输入"><a href="#在-Node-js-中从命令行接收输入" class="headerlink" title="在 Node.js 中从命令行接收输入"></a><font color="#ff99cc">在 Node.js 中从命令行接收输入</font></h2><p>  从版本 7 开始，Node.js 提供了 readline <a href="http://nodejs.cn/api/readline.html" target="_blank" rel="noopener">模块</a>来执行以下操作：每次一行地从可读流（例如 process.stdin 流，在 Node.js 程序执行期间该流就是终端输入）获取输入。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const readline = require(&apos;readline&apos;).createInterface(&#123;</span><br><span class="line">  input: process.stdin,</span><br><span class="line">  output: process.stdout</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">readline.question(`你叫什么名字?`, name =&gt; &#123;</span><br><span class="line">  console.log(`你好 $&#123;name&#125;!`)</span><br><span class="line">  readline.close()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const inquirer = require(&apos;inquirer&apos;)</span><br><span class="line"></span><br><span class="line">var questions = [</span><br><span class="line">  &#123;</span><br><span class="line">    type: &apos;input&apos;,</span><br><span class="line">    name: &apos;name&apos;,</span><br><span class="line">    message: &quot;你叫什么名字?&quot;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">inquirer.prompt(questions).then(answers =&gt; &#123;</span><br><span class="line">  console.log(`你好 $&#123;answers[&apos;name&apos;]&#125;!`)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>  Inquirer.js 可以执行许多操作，例如询问多项选择、展示单选按钮、确认等。</p>
+<h2 id="使用-exports-从-Node-js-文件中公开功能"><a href="#使用-exports-从-Node-js-文件中公开功能" class="headerlink" title="使用 exports 从 Node.js 文件中公开功能"></a><font color="#ff99cc">使用 exports 从 Node.js 文件中公开功能</font></h2><pre><code>Node.js 具有内置的模块系统。
+1) 第一种方式是将对象赋值给 module.exports（这是模块系统提供的对象），这会使文件只导出该对象：
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const car = &#123;</span><br><span class="line">  brand: &apos;Ford&apos;,</span><br><span class="line">  model: &apos;Fiesta&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module.exports = car</span><br><span class="line"></span><br><span class="line">//在另一个文件中</span><br><span class="line"></span><br><span class="line">const car = require(&apos;./car&apos;)</span><br></pre></td></tr></table></figure>
+
+2) 第二种方式是将要导出的对象添加为 exports 的属性。这种方式可以导出多个对象、函数或数据：
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const car = &#123;</span><br><span class="line">  brand: &apos;Ford&apos;,</span><br><span class="line">  model: &apos;Fiesta&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.car = car</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">在另一个文件中，则通过引用导入的属性来使用它：</span><br><span class="line">const items = require(&apos;./items&apos;)</span><br><span class="line">items.car</span><br><span class="line">或</span><br><span class="line">const car = require(&apos;./items&apos;).car</span><br></pre></td></tr></table></figure>
+</code></pre><ul>
+<li>module.exports 和 exports 之间有什么区别？<br>  前者公开了它指向的对象。 后者公开了它指向的对象的属性。</li>
+</ul>
+<h2 id="npm-包管理器简介"><a href="#npm-包管理器简介" class="headerlink" title="npm 包管理器简介"></a><font color="#ff99cc">npm 包管理器简介</font></h2><p>  npm 是 Node.js 标准的软件包管理器。</p>
+  <div class="post-warning">Yarn 是 npm 的一个替代选择。</div>
+
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm install  // 如果项目具有 package.json 文件，则通过运行此命令可安装全部依赖</span><br><span class="line">npm install xxx</span><br><span class="line"> npm install &lt;package-name&gt;@0.0.1</span><br><span class="line">npm i --save</span><br><span class="line">npm i --save-dev</span><br><span class="line">npm update</span><br><span class="line">npm update &lt;package-name&gt;</span><br><span class="line">npm run &lt;task-name&gt; // 运行script命令</span><br></pre></td></tr></table></figure>
+<h2 id="npm-将软件包安装到哪里"><a href="#npm-将软件包安装到哪里" class="headerlink" title="npm 将软件包安装到哪里"></a><font color="#ff99cc">npm 将软件包安装到哪里</font></h2><ul>
+<li><p>本地安装<br>软件包会被安装到当前文件树中的 node_modules 子文件夹下。</p>
+</li>
+<li><p>全局安装<br>在这种情况下，npm 不会将软件包安装到本地文件夹下，而是使用全局的位置。<br>npm root -g 命令会告知其在计算机上的确切位置。</p>
+<p>在 macOS 或 Linux 上，此位置可能是 /usr/local/lib/node_modules。 在 Windows 上，可能是 C:\Users\YOU\AppData\Roaming\npm\node_modules。</p>
+</li>
+</ul>
+<h2 id="如何使用或执行-npm-安装的软件包"><a href="#如何使用或执行-npm-安装的软件包" class="headerlink" title="如何使用或执行 npm 安装的软件包"></a><font color="#ff99cc">如何使用或执行 npm 安装的软件包</font></h2><h2 id="package-json-指南"><a href="#package-json-指南" class="headerlink" title="package.json 指南"></a><font color="#ff99cc">package.json 指南</font></h2><p>  package.json 文件是项目的清单。 它可以做很多完全互不相关的事情。 例如，它是用于工具的配置中心。 它也是 npm 和 yarn 存储所有已安装软件包的名称和版本的地方。</p>
+<h3 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h3><p>  对于package.json 文件中的内容没有固定的要求，唯一的要求是必须遵守 JSON 格式。</p>
+<h3 id="属性分类"><a href="#属性分类" class="headerlink" title="属性分类"></a>属性分类</h3><pre><code>- name
+- author
+- contributors
+- bugs
+- homepage
+- version
+- license
+- keywords
+- description
+- repository
+- main
+- private
+- scripts
+- dependencies
+- devDependencies
+- engines
+- browserslist
+- 命令特有的属性
+  package.json 文件还可以承载命令特有的配置，例如 Babel、ESLint 等。
+  每个都有特有的属性，例如 eslintConfig、babel 等。 它们是命令特有的，可以在相应的命令/项目文档中找到如何使用它们。
+</code></pre><h3 id="软件包版本"><a href="#软件包版本" class="headerlink" title="软件包版本"></a>软件包版本</h3><ul>
+<li>在上面的描述中，已经看到类似以下的版本号：〜0.13.0 或 ^0.13.0。 它们是什么意思，还可以使用哪些其他的版本说明符？<br>该符号指定了软件包能从该依赖接受的更新。<br>如果写入的是 〜0.13.0，则只更新补丁版本：即 0.13.1 可以，但 0.14.0 不可以。<br>如果写入的是 ^0.13.0，则要更新补丁版本和次版本：即 0.13.1、0.14.0、依此类推。<br>如果写入的是 0.13.0，则始终使用确切的版本。</li>
+</ul>
+<h2 id="package-lock-json-文件"><a href="#package-lock-json-文件" class="headerlink" title="package-lock.json 文件"></a><font color="#ff99cc">package-lock.json 文件</font></h2><pre><code>package-lock.json 会固化当前安装的每个软件包的版本，当运行 npm install时，npm 会使用这些确切的版本。
+package-lock.json 文件需要被提交到 Git 仓库，以便被其他人获取（如果项目是公开的或有合作者，或者将 Git 作为部署源）。
+当运行 npm update 时，package-lock.json 文件中的依赖的版本会被更新。
+&lt;div class=&apos;post-warning&apos;&gt;如果指定确切的版本，例如示例中的 0.13.0，则不会受到此问题的影响。如果指定确切的版本，例如示例中的 0.13.0，则不会受到此问题的影响。&lt;/div&gt;
+</code></pre><h2 id="npm-包"><a href="#npm-包" class="headerlink" title="npm 包"></a><font color="#ff99cc">npm 包</font></h2><h3 id="查看-npm-包安装的版本"><a href="#查看-npm-包安装的版本" class="headerlink" title="查看 npm 包安装的版本"></a>查看 npm 包安装的版本</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm list  // 查看所有已安装的 npm 软件包（包括它们的依赖包），也可以打开 package-lock.json 文件，但这需要进行一些视觉扫描。</span><br><span class="line">npm list -g  // 也一样，但适用于全局安装的软件包。</span><br><span class="line">npm list --depth=0  // 仅获取顶层的软件包</span><br><span class="line">npm list &lt;package-name&gt; // 获取特定软件包的版本</span><br><span class="line">npm view [package_name] version // 查看软件包在 npm 仓库上最新的可用版本</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="安装-npm-包的旧版本"><a href="#安装-npm-包的旧版本" class="headerlink" title="安装 npm 包的旧版本"></a>安装 npm 包的旧版本</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install &lt;package&gt;@&lt;version&gt;  // 安装指定版本</span><br><span class="line">npm view &lt;package&gt; versions  // 查看包的所有版本</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="npm包更新"><a href="#npm包更新" class="headerlink" title="npm包更新"></a>npm包更新</h3><pre><code>npm update，则!或~已安装的版本会被更新，并且 package-lock.json 文件会被新版本填充。package.json 则保持不变。
+主版本永远不会被这种方式更新，因为它们（根据定义）会引入重大的更改，npm 希望为你减少麻烦。
+若要发觉软件包的新版本，则运行 npm outdated。
+</code></pre><h3 id="npm的语义版本控制"><a href="#npm的语义版本控制" class="headerlink" title="npm的语义版本控制"></a>npm的语义版本控制</h3><pre><code>语义版本控制的概念很简单：所有的版本都有 3 个数字：x.y.z。
+- 第一个数字是主版本。进行不兼容的 API 更改。
+- 第二个数字是次版本。以向后兼容的方式添加功能。
+- 第三个数字是补丁版本。进行向后兼容的缺陷修复。
+
+规则：
+  ^: 只会执行不更改最左边非零数字的更新。 如果写入的是 ^0.13.0，则当运行 npm update 时，可以更新到 0.13.1、0.13.2 等，但不能更新到 0.14.0 或更高版本。 如果写入的是 ^1.13.0，则当运行 npm update 时，可以更新到 1.13.1、1.14.0 等，但不能更新到 2.0.0 或更高版本。
+  ~: 如果写入的是 〜0.13.0，则当运行 npm update 时，会更新到补丁版本：即 0.13.1 可以，但 0.14.0 不可以。
+  &gt;: 接受高于指定版本的任何版本。
+  &gt;=: 接受等于或高于指定版本的任何版本。
+  &lt;=: 接受等于或低于指定版本的任何版本。
+  &lt;: 接受低于指定版本的任何版本。
+  =: 接受确切的版本。
+  -: 接受一定范围的版本。例如：2.1.0 - 2.6.2。
+  ||: 组合集合。例如 &lt; 2.1 || &gt; 2.6。
+  可以合并其中的一些符号，例如 1.0.0 || &gt;=1.1.0 &lt;1.2.0，即使用 1.0.0 或从 1.1.0 开始但低于 1.2.0 的版本。
+
+  还有其他的规则：
+  无符号: 仅接受指定的特定版本（例如 1.2.1）。
+  latest: 使用可用的最新版本。
+</code></pre><h3 id="卸载-npm-软件包"><a href="#卸载-npm-软件包" class="headerlink" title="卸载 npm 软件包"></a>卸载 npm 软件包</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall &lt;package-name&gt;</span><br><span class="line"></span><br><span class="line">如果使用 -S 或 --save 标志，则此操作还会移除 package.json 文件中的引用:</span><br><span class="line">npm uninstall -S &lt;package-name&gt;</span><br><span class="line">npm uninstall -D &lt;package-name&gt;  // -D 或 --save-dev</span><br><span class="line"></span><br><span class="line">如果该软件包是全局安装的，则需要添加 -g 或 --global 标志：</span><br><span class="line">npm uninstall -g &lt;package-name&gt;</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="Node-js-包运行器-npx"><a href="#Node-js-包运行器-npx" class="headerlink" title="Node.js 包运行器 npx"></a><font color="#ff99cc">Node.js 包运行器 npx</font></h2><pre><code>npx 是一个非常强大的命令，从 npm 的 5.2 版本（发布于 2017 年 7 月）开始可用。
+</code></pre><h3 id="轻松地运行本地命令"><a href="#轻松地运行本地命令" class="headerlink" title="轻松地运行本地命令"></a>轻松地运行本地命令</h3><pre><code>运行 npx commandname 会自动地在项目的 node_modules 文件夹中找到命令的正确引用，而无需知道确切的路径，也不需要在全局和用户路径中安装软件包。
+</code></pre><h3 id="无需安装的命令执行"><a href="#无需安装的命令执行" class="headerlink" title="无需安装的命令执行"></a>无需安装的命令执行</h3><pre><code>npx 的另一个重要的特性是，无需先安装命令即可运行命令。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npx 可以运行该 npm 命令，而无需在本地安装：</span><br><span class="line">npx cowsay &quot;你好&quot;</span><br></pre></td></tr></table></figure>
+
+其他场景有：
+  运行 vue CLI 工具以创建新的应用程序并运行它们：npx @vue/cli create my-vue-app。
+  使用 create-react-app 创建新的 React 应用：npx create-react-app my-react-app。
+  还有更多其他的场景。
+
+  当被下载完，则下载的代码会被擦除。
+</code></pre><h3 id="使用不同的-Node-js-版本运行代码"><a href="#使用不同的-Node-js-版本运行代码" class="headerlink" title="使用不同的 Node.js 版本运行代码"></a>使用不同的 Node.js 版本运行代码</h3><pre><code>使用 @ 指定版本，并将其与 node npm 软件包 结合使用,这有助于避免使用 nvm 之类的工具或其他 Node.js 版本管理工具。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npx node@10 -v #v10.18.1</span><br><span class="line">npx node@12 -v #v12.14.1</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="直接从-URL-运行任意代码片段"><a href="#直接从-URL-运行任意代码片段" class="headerlink" title="直接从 URL 运行任意代码片段"></a>直接从 URL 运行任意代码片段</h3><h2 id="Node-js-事件循环"><a href="#Node-js-事件循环" class="headerlink" title="Node.js 事件循环"></a><font color="#ff99cc">Node.js 事件循环</font></h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><pre><code>Node.js JavaScript 代码运行在单个线程上。 每次只处理一件事。
+这个限制实际上非常有用，因为它大大简化了编程方式，而不必担心并发问题。
+</code></pre><h3 id="阻塞事件循环"><a href="#阻塞事件循环" class="headerlink" title="阻塞事件循环"></a>阻塞事件循环</h3><h3 id="调用堆栈"><a href="#调用堆栈" class="headerlink" title="调用堆栈"></a>调用堆栈</h3><pre><code>调用堆栈是一个 LIFO 队列（后进先出）。
+事件循环不断地检查调用堆栈，以查看是否需要运行任何函数。
+</code></pre><h3 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h3><pre><code>setTimeout(() =&gt; {}, 0) 的用例是调用一个函数，但是是在代码中的每个其他函数已被执行之后。
+事件循环会赋予调用堆栈优先级，它首先处理在调用堆栈中找到的所有东西，一旦其中没有任何东西，便开始处理消息队列中的东西。
+我们不必等待诸如 setTimeout、fetch、或其他的函数来完成它们自身的工作，因为它们是由浏览器提供的，并且位于它们自身的线程中。 例如，如果将 setTimeout 的超时设置为 2 秒，但不必等待 2 秒，等待发生在其他地方。
+</code></pre><h3 id="作业队列"><a href="#作业队列" class="headerlink" title="作业队列"></a>作业队列</h3><pre><code>ECMAScript 2015 引入了作业队列的概念，Promise 使用了该队列（也在 ES6/ES2015 中引入）。 这种方式会尽快地执行异步函数的结果，而不是放在调用堆栈的末尾。
+
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const bar = () =&gt; console.log(&apos;bar&apos;)</span><br><span class="line">const baz = () =&gt; console.log(&apos;baz&apos;)</span><br><span class="line"></span><br><span class="line">const foo = () =&gt; &#123;</span><br><span class="line">  console.log(&apos;foo&apos;)</span><br><span class="line">  setTimeout(bar, 0)</span><br><span class="line">  new Promise((resolve, reject) =&gt;&#123;</span><br><span class="line">    console.log(&apos;🍉&apos;);</span><br><span class="line">    resolve(&apos;应该在 baz 之后、bar 之前&apos;);</span><br><span class="line">  &#125;).then(resolve =&gt; console.log(resolve))</span><br><span class="line">  baz()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+
+  foo
+  🍉
+  baz
+  应该在 baz 之后、bar 之前
+  bar
+
+这是 Promise（以及基于 promise 构建的 async/await）与通过 setTimeout() 或其他平台 API 的普通的旧异步函数之间的巨大区别。
+</code></pre><h2 id="了解-process-nextTick"><a href="#了解-process-nextTick" class="headerlink" title="了解 process.nextTick()"></a><font color="#ff99cc">了解 process.nextTick()</font></h2><p>  每当事件循环进行一次完整的行程时，我们都将其称为一个滴答。<br>  当将一个函数传给 process.nextTick() 时，则指示引擎在当前操作结束（在下一个事件循环滴答开始之前）时调用此函数：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">process.nextTick(() =&gt; &#123;</span><br><span class="line">  //做些事情</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>  当该操作结束时，JS 引擎会运行在该操作期间传给 nextTick 调用的所有函数。<br>  这是可以告诉 JS 引擎异步地（在当前函数之后）处理函数的方式，但是尽快执行而不是将其排入队列。<br>  调用 setTimeout(() =&gt; {}, 0) 会在下一个滴答结束时执行该函数，比使用 nextTick()（其会优先执行该调用并在下一个滴答开始之前执行该函数）晚得多。<br>  当要确保在下一个事件循环迭代中代码已被执行，则使用 nextTick()。</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const bar = () =&gt; console.log(&apos;bar&apos;)</span><br><span class="line">const baz = () =&gt; console.log(&apos;baz&apos;)</span><br><span class="line"></span><br><span class="line">const foo = () =&gt; &#123;</span><br><span class="line">  console.log(&apos;foo&apos;)</span><br><span class="line">  process.nextTick(() =&gt; &#123;</span><br><span class="line">    console.log(&apos;滴答🐦&apos;)</span><br><span class="line">  &#125;)</span><br><span class="line">  setTimeout(bar, 0)</span><br><span class="line">  new Promise((resolve, reject) =&gt;&#123;</span><br><span class="line">    console.log(&apos;🍉&apos;);</span><br><span class="line">    resolve(&apos;应该在 baz 之后、bar 之前&apos;);</span><br><span class="line">  &#125;).then(resolve =&gt; console.log(resolve))</span><br><span class="line">  baz()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+<pre><code>foo
+🍉
+baz
+滴答🐦
+应该在 baz 之后、bar 之前
+bar
+</code></pre><h2 id="了解-setImmediate"><a href="#了解-setImmediate" class="headerlink" title="了解 setImmediate()"></a><font color="#ff99cc">了解 setImmediate()</font></h2><pre><code>作为 setImmediate() 参数传入的任何函数都是在事件循环的下一个迭代中执行的回调。
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setImmediate(() =&gt; &#123;</span><br><span class="line">  //运行一些东西</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+setImmediate() 与 setTimeout(() =&gt; {}, 0)（传入 0 毫秒的超时）、process.nextTick() 有何不同？
+传给 process.nextTick() 的函数会在事件循环的当前迭代中（当前操作结束之后）被执行。 这意味着它会始终在 setTimeout 和 setImmediate 之前执行。
+延迟 0 毫秒的 setTimeout() 回调与 setImmediate() 非常相似。 执行顺序取决于各种因素，但是它们都会在事件循环的下一个迭代中运行。
+</code></pre><h2 id="探索-JavaScript-定时器"><a href="#探索-JavaScript-定时器" class="headerlink" title="探索 JavaScript 定时器"></a><font color="#ff99cc">探索 JavaScript 定时器</font></h2><h3 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout()"></a>setTimeout()</h3><pre><code>该语法定义了一个新的函数。 可以在其中调用所需的任何其他函数，也可以传入现有的函数名称和一组参数：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const myFunction = (firstParam, secondParam) =&gt; &#123;</span><br><span class="line">  // 做些事情</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 2 秒之后运行</span><br><span class="line">const id = setTimeout(myFunction, 2000, firstParam, secondParam)</span><br><span class="line"></span><br><span class="line">clearTimeout(id)</span><br></pre></td></tr></table></figure>
+
+setTimeout 会返回定时器的 id。 通常不使用它，但是可以保存此 id，并在要删除此安排的函数执行时清除它。
+
+- 零延迟
+
+&lt;div class=&apos;post-warning&apos;&gt;
+  某些浏览器（IE 和 Edge）实现的 setImmediate() 方法具有相同的确切功能，但是不是标准的，并且在其他浏览器上不可用。但是在 Node.js 中它是标准的函数。
+  Node.js 还提供 setImmediate()（相当于使用 setTimeout(() =&gt; {}, 0)），通常用于与 Node.js 事件循环配合使用。
+&lt;/div&gt;
+</code></pre><h3 id="setInterval"><a href="#setInterval" class="headerlink" title="setInterval()"></a>setInterval()</h3><pre><code>除非使用 clearInterval 告诉它停止（传入 setInterval 返回的间隔定时器 id），否则它会在指定的特定时间间隔（以毫秒为单位）一直地运行回调函数，而不是只运行一次：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const id = setInterval(() =&gt; &#123;</span><br><span class="line">  // 每 2 秒运行一次</span><br><span class="line">&#125;, 2000)</span><br><span class="line"></span><br><span class="line">clearInterval(id)</span><br></pre></td></tr></table></figure>
+
+  通常在 setInterval 回调函数中调用 clearInterval，以使其自行判断是否应该再次运行或停止。 例如，此代码会运行某些事情，除非 App.somethingIWait 具有值 arrived：
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const interval = setInterval(() =&gt; &#123;</span><br><span class="line">  if (App.somethingIWait === &apos;arrived&apos;) &#123;</span><br><span class="line">    clearInterval(interval)</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line">  // 否则做些事情</span><br><span class="line">&#125;, 100)</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="JavaScript-异步编程与回调"><a href="#JavaScript-异步编程与回调" class="headerlink" title="JavaScript 异步编程与回调"></a><font color="#ff99cc">JavaScript 异步编程与回调</font></h2><pre><code>程序在内部会使用中断，一种被发送到处理器以获取系统关注的信号。
+当程序正在等待来自网络的响应时，则它无法在请求完成之前停止处理器。
+
+JS在默认情况下是同步的，并且是单线程的。这意味着代码无法创建新的线程并且不能并行运行。
+</code></pre><h3 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h3><pre><code>JavaScript 诞生于浏览器内部，一开始的主要工作是响应用户的操作，例如 onClick、onMouseOver、onChange、onSubmit 等。
+- 使用同步的编程模型该如何做到这一点？
+  答案就在于它的环境。 浏览器通过提供一组可以处理这种功能的 API 来提供了一种实现方式。
+
+  Node.js 引入了非阻塞的 I/O 环境，以将该概念扩展到文件访问、网络调用等。
+</code></pre><h3 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h3><pre><code>回调是一个简单的函数，会作为值传给另一个函数，并且仅在事件发生时才被执行。之所以这样做，是因为JS具有顶级的函数，这些函数可以被分配给变量并传给其他函数（成为高阶函数）。
+
+- 处理回调中的错误
+  一种非常常见的策略是使用 Node.js 所采用的方式：任何回调函数中的第一个参数为错误对象（即错误优先的回调）。
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(&apos;/文件.json&apos;, (err, data) =&gt; &#123;</span><br><span class="line">  if (err !== null) &#123;</span><br><span class="line">    //处理错误</span><br><span class="line">    console.log(err)</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //没有错误，则处理数据。</span><br><span class="line">  console.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+- 回调的问题
+  回调适用于简单的场景！
+  回调复杂时可能会是回调地狱。。。
+
+- 回调的替代方法
+  从 ES6 开始，JavaScript 引入了一些特性，可以帮助处理异步代码而不涉及使用回调：Promise（ES6）和 Async/Await（ES2017）。
+</code></pre><h2 id="了解-JavaScript-Promise"><a href="#了解-JavaScript-Promise" class="headerlink" title="了解 JavaScript Promise"></a><font color="#ff99cc">了解 JavaScript Promise</font></h2><pre><code>Promise通常被定义为**最终会被变为可用值的代理**。  
+
+当promise被调用后，它会以处理中状态开始。这意味着调用的函数会继续执行，而promise仍处于处理中直到解决未知，从而为调用的函数提供所请求的任何数据。
+
+被创建的promise最终会以**被解决状态**或**被拒绝状态**结束，并在完成时调用相应的回调函数（then或catch）。
+resolve -&gt; then
+rejecte -&gt; catch
+如果在执行路径中从未调用过这些函数之一，则 promise 会保持处理中(pending)状态。
+
+一种被称为 Promisifying 的技术。 这项技术能够使用经典的 JavaScript 函数来接受回调并使其返回 promise：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&apos;fs&apos;)</span><br><span class="line"></span><br><span class="line">const getFile = (fileName) =&gt; &#123;</span><br><span class="line">  return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    fs.readFile(fileName, (err, data) =&gt; &#123;</span><br><span class="line">      if (err) &#123;</span><br><span class="line">        reject(err)  // 调用 `reject` 会导致 promise 失败，无论是否传入错误作为参数，</span><br><span class="line">        return        // 且不再进行下去。</span><br><span class="line">      &#125;</span><br><span class="line">      resolve(data)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getFile(&apos;/etc/passwd&apos;)</span><br><span class="line">.then(data =&gt; console.log(data))</span><br><span class="line">.catch(err =&gt; console.error(err))</span><br></pre></td></tr></table></figure>
+</code></pre>  <div class="post-warning">在最新版本的 Node.js 中，无需为大多数 API 进行手动地转换。如果需要 promisifying 的函数具有正确的签名，则 util 模块中有一个 promisifying 函数可以完成此操作。</div>
+
+<h3 id="链式-promise"><a href="#链式-promise" class="headerlink" title="链式 promise"></a>链式 promise</h3><p>  Promise 可以返回到另一个 promise，从而创建一个 promise 链。</p>
+<p>  Fetch API 是基于 promise 的机制，调用 fetch() 相当于使用 new Promise() 来定义 promsie。<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const status = response =&gt; &#123;</span><br><span class="line">  if (response.status &gt;= 200 &amp;&amp; response.status &lt; 300) &#123;</span><br><span class="line">    return Promise.resolve(response)</span><br><span class="line">  &#125;</span><br><span class="line">  return Promise.reject(new Error(response.statusText))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const json = response =&gt; response.json()</span><br><span class="line"></span><br><span class="line">fetch(&apos;/todos.json&apos;)</span><br><span class="line">  .then(status)    // 注意，`status` 函数实际上在这里被调用，并且同样返回 promise，</span><br><span class="line">  .then(json)      // 这里唯一的区别是的 `json` 函数会返回解决时传入 `data` 的 promise，</span><br><span class="line">  .then(data =&gt; &#123;  // 这是 `data` 会在此处作为匿名函数的第一个参数的原因。</span><br><span class="line">    console.log(&apos;请求成功获得 JSON 响应&apos;, data)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(error =&gt; &#123;</span><br><span class="line">    console.log(&apos;请求失败&apos;, error)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="处理错误"><a href="#处理错误" class="headerlink" title="处理错误"></a>处理错误</h3><p>  当 promise 链中的任何内容失败并引发错误或拒绝 promise 时，则控制权会转到链中最近的 catch() 语句。</p>
+<p>  如果再catch内部发生错误，则可以附加第二个catch来处理，以此类推。</p>
+<h3 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all()"></a>Promise.all()</h3><p>  如果需要同步不同的 promise，则 Promise.all() 可以帮助定义 promise 列表，并在所有 promise 都被解决后执行一些操作。</p>
+<p>  示例：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const f1 = fetch(&apos;/something.json&apos;)</span><br><span class="line">const f2 = fetch(&apos;/something2.json&apos;)</span><br><span class="line"></span><br><span class="line">Promise.all([f1, f2])</span><br><span class="line">  .then(res =&gt; &#123;</span><br><span class="line">    console.log(&apos;结果的数组&apos;, res)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(err =&gt; &#123;</span><br><span class="line">    console.error(err)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure></p>
+<pre><code>ES2015 解构赋值语法也可以执行：
+</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Promise.all([f1, f2]).then(([res1, res2]) =&gt; &#123;</span><br><span class="line">  console.log(&apos;结果&apos;, res1, res2)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code>当然，不限于使用 fetch，任何 promise 都可以以这种方式使用。
+</code></pre><h3 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race()"></a>Promise.race()</h3><p>  当传给其的首个 promise 被解决时，则 Promise.race() 开始运行，并且只运行一次附加的回调（传入第一个被解决的 promise 的结果）。</p>
+<p>  示例：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const first = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">  setTimeout(resolve, 500, &apos;第一个&apos;)</span><br><span class="line">&#125;)</span><br><span class="line">const second = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">  setTimeout(resolve, 100, &apos;第二个&apos;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Promise.race([first, second]).then(result =&gt; &#123;</span><br><span class="line">  console.log(result) // 第二个</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="常见的错误"><a href="#常见的错误" class="headerlink" title="常见的错误"></a>常见的错误</h3><pre><code>- Uncaught TypeError: undefined is not a promise
+如果在控制台中收到 Uncaught TypeError: undefined is not a promise 错误，则请确保使用 new Promise() 而不是 Promise()。
+
+- UnhandledPromiseRejectionWarning
+这意味着调用的 promise 被拒绝，但是没有用于处理错误的 catch。 在 then 之后添加 catch 则可以正确地处理。
+</code></pre><h2 id="具有-Async-和-Await-的现代异步-JavaScript"><a href="#具有-Async-和-Await-的现代异步-JavaScript" class="headerlink" title="具有 Async 和 Await 的现代异步 JavaScript"></a><font color="#ff99cc">具有 Async 和 Await 的现代异步 JavaScript</font></h2><pre><code>Promise 被引入了用于解决著名的回调地狱问题，但是它们自身引入了复杂性以及语法复杂性。
+它们使代码看起来像是同步的，但它是异步的并且在后台无阻塞。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const doSomethingAsync = () =&gt; &#123;</span><br><span class="line">  return new Promise(resolve =&gt; &#123;</span><br><span class="line">    console.log(&apos;+1&apos;);resolve(&apos;做些事情&apos;);console.log(&apos;+2&apos;);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const doSomething = async () =&gt; &#123;</span><br><span class="line">  console.log(&apos;+3&apos;);</span><br><span class="line">  console.log(await doSomethingAsync());</span><br><span class="line">  console.log(&apos;+4&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(&apos;之前&apos;);</span><br><span class="line">doSomething();</span><br><span class="line">console.log(&apos;之后&apos;);</span><br><span class="line"></span><br><span class="line">// 之前  +3   +1   +2   之后 做些事情 +4</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="Promise-所有事情"><a href="#Promise-所有事情" class="headerlink" title="Promise 所有事情"></a>Promise 所有事情</h3><pre><code>在任何函数之前加上 async 关键字意味着该函数会返回 promise。即使没有显式地这样做，它也会在内部使它返回 promise。
+这就是为什么此代码有效的原因：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const aFunction = async () =&gt; &#123;</span><br><span class="line">  return &apos;测试&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">aFunction().then(alert) // 这会 alert &apos;测试&apos;</span><br></pre></td></tr></table></figure>
+
+等同于：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const aFunction = () =&gt; &#123;</span><br><span class="line">  return Promise.resolve(&apos;测试&apos;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">aFunction().then(alert) // 这会 alert &apos;测试&apos;</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="代码更容易阅读"><a href="#代码更容易阅读" class="headerlink" title="代码更容易阅读"></a>代码更容易阅读</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const getFirstUserData = () =&gt; &#123;</span><br><span class="line">  return fetch(&apos;/users.json&apos;) // 获取用户列表</span><br><span class="line">    .then(response =&gt; response.json()) // 解析 JSON</span><br><span class="line">    .then(users =&gt; users[0]) // 选择第一个用户</span><br><span class="line">    .then(user =&gt; fetch(`/users/$&#123;user.name&#125;`)) // 获取用户数据</span><br><span class="line">    .then(userResponse =&gt; userResponse.json()) // 解析 JSON</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getFirstUserData()</span><br></pre></td></tr></table></figure>
+
+这是使用 await/async 提供的相同功能：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const getFirstUserData = async () =&gt; &#123;</span><br><span class="line">  const response = await fetch(&apos;/users.json&apos;) // 获取用户列表</span><br><span class="line">  const users = await response.json() // 解析 JSON</span><br><span class="line">  const user = users[0] // 选择第一个用户</span><br><span class="line">  const userResponse = await fetch(`/users/$&#123;user.name&#125;`) // 获取用户数据</span><br><span class="line">  const userData = await userResponse.json() // 解析 JSON</span><br><span class="line">  return userData</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getFirstUserData()</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="多个异步函数串联"><a href="#多个异步函数串联" class="headerlink" title="多个异步函数串联"></a>多个异步函数串联</h3><pre><code>异步函数可以很容易地链接起来，并且语法比普通的 promise 更具可读性。例子略，有需要见官网。
+</code></pre><h3 id="更容易调试"><a href="#更容易调试" class="headerlink" title="更容易调试"></a>更容易调试</h3><pre><code>调试 promise 很难，因为调试器不会跳过异步的代码。
+
+Async/await 使这非常容易，因为对于编译器而言，它就像同步代码一样。
+</code></pre><h2 id="Node-js-事件触发器"><a href="#Node-js-事件触发器" class="headerlink" title="Node.js 事件触发器"></a><font color="#ff99cc">Node.js 事件触发器</font></h2><pre><code>在后端，Node.js 也提供了使用 events 模块构建类似系统的选项。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const EventEmitter = require(&apos;events&apos;)</span><br><span class="line">const eventEmitter = new EventEmitter()</span><br></pre></td></tr></table></figure>
+
+- 该对象公开了 on 和 emit 方法。
+  emit 用于触发事件。
+  on 用于添加回调函数（会在事件被触发时执行）。
+
+可传参：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">eventEmitter.on(&apos;start&apos;, (start, end) =&gt; &#123;</span><br><span class="line">  console.log(`从 $&#123;start&#125; 到 $&#123;end&#125;`)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">eventEmitter.emit(&apos;start&apos;, 1, 100);</span><br></pre></td></tr></table></figure>
+
+- EventEmitter 对象还公开了其他几个与事件进行交互的方法，例如：
+  once(): 添加单次监听器。
+  removeListener() / off(): 从事件中移除事件监听器。
+  removeAllListeners(): 移除事件的所有监听器。
+  可以在[事件模块](http://nodejs.cn/api/events.html)的页面上阅读其所有详细信息。
+</code></pre><h2 id="搭建-HTTP-服务器"><a href="#搭建-HTTP-服务器" class="headerlink" title="搭建 HTTP 服务器"></a><font color="#ff99cc">搭建 HTTP 服务器</font></h2><pre><code>这是一个简单的 HTTP web 服务器的示例：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&apos;http&apos;)</span><br><span class="line"></span><br><span class="line">const port = 3000</span><br><span class="line"></span><br><span class="line">const server = http.createServer((req, res) =&gt; &#123;</span><br><span class="line">  res.statusCode = 200</span><br><span class="line">  res.setHeader(&apos;Content-Type&apos;, &apos;text/plain&apos;)</span><br><span class="line">  res.end(&apos;你好世界\n&apos;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(port, () =&gt; &#123;</span><br><span class="line">  console.log(`服务器运行在 http://$&#123;hostname&#125;:$&#123;port&#125;/`)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="使用-Node-js-发送-HTTP-请求"><a href="#使用-Node-js-发送-HTTP-请求" class="headerlink" title="使用 Node.js 发送 HTTP 请求"></a><font color="#ff99cc">使用 Node.js 发送 HTTP 请求</font></h2><pre><code>- 执行 GET 请求
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const https = require(&apos;https&apos;)</span><br><span class="line">const options = &#123;</span><br><span class="line">  hostname: &apos;nodejs.cn&apos;,</span><br><span class="line">  port: 443,</span><br><span class="line">  path: &apos;/todos&apos;,</span><br><span class="line">  method: &apos;GET&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const req = https.request(options, res =&gt; &#123;</span><br><span class="line">  console.log(`状态码: $&#123;res.statusCode&#125;`)</span><br><span class="line"></span><br><span class="line">  res.on(&apos;data&apos;, d =&gt; &#123;</span><br><span class="line">    process.stdout.write(d)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">req.on(&apos;error&apos;, error =&gt; &#123;</span><br><span class="line">  console.error(error)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">req.end()</span><br></pre></td></tr></table></figure>
+
+- 执行 POST 请求
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">const https = require(&apos;https&apos;)</span><br><span class="line"></span><br><span class="line">const data = JSON.stringify(&#123;</span><br><span class="line">  todo: &apos;做点事情&apos;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const options = &#123;</span><br><span class="line">  hostname: &apos;nodejs.cn&apos;,</span><br><span class="line">  port: 443,</span><br><span class="line">  path: &apos;/todos&apos;,</span><br><span class="line">  method: &apos;POST&apos;,</span><br><span class="line">  headers: &#123;</span><br><span class="line">    &apos;Content-Type&apos;: &apos;application/json&apos;,</span><br><span class="line">    &apos;Content-Length&apos;: data.length</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const req = https.request(options, res =&gt; &#123;</span><br><span class="line">  console.log(`状态码: $&#123;res.statusCode&#125;`)</span><br><span class="line"></span><br><span class="line">  res.on(&apos;data&apos;, d =&gt; &#123;</span><br><span class="line">    process.stdout.write(d)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">req.on(&apos;error&apos;, error =&gt; &#123;</span><br><span class="line">  console.error(error)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">req.write(data)</span><br><span class="line">req.end()</span><br></pre></td></tr></table></figure>
+
+
+- PUT 和 DELETE
+  PUT 和 DELETE 请求使用相同的 POST 请求格式，只需更改 options.method 的值即可。
+</code></pre><h2 id="使用-Node-js-发送-HTTP-POST-请求"><a href="#使用-Node-js-发送-HTTP-POST-请求" class="headerlink" title="使用 Node.js 发送 HTTP POST 请求"></a><font color="#ff99cc">使用 Node.js 发送 HTTP POST 请求</font></h2><pre><code>在 Node.js 中，有多种方式可以执行 HTTP POST 请求，具体取决于要使用的抽象级别。
+
+使用 Node.js 执行 HTTP 请求的最简单的方式是使用 Axios 库：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const axios = require(&apos;axios&apos;)</span><br><span class="line"></span><br><span class="line">axios</span><br><span class="line">  .post(&apos;http://nodejs.cn/todos&apos;, &#123;</span><br><span class="line">    todo: &apos;做点事情&apos;</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(res =&gt; &#123;</span><br><span class="line">    console.log(`状态码: $&#123;res.statusCode&#125;`)</span><br><span class="line">    console.log(res)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(error =&gt; &#123;</span><br><span class="line">    console.error(error)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+Axios 需要使用第三方的库。
+也可以只使用 Node.js 的标准模块来发送 POST 请求，尽管它比前面的选择冗长些：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">const https = require(&apos;https&apos;)</span><br><span class="line"></span><br><span class="line">const data = JSON.stringify(&#123;</span><br><span class="line">  todo: &apos;做点事情&apos;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const options = &#123;</span><br><span class="line">  hostname: &apos;nodejs.cn&apos;,</span><br><span class="line">  port: 443,</span><br><span class="line">  path: &apos;/todos&apos;,</span><br><span class="line">  method: &apos;POST&apos;,</span><br><span class="line">  headers: &#123;</span><br><span class="line">    &apos;Content-Type&apos;: &apos;application/json&apos;,</span><br><span class="line">    &apos;Content-Length&apos;: data.length</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const req = https.request(options, res =&gt; &#123;</span><br><span class="line">  console.log(`状态码: $&#123;res.statusCode&#125;`)</span><br><span class="line"></span><br><span class="line">  res.on(&apos;data&apos;, d =&gt; &#123;</span><br><span class="line">    process.stdout.write(d)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">req.on(&apos;error&apos;, error =&gt; &#123;</span><br><span class="line">  console.error(error)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">req.write(data)</span><br><span class="line">req.end()</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="使用-Node-js-获取-HTTP-请求的正文数据"><a href="#使用-Node-js-获取-HTTP-请求的正文数据" class="headerlink" title="使用 Node.js 获取 HTTP 请求的正文数据"></a><font color="#ff99cc">使用 Node.js 获取 HTTP 请求的正文数据</font></h2><pre><code>如果使用的是 Express，则非常简单：使用 body-parser Node.js 模块。
+
+例如，获取此请求的正文：
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const axios = require(&apos;axios&apos;)</span><br><span class="line"></span><br><span class="line">axios.post(&apos;http://nodejs.cn/todos&apos;, &#123;</span><br><span class="line">  todo: &apos;做点事情&apos;</span><br><span class="line">&#125;)</span><br><span class="line">这是对应的服务器端代码：</span><br><span class="line"></span><br><span class="line">const express = require(&apos;express&apos;)</span><br><span class="line">const app = express()</span><br><span class="line"></span><br><span class="line">app.use(</span><br><span class="line">  express.urlencoded(&#123;</span><br><span class="line">    extended: true</span><br><span class="line">  &#125;)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">app.use(express.json())</span><br><span class="line"></span><br><span class="line">app.post(&apos;/todos&apos;, (req, res) =&gt; &#123;</span><br><span class="line">  console.log(req.body.todo)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+  如果不使用 Express 并想在普通的 Node.js 中执行此操作，则需要做多一点的工作，因为 Express 抽象了很多工作。
+
+  要理解的关键是，当使用 http.createServer() 初始化 HTTP 服务器时，服务器会在获得所有 HTTP 请求头（而不是请求正文时）时调用回调。
+
+  在连接回调中传入的 request 对象是一个流。
+
+  因此，必须监听要处理的主体内容，并且其是按数据块处理的。
+
+  首先，通过监听流的 data 事件来获取数据，然后在数据结束时调用一次流的 end 事件：
+
+  const server = http.createServer((req, res) =&gt; {
+    // 可以访问 HTTP 请求头
+    req.on(&apos;data&apos;, chunk =&gt; {
+      console.log(`可用的数据块: ${chunk}`)
+    })
+    req.on(&apos;end&apos;, () =&gt; {
+      //数据结束
+    })
+  })
+  因此，若要访问数据（假设期望接收到字符串），则必须将其放入数组中：
+
+  const server = http.createServer((req, res) =&gt; {
+    let data = &apos;&apos;;
+    req.on(&apos;data&apos;, chunk =&gt; {
+      data += chunk;
+    })
+    req.on(&apos;end&apos;, () =&gt; {
+      JSON.parse(data).todo // &apos;做点事情&apos;
+    })
+  })
+</code></pre><h2 id="在-Node-js-中使用文件描述符"><a href="#在-Node-js-中使用文件描述符" class="headerlink" title="在 Node.js 中使用文件描述符"></a><font color="#ff99cc">在 Node.js 中使用文件描述符</font></h2><pre><code>文件描述符是使用 fs 模块提供的 open() 方法打开文件后返回的：
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&apos;fs&apos;)</span><br><span class="line"></span><br><span class="line">fs.open(&apos;/Users/joe/test.txt&apos;, &apos;r&apos;, (err, fd) =&gt; &#123;</span><br><span class="line">  //fd 是文件描述符。</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+注意，将 r 作为 fs.open() 调用的第二个参数。
+该标志意味着打开文件用于读取。
+
+其他常用的标志有：
+r+ 打开文件用于读写。
+w+ 打开文件用于读写，将流定位到文件的开头。如果文件不存在则创建文件。
+a 打开文件用于写入，将流定位到文件的末尾。如果文件不存在则创建文件。
+a+ 打开文件用于读写，将流定位到文件的末尾。如果文件不存在则创建文件。
+
+也可以使用 fs.openSync 方法打开文件，该方法会返回文件描述符（而不是在回调中提供）：
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&apos;fs&apos;)</span><br><span class="line"></span><br><span class="line">try &#123;</span><br><span class="line">  const fd = fs.openSync(&apos;/Users/joe/test.txt&apos;, &apos;r&apos;)</span><br><span class="line">&#125; catch (err) &#123;</span><br><span class="line">  console.error(err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+一旦获得文件描述符，就可以以任何方式执行所有需要它的操作，例如调用 fs.open() 以及许多与文件系统交互的其他操作。
+</code></pre><h2 id="Node-js-文件属性"><a href="#Node-js-文件属性" class="headerlink" title="Node.js 文件属性"></a><font color="#ff99cc">Node.js 文件属性</font></h2><pre><code>每个文件都带有一组详细信息，可以使用 Node.js 进行检查。具体地说，使用 fs 模块提供的 stat() 方法。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&apos;fs&apos;)</span><br><span class="line">fs.stat(&apos;/Users/joe/test.txt&apos;, (err, stats) =&gt; &#123;</span><br><span class="line">  if (err) &#123;</span><br><span class="line">    console.error(err)</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  stats.isFile() //true</span><br><span class="line">  stats.isDirectory() //false</span><br><span class="line">  stats.isSymbolicLink() //false</span><br><span class="line">  stats.size //1024000 //= 1MB</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+Node.js 也提供了同步的方法，该方法会阻塞线程，直到文件属性准备就绪为止：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&apos;fs&apos;)</span><br><span class="line">try &#123;</span><br><span class="line">  const stats = fs.statSync(&apos;/Users/joe/test.txt&apos;)</span><br><span class="line">&#125; catch (err) &#123;</span><br><span class="line">  console.error(err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="Node-js-文件路径"><a href="#Node-js-文件路径" class="headerlink" title="Node.js 文件路径"></a><font color="#ff99cc">Node.js 文件路径</font></h2><pre><code>- 从路径中获取信息
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const notes = &apos;/users/joe/notes.txt&apos;</span><br><span class="line"></span><br><span class="line">path.dirname(notes) // /users/joe   获取文件的父文件夹。</span><br><span class="line">path.basename(notes) // notes.txt   获取文件名部分。</span><br><span class="line">path.extname(notes) // .txt         获取文件的扩展名。</span><br><span class="line">path.basename(notes, path.extname(notes)) //notes  可以通过为 basename 指定第二个参数来获取不带扩展名的文件名：</span><br></pre></td></tr></table></figure>
+
+- 使用路径
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">连接路径:</span><br><span class="line">const name = &apos;joe&apos;</span><br><span class="line">path.join(&apos;/&apos;, &apos;users&apos;, name, &apos;notes.txt&apos;) // &apos;/users/joe/notes.txt&apos;</span><br><span class="line"></span><br><span class="line">path.resolve() 获得相对路径的绝对路径:</span><br><span class="line">path.resolve(&apos;joe.txt&apos;) // &apos;/Users/joe/joe.txt&apos; 如果从主文件夹运行。</span><br><span class="line">path.resolve(&apos;tmp&apos;, &apos;joe.txt&apos;) // &apos;/Users/joe/tmp/joe.txt&apos;    如果从主文件夹运行。</span><br><span class="line">path.resolve(&apos;/etc&apos;, &apos;joe.txt&apos;) // &apos;/etc/joe.txt&apos;   如果第一个参数以斜杠开头，则表示它是绝对路径</span><br><span class="line"></span><br><span class="line">path.normalize() 是另一个有用的函数，当包含诸如 .、.. 或双斜杠之类的相对说明符时，其会尝试计算实际的路径：</span><br><span class="line">path.normalize(&apos;/users/joe/..//test.txt&apos;) // &apos;/users/test.txt&apos;</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="使用-Node-js-读取文件"><a href="#使用-Node-js-读取文件" class="headerlink" title="使用 Node.js 读取文件"></a><font color="#ff99cc">使用 Node.js 读取文件</font></h2><pre><code>在 Node.js 中读取文件最简单的方式是使用 fs.readFile() 方法，向其传入文件路径、编码、以及会带上文件数据（以及错误）进行调用的回调函数：
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&apos;fs&apos;)</span><br><span class="line"></span><br><span class="line">fs.readFile(&apos;/Users/joe/test.txt&apos;, &apos;utf8&apos; , (err, data) =&gt; &#123;</span><br><span class="line">  if (err) &#123;</span><br><span class="line">    console.error(err)</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+另外，也可以使用同步的版本 fs.readFileSync()：
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&apos;fs&apos;)</span><br><span class="line"></span><br><span class="line">try &#123;</span><br><span class="line">  const data = fs.readFileSync(&apos;/Users/joe/test.txt&apos;, &apos;utf8&apos;)</span><br><span class="line">  console.log(data)</span><br><span class="line">&#125; catch (err) &#123;</span><br><span class="line">  console.error(err)</span><br><span class="line">&#125;</span><br><span class="line">fs.readFile() 和 fs.readFileSync() 都会在返回数据之前将文件的全部内容读取到内存中。</span><br></pre></td></tr></table></figure>
+
+这意味着大文件会对内存的消耗和程序执行的速度产生重大的影响。
+
+在这种情况下，更好的选择是使用流来读取文件的内容。
+</code></pre><h2 id="使用-Node-js-写入文件"><a href="#使用-Node-js-写入文件" class="headerlink" title="使用 Node.js 写入文件"></a><font color="#ff99cc">使用 Node.js 写入文件</font></h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&apos;fs&apos;)</span><br><span class="line">const content = &apos;一些内容&apos;</span><br><span class="line"></span><br><span class="line">fs.writeFile(&apos;/Users/joe/test.txt&apos;, content, err =&gt; &#123;</span><br><span class="line">  if (err) &#123;</span><br><span class="line">    console.error(err)</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line">  //文件写入成功。</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code>另外，也可以使用同步的版本 fs.writeFileSync()：
+</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&apos;fs&apos;)</span><br><span class="line"></span><br><span class="line">const content = &apos;一些内容&apos;</span><br><span class="line"></span><br><span class="line">try &#123;</span><br><span class="line">  const data = fs.writeFileSync(&apos;/Users/joe/test.txt&apos;, content)</span><br><span class="line">  //文件写入成功。</span><br><span class="line">&#125; catch (err) &#123;</span><br><span class="line">  console.error(err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>默认情况下，此 API 会替换文件的内容（如果文件已经存在）。可以通过指定标志来修改默认的行为：
+</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.writeFile(&apos;/Users/joe/test.txt&apos;, content, &#123; flag: &apos;a+&apos; &#125;, err =&gt; &#123;&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code>可能会使用的标志有：
+r+ 打开文件用于读写。
+w+ 打开文件用于读写，将流定位到文件的开头。如果文件不存在则创建文件。
+a 打开文件用于写入，将流定位到文件的末尾。如果文件不存在则创建文件。
+a+ 打开文件用于读写，将流定位到文件的末尾。如果文件不存在则创建文件。
+(可以在 http://nodejs.cn/api/fs.html#fs_file_system_flags 中查看更多标志)
+</code></pre><ul>
+<li><p>追加到文件<br>将内容追加到文件末尾的便捷方法是 fs.appendFile()（及其对应的 fs.appendFileSync()）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const content = &apos;一些内容&apos;</span><br><span class="line"></span><br><span class="line">fs.appendFile(&apos;file.log&apos;, content, err =&gt; &#123;</span><br><span class="line">  if (err) &#123;</span><br><span class="line">    console.error(err)</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line">  //完成！</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用流<br>所有这些方法都是在将全部内容写入文件之后才会将控制权返回给程序（在异步的版本中，这意味着执行回调）。</p>
+<p>在这种情况下，更好的选择是使用流写入文件的内容。</p>
+<h2 id="Node-js-文件系统模块"><a href="#Node-js-文件系统模块" class="headerlink" title="Node.js 文件系统模块"></a><font color="#ff99cc">Node.js 文件系统模块</font></h2><p>fs 模块提供了许多非常实用的函数来访问文件系统并与文件系统进行交互。<br>无需安装。 作为 Node.js 核心的组成部分，可以通过简单地引用来使用它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&apos;fs&apos;)</span><br></pre></td></tr></table></figure>
+<p>其所有的方法，包括：<br>fs.access(): 检查文件是否存在，以及 Node.js 是否有权限访问。<br>fs.appendFile(): 追加数据到文件。如果文件不存在，则创建文件。<br>fs.chmod(): 更改文件（通过传入的文件名指定）的权限。相关方法：fs.lchmod()、fs.fchmod()。<br>fs.chown(): 更改文件（通过传入的文件名指定）的所有者和群组。相关方法：fs.fchown()、fs.lchown()。<br>fs.close(): 关闭文件描述符。<br>fs.copyFile(): 拷贝文件。<br>fs.createReadStream(): 创建可读的文件流。<br>fs.createWriteStream(): 创建可写的文件流。<br>fs.link(): 新建指向文件的硬链接。<br>fs.mkdir(): 新建文件夹。<br>fs.mkdtemp(): 创建临时目录。<br>fs.open(): 设置文件模式。<br>fs.readdir(): 读取目录的内容。<br>fs.readFile(): 读取文件的内容。相关方法：fs.read()。<br>fs.readlink(): 读取符号链接的值。<br>fs.realpath(): 将相对的文件路径指针（.、..）解析为完整的路径。<br>fs.rename(): 重命名文件或文件夹。<br>fs.rmdir(): 删除文件夹。<br>fs.stat(): 返回文件（通过传入的文件名指定）的状态。相关方法：fs.fstat()、fs.lstat()。<br>fs.symlink(): 新建文件的符号链接。<br>fs.truncate(): 将传递的文件名标识的文件截断为指定的长度。相关方法：fs.ftruncate()。<br>fs.unlink(): 删除文件或符号链接。<br>fs.unwatchFile(): 停止监视文件上的更改。<br>fs.utimes(): 更改文件（通过传入的文件名指定）的时间戳。相关方法：fs.futimes()。<br>fs.watchFile(): 开始监视文件上的更改。相关方法：fs.watch()。<br>fs.writeFile(): 将数据写入文件。相关方法：fs.write()。</p>
+<p>关于 fs 模块的特殊之处是，所有的方法默认情况下都是异步的，但是通过在前面加上 Sync 也可以同步地工作。<br>例如：</p>
+<pre><code>fs.rename()
+fs.renameSync()
+fs.write()
+fs.writeSync()
+</code></pre><p>这在应用程序流程中会产生巨大的差异。</p>
+</li>
+</ul>
+<h2 id="Node-js-路径模块"><a href="#Node-js-路径模块" class="headerlink" title="Node.js 路径模块"></a><font color="#ff99cc">Node.js 路径模块</font></h2><p>  path 模块提供了许多非常实用的函数来访问文件系统并与文件系统进行交互。<br>  无需安装。 作为 Node.js 核心的组成部分，可以通过简单地引用来使用它：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>  该模块提供了 path.sep（作为路径段分隔符，在 Windows 上是 \，在 Linux/macOS 上是 /）和 path.delimiter（作为路径定界符，在 Windows 上是 ;，在 Linux/macOS 上是 :）。</p>
+<p>  还有这些 path 方法：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">path.basename()  返回路径的最后一部分。 第二个参数可以过滤掉文件的扩展名：</span><br><span class="line">  require(&apos;path&apos;).basename(&apos;/test/something&apos;) //something</span><br><span class="line">  require(&apos;path&apos;).basename(&apos;/test/something.txt&apos;) //something.txt</span><br><span class="line">  require(&apos;path&apos;).basename(&apos;/test/something.txt&apos;, &apos;.txt&apos;) //something</span><br><span class="line"></span><br><span class="line">path.dirname()  返回路径的目录部分：</span><br><span class="line">  require(&apos;path&apos;).dirname(&apos;/test/something&apos;) // /test</span><br><span class="line">  require(&apos;path&apos;).dirname(&apos;/test/something/file.txt&apos;) // /test/something</span><br><span class="line"></span><br><span class="line">path.extname()  返回路径的扩展名部分。</span><br><span class="line">  require(&apos;path&apos;).extname(&apos;/test/something&apos;) // &apos;&apos;</span><br><span class="line">  require(&apos;path&apos;).extname(&apos;/test/something/file.txt&apos;) // &apos;.txt&apos;</span><br><span class="line"></span><br><span class="line">path.isAbsolute()  如果是绝对路径，则返回 true。</span><br><span class="line">  require(&apos;path&apos;).isAbsolute(&apos;/test/something&apos;) // true</span><br><span class="line">  require(&apos;path&apos;).isAbsolute(&apos;./test/something&apos;) // false</span><br><span class="line"></span><br><span class="line">path.join()  连接路径的两个或多个部分：</span><br><span class="line">  const name = &apos;joe&apos;</span><br><span class="line">  require(&apos;path&apos;).join(&apos;/&apos;, &apos;users&apos;, name, &apos;notes.txt&apos;) //&apos;/users/joe/notes.txt&apos;</span><br><span class="line"></span><br><span class="line">path.normalize()  当包含类似 .、.. 或双斜杠等相对的说明符时，则尝试计算实际的路径：</span><br><span class="line">  require(&apos;path&apos;).normalize(&apos;/users/joe/..//test.txt&apos;) //&apos;/users/test.txt&apos;</span><br><span class="line"></span><br><span class="line">path.parse()</span><br><span class="line">  解析对象的路径为组成其的片段：</span><br><span class="line">    root: 根路径。</span><br><span class="line">    dir: 从根路径开始的文件夹路径。</span><br><span class="line">    base: 文件名 + 扩展名</span><br><span class="line">    name: 文件名</span><br><span class="line">    ext: 文件扩展名</span><br><span class="line">  </span><br><span class="line">  require(&apos;path&apos;).parse(&apos;/users/test.txt&apos;)</span><br><span class="line">    结果是：</span><br><span class="line">    &#123;</span><br><span class="line">      root: &apos;/&apos;,</span><br><span class="line">      dir: &apos;/users&apos;,</span><br><span class="line">      base: &apos;test.txt&apos;,</span><br><span class="line">      ext: &apos;.txt&apos;,</span><br><span class="line">      name: &apos;test&apos;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">path.relative() 接受 2 个路径作为参数。 基于当前工作目录，返回从第一个路径到第二个路径的相对路径。</span><br><span class="line">  require(&apos;path&apos;).relative(&apos;/Users/joe&apos;, &apos;/Users/joe/test.txt&apos;) //&apos;test.txt&apos;</span><br><span class="line">  require(&apos;path&apos;).relative(&apos;/Users/joe&apos;, &apos;/Users/joe/something/test.txt&apos;) //&apos;something/test.txt&apos;</span><br><span class="line"></span><br><span class="line">path.resolve() 可以使用 path.resolve() 获得相对路径的绝对路径计算：</span><br><span class="line">  path.resolve(&apos;joe.txt&apos;) //&apos;/Users/joe/joe.txt&apos; 如果从主文件夹运行</span><br><span class="line"> </span><br><span class="line">  通过指定第二个参数，resolve 会使用第一个参数作为第二个参数的基准：</span><br><span class="line">  path.resolve(&apos;tmp&apos;, &apos;joe.txt&apos;) //&apos;/Users/joe/tmp/joe.txt&apos; 如果从主文件夹运行</span><br><span class="line">   </span><br><span class="line">  如果第一个参数以斜杠开头，则表示它是绝对路径：</span><br><span class="line">  path.resolve(&apos;/etc&apos;, &apos;joe.txt&apos;) //&apos;/etc/joe.txt&apos;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Node-js-操作系统模块"><a href="#Node-js-操作系统模块" class="headerlink" title="Node.js 操作系统模块"></a><font color="#ff99cc">Node.js 操作系统模块</font></h2><pre><code>该模块提供了许多函数，可用于从底层的操作系统和程序运行所在的计算机上检索信息并与其进行交互。
+  os.arch()
+  os.cpus()
+  os.endianness()
+  os.freemem()
+  os.homedir()
+  os.hostname()
+  os.loadavg()
+  os.networkInterfaces()
+  os.platform()
+  os.release()
+  os.tmpdir()
+  os.totalmem()
+  os.type()
+  os.uptime()
+  os.userInfo()
+</code></pre><h2 id="Node-js-事件模块"><a href="#Node-js-事件模块" class="headerlink" title="Node.js 事件模块"></a><font color="#ff99cc">Node.js 事件模块</font></h2><pre><code>events 模块为提供了 EventEmitter 类，这是在 Node.js 中处理事件的关键。
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const EventEmitter = require(&apos;events&apos;)</span><br><span class="line">const emitter = new EventEmitter()</span><br></pre></td></tr></table></figure>
+
+  emitter.addListener()
+  emitter.emit()
+  emitter.eventNames()
+  emitter.getMaxListeners()
+  emitter.listenerCount()
+  emitter.listeners()
+  emitter.off()
+  emitter.on()
+  emitter.once()
+  emitter.prependListener()
+  emitter.prependOnceListener()
+  emitter.removeAllListeners()
+  emitter.removeListener()
+  emitter.setMaxListeners()
+</code></pre><h2 id="Node-js-http-模块"><a href="#Node-js-http-模块" class="headerlink" title="Node.js http 模块"></a><font color="#ff99cc">Node.js http 模块</font></h2><pre><code>HTTP 核心模块是 Node.js 网络的关键模块。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&apos;http&apos;)</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="Node-js-Buffer"><a href="#Node-js-Buffer" class="headerlink" title="Node.js Buffer"></a><font color="#ff99cc">Node.js Buffer</font></h2><pre><code>Buffer 是内存区域，由 Node.js Buffer 类实现。 它表示在 V8 JavaScript 引擎外部分配的固定大小的内存块（无法调整大小）。
+
+Buffer 与流紧密相连。 当流处理器接收数据的速度快于其消化的速度时，则会将数据放入 buffer 中。
+
+- 创建buffer：
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Buffer.from()、Buffer.alloc() 和 Buffer.allocUnsafe() 方法可以创建 buffer。</span><br><span class="line">  const buf = Buffer.from(&apos;Hey!&apos;)</span><br><span class="line">  Buffer.from(array)</span><br><span class="line">  Buffer.from(arrayBuffer[, byteOffset[, length]])</span><br><span class="line">  Buffer.from(buffer)</span><br><span class="line">  Buffer.from(string[, encoding])</span><br><span class="line">  </span><br><span class="line">也可以只初始化 buffer（传入大小）。 以下会创建一个 1KB 的 buffer：</span><br><span class="line">  const buf = Buffer.alloc(1024)</span><br><span class="line">  //或</span><br><span class="line">  const buf = Buffer.allocUnsafe(1024) </span><br><span class="line"></span><br><span class="line">（allocUnsafe 不安全的原因，在使用它时必须格外小心。）</span><br></pre></td></tr></table></figure>
+
+  &lt;div class=&apos;post-warning&apos;&gt;注意，如果使用数字（设置其大小）初始化 buffer，则可以访问到包含随机数据的已预初始化的内存（而不是空的 buffer）&lt;/div&gt;
+
+- 使用 buffer
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">Buffer（字节数组）可以像数组一样被访问：</span><br><span class="line">  const buf = Buffer.from(&apos;Hey!&apos;)</span><br><span class="line">  buf[0] //72   Unicode 码</span><br><span class="line">  buf[1] //101  Unicode 码</span><br><span class="line">  buf[2] //121  Unicode 码</span><br><span class="line">  buf.toString()  // Hey!</span><br><span class="line"></span><br><span class="line">获取 buffer 的长度：buf.length // 4</span><br><span class="line"></span><br><span class="line">遍历 buffer 的内容：</span><br><span class="line">  for (const item of buf) &#123;</span><br><span class="line">    console.log(item) //72 101 121 33</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">更改 buffer 的内容：</span><br><span class="line">  const buf = Buffer.alloc(4)</span><br><span class="line">  buf.write(&apos;Hey!&apos;)</span><br><span class="line">  或</span><br><span class="line">  buf[1] = 111 //o</span><br><span class="line">  console.log(buf.toString()) //Hoy</span><br><span class="line"></span><br><span class="line">复制 buffer：</span><br><span class="line">  const buf = Buffer.from(&apos;Hey!&apos;)</span><br><span class="line">  let bufcopy = Buffer.alloc(4) //分配 4 个字节。</span><br><span class="line">  buf.copy(bufcopy)</span><br><span class="line">  bufcopy.toString()  // &apos;Hey!&apos;</span><br><span class="line"></span><br><span class="line">  默认情况下，会复制整个 buffer。 另外的 3 个参数可以定义开始位置、结束位置、以及新的 buffer 长度：</span><br><span class="line">  const buf = Buffer.from(&apos;Hey!&apos;)</span><br><span class="line">  let bufcopy = Buffer.alloc(2) //分配 2 个字节。</span><br><span class="line">  buf.copy(bufcopy, 0, 0, 2)</span><br><span class="line">  bufcopy.toString() //&apos;He&apos;</span><br><span class="line"></span><br><span class="line">切片 buffer</span><br><span class="line">  如果要创建 buffer 的局部视图，则可以创建切片。 切片不是副本：原始 buffer 仍然是真正的来源。 如果那改变了，则切片也会改变。</span><br><span class="line">  使用 slice() 方法创建它。 第一个参数是起始位置，可以指定第二个参数作为结束位置：</span><br><span class="line"></span><br><span class="line">  const buf = Buffer.from(&apos;Hey!&apos;)</span><br><span class="line">  buf.slice(0).toString() //Hey!</span><br><span class="line">  const slice = buf.slice(0, 2)</span><br><span class="line">  console.log(slice.toString()) //He</span><br><span class="line">  buf[1] = 111 //o</span><br><span class="line">  console.log(slice.toString()) //Ho</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="Node-js-流"><a href="#Node-js-流" class="headerlink" title="Node.js 流"></a><font color="#ff99cc">Node.js 流</font></h2><h3 id="什么是流"><a href="#什么是流" class="headerlink" title="什么是流"></a>什么是流</h3><pre><code>流是为Node.js应用程序提供动力的基本概念之一。它们是一种以高效的方式处理读/写文件，网络通信，或任何类型的端到端的信息交换。
+流不是Nodejs特有的概念。它们是几十年前在Unix操作系统中引入的，程序可以通过管道运算符（|）对流进行相互交互。
+
+例如，在传统的方式中，当告诉程序读取文件时，这会将文件从头到尾读入内存，然后进行处理。使用流，则可以逐个片段地读取。
+
+Node.js的 Stream 模块 提供了构建所有流 API 的基础。所有的流都是 EventEmitter 的实例。
+
+相对于其他的数据处理方式，流具有两大优点：
+1）内存效率：无需加载大量的数据到内存就可以进行处理。
+2）时间效率：当获得数据之后即可立即开始处理数据，这样所需的时间更是，而不必等到整个数据的有效负载可用才开始。
+</code></pre><h3 id="流的示例"><a href="#流的示例" class="headerlink" title="流的示例"></a>流的示例</h3><pre><code>一个典型的例子是从磁盘读取文件。
+
+- 使用 Node.js 的 fs 模块，可以读取文件，并在与 HTTP 服务器建立新连接时通过 HTTP 提供文件：
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&apos;http&apos;)</span><br><span class="line">const fs = require(&apos;fs&apos;)</span><br><span class="line"></span><br><span class="line">const server = http.createServer(function(req, res) &#123;</span><br><span class="line">  fs.readFile(__dirname + &apos;/data.txt&apos;, (err, data) =&gt; &#123;</span><br><span class="line">    res.end(data)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">server.listen(3000)</span><br></pre></td></tr></table></figure>
+
+  readFile() 读取文件的全部内容，并在完成时调用回调函数。回调中的 res.end(data) 会返回文件的内容给 HTTP 客户端。
+
+- 如果文件很大，则该操作会花费较多的时间。 以下是使用流编写的相同内容：
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&apos;http&apos;)</span><br><span class="line">const fs = require(&apos;fs&apos;)</span><br><span class="line"></span><br><span class="line">const server = http.createServer((req, res) =&gt; &#123;</span><br><span class="line">  const stream = fs.createReadStream(__dirname + &apos;/data.txt&apos;)</span><br><span class="line">  stream.pipe(res)</span><br><span class="line">&#125;)</span><br><span class="line">server.listen(3000)</span><br></pre></td></tr></table></figure>
+
+  当要发送的数据块已获得时就立即开始将其流式传输到 HTTP 客户端，而不是等待直到文件被完全读取。
+</code></pre><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><pre><code>- pipe()
+  它是获取来源流，并将其通过管道传输到目标流。
+
+  在来源流上调用pipe()，在上面的示例中，文件流通过管道传输到HTTP响应。
+  pipe()返回的是目标流，可以链式调用：
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">src.pipe(dest1).pipe(dest2)</span><br><span class="line">此构造相对于：</span><br><span class="line"></span><br><span class="line">src.pipe(dest1)</span><br><span class="line">dest1.pipe(dest2)</span><br></pre></td></tr></table></figure>
+
+- 流驱动的 Node.js API
+  由于它们的优点，许多 Node.js 核心模块提供了原生的流处理功能，最值得注意的有：
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">process.stdin 返回连接到 stdin 的流。</span><br><span class="line">process.stdout 返回连接到 stdout 的流。</span><br><span class="line">process.stderr 返回连接到 stderr 的流。</span><br><span class="line">fs.createReadStream() 创建文件的可读流。</span><br><span class="line">fs.createWriteStream() 创建到文件的可写流。</span><br><span class="line">net.connect() 启动基于流的连接。</span><br><span class="line">http.request() 返回 http.ClientRequest 类的实例，该实例是可写流。</span><br><span class="line">zlib.createGzip() 使用 gzip（压缩算法）将数据压缩到流中。</span><br><span class="line">zlib.createGunzip() 解压缩 gzip 流。</span><br><span class="line">zlib.createDeflate() 使用 deflate（压缩算法）将数据压缩到流中。</span><br><span class="line">zlib.createInflate() 解压缩 deflate 流。</span><br></pre></td></tr></table></figure>
+
+- 流分为四类：
+  Readable: 可以通过管道读取、但不能通过管道写入的流（可以接收数据，但不能向其发送数据）。 当推送数据到可读流中时，会对其进行缓冲，直到使用者开始读取数据为止。
+  Writable: 可以通过管道写入、但不能通过管道读取的流（可以发送数据，但不能从中接收数据）。
+  Duplex: 可以通过管道写入和读取的流，基本上相对于是可读流和可写流的组合。
+  Transform: 类似于双工流、但其输出是其输入的转换的转换流。
+
+- 创建可读流：
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const Stream = require(&apos;stream&apos;)</span><br><span class="line">const readableStream = new Stream.Readable()</span><br><span class="line"></span><br><span class="line">readableStream._read = () =&gt; &#123;&#125;</span><br><span class="line">或</span><br><span class="line">const readableStream = new Stream.Readable(&#123;</span><br><span class="line">  read() &#123;&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">现在，流已初始化，可以向其发送数据了：</span><br><span class="line">readableStream.push(&apos;hi!&apos;)</span><br><span class="line">readableStream.push(&apos;ho!&apos;)</span><br></pre></td></tr></table></figure>
+
+- 创建可写流
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const Stream = require(&apos;stream&apos;)</span><br><span class="line">const writableStream = new Stream.Writable()</span><br><span class="line"></span><br><span class="line">writableStream._write = (chunk, encoding, next) =&gt; &#123;</span><br><span class="line">  console.log(chunk.toString())</span><br><span class="line">  next()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">现在，可以通过以下方式传输可读流：</span><br><span class="line">process.stdin.pipe(writableStream)</span><br></pre></td></tr></table></figure>
+
+- 从可读流中获取数据
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const Stream = require(&apos;stream&apos;)</span><br><span class="line">const readableStream = new Stream.Readable(&#123;</span><br><span class="line">  read() &#123;&#125;</span><br><span class="line">&#125;)</span><br><span class="line">const writableStream = new Stream.Writable()</span><br><span class="line"></span><br><span class="line">writableStream._write = (chunk, encoding, next) =&gt; &#123;</span><br><span class="line">  console.log(chunk.toString())</span><br><span class="line">  next()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">readableStream.pipe(writableStream)</span><br><span class="line"></span><br><span class="line">readableStream.push(&apos;hi!&apos;)</span><br><span class="line">readableStream.push(&apos;ho!&apos;)</span><br><span class="line">也可以使用 readable 事件直接地消费可读流：</span><br><span class="line"></span><br><span class="line">readableStream.on(&apos;readable&apos;, () =&gt; &#123;</span><br><span class="line">  console.log(readableStream.read())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+- 发送数据到可写流
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">writableStream.write(&apos;hey!\n&apos;)</span><br></pre></td></tr></table></figure>
+
+- 使用信号通知已结束写入的可写流
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const Stream = require(&apos;stream&apos;)</span><br><span class="line"></span><br><span class="line">const readableStream = new Stream.Readable(&#123;</span><br><span class="line">  read() &#123;&#125;</span><br><span class="line">&#125;)</span><br><span class="line">const writableStream = new Stream.Writable()</span><br><span class="line"></span><br><span class="line">writableStream._write = (chunk, encoding, next) =&gt; &#123;</span><br><span class="line">  console.log(chunk.toString())</span><br><span class="line">  next()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">readableStream.pipe(writableStream)</span><br><span class="line"></span><br><span class="line">readableStream.push(&apos;hi!&apos;)</span><br><span class="line">readableStream.push(&apos;ho!&apos;)</span><br><span class="line"></span><br><span class="line">writableStream.end()</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="Node-js-开发环境与生产环境的区别"><a href="#Node-js-开发环境与生产环境的区别" class="headerlink" title="Node.js 开发环境与生产环境的区别"></a><font color="#ff99cc">Node.js 开发环境与生产环境的区别</font></h2><pre><code>此环境变量是一个约定，在外部库中也广泛使用。
+
+设置环境为 production 通常可以确保：
+- 日志记录保持在最低水平。
+- 更高的缓存级别以优化性能。
+
+最好将其放在的 shell 配置文件中（例如，使用 Bash shell 的 .bash_profile），否则当系统重启时，该设置不会被保留。
+也可以通过将环境变量放在应用程序的初始化命令之前来应用它：NODE_ENV=production node app.js
+
+可以使用条件语句在不同的环境中执行代码：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if (process.env.NODE_ENV === &quot;development&quot;) &#123;</span><br><span class="line">  //...</span><br><span class="line">&#125;</span><br><span class="line">if (process.env.NODE_ENV === &quot;production&quot;) &#123;</span><br><span class="line">  //...</span><br><span class="line">&#125;</span><br><span class="line">if([&apos;production&apos;, &apos;staging&apos;].indexOf(process.env.NODE_ENV) &gt;= 0) &#123;</span><br><span class="line">  //...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+例如，在 Express 应用中，可以使用此工具为每个环境设置不同的错误处理程序：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if (process.env.NODE_ENV === &quot;development&quot;) &#123;</span><br><span class="line">  app.use(express.errorHandler(&#123; dumpExceptions: true, showStack: true &#125;))</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">if (process.env.NODE_ENV === &quot;production&quot;) &#123;</span><br><span class="line">  app.use(express.errorHandler())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="Node-js-中的错误处理"><a href="#Node-js-中的错误处理" class="headerlink" title="Node.js 中的错误处理"></a><font color="#ff99cc">Node.js 中的错误处理</font></h2><h3 id="创建异常"><a href="#创建异常" class="headerlink" title="创建异常"></a>创建异常</h3><pre><code>使用 throw 关键字创建异常：throw value
+一旦 JavaScript 执行到此行，则常规的程序流会被停止，且控制会被交给最近的异常处理程序。
+
+通常，在客户端代码中，value 可以是任何 JavaScript 值（包括字符串、数字、或对象）。
+在 Node.js 中，我们不抛出字符串，而仅抛出 Error 对象。
+</code></pre><h3 id="错误对象"><a href="#错误对象" class="headerlink" title="错误对象"></a>错误对象</h3><pre><code>错误对象是 Error 对象的实例、或者继承自 Error 类（由 Error 核心模块提供）：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">throw new Error(&apos;错误信息&apos;)</span><br><span class="line">或：</span><br><span class="line"></span><br><span class="line">class NotEnoughCoffeeError extends Error &#123;</span><br><span class="line">  //...</span><br><span class="line">&#125;</span><br><span class="line">throw new NotEnoughCoffeeError()</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="处理异常"><a href="#处理异常" class="headerlink" title="处理异常"></a>处理异常</h3><pre><code>异常处理程序是 try/catch 语句。
+</code></pre><h3 id="捕获未捕获的异常"><a href="#捕获未捕获的异常" class="headerlink" title="捕获未捕获的异常"></a>捕获未捕获的异常</h3><pre><code>如果在程序执行过程中引发了未捕获的异常，则程序会崩溃。
+
+若要解决此问题，则监听 process 对象上的 uncaughtException 事件：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">process.on(&apos;uncaughtException&apos;, err =&gt; &#123;</span><br><span class="line">  console.error(&apos;有一个未捕获的错误&apos;, err)</span><br><span class="line">  process.exit(1) //强制性的（根据 Node.js 文档）</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+无需为此导入 process 核心模块，因为它是自动注入的。
+</code></pre><h3 id="Promise-的异常"><a href="#Promise-的异常" class="headerlink" title="Promise 的异常"></a>Promise 的异常</h3><ul>
+<li>使用 promise 可以链接不同的操作，并在最后处理错误：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">doSomething1()</span><br><span class="line">  .then(doSomething2)</span><br><span class="line">  .then(doSomething3)</span><br><span class="line">  .catch(err =&gt; console.error(err))</span><br><span class="line">你怎么知道错误发生在哪里？ 你并不知道，但是你可以处理所调用的每个函数（doSomethingX）中的错误，并且在错误处理程序内部抛出新的错误，这就会调用外部的 catch 处理程序：</span><br><span class="line"></span><br><span class="line">const doSomething1 = () =&gt; &#123;</span><br><span class="line">  //...</span><br><span class="line">  try &#123;</span><br><span class="line">    //...</span><br><span class="line">  &#125; catch (err) &#123;</span><br><span class="line">    //... 在本地处理</span><br><span class="line">    throw new Error(err.message)</span><br><span class="line">  &#125;</span><br><span class="line">  //...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<pre><code>- 为了能够在本地（而不是在调用的函数中）处理错误，则可以断开链条，在每个 then() 函数中创建函数并处理异常：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">doSomething1()</span><br><span class="line">  .then(() =&gt; &#123;</span><br><span class="line">    return doSomething2().catch(err =&gt; &#123;</span><br><span class="line">      //处理错误</span><br><span class="line">      throw err //打断链条</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(() =&gt; &#123;</span><br><span class="line">    return doSomething2().catch(err =&gt; &#123;</span><br><span class="line">      //处理错误</span><br><span class="line">      throw err //打断链条</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(err =&gt; console.error(err))</span><br></pre></td></tr></table></figure>
+
+### async/await 的错误处理
+  使用 async/await 时，仍然需要捕获错误，可以通过以下方式进行操作：
+
+  async function someFunction() {
+    try {
+      await someOtherFunction()
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
+</code></pre><h2 id="在-Node-js-中如何记录对象"><a href="#在-Node-js-中如何记录对象" class="headerlink" title="在 Node.js 中如何记录对象"></a><font color="#ff99cc">在 Node.js 中如何记录对象</font></h2><pre><code>在达到一定嵌套级别之前一切都很好。 在经过两个级别的嵌套后，Node.js 会放弃并打印 [Object] 作为占位符：
+如何打印整个对象？
+
+最好的方法（同时保留漂亮的打印效果）是使用：
+console.log(JSON.stringify(obj, null, 2))
+其中 2 是用于缩进的空格数。
+
+另一种选择是使用：
+require(&apos;util&apos;).inspect.defaultOptions.depth = null
+console.log(obj)
+但是有个问题，第 2 级之后的嵌套对象会被展平，这可能是复杂对象的问题。
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/04/22/workReward/" rel="next" title="workReward">
+                <i class="fa fa-chevron-left"></i> workReward
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/07/13/interview/" rel="prev" title="interview">
+                interview <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/background22.jpg" alt="Lemon">
+            
+              <p class="site-author-name" itemprop="name">Lemon</p>
+              <p class="site-description motion-element" itemprop="description">乘风破浪</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初识"><span class="nav-number">1.</span> <span class="nav-text">初识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#入门"><span class="nav-number">2.</span> <span class="nav-text">入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#V8-JavaScript-引擎"><span class="nav-number">2.1.</span> <span class="nav-text">V8 JavaScript 引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从命令行运行-Node-js-脚本"><span class="nav-number">2.2.</span> <span class="nav-text">从命令行运行 Node.js 脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js程序中退出"><span class="nav-number">2.3.</span> <span class="nav-text">Node.js程序中退出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从-Node-js-读取环境变量"><span class="nav-number">2.4.</span> <span class="nav-text">从 Node.js 读取环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Node-js-REPL"><span class="nav-number">2.5.</span> <span class="nav-text">使用 Node.js REPL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-从命令行接收参数"><span class="nav-number">2.6.</span> <span class="nav-text">Node.js 从命令行接收参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Node-js-输出到命令行"><span class="nav-number">2.7.</span> <span class="nav-text">使用 Node.js 输出到命令行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用控制台模块的基础输出"><span class="nav-number">2.7.1.</span> <span class="nav-text">使用控制台模块的基础输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清空控制台"><span class="nav-number">2.7.2.</span> <span class="nav-text">清空控制台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素计数"><span class="nav-number">2.7.3.</span> <span class="nav-text">元素计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印堆栈踪迹"><span class="nav-number">2.7.4.</span> <span class="nav-text">打印堆栈踪迹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算耗时"><span class="nav-number">2.7.5.</span> <span class="nav-text">计算耗时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stdout-和-stderr"><span class="nav-number">2.7.6.</span> <span class="nav-text">stdout 和 stderr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为输出着色"><span class="nav-number">2.7.7.</span> <span class="nav-text">为输出着色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建进度条"><span class="nav-number">2.7.8.</span> <span class="nav-text">创建进度条</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-Node-js-中从命令行接收输入"><span class="nav-number">2.8.</span> <span class="nav-text">在 Node.js 中从命令行接收输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-exports-从-Node-js-文件中公开功能"><span class="nav-number">2.9.</span> <span class="nav-text">使用 exports 从 Node.js 文件中公开功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-包管理器简介"><span class="nav-number">2.10.</span> <span class="nav-text">npm 包管理器简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-将软件包安装到哪里"><span class="nav-number">2.11.</span> <span class="nav-text">npm 将软件包安装到哪里</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用或执行-npm-安装的软件包"><span class="nav-number">2.12.</span> <span class="nav-text">如何使用或执行 npm 安装的软件包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json-指南"><span class="nav-number">2.13.</span> <span class="nav-text">package.json 指南</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件结构"><span class="nav-number">2.13.1.</span> <span class="nav-text">文件结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性分类"><span class="nav-number">2.13.2.</span> <span class="nav-text">属性分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件包版本"><span class="nav-number">2.13.3.</span> <span class="nav-text">软件包版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package-lock-json-文件"><span class="nav-number">2.14.</span> <span class="nav-text">package-lock.json 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-包"><span class="nav-number">2.15.</span> <span class="nav-text">npm 包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看-npm-包安装的版本"><span class="nav-number">2.15.1.</span> <span class="nav-text">查看 npm 包安装的版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-npm-包的旧版本"><span class="nav-number">2.15.2.</span> <span class="nav-text">安装 npm 包的旧版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm包更新"><span class="nav-number">2.15.3.</span> <span class="nav-text">npm包更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm的语义版本控制"><span class="nav-number">2.15.4.</span> <span class="nav-text">npm的语义版本控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载-npm-软件包"><span class="nav-number">2.15.5.</span> <span class="nav-text">卸载 npm 软件包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-包运行器-npx"><span class="nav-number">2.16.</span> <span class="nav-text">Node.js 包运行器 npx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#轻松地运行本地命令"><span class="nav-number">2.16.1.</span> <span class="nav-text">轻松地运行本地命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无需安装的命令执行"><span class="nav-number">2.16.2.</span> <span class="nav-text">无需安装的命令执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用不同的-Node-js-版本运行代码"><span class="nav-number">2.16.3.</span> <span class="nav-text">使用不同的 Node.js 版本运行代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接从-URL-运行任意代码片段"><span class="nav-number">2.16.4.</span> <span class="nav-text">直接从 URL 运行任意代码片段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-事件循环"><span class="nav-number">2.17.</span> <span class="nav-text">Node.js 事件循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">2.17.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻塞事件循环"><span class="nav-number">2.17.2.</span> <span class="nav-text">阻塞事件循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用堆栈"><span class="nav-number">2.17.3.</span> <span class="nav-text">调用堆栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消息队列"><span class="nav-number">2.17.4.</span> <span class="nav-text">消息队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作业队列"><span class="nav-number">2.17.5.</span> <span class="nav-text">作业队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解-process-nextTick"><span class="nav-number">2.18.</span> <span class="nav-text">了解 process.nextTick()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解-setImmediate"><span class="nav-number">2.19.</span> <span class="nav-text">了解 setImmediate()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#探索-JavaScript-定时器"><span class="nav-number">2.20.</span> <span class="nav-text">探索 JavaScript 定时器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#setTimeout"><span class="nav-number">2.20.1.</span> <span class="nav-text">setTimeout()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setInterval"><span class="nav-number">2.20.2.</span> <span class="nav-text">setInterval()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-异步编程与回调"><span class="nav-number">2.21.</span> <span class="nav-text">JavaScript 异步编程与回调</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS"><span class="nav-number">2.21.1.</span> <span class="nav-text">JS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回调"><span class="nav-number">2.21.2.</span> <span class="nav-text">回调</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解-JavaScript-Promise"><span class="nav-number">2.22.</span> <span class="nav-text">了解 JavaScript Promise</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链式-promise"><span class="nav-number">2.22.1.</span> <span class="nav-text">链式 promise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理错误"><span class="nav-number">2.22.2.</span> <span class="nav-text">处理错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-all"><span class="nav-number">2.22.3.</span> <span class="nav-text">Promise.all()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-race"><span class="nav-number">2.22.4.</span> <span class="nav-text">Promise.race()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的错误"><span class="nav-number">2.22.5.</span> <span class="nav-text">常见的错误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具有-Async-和-Await-的现代异步-JavaScript"><span class="nav-number">2.23.</span> <span class="nav-text">具有 Async 和 Await 的现代异步 JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-所有事情"><span class="nav-number">2.23.1.</span> <span class="nav-text">Promise 所有事情</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码更容易阅读"><span class="nav-number">2.23.2.</span> <span class="nav-text">代码更容易阅读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多个异步函数串联"><span class="nav-number">2.23.3.</span> <span class="nav-text">多个异步函数串联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更容易调试"><span class="nav-number">2.23.4.</span> <span class="nav-text">更容易调试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-事件触发器"><span class="nav-number">2.24.</span> <span class="nav-text">Node.js 事件触发器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建-HTTP-服务器"><span class="nav-number">2.25.</span> <span class="nav-text">搭建 HTTP 服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Node-js-发送-HTTP-请求"><span class="nav-number">2.26.</span> <span class="nav-text">使用 Node.js 发送 HTTP 请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Node-js-发送-HTTP-POST-请求"><span class="nav-number">2.27.</span> <span class="nav-text">使用 Node.js 发送 HTTP POST 请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Node-js-获取-HTTP-请求的正文数据"><span class="nav-number">2.28.</span> <span class="nav-text">使用 Node.js 获取 HTTP 请求的正文数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-Node-js-中使用文件描述符"><span class="nav-number">2.29.</span> <span class="nav-text">在 Node.js 中使用文件描述符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-文件属性"><span class="nav-number">2.30.</span> <span class="nav-text">Node.js 文件属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-文件路径"><span class="nav-number">2.31.</span> <span class="nav-text">Node.js 文件路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Node-js-读取文件"><span class="nav-number">2.32.</span> <span class="nav-text">使用 Node.js 读取文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Node-js-写入文件"><span class="nav-number">2.33.</span> <span class="nav-text">使用 Node.js 写入文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-文件系统模块"><span class="nav-number">2.34.</span> <span class="nav-text">Node.js 文件系统模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-路径模块"><span class="nav-number">2.35.</span> <span class="nav-text">Node.js 路径模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-操作系统模块"><span class="nav-number">2.36.</span> <span class="nav-text">Node.js 操作系统模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-事件模块"><span class="nav-number">2.37.</span> <span class="nav-text">Node.js 事件模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-http-模块"><span class="nav-number">2.38.</span> <span class="nav-text">Node.js http 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-Buffer"><span class="nav-number">2.39.</span> <span class="nav-text">Node.js Buffer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-流"><span class="nav-number">2.40.</span> <span class="nav-text">Node.js 流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是流"><span class="nav-number">2.40.1.</span> <span class="nav-text">什么是流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流的示例"><span class="nav-number">2.40.2.</span> <span class="nav-text">流的示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.40.3.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-开发环境与生产环境的区别"><span class="nav-number">2.41.</span> <span class="nav-text">Node.js 开发环境与生产环境的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-中的错误处理"><span class="nav-number">2.42.</span> <span class="nav-text">Node.js 中的错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建异常"><span class="nav-number">2.42.1.</span> <span class="nav-text">创建异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误对象"><span class="nav-number">2.42.2.</span> <span class="nav-text">错误对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理异常"><span class="nav-number">2.42.3.</span> <span class="nav-text">处理异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#捕获未捕获的异常"><span class="nav-number">2.42.4.</span> <span class="nav-text">捕获未捕获的异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-的异常"><span class="nav-number">2.42.5.</span> <span class="nav-text">Promise 的异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-Node-js-中如何记录对象"><span class="nav-number">2.43.</span> <span class="nav-text">在 Node.js 中如何记录对象</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lemon</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
